@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'proba_pro_bold';
+	src: url('ProbaPro-Bold.woff2') format('WOFF2'),
+		url('ProbaPro-Bold.woff') format('WOFF'),
+		url('ProbaPro-Bold.eot') format('EOT'),
+		url('ProbaPro-Bold.svg') format('SVG');
+	font-weight: normal;
+	font-style: normal;
+}
