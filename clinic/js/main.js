@@ -1,27 +1,34 @@
 "use strict";
 
 window.onload = function(){
-	new Slider('.offers_slider',{
+
+	new classMultiplyWrapper(Slider, {
+		selector: '.offers_slider',
 		infinity: true,
 		navigationDotters: true,
 	});
-	new Slider('.specialists_slider',{
+
+	new classMultiplyWrapper(Slider, {
+		selector: '.specialists_slider',
 		infinity: true,
 		multiDisplay: {
 			mobile: 1,
 			touch: 3,
-			desktop: 5
+			desktop: 5,
+			multiShift: true,
 		},
+		moveTime: 0.5,
 	});
 
 
-	new Calendar({
+	new classMultiplyWrapper(Calendar, {
 		selector: '.calendar_container',
-		longColumn: 3,
 	});
 
-	new Calendar({
+
+	new classMultiplyWrapper(Calendar, {
 		selector: '.rozklad_container',
+		type: 'big',
 	});
 
 
@@ -48,25 +55,31 @@ window.onload = function(){
 };
 
 
+function classMultiplyWrapper(Cls,parametrs){
+	document.querySelectorAll(parametrs.selector).forEach((item) => {
+		parametrs.item = item;
+		new Cls(parametrs);
+	})
+};
+
+
 class Slider{
-	constructor(slider_container, params){
-		document.querySelectorAll(slider_container).forEach((container) => {
-			this.container = container;
-			this.params = params;
-			this.moveTime = 0.4;
-			this.createSliderBox();
-			if(this.params.navigationDotters) this.createSliderNavigationDotters();
-			this.prepare();
-			if(this.params.navigationArrows) this.createSliderNavigationArrows();
-			if(this.params.navigationCounter) this.createSliderNavigationCounter();
-			if(this.params.slideClickRewind) this.prepareSlidesOnclick();
+	constructor(params){
+		this.container = params.item;
+		this.params = params;
+		params.moveTime ? (this.moveTime = params.moveTime) : (this.moveTime = 0.4);
+		this.createSliderBox();
+		if(this.params.navigationDotters) this.createSliderNavigationDotters();
+		this.prepare();
+		if(this.params.navigationArrows) this.createSliderNavigationArrows();
+		if(this.params.navigationCounter) this.createSliderNavigationCounter();
+		if(this.params.slideClickRewind) this.prepareSlidesOnclick();
 			
 
-			this.box.addEventListener('mousedown',this.mouseFlip.bind(this));
-		    this.box.addEventListener("touchstart", this.touchFlip.bind(this));
+		this.box.addEventListener('mousedown',this.mouseFlip.bind(this));
+		this.box.addEventListener("touchstart", this.touchFlip.bind(this));
 
-		    window.addEventListener('resize', this.prepare.bind(this));
-		});
+		window.addEventListener('resize', this.prepare.bind(this));
 	}
 
 	prepare(){
@@ -249,7 +262,7 @@ class Slider{
 			if(params.counter != undefined) this.activeSlider = params.counter;
 
 			if(this.params.infinity){
-				infinitySlideWork.call(this);
+				this.infinitySlideWork.call(this);
 			} else {
 				if(this.activeSlider >= m) this.activeSlider = m;
 				if(this.activeSlider < 0) this.activeSlider = 0;
@@ -263,65 +276,13 @@ class Slider{
 			if(params.counter != undefined) this.activeSlider = params.counter;
 
 			if(this.params.infinity){
-				infinitySlideWork.call(this);		
+				this.infinitySlideWork.call(this);		
 			} else {
 				if(this.activeSlider > this.sliders.length - 1) this.activeSlider = this.sliders.length - 1;
 				if(this.activeSlider < 0) this.activeSlider = 0;
 
 				this.sliders[this.activeSlider].classList.add('active');
 				this.slideAll();
-			}
-
-
-			function infinitySlideWork(){
-				if(this.activeSlider > this.sliders.length - 1){
-					let s1 = this.sliders[0].cloneNode(true);
-					this.box.append(s1);
-
-					this.installActiveSlider(this.activeSlider);
-					this.slideAll(func.bind(this));
-
-					function func(){
-						this.box.style.transition = ``;
-						this.installActiveSlider(0);
-						this.slideAll(func2.bind(this));
-
-						function func2(){
-							s1.remove();	
-							this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
-						};						
-					}
-
-				} else if(this.activeSlider < 0){
-					let s2 = this.sliders[this.sliders.length - 1].cloneNode(true);
-					this.box.prepend(s2);
-					this.box.style.transition = ``;
-					this.sliders = [].slice.call(this.box.children);
-
-					this.installActiveSlider(1);
-					this.slideAll(func.bind(this));
-
-					function func(){
-						this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
-						this.installActiveSlider(0);
-						this.slideAll(func2.bind(this));
-
-						function func2(){
-							this.box.style.transition = ``;
-							this.installActiveSlider(this.sliders.length - 1);
-							s2.remove();
-							this.sliders = [].slice.call(this.box.children);
-							this.slideAll(func3.bind(this));
-
-							function func3(){
-								this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
-							}
-						};			
-					}
-				} else {
-					this.installActiveSlider(this.activeSlider);
-					this.slideAll();
-				}				
 			}
 		}
 
@@ -344,6 +305,68 @@ class Slider{
 				slide.classList.remove('active');
 			})	
 		}
+	}
+
+
+	infinitySlideWork(){
+		let l = this.slideOnScreen;
+
+		if(this.activeSlider > this.sliders.length - l){
+			for(let i=0; i<l; i++){
+				this.box.append(this.sliders[i].cloneNode(true));
+			}
+			this.sliders = [].slice.call(this.box.children);
+
+			this.installActiveSlider(this.activeSlider);
+			this.slideAll(func.bind(this));
+
+			function func(){
+				this.box.style.transition = ``;
+				this.installActiveSlider(0);
+				this.slideAll(func2.bind(this));
+
+				function func2(){
+					for(let i=0; i<l; i++){
+						this.sliders[this.sliders.length - 1].remove();
+						this.sliders.pop();
+					}	
+					this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+				};						
+			}
+
+		} else if(this.activeSlider < 0){
+			this.box.style.transition = ``;
+			for(let i=0; i<l; i++){
+				this.box.prepend(this.sliders[this.sliders.length - i - 1].cloneNode(true));
+			}
+			this.sliders = [].slice.call(this.box.children);
+
+			this.installActiveSlider(l);
+			this.slideAll(func.bind(this));
+
+			function func(){
+				this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+				this.installActiveSlider(0);
+				this.slideAll(func2.bind(this));
+
+				function func2(){
+					this.box.style.transition = ``;
+					this.installActiveSlider(this.sliders.length - l);
+					for(let i=0; i<l; i++){
+						this.sliders[0].remove();
+						this.sliders.shift();
+					}
+					this.slideAll(func3.bind(this));
+
+					function func3(){
+						this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+					}
+				};			
+			}
+		} else {
+			this.installActiveSlider(this.activeSlider);
+			this.slideAll();
+		}				
 	}
 
 	prepareSlidesOnclick(){
@@ -568,69 +591,134 @@ function emulateSelector(select){
 // calendar start
 	class Calendar{
 		constructor(parametrs){
-			document.querySelectorAll(parametrs.selector).forEach((box) => {
-				this.parametrs = parametrs;
-				this.box = box;
-				this.columns = parametrs.columns ? parametrs.columns : 8;
-				this.direction = true;
-				this.createCalendar();
-			})
-
+			this.parametrs = parametrs;
+			this.box = this.parametrs.item;
+			this.direction = true;
+			this.type = parametrs.type;
+			this.createCalendar();
+			window.addEventListener('resize',this.createCalendar.bind(this));
 		}
 
 		dayName = [
-		{
-			name: 'НД',
-			output: true,
-		},
-		{
-			name: 'ПН',
-			output: false,
-		},
-		{
-			name: 'ВТ',
-			output: false,
-		},
-		{
-			name: 'СР',
-			output: false,
-		},
-		{
-			name: 'ЧТ',
-			output: false,
-		},
-		{
-			name: 'ПТ',
-			output: false,
-		},
-		{
-			name: 'СБ',
-			output: true,
-		},
+			{
+				name: 'НД',
+				output: true,
+			},
+			{
+				name: 'ПН',
+				output: false,
+			},
+			{
+				name: 'ВТ',
+				output: false,
+			},
+			{
+				name: 'СР',
+				output: false,
+			},
+			{
+				name: 'ЧТ',
+				output: false,
+			},
+			{
+				name: 'ПТ',
+				output: false,
+			},
+			{
+				name: 'СБ',
+				output: true,
+			},
 		]
 
 		date = new Date()
 
-		createCalendar(){
+		createCalendar(params){
 			this.takeJSON();
+			this.countColumns();
 			this.cleanBox();
+			this.createHead();
+			this.createHeader();
 			this.createPanel();
 			this.createTable(); 
+		}
+
+		takeJSON(){
+			this.data = JSON.parse(rozklad);
+			console.log(this.data);
+		}
+
+		countColumns(){
+			this.box.classList.remove('collapse');
+
+			let m = Math.floor((this.box.offsetWidth - 180) / 128);
+
+			if(m>8) m = 8;
+			if(m<4){
+				m = 4;
+				this.box.classList.add('collapse');
+			} 
+			this.columns = m;
+
+			if(this.parametrs.type != 'big') this.columns = 8;
+			console.log(this.columns);
 		}
 
 		cleanBox(){
 			this.box.innerHTML = '';
 		}
 
-		takeJSON(){
-			this.data = JSON.parse(calendar);
-			console.log(this.data);
+		createTable(){
+			this.data.forEach((item,i) =>{
+				if(item.branch && item.branch == this.box.dataset.branch){
+					this.createRow(item);
+				}
+			})
+		}
+
+		createHead(){			
+			this.head = document.createElement('div');
+			this.head.classList = "calendar_head";	
+			this.box.append(this.head);
+		}
+
+		createHeader(){
+			this.headBox = document.createElement('div');
+			this.headBox.classList = "calendar_head_box";			
+
+			this.calculateDate({
+				callback: func.bind(this),
+			});
+
+			function func(n){
+				let columnHead = document.createElement('div');
+				columnHead.classList = 'calendar_head_item';
+				columnHead.dataset.date = +this.date;
+
+				columnHead.onclick = function(e){
+					if(!this.box.classList.contains('collapse')) return;
+					if(+this.box.querySelectorAll('.calendar_head_item')[2].dataset.date < +event.target.closest('.calendar_head_item').dataset.date){
+						this.date = new Date(+this.collapseLeft);
+						this.direction = true;
+					} else {
+						this.date = new Date(+this.collapseRight);
+						this.direction = false;
+					}
+					this.collapse = true;
+					this.createCalendar();
+					this.collapse = false;
+				}.bind(this);
+				columnHead.innerHTML = `<div class="calendar_head_content">
+											<span class="calendar_head_name">${this.dayName[n].name}</span>
+											<span class="calendar_head_date">${(this.date.getDate() >= 10) ? this.date.getDate() : '0' + this.date.getDate()}.${(this.date.getMonth() + 1 >= 10) ? this.date.getMonth() + 1 : '0' + (this.date.getMonth() + 1)}</span>
+										</div>`;
+
+				this.direction ? this.headBox.append(columnHead) : this.headBox.prepend(columnHead);
+			}
+
+			this.head.append(this.headBox);
 		}
 
 		createPanel(){
-			this.head = document.createElement('div');
-			this.head.classList = "calendar_head";	
-
 			let panel = document.createElement('div');
 			panel.classList = 'calendar_panel';
 
@@ -640,7 +728,7 @@ function emulateSelector(select){
 									<path opacity="var(--svg-opacity-3)" fill-rule="evenodd" clip-rule="evenodd" d="M0.287829 7.20792L6.3223 0.328386C6.70617 -0.109461 7.32854 -0.109461 7.71222 0.328386C8.09593 0.765844 8.09593 1.47536 7.71222 1.91278L2.37264 8.00012L7.71206 14.0872C8.09577 14.5249 8.09577 15.2343 7.71206 15.6718C7.32835 16.1094 6.70601 16.1094 6.32215 15.6718L0.287674 8.79214C0.095819 8.5733 0 8.2868 0 8.00015C0 7.71336 0.096005 7.42665 0.287829 7.20792Z" fill="var(--svg-color-3)"/>
 									</svg>`;
 			arrowLeft.onclick = ()=>{
-				this.date = new Date(this.leftDate.getFullYear(), this.leftDate.getMonth(), this.leftDate.getDate() - 1);
+				this.date = new Date(+this.leftDate - 86400000);
 				this.direction = false;
 				this.createCalendar();				
 			}
@@ -651,59 +739,83 @@ function emulateSelector(select){
 									<path opacity="var(--svg-opacity-3)" fill-rule="evenodd" clip-rule="evenodd" d="M7.71217 8.79208L1.6777 15.6716C1.29383 16.1095 0.671461 16.1095 0.287783 15.6716C-0.0959275 15.2342 -0.0959275 14.5246 0.287783 14.0872L5.62736 7.99988L0.287938 1.91276C-0.0957722 1.47513 -0.0957722 0.765684 0.287938 0.328226C0.671648 -0.109409 1.29399 -0.109409 1.67785 0.328226L7.71233 7.20786C7.90418 7.4267 8 7.7132 8 7.99985C8 8.28664 7.904 8.57335 7.71217 8.79208Z" fill="var(--svg-color-3)"/>
 									</svg>`;
 			arrowRight.onclick = ()=>{
-				this.date = new Date(this.rightDate.getFullYear(), this.rightDate.getMonth(), this.rightDate.getDate() + 1);
+				this.date = new Date(+this.rightDate + 86400000);
 				this.direction = true;
 				this.createCalendar();				
 			}
 
 			panel.append(arrowLeft);
 			panel.append(arrowRight);
-			this.head.append(panel);
-		}
 
-		calculateDate(func){
-			if(this.direction){
-				this.leftDate = new Date(this.date.getFullYear(),this.date.getMonth(),this.date.getDate());
+			if(this.type == 'big'){
+				this.headBox.append(panel)
 			} else {
-				this.rightDate = new Date(this.date.getFullYear(),this.date.getMonth(),this.date.getDate());
-			}
-
-			let m = this.date.getDate();
-			for(let i=0; i<this.columns;){
-
-				m = this.limitM(m)
-
-				this.date.setDate(m);
-
-				let n = this.date.getDay();
-				if(n>=this.dayName.length - 1) n = 0;
-				if(!this.dayName[n].output){	
-
-					func(n);
-
-					i++;
-				}
-
-				this.direction ? m+=1 : m-=1;
-			}
-
-			if(this.direction){
-				this.rightDate = new Date(this.date.getFullYear(),this.date.getMonth(),this.date.getDate());
-				this.date = new Date(this.leftDate.getFullYear(),this.leftDate.getMonth(),this.leftDate.getDate());
-			} else {
-				this.leftDate = new Date(this.date.getFullYear(),this.date.getMonth(),this.date.getDate());	
-				this.date = new Date(this.rightDate.getFullYear(),this.rightDate.getMonth(),this.rightDate.getDate());		
+				this.head.append(panel);
 			}
 		}
 
-		createTable(){
-			this.createHeader();
+		createPerson(params){
+			let personBox = document.createElement('div');
+			personBox.classList = "calendar_person";
+			personBox.innerHTML = `<div class="calendar_person_left">
+										<span class="calendar_person_name">${params.name}</span>
+										<span class="calendar_person_position">${params.position}</span>
+									</div>
+									<div class="calendar_person_right">
+										<span class="calendar_cabinet">${params.cabinet}</span>
+									</div>`;
 
-			this.data.forEach(item =>{
-				if(item.branch && item.branch == this.box.dataset.branch){
-					this.createRow(item);
-				}
-			})
+			return personBox;
+		}
+
+		createRow(params){
+			let row = document.createElement('div');
+			row.classList = "calendar_row";		
+
+			if(this.parametrs.type == 'big') row.append(this.createPerson(params));	
+
+			let calendarCells = document.createElement('div');
+			calendarCells.classList ="calendar_cells";
+
+			this.calculateDate({
+				callback: func.bind(this),
+			});
+			
+			console.log(params.timetable);
+
+			function func(n){
+				let columnCell = document.createElement('div');
+				columnCell.classList = 'calendar_cell';
+
+				let x;
+				params.events.forEach((e)=>{
+					if(this.date.getFullYear() == e.year && this.date.getMonth() == e.month && this.date.getDate() == e.date) x=e;
+				})
+				
+				let columnCellTopInner;
+				columnCellTopInner = `<span class="calendar_cell_time">${params.timetable[this.date.getDay() - 1].worktime}</span>`
+				if(x) columnCellTopInner += `<span class="calendar_cell_event">${x.name}</span>`;
+				
+				let columnCellBottomInner = ``;
+				if(!x) columnCellBottomInner = `<div class="button_container">
+												<a class="button_little">записатись</a>
+												</div>`
+
+
+				columnCell.innerHTML = `<div class="calendar_cell_content">
+											<div class="calendar_cell_top">
+												${columnCellTopInner}
+											</div>
+											<div class="calendar_cell_bottom">
+												${columnCellBottomInner}
+											</div>
+										</div>`;
+
+				this.direction ? calendarCells.append(columnCell) : calendarCells.prepend(columnCell);
+			}
+
+			row.append(calendarCells);
+			this.box.append(row);			
 		}
 
 		limitM(m){
@@ -718,60 +830,56 @@ function emulateSelector(select){
 			return m;
 		}
 
-		createHeader(){
-			let headBox = document.createElement('div');
-			headBox.classList = "calendar_head_box";			
-
-			this.calculateDate(func.bind(this));
-
-			function func(n){
-				let columnHead = document.createElement('div');
-				columnHead.classList = 'calendar_head_item';
-				columnHead.innerHTML = `<div class="calendar_head_content">
-											<span class="calendar_head_name">${this.dayName[n].name}</span>
-											<span class="calendar_head_date">${(this.date.getDate() >= 10) ? this.date.getDate() : '0' + this.date.getDate()}.${(this.date.getMonth() + 1 >= 10) ? this.date.getMonth() + 1 : '0' + (this.date.getMonth() + 1)}</span>
-										</div>`;
-
-				this.direction ? headBox.append(columnHead) : headBox.prepend(columnHead);
+		calculateDate(params){
+			if(this.direction){
+				this.leftDate = new Date(+this.date);
+			} else {
+				this.rightDate = new Date(+this.date);
 			}
 
-			this.head.append(headBox);
-			this.box.append(this.head);
-		}
+			let m = this.date.getDate();
 
-		createRow(params){
-			let row = document.createElement('div');
-			row.classList = "calendar_row";		
+			for(let i=0; i<this.columns;){
 
-			let personBox = document.createElement('div');
-			personBox.classList = "calendar_person";
-			personBox.innerHTML = `<span class="calendar_person_name">${params.name}</span>
-									<span class="calendar_person_position">${params.position}</span>
-									<span class="calendar_cabinet">${params.cabinet}</span>`;
+				m = this.limitM(m)
 
-			let calendarCells = document.createElement('div');
-			calendarCells.classList ="calendar_cells";		
+				this.date.setDate(m);
 
-			this.calculateDate(func.bind(this));
+				if(this.direction){
+					if(i == 1){
+						this.collapseLeft = new Date(this.date);
+					}
+					if(i == 2){
+						this.collapseRight = new Date(this.date);
+					}
+				} else {
+					if(i == 1){
+						this.collapseRight = new Date(this.date);
+					}
+					if(i == 2){
+						this.collapseLeft = new Date(this.date);
+					}
+				}
 
-			function func(n){
-				let columnCell = document.createElement('div');
-				columnCell.classList = 'calendar_cell';
-				columnCell.innerHTML = `<div class="calendar_cell_content">
-											<div class="calendar_cell_top">
-												<span class="calendar_cell_time">${params.worktime}</span>
-											</div>												
-											<div class="button_container">
-												<a class="button_little">записатись</a>
-											</div>
-										</div>`;
+				let n = this.date.getDay();
+				if(n>=this.dayName.length - 1) n = 0;
+				if(!this.dayName[n].output){	
 
-				this.direction ? calendarCells.append(columnCell) : calendarCells.prepend(columnCell);
+					params.callback(n);
+
+					i++;
+				}
+
+				this.direction ? m+=1 : m-=1;
 			}
 
-			row.append(personBox);
-			row.append(calendarCells);
-			this.box.append(row);			
+			if(this.direction){
+				this.rightDate = new Date(+this.date);
+				this.date = new Date(+this.leftDate);
+			} else {
+				this.leftDate = new Date(+this.date);	
+				this.date = new Date(+this.rightDate);		
+			}
 		}
 	}
 // calendar end

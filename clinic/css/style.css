@@ -31,7 +31,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	word-wrap: break-word;
+	word-break: break-word;
 	box-sizing: border-box;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -57,7 +57,7 @@ body:after{
 	/*content: "";*/
 	position: absolute;
 	top: 0;
-	top: -141px;
+	/*top: -141px;*/
 	left: 0;
 	z-index: 1000;
 	display: block;
@@ -1122,6 +1122,12 @@ body .main .tal{
 
 .specialists_block{}
 .specialists_slider{}
+.specialists_slider .slider_block{
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin-top: -60px;
+	margin-bottom: -60px;
+}
 .specialists_slide{
 	position: relative;
 	top: 0;
@@ -2039,118 +2045,6 @@ body .main .tal{
 		width: 50%;
 		margin: 0 0 32px;
 		padding: 8px;
-	}
-}
-
-
-.calendar_block{}
-.calendar_container{
-	position: relative;
-	max-width: 992px;
-	margin: auto;
-}
-.calendar_panel{}
-.calendar_arrow{
-	position: absolute;
-    top: 12px;
-    left: -16px;
-    z-index: 20;
-    display: block;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-.calendar_arrow-right{
-	left: auto;
-	right: -16px;
-}
-.calendar_arrow svg{
-	display: block;	
-	--svg-color-3: #4A4A4A;	
-	--svg-opacity-3: 0.5;
-	transition: all 0.2s ease-in-out;
-}
-.calendar_arrow:hover svg{
-	--svg-opacity-3: 1;
-	--svg-color-3: #5173BE;	
-}
-.calendar_arrow:active svg{
-	--svg-opacity-3: 0.72;
-	--svg-color-3: #5173BE;	
-}
-.calendar_box{
-	display: flex;
-	justify-content: space-between;
-	text-align: center;
-}
-.calendar_column{
-	width: calc(100% / 8);
-}
-.calendar_header{
-	padding: 0 16px 16px;
-	color: rgba(0, 0, 0, 0.48);
-	line-height: 1;
-	border-bottom: 1px solid #CDE6F7;
-}
-.calendar_header_content{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 40px;
-	padding: 8px;
-	background-color: transparent;
-	transition: all 0.2s ease-in-out;
-}
-.calendar_column:hover .calendar_header_content{
-	background-color: #CDE6F7;
-}
-.calendar_header_name{
-	position: relative;
-	top: 2px;
-}
-.calendar_header_date{
-	display: inline-block;
-	margin-left: 0.3em;
-	font-family: "Proba Pro", Roboto, sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-}
-.calendar_body{}
-.calendar_body_cell{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	min-height: 88px;
-	padding: 7px 10px;
-	background-color: transparent;
-	border-bottom: 1px solid #CDE6F7;
-	transition: all 0.2s ease-in-out;
-}
-.calendar_body_cell:hover{
-	background-color: #CDE6F7;
-}
-.calendar_body_cell_top{
-	font-family: "Proba Pro", Roboto, sans-serif;
-	font-size: 18px;
-	font-weight: 500;
-}
-.calendar_body_cell .button_container{
-	opacity: 0;
-	transition: all 0.2s ease-in-out;
-}
-.calendar_body_cell:hover .button_container{
-	opacity: 1;
-}
-
-@media screen and (max-width: 1100px){	
-	.calendar_container{
-		overflow-x: scroll;
-	}
-	.calendar_box{
-		min-width: 992px;
-	}
-	.calendar_panel{
-		display: none;
 	}
 }
 
@@ -3261,29 +3155,20 @@ input:checked+.input_emulator-checkbox svg{
 	left: -32px;
 	transform: translateX(-100%);
 }
-@media screen and (max-width: 1100px){
-
-}
 
 
-
-.rozklad_container{
+.calendar_block{}
+.calendar_container{
 	position: relative;
-}
-.rozklad_container h2{
-	margin-bottom: 16px;
+	max-width: 1024px;
+	margin: auto;
 }
 .calendar_head{
 	position: relative;
-}
-.calendar_head_box{
 	display: flex;
-	width: 1024px;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: 104px;
+    justify-content: flex-end;
 }
-.calendar_head_box:after{
+.calendar_head:after{
 	content: "";
 	position: absolute;
 	left: 8px;
@@ -3292,11 +3177,47 @@ input:checked+.input_emulator-checkbox svg{
 	height: 1px;
 	background-color: #CDE6F7;	
 }
+.calendar_head_box{
+	position: relative;
+	display: flex;
+}
+.calendar_panel{
+	position: absolute;
+	width: 100%;
+}
 .calendar_head_item{
 	padding: 0 16px 16px;
 	color: rgba(0, 0, 0, 0.48);
 	line-height: 1;
+	text-align: center;
 	border-bottom: 1px solid #CDE6F7;
+}
+.calendar_arrow{
+	position: absolute;
+    top: 12px;
+    left: -16px;
+    z-index: 20;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.calendar_arrow-right{
+	left: auto;
+	right: -16px;
+}
+.calendar_arrow svg{
+	display: block;	
+	--svg-color-3: #4A4A4A;	
+	--svg-opacity-3: 0.5;
+	transition: all 0.2s ease-in-out;
+}
+.calendar_arrow:hover svg{
+	--svg-opacity-3: 1;
+	--svg-color-3: #5173BE;	
+}
+.calendar_arrow:active svg{
+	--svg-opacity-3: 0.72;
+	--svg-color-3: #5173BE;	
 }
 .calendar_head_content{
 	padding: 8px;
@@ -3339,24 +3260,28 @@ input:checked+.input_emulator-checkbox svg{
 	border-color: #CDE6F7;
 }
 .calendar_person{
-	display: grid;
-	grid-template-columns: 1fr 92px;
-	grid-template-rows: 24px 1fr;
+	display: flex;
 	flex-grow: 100;
-	padding: 7px 16px 7px 8px;
+	min-width: 180px;
+	padding: 7px 46px 7px 8px;
+}
+.calendar_person_left{
+	flex-grow: 100;
 }
 .calendar_person_name{
-	grid-column: 1/2;
-	grid-row: 1/2;
+	display: block;
 	font-family: "Proba Pro", Roboto, sans-serif;
 	font-size: 20px;
 	font-weight: 500;
 }
 .calendar_person_position{
-	grid-column: 1/2;
-	grid-row: 2/3;
+	display: block;
 	font-size: 12px;
     line-height: 16px;
+}
+.calendar_person_right{
+	min-width: 36px;
+	padding-left: 10px;
 }
 .calendar_cabinet{
 	grid-column: 2/3;
@@ -3369,7 +3294,9 @@ input:checked+.input_emulator-checkbox svg{
 }
 .calendar_cells{
 	display: flex;
-	padding-right: 104px;
+}
+.rozklad_container .calendar_cells{
+	padding-right: 104px;	
 }
 .calendar_cell{
 	width: 128px;
@@ -3393,11 +3320,144 @@ input:checked+.input_emulator-checkbox svg{
 	font-size: 18px;
 	font-weight: 500;
 }
-.calendar_cell_time{}
+.calendar_cell_time{
+	display: block;
+}
+.calendar_cell_event{
+	font-size: 14px;
+}
 .calendar_cell .button_container{
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
 }
 .calendar_cell:hover .button_container{
 	opacity: 1;
+}
+
+@media screen and (max-width: 1600px){	
+	.calendar_person{
+		padding: 7px 8px;
+	}
+}
+@media screen and (max-width: 1100px){	
+	.calendar_container{
+		overflow-x: scroll;
+	}
+	.calendar_head,
+	.calendar_row{
+		min-width: 1024px;
+	}
+	.calendar_panel{
+		display: none;
+	}
+}
+@media screen and (max-width: 768px){	
+	.calendar_person{
+		padding: 7px 0;
+	}
+	.calendar_person_right{
+		display: none;
+	}
+}
+
+
+
+.rozklad_block{
+	margin-bottom: 112px;
+}
+.rozklad_block .center-main-block{
+	max-width: 1504px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.rozklad_block h2{
+	margin-bottom: 16px;
+}
+.rozklad_container{
+	position: relative;
+	margin-bottom: 24px;
+}
+.rozklad_block .calendar_head{
+    padding-right: 104px;
+}
+.rozklad_container .calendar_arrow{
+	position: absolute;
+    top: 12px;
+    left: -48px;
+    z-index: 20;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.rozklad_container .calendar_arrow-right{
+	left: auto;
+	right: -32px;
+}
+.rozklad_container .calendar_head_item{
+	text-align: left;
+}
+.rozklad_block .paginator{
+	margin-top: 32px;
+}
+.rozklad_block .paginator_text{
+	margin: 0 15px;
+}
+
+@media screen and (max-width: 1600px){
+	.rozklad_block .calendar_head{
+		padding-right: 0;
+	}
+	.rozklad_block .calendar_cells{
+		padding-right: 0;
+	}
+	.rozklad_container .calendar_arrow{
+		left: 0;
+	}
+	.rozklad_container .calendar_arrow-right{
+		left: auto;
+		right: 10px;
+	}
+}
+@media screen and (max-width: 1100px){	
+	.rozklad_block{
+		margin-bottom: 80px;
+	}
+	.rozklad_block .calendar_head,
+	.rozklad_block .calendar_row{
+		min-width: 0;
+	}
+}
+@media screen and (max-width: 768px){
+	.rozklad_container.collapse .calendar_head{
+		justify-content: center;
+	}
+	.rozklad_container.collapse .calendar_head_box{
+		justify-content: space-between;
+    	width: 100%;
+	}
+	.rozklad_container.collapse .calendar_head_item{
+		padding: 0 0 14px;
+	}
+	.rozklad_container.collapse .calendar_head_content{
+		min-width: 74px;
+		text-align: center;
+		border-radius: 8px;
+	}
+	.rozklad_container.collapse .calendar_head_item:nth-of-type(3) .calendar_head_content{
+		background: #CDE6F7;
+		color: #5173BE;
+	}
+	.rozklad_container.collapse .calendar_head_name{
+		margin-right: 0;
+		font-size: 14px;
+	}
+	.rozklad_container.collapse .calendar_head_date{
+		font-size: 18px;
+	}
+	.rozklad_container.collapse .calendar_cell{
+		display: none;
+	}
+	.rozklad_container.collapse .calendar_cell:nth-of-type(3){
+		display: block;
+	}
 }
