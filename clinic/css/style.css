@@ -538,6 +538,8 @@ body .main .tal{
 	border-radius: 8px;
 }
 .lang_box.active .lang_list{
+	top: -8px;
+    right: -16px;
 	margin-bottom: -16px;
 	padding: 8px 16px 0;
 }
