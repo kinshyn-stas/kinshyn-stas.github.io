@@ -1504,9 +1504,6 @@ body .main .tal{
 .clause_decription_top p{
 	margin-bottom: 0;
 }
-.clause_decription_bottom .button_blue{
-	min-width: 224px;
-}
 
 @media screen and (max-width: 768px){	
 	.breadcrumbs_block+.clause_block .clause_date{
