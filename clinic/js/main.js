@@ -35,6 +35,9 @@ window.onload = function(){
 	document.addEventListener('click', clickItemHandler);
 
 
+	document.addEventListener('change',togglePartForm);
+
+
 	document.addEventListener('keydown', function(event){
 		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
 		    let keycode = event.keyCode;
@@ -536,11 +539,31 @@ function clickItemHandler(event){
 				}
 				
 			}
-		}
+		},
+
+		'change-punkt': function(target){
+			let box = target.closest('.documents_list');
+			let item = target.closest('.documents_list_item');
+
+			box.querySelectorAll('.documents_list_item').forEach(t => t.classList.remove('active'));
+			item.classList.add('active');
+		},
+
+		'change-tab': function(target){
+			document.querySelectorAll(target.dataset.label).forEach(tabContent => {
+				tabContent.closest('.tabs_content').querySelectorAll('.tab_content').forEach(item => item.classList.remove('active'));
+
+				tabContent.classList.add('active');
+			})
+		},
 	}
 
-	let action = item.dataset.action ? item.dataset.action : 'toggle';
-	obj[action](item);
+	if(item.dataset.action){
+		let actions = item.dataset.action.split(' ');
+		actions.forEach(action => obj[action](item))
+	} else {
+		obj['toggle'](item);
+	}
 };
 
 
@@ -915,6 +938,4 @@ function togglePartForm(event){
 	document.querySelectorAll(`.change-item[name=${name}]`).forEach(item => {
 		if(item.dataset.label) document.querySelectorAll(item.dataset.label).forEach(t => t.hidden = !item.checked);
 	});
-}
-
-document.addEventListener('change',togglePartForm);
+};
