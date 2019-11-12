@@ -1351,6 +1351,7 @@ body .main .tal{
 	position: absolute;
 	top: 8px;
 	left: 32px;
+	min-width: 40px;
 }
 .think_variant.closed .input_emulator{
 	opacity: 0;
