@@ -473,6 +473,15 @@ function clickItemHandler(event){
 			target.closest('.click-obj').classList.toggle('active');
 		},
 
+		'toggle-focus': function(target){
+			target.closest('.click-obj').classList.toggle('active');
+
+			target.closest('.click-obj').setAttribute('tabindex','1');
+			target.closest('.click-obj').onblur = function(){
+				this.classList.remove('active');
+			};
+		},
+
 		'remove': function(target){
 			target.closest('.click-obj').remove();
 		},
@@ -576,9 +585,15 @@ function emulateSelector(select){
 		let emul = document.createElement('div');
 		emul.classList = "select";
 		emul.onclick = ()=>emul.classList.toggle('active');
+		emul.setAttribute('tabindex','1');
+		emul.onblur = function(){
+			this.classList.remove('active');
+		};
+		
 		let emulList = document.createElement('div');
 		emulList.classList = "select_list";
 		emul.append(emulList);
+
 
 
 		select.querySelectorAll('option').forEach((item)=>{
