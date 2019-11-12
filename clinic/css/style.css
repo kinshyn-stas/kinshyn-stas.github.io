@@ -755,6 +755,8 @@ body .main .tal{
 	display: block;
 	margin-left: 24px;
 	opacity: 0.5;
+    overflow: hidden;
+	border-radius: 4px;
 }
 .header-mobail_lang:first-of-type{
 	margin-left: 0;
