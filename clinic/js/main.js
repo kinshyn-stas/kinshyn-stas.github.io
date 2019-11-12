@@ -771,7 +771,7 @@ function emulateSelector(select){
 				if(x) columnCellTopInner += `<span class="calendar_cell_event">${x.name}</span>`;
 				
 				let columnCellBottomInner = ``;
-				if(!x) columnCellBottomInner = `<div class="button_container">
+				if(!x && this.type != 'big') columnCellBottomInner = `<div class="button_container">
 												<a class="button_little">записатись</a>
 												</div>`
 
