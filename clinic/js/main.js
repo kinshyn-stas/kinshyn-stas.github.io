@@ -594,6 +594,8 @@ function emulateSelector(select){
 				option.classList.add('selected');
 			};
 			if(item.selected) option.classList.add('selected');
+			if(item.dataset.default == 'true') option.classList.add('default');
+			if(item.disabled) option.classList.add('disabled');
 			emulList.append(option);
 		});
 
