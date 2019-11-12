@@ -3294,7 +3294,7 @@ input:checked+.input_emulator-checkbox svg{
 	display: flex;
 }
 .rozklad_container .calendar_cells{
-	padding-right: 104px;	
+	padding-right: 96px;	
 }
 .calendar_cell{
 	width: 128px;
