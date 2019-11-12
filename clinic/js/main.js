@@ -595,42 +595,11 @@ function emulateSelector(select){
 			this.box = this.parametrs.item;
 			this.direction = true;
 			this.type = parametrs.type;
+			this.dayName = [{name: 'НД',output: true,},{name: 'ПН',output: false,},{name: 'ВТ',output: false,},{name: 'СР',output: false,},{name: 'ЧТ',output: false,},{name: 'ПТ',output: false,},{name: 'СБ',output: true,},]
+			this.date = new Date()
 			this.createCalendar();
 			window.addEventListener('resize',this.createCalendar.bind(this));
 		}
-
-		dayName = [
-			{
-				name: 'НД',
-				output: true,
-			},
-			{
-				name: 'ПН',
-				output: false,
-			},
-			{
-				name: 'ВТ',
-				output: false,
-			},
-			{
-				name: 'СР',
-				output: false,
-			},
-			{
-				name: 'ЧТ',
-				output: false,
-			},
-			{
-				name: 'ПТ',
-				output: false,
-			},
-			{
-				name: 'СБ',
-				output: true,
-			},
-		]
-
-		date = new Date()
 
 		createCalendar(params){
 			this.takeJSON();
