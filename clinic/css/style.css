@@ -1883,12 +1883,11 @@ body .main .tal{
 	background-size: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
-	transform: rotate(-180deg);
-	transition: all 0.2s ease-in-out;
 }
 .select:not(.active) .select_list:hover:after{
 	background-image: url(../img/triangle_blue.svg);
 	animation: select_list 0.8s ease-in-out;
+	transform: rotate(-180deg);
 }
 @keyframes select_list{
 	0%{top: 18px;}
@@ -1904,7 +1903,8 @@ body .main .tal{
 .select.active .select_list:after{
 	top: 18px;
 	background-image: url(../img/triangle_blue.svg);
-	transform: none;
+	/*transform: rotate(-180deg);*/
+	transition: all 0.2s ease-in-out;
 }
 .select_option{
 	order: 8;
