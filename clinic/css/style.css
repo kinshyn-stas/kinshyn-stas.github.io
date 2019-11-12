@@ -826,6 +826,9 @@ body .main .tal{
 .footer-main_column a{
     color: inherit;	
 }
+.footer-main_column a:hover{
+	color: rgba(255, 255, 255, 1);
+}
 .footer-main_nav{
 	display: flex;
     flex-direction: column;
@@ -874,13 +877,14 @@ body .main .tal{
 .social-link{
 	display: inline-block;
 	margin-left: 14px;
+	opacity: 0.72;
 	transition: all 0.2s ease-in-out;
 }
 .social-link:first-of-type{
 	margin-left: 0;
 }
 .social-link:hover{
-	transform: scale(1.1);
+	opacity: 1;
 }
 
 
