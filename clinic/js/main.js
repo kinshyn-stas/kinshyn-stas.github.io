@@ -905,3 +905,16 @@ function countTextareaSybmols(selector){
 		}
 	})
 }
+
+
+function togglePartForm(event){
+	if(!event.target.classList.contains('change-item')) return;
+	let target = event.target.closest('.change-item');
+	let name = target.name;
+
+	document.querySelectorAll(`.change-item[name=${name}]`).forEach(item => {
+		if(item.dataset.label) document.querySelectorAll(item.dataset.label).forEach(t => t.hidden = !item.checked);
+	});
+}
+
+document.addEventListener('change',togglePartForm);
