@@ -702,14 +702,16 @@ body .main .tal{
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-	min-height: calc(100vh - 40px);
-    padding: 16px 0 22px;
+    max-height: 0px;
     background-color: #ffffff;
     opacity: 0;
     overflow: hidden;
 }
 .header-mobail.active .header-mobail_body{
     top: 40px;
+	min-height: calc(100vh - 40px);
+	max-height: 1000%;
+    padding: 16px 0 22px;
 	opacity: 1;
 }
 .header-mobail_list{
@@ -2417,6 +2419,8 @@ body .main .tal{
 }
 .documents_list_item-block_link{}
 .documents_list_item a{
+	display: inline-block;
+	width: 100%;
 	color: inherit;
 }
 .documents_list_item a:hover,
@@ -2697,10 +2701,8 @@ body .main .tal{
 	min-width: 20px;
 	height: 20px;
 	margin-right: 12px;
-	border: 2px solid #898989;
 }
-.input_emulator:after{
-	content: "";
+.input_emulator span{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -2709,6 +2711,19 @@ body .main .tal{
 	width: 10px;
 	height: 10px;
 	background-color: transparent;
+	transform: translate(-50%,-50%);
+}
+.input_emulator span:before{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 4;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 2px;
+	border: 2px solid #898989;
 	transform: translate(-50%,-50%);
 }
 .input_emulator-checkbox{
@@ -2727,24 +2742,27 @@ body .main .tal{
 	transform: translate(-50%,-50%);
 	transition: all 0.2s ease-in-out;
 }
-.input_emulator-radio{
+.input_emulator-radio span{
 	border-radius: 50%;
 }
-.input_emulator-radio:after{
+.input_emulator-radio span:before{
 	border-radius: 50%;
 }
-.input_emulator-checkbox:after{
-	display: none;
-}
-input:checked+.input_emulator{
+.input_emulator input:checked+span:before{
 	border-color: #5173BE;
 	transition: all 0.2s ease-in-out;
 }
-input:checked+.input_emulator:after{
+.input_emulator input:checked+span{
 	background-color: #5173BE;
 	transition: all 0.2s ease-in-out;
 }
-input:checked+.input_emulator-checkbox svg{
+.input_emulator-checkbox input:checked+span{
+	background-color: transparent;
+}
+.input_emulator-checkbox svg{
+	opacity: 0;
+}
+.input_emulator-checkbox input:checked~svg{
 	opacity: 1;
 }
 
