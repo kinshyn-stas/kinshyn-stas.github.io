@@ -656,14 +656,10 @@ function toggleAsideElasticBlock(){
 
 	if(document.body.offsetWidth <= 768) h2 = 0;
 
-	console.log(document.body.offsetHeight,h0,h2);
-
 	if(document.body.offsetHeight < h0 + h2){
-		console.log('t1');
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.remove('hidden'));
 		aside.querySelectorAll('.list_list-elastic').forEach(item => item.classList.add('hidden'));
 	} else {
-		console.log('t2');
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.add('hidden'));
 		aside.querySelectorAll('.list_list-elastic').forEach(item => item.classList.remove('hidden'));
 	}

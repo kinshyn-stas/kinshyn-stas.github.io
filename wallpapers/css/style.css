@@ -248,19 +248,18 @@ body{
 	-webkit-text-size-adjust: 100%;
 }
 body:after{
-	/*content: "";*/
+	content: "";
 	position: absolute;
 	top: 0;
-	/*top: -141px;*/
 	left: 0;
 	z-index: 1000;
 	display: block;
 	width: 100%;
 	height: 100%;
-	/*background-image: url(../img/pages/grafik_viddilennia.jpg);*/
+	background-image: url(../img/pages/menu-mobile.jpg);
 	background-position: top center;
-	background-size: 1920px;
-	/*background-size: 375px;*/
+	background-size: 1440px;
+	background-size: 375px;
 	background-repeat: no-repeat;
 	opacity: 0.6;
 }
@@ -550,6 +549,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	stroke: #ffffff!important;
 }
 
+@media screen and (max-width: 768px){
+	.button_photo_icon{
+		right: 12px;
+	}
+}
+
 
 .main-container{
 	flex-grow: 100;
@@ -588,7 +593,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	justify-content: space-between;
 	align-items: center;
 	padding: 24px 16px 24px 24px;
-	margin-bottom: 48px;
+	margin-bottom: 34px;
 }
 .logo{
 	width: 124px;
@@ -630,12 +635,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-bottom: 32px;
 }
 .list_container-elastic{
-	flex-grow: 100%;
+	flex-grow: 100;
 }
 .list_box{
 	position: relative;
 	padding: 0 12px;
-	margin-bottom: 8px;
+	margin-bottom: 9px;
 	background: #FAF7F7;
 	color: #757575;
 	border-radius: 20px;
@@ -713,6 +718,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	padding: 32px 24px;
 }
 .aside-main_inf{
+	margin-bottom: 19px;
 	font-family: Gilroy, Roboto, sans-serif;
 	font-size: 18px;
 	font-weight: 500;
@@ -748,16 +754,37 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.aside-main_part-1{
 		padding: 13px 16px;
-		margin-bottom: 11px;
+		margin-bottom: 13px;
 	}
 	.aside-main_part-2{
-		padding: 16px;
+		padding: 16px 16px 0;
+	}
+	.aside-main_part-2 .aside-main_title{
+		margin-bottom: 14px;
+	}
+	.list_container{
+		margin-bottom: 30px;
+	}
+	.list_box_icon{
+		right: 0;
+	}
+	.list_list p{
+		margin-bottom: 21px;
+	}
+	.list_list p:last-of-type{
+		margin-bottom: 0;
 	}
 	.aside-main_part-3{
 		border-radius: 15px;
 	}
 	.aside-main_info{
 		padding: 32px 28px;
+	}
+	.aside-main_inf{
+		margin-bottom: 11px;
+	}
+	.aside-main_inf:last-of-type{
+		margin-bottom: 0;
 	}
 	.aside-main_part-3 .button_container{
 		padding: 0 8px 8px;
