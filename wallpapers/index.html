@@ -173,7 +173,7 @@
 							<p class="aside-main_inf"><a href="mailto:oboikiev@gmail.com">oboikiev@gmail.com</a></p>
 						</div>
 						<div class="button_container">
-							<a class="button_communication">Обратная связь</a>
+							<a class="button_communication click-item" data-action="popup-open" data-label="#popup-communication">Обратная связь</a>
 						</div>
 					</div>
 
@@ -181,6 +181,24 @@
 			</div>
 		</aside>
 
+		<main class="main"></main>
+
+	</div>
+
+	<div id="popup-communication" class="popup-container">
+		<div class="popup-background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<h3 class="popup_title">Связь с нами</h3>
+			<p>Мы свяжемся с вами в течении дня </p>
+			<form class="popup_form">
+				<div class="popup_input_item">
+					<input type="tel" placeholder="Ваш номер телефона">
+				</div>
+				<div class="popup_input_item popup_input_item-submit">
+					<input class="button_submit" type="submit" value="Отправить">
+				</div>
+			</form>
+		</div>
 	</div>
 	
 	<script src="js/main.js"></script>

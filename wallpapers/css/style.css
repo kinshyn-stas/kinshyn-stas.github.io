@@ -605,7 +605,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .logo span{
 	display: block;
 }
-.aside-main_buttons{}
+.aside-main_buttons{
+	display: none;
+}
 .aside-main_butt{
 	font-family: Gilroy, Roboto, sans-serif;
 	font-size: 24px;
@@ -756,6 +758,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding: 13px 16px;
 		margin-bottom: 13px;
 	}
+	.aside-main_buttons{
+		display: block;
+	}
 	.aside-main_part-2{
 		padding: 16px 16px 0;
 	}
@@ -791,3 +796,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin-top: 0;
 	}
 }
+
+
+.popup-container{}
+.popup-background{}
