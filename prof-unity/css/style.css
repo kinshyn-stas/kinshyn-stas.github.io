@@ -318,6 +318,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		font-size: 36px;
 		line-height: 44px;
 	}
+	.mb-1_title_bottom{
+		-webkit-text-stroke: 1px black;
+	}
 }
 
 .mb-2{
