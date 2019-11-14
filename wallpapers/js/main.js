@@ -19,18 +19,6 @@ window.onload = function(){
 		},
 	});
 
-	new classMultiplyWrapper(Slider, {
-		selector: '.specialists_slider',
-		infinity: true,
-		multiDisplay: {
-			mobile: 1,
-			touch: 3,
-			desktop: 5,
-			multiShift: true,
-		},
-		moveTime: 0.5,
-	});
-
 	document.addEventListener('click', clickItemHandler);
 
 
@@ -726,7 +714,7 @@ function toggleAsideElasticBlock(){
 		h2 += item.offsetHeight
 	});
 
-	if(document.body.offsetWidth <= 768) h2 = 0;
+	if(document.body.offsetWidth <= 1100) h2 = 0;
 
 	if(document.body.offsetHeight < h0 + h2){
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.remove('hidden'));
