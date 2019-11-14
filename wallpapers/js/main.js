@@ -3,9 +3,20 @@
 window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
-		selector: '.offers_slider',
-		infinity: true,
-		navigationDotters: true,
+		selector: '.catalog_slider',
+		navigationArrows: true,
+		navigationLine: true,
+		multiDisplay: {
+			mobile: 1,
+			touch: 3,
+			desktop: 3,
+			multiShift: true,
+			marginRight: {
+				mobile: 15,
+				touch: 15,
+				desktop: 24,
+			},
+		},
 	});
 
 	new classMultiplyWrapper(Slider, {
@@ -66,6 +77,7 @@ class Slider{
 		this.prepare();
 		if(this.params.navigationArrows) this.createSliderNavigationArrows();
 		if(this.params.navigationCounter) this.createSliderNavigationCounter();
+		if(this.params.navigationLine) this.createSliderNavigationLine();
 		if(this.params.slideClickRewind) this.prepareSlidesOnclick();
 			
 
@@ -90,11 +102,19 @@ class Slider{
 			}
 		}
 
+		this.boxShift = 0;
+		this.marginRight = 0;
+
 		this.extendSlides();
 		this.slideAll();
 	}
 
 	createSliderBox(){
+		if(this.container.children[0].classList.contains('slider_block')){
+			this.block = this.container.children[0];
+			return;
+		}
+
 		this.block = document.createElement('div');
 		this.block.classList = ('slider_block');
 		this.box = document.createElement('div');
@@ -117,21 +137,19 @@ class Slider{
 	createSliderNavigationArrows(){
 		let slider_arrow_right = document.createElement('div');
 		slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
-		slider_arrow_right.innerHTML = `<svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<rect x="18.6445" y="35.2929" width="24.4558" height="24.4558" rx="3.5" transform="rotate(-135 18.6445 35.2929)"/>
-		<path d="M17.2983 21.7448L21.3713 17.6718L17.2983 13.5989" stroke-width="1.5"/>
-		</svg>`
+		slider_arrow_right.innerHTML = `<span class="slider_arrow_text"></span>
+										<span class="slider_arrow_icon"></span>`;
 		slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
 		this.container.append(slider_arrow_right);
 
 		let slider_arrow_left = document.createElement('div');
 		slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
-		slider_arrow_left.innerHTML = `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<rect x="18" y="0.707107" width="24.4558" height="24.4558" rx="3.5" transform="rotate(45 18 0.707107)"/>
-		<path d="M19.3462 14.2554L15.2733 18.3283L19.3462 22.4012" stroke-width="1.5"/>
-		</svg>`
+		slider_arrow_left.innerHTML = `<span class="slider_arrow_text"></span>
+										<span class="slider_arrow_icon"></span>`;
 		slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
 		this.container.append(slider_arrow_left);
+
+		if(this.activeSlider == 0) slider_arrow_left.classList.add('non-active');
 	}
 
 	createSliderNavigationCounter(){
@@ -179,48 +197,59 @@ class Slider{
 		this.container.append(slider_nav);
 	}
 
+	createSliderNavigationLine(){
+		let slider_line = document.createElement('div');
+		slider_line.classList = 'slider_line';
+
+		let slider_line_item = document.createElement('div');
+		slider_line_item.classList = 'slider_line_item';
+		slider_line_item.style.cssText = `position: absolute;
+										left: 0;
+										top: 0;
+										height: 100%;
+										width: ${(100 / Math.ceil(this.sliders.length / this.slideOnScreen))}%;
+										transition: left ${this.moveTime}s ease-in-out, width ${this.moveTime}s linear`;
+
+		slider_line.append(slider_line_item);
+		this.container.append(slider_line);
+	}
+
 	extendSlides(){
 		this.boxWidth = this.box.offsetWidth/this.slideOnScreen;
 
 		if(this.params.multiDisplay && this.params.multiDisplay.marginRight){
-			let marginRight;
-			let w = document.body.offsetWidth 
+			let w = document.body.offsetWidth;
 			if(w>0 && w<=700){
-				marginRight = this.params.multiDisplay.marginRight.mobile;
+				this.marginRight = this.params.multiDisplay.marginRight.mobile;
 			} else if(w>700 && w<=1100){
-				marginRight = this.params.multiDisplay.marginRight.touch;
+				this.marginRight = this.params.multiDisplay.marginRight.touch;
 			} else {
-				marginRight = this.params.multiDisplay.marginRight.desktop;
+				this.marginRight = this.params.multiDisplay.marginRight.desktop;
 			}
 
-			this.sliders.forEach((slide,i,arr)=>{
-				let d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;	
-				slide.style.width = `${d}px`;
-				slide.style.minWidth = `${d}px`;
-				if((i + 1) % this.slideOnScreen) slide.style.marginRight = `${marginRight}px`;
-			});			
-		} else {
-			this.sliders.forEach((slide,i,arr)=>{	
-				slide.style.width = `${this.boxWidth}px`;
-				slide.style.minWidth = `${this.boxWidth}px`;
-			});
+			this.boxWidth -= (this.marginRight * (this.slideOnScreen - 1))/this.slideOnScreen;
 		}
-
+		
 		this.sliders.forEach((slide,i,arr)=>{	
+			slide.style.width = `${this.boxWidth}px`;
+			slide.style.minWidth = `${this.boxWidth}px`;
+			slide.style.marginLeft = `${this.marginRight}px`;
 			slide.dataset.number = i;
-		});
+		});	
 	}
 
 	slideAll(callback){
 		let n = 0;
+		this.boxShift -= this.marginRight;
 
 		this.sliders.forEach((slide,i,arr)=>{
 			if(slide.classList.contains('active')){
-				this.boxShift = -(i * this.boxWidth);
-				this.box.style.transform = `translateX(${this.boxShift}px)`;
 				n = slide.dataset.number;
+				this.boxShift = -(i * this.boxWidth) -((i+1) * this.marginRight);
 			}
 		});
+
+		this.box.style.transform = `translateX(${this.boxShift}px)`;
 
 		if(n == 0) this.sliders[0].classList.add('active');
 		if(n >= this.sliders.length) n = this.sliders.length - 1;
@@ -238,6 +267,12 @@ class Slider{
 				item.classList.remove('active');
 			})
 			this.emulSlides[n].classList.add('active');	
+		}
+
+		if(this.params.navigationArrows && !this.params.infinity && this.container.querySelector('.slider_arrow-left')){
+			this.container.querySelectorAll('.slider_arrow').forEach(arrow => arrow.classList.remove('non-active'));
+			if(this.activeSlider <= 0) this.container.querySelector('.slider_arrow-left').classList.add('non-active');
+			if(this.activeSlider >= (this.sliders.length - this.slideOnScreen)) this.container.querySelector('.slider_arrow-right').classList.add('non-active');
 		}
 
 		if(callback) setTimeout(callback, this.moveTime * 1000);
@@ -280,6 +315,10 @@ class Slider{
 		}
 
 		if(this.params.navigationCounter) this.changeSliderNavigationCounter();
+
+		if(this.params.navigationLine){
+			this.container.querySelector('.slider_line_item').style.left = `${(100 / Math.ceil(this.sliders.length / this.slideOnScreen)) * (Math.ceil(this.activeSlider / this.slideOnScreen) + 1) - (100 / Math.ceil(this.sliders.length / this.slideOnScreen))}%`;
+		}
 	}
 
 	installActiveSlider(n){
@@ -299,7 +338,6 @@ class Slider{
 			})	
 		}
 	}
-
 
 	infinitySlideWork(){
 		let l = this.slideOnScreen;
@@ -513,11 +551,33 @@ function clickItemHandler(event){
 		},
 
 		'change-tab': function(target){
+			let box = target.closest('.tabs_box');
+
 			document.querySelectorAll(target.dataset.label).forEach(tabContent => {
 				tabContent.closest('.tabs_content').querySelectorAll('.tab_content').forEach(item => item.classList.remove('active'));
 
 				tabContent.classList.add('active');
 			})
+
+			box.querySelectorAll('.tab_item ').forEach(item => item.classList.remove('active'));
+			target.classList.add('active');
+
+			if(box.classList.contains('catalog_tabs_box')){
+				slideLineToActiveTab(box);
+			} 
+
+			function slideLineToActiveTab(box){
+				let line = box.querySelector('.catalog_tabs_line');
+				let items = box.querySelectorAll('.catalog_tabs_item');
+				let left = 0;
+
+				for(let i=0; i<items.length; i++){
+					if(items[i].classList.contains('active')) break;
+					left += items[i].offsetWidth;
+				}
+
+				line.style.left = `${left}px`
+			}
 		},
 
 		'popup-open': function(target){
