@@ -586,6 +586,10 @@ body .main .tal{
 .header-main_right_bottom_tt{
 	margin-bottom: 4px;
 }
+.header-main_right_middle{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
 .header-main_right_bottom_tp{
 	margin-bottom: 4px;
 }
@@ -3124,7 +3128,7 @@ body .main .tal{
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 	transform: translateY(calc(100% + 13px));
 }
-.feedback_link_box.active .feedback_link_description{
+.feedback_link:hover+.feedback_link_description{
 	opacity: 1;
 	max-height: 10000px;
 	transition: opacity 0.4s ease-in-out;
