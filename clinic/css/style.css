@@ -343,6 +343,7 @@ body .main .tal{
 	background-position: center;
 	background-repeat: no-repeat;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 
 .button_close svg{
@@ -378,6 +379,7 @@ body .main .tal{
 	--svg-color-3: rgba(0, 0, 0, 0.4);
 	--svg-opacity-3: 0.48;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
@@ -524,6 +526,7 @@ body .main .tal{
 	right: 11px;
 	display: block;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
 .search_box:hover svg path{
 	fill: #839ad0!important;
@@ -766,6 +769,7 @@ body .main .tal{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
 .header-mobail_langs{
 	padding: 24px;
@@ -1054,6 +1058,7 @@ body .main .tal{
 	bottom: 25px;
 	list-style: none;
 	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
 }
 .offers_slider .slider_nav_butt{
 	display: inline-block;
@@ -1087,6 +1092,7 @@ body .main .tal{
 .offers_slide_title{
 	text-align: left;
 	text-transform: uppercase;
+	-webkit-text-transform: uppercase;
 }
 .offers_slide_bottom{}
 
@@ -1205,6 +1211,7 @@ body .main .tal{
 }
 .specialists_slide:hover figure{
 	transform: scale(1.17);
+	-webkit-transform: scale(1.17);
 }
 .specialists_slide:hover figure img{
 	filter: grayscale(0);
@@ -1592,6 +1599,7 @@ body .main .tal{
 	object-fit: cover;
 	object-position: center;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 
 @media screen and (max-width: 1100px){	
@@ -1924,6 +1932,7 @@ body .main .tal{
 	background-image: url(../img/triangle_blue.svg);
 	animation: select_list 0.8s ease-in-out;
 	transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
 }
 @keyframes select_list{
 	0%{top: 18px;}
@@ -1940,7 +1949,6 @@ body .main .tal{
 .select.active .select_list:after{
 	top: 18px;
 	background-image: url(../img/triangle_blue.svg);
-	/*transform: rotate(-180deg);*/
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
@@ -1982,6 +1990,7 @@ body .main .tal{
     background-position: center;
     background-repeat: no-repeat;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 .fahivci-head_search input{
 	width: 100%;
@@ -2058,6 +2067,7 @@ body .main .tal{
 }
 .fahivci_item:hover figure{
 	transform: scale(1.17);
+	-webkit-transform: scale(1.17);
 }
 .fahivci_item:hover figure img{
 	filter: grayscale(0);
@@ -2423,6 +2433,7 @@ body .main .tal{
 	background-position: center;
 	background-repeat: no-repeat;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
@@ -2763,6 +2774,7 @@ body .main .tal{
 	height: 10px;
 	background-color: transparent;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 .input_emulator span:before{
 	content: "";
@@ -2776,6 +2788,7 @@ body .main .tal{
 	border-radius: 2px;
 	border: 2px solid #898989;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 .input_emulator-checkbox{
 	width: 18px;
@@ -2791,6 +2804,7 @@ body .main .tal{
 	z-index: 10;
 	opacity: 0;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
@@ -2892,6 +2906,7 @@ body .main .tal{
 	right: -4px;
 	z-index: 10;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 
 .input_emulator-file{
@@ -2932,6 +2947,7 @@ body .main .tal{
 	right: -4px;
 	z-index: 10;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 
 .form_box-v4{}
@@ -3047,6 +3063,7 @@ body .main .tal{
 	bottom: 0;
 	z-index: 20;
 	transform: translate(calc(100% + 4px), calc(100% + 4px));
+	-webkit-transform: translate(calc(100% + 4px), calc(100% + 4px));
 	display: inline-block;
 	min-width: 92px;
 	max-height: 0;
@@ -3176,6 +3193,7 @@ body .main .tal{
 	border-radius: 16px;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 	transform: translateY(calc(100% + 13px));
+	-webkit-transform: translateY(calc(100% + 13px));
 }
 .feedback_link:hover+.feedback_link_description{
 	opacity: 1;
@@ -3253,6 +3271,7 @@ body .main .tal{
 	position: absolute;
 	left: -32px;
 	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
 }
 
 
