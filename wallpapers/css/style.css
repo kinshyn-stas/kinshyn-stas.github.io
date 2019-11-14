@@ -771,7 +771,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.aside-main_part-1{
 		padding: 13px 16px;
-		margin-bottom: 13px;
+		/*margin-bottom: 13px;*/
+		margin-bottom: 0;
 	}
 	.aside-main_buttons{
 		display: block;

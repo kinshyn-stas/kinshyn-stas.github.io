@@ -121,7 +121,9 @@ class Slider{
 		this.block.style.overflow = 'hidden';
 		this.box.style.display = 'flex';
 		this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+		this.box.style.webkitTransition = `-webkit-transform ${this.moveTime}s ease-in-out`;
 		this.box.style.transform = `translateX(0)`;
+		this.box.style.webkitTransform = `translateX(0)`;
 	}
 
 	createSliderNavigationArrows(){
