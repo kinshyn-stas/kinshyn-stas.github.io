@@ -415,6 +415,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-weight: 600;
 	text-decoration: underline;
 }
+.main-footer_link-b:hover{
+	text-decoration: underline;
+}
 .main-footer_link-b:after{
 	content: "";
 	position: absolute;
@@ -428,6 +431,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-position: center;
 	background-repeat: no-repeat;
 	transform: translateY(-50%);
+	transition: all 0.2s ease-in-out;
+}
+.main-footer_link-b:hover:after{
+	right: -2px;
 }
 
 .main-footer_box-logos{
