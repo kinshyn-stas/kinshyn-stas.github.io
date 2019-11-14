@@ -122,6 +122,7 @@ a{
 	text-decoration: none;
 	cursor: pointer;
   	transition: all 0.2s ease-in-out;
+  	-webkit-transition: all 0.2s ease-in-out;
 }
 a:hover{
 	color: #405BAA;
@@ -146,6 +147,7 @@ textarea{
 	border-radius: 4px;
 	border: 1px solid #E0E0E0;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 textarea{
 	resize: none;
@@ -225,6 +227,7 @@ body .main .tal{
 	border: none;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .button_green:hover{
 	color: #ffffff;
@@ -255,6 +258,7 @@ body .main .tal{
 	border: none;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .button_blue:hover{
 	background-color: #CDE6F7;
@@ -284,6 +288,7 @@ body .main .tal{
 	border: none;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .button_little:hover{
 	color: #ffffff;
@@ -313,6 +318,7 @@ body .main .tal{
 	border: none;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .button_arrow:hover{
 	opacity: 0.48;
@@ -342,6 +348,7 @@ body .main .tal{
 .button_close svg{
 	display: block;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .button_close:hover svg path{
 	fill: #5173BE!important;
@@ -372,6 +379,7 @@ body .main .tal{
 	--svg-opacity-3: 0.48;
 	transform: translateY(-50%);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .template_search-box:hover svg{
 	--svg-color-3: #5173BE;
@@ -388,6 +396,7 @@ body .main .tal{
 	--svg-color-3: rgba(0, 0, 0, 0.4);
 	--svg-opacity-3: 0.48;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .template_arrow:hover svg{
 	display: block;
@@ -548,6 +557,7 @@ body .main .tal{
 	justify-content: space-between;
 	align-items: center;
 	transition: opacity 0.2s ease-in-out;
+	-webkit-transition: opacity 0.2s ease-in-out;
 }
 .lang_item.active{	
 	display: flex;
@@ -619,6 +629,7 @@ body .main .tal{
 	margin-right: 24px;
 	text-align: center;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .header-main_nav a:last-of-type{
 	margin-bottom: 0;
@@ -631,6 +642,7 @@ body .main .tal{
 	color: rgba(0, 0, 0, 0.88);	
 	opacity: 0.48;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .header-main_nav a:hover span,
 .header-main_nav a.active span{
@@ -693,6 +705,7 @@ body .main .tal{
 	--svg-color-3: #5173BE;
 	--svg-opacity-3: 0.72;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .header-mobail_search{
 	display: flex;
@@ -885,6 +898,7 @@ body .main .tal{
 	margin-left: 14px;
 	opacity: 0.72;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .social-link:first-of-type{
 	margin-left: 0;
@@ -1149,6 +1163,7 @@ body .main .tal{
 	overflow: hidden;
 	border-radius: 16px;	
 	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
 }
 .specialists_slide figure{
 	position: relative;
@@ -1156,6 +1171,7 @@ body .main .tal{
 	height: 0;
 	padding-bottom: 100%;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .specialists_slide figure img{
 	position: absolute;
@@ -1170,10 +1186,12 @@ body .main .tal{
 	object-position: center;
 	border-radius: 16px;
 	transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
 }
 .specialists_slide figcaption{
 	padding: 24px 0 13px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .specialists_lastname{
 	margin-bottom: 8px;
@@ -1339,6 +1357,7 @@ body .main .tal{
 	padding: 8px 0;
 	margin-bottom: 8px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .think_variant input[type=radio],
 .think_variant input[type=checkbox]{
@@ -1358,6 +1377,7 @@ body .main .tal{
 	font-size: 18px;
 	line-height: 24px;
 	transition: width 0.4s ease-in-out;
+	-webkit-transition: width 0.4s ease-in-out;
 }
 .think_statistic_number{
 	position: absolute;
@@ -1368,6 +1388,7 @@ body .main .tal{
 .think_variant.closed .input_emulator{
 	opacity: 0;
 	transition: all 0s ease-in-out;
+	-webkit-transition: all 0s ease-in-out;
 }
 .think_variant_text{}
 .think_item .button_container{}
@@ -1635,6 +1656,7 @@ body .main .tal{
 	padding: 8px 16px;
 	color: rgba(0, 0, 0, 0.48);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .article_tab:hover{
 	color: rgba(0, 0, 0, 0.48);	
@@ -1793,6 +1815,7 @@ body .main .tal{
 	background-color: #ffffff;
 	border-radius: 16px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .viddilenya_item:hover{
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -1881,6 +1904,7 @@ body .main .tal{
 .select.active .select_list{
 	border-color: #5173BE;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .select_list:after{
 	content: "";
@@ -1911,12 +1935,14 @@ body .main .tal{
 .select.active .select_list{
 	max-height: 10000px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .select.active .select_list:after{
 	top: 18px;
 	background-image: url(../img/triangle_blue.svg);
 	/*transform: rotate(-180deg);*/
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .select_option{
 	order: 8;
@@ -1990,6 +2016,7 @@ body .main .tal{
 	overflow: hidden;
 	border-radius: 16px;	
 	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
 }
 .fahivci_item figure{
 	position: relative;
@@ -1997,6 +2024,7 @@ body .main .tal{
 	height: 0;
 	padding-bottom: 103%;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .fahivci_item figure img{
 	position: absolute;
@@ -2011,10 +2039,12 @@ body .main .tal{
 	object-position: center;
 	border-radius: 16px;
 	transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
 }
 .fahivci_item figcaption{
 	padding: 24px 0 13px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .fahivci_lastname{
 	margin-bottom: 8px;
@@ -2134,6 +2164,7 @@ body .main .tal{
 	border-radius: 8px;
 	border: 1px solid transparent;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .services_row:hover{
 	background-color: rgba(205, 230, 247, 0.24);
@@ -2236,6 +2267,7 @@ body .main .tal{
 	border-radius: 8px;
 	border: 1px solid transparent;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .find_result_item:hover{
 	border-color: #CDE6F7;
@@ -2292,6 +2324,7 @@ body .main .tal{
 	display: block;
 	--svg-color: rgba(0,0,0,0.48);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .find_result_item:hover svg{
 	--svg-color: #5173BE;
@@ -2359,6 +2392,7 @@ body .main .tal{
 	font-weight: 500;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_list_item:hover{
 	color: #5173BE;
@@ -2390,6 +2424,7 @@ body .main .tal{
 	background-repeat: no-repeat;
 	transform: translateY(-50%);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_list_item-block_title:not(.active):hover:after{
 	background-image: url(../img/triangle.svg);	
@@ -2419,10 +2454,12 @@ body .main .tal{
 	max-height: 1000px;
 	opacity: 1;
 	transition: opacity 0.6s ease-in-out, max-height 0.2s linear;
+	-webkit-transition: opacity 0.6s ease-in-out, max-height 0.2s linear;
 }
 .documents_list_item-block ul li{
 	padding: 7px 32px 8px 16px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_list_item-block ul li:hover{
 	background-color: rgba(205, 230, 247, 0.24);	
@@ -2449,6 +2486,7 @@ body .main .tal{
 	opacity: 1;
 	animation: tab-content 0.4s ease-in-out;
 	transition: opacity 0.4s ease-in-out;
+	-webkit-transition: opacity 0.4s ease-in-out;
 }
 @keyframes tab-content{
 	0%{opacity: 0};
@@ -2467,6 +2505,7 @@ body .main .tal{
 	border-radius: 8px;
 	border: 1px solid transparent;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_container-double .documents_item{
 	padding: 7px 256px 8px 16px;
@@ -2502,6 +2541,7 @@ body .main .tal{
 	margin-bottom: 0;
 	color: rgba(0, 0, 0, 0.48);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_item_text h5:hover{
 	color: inherit;
@@ -2526,6 +2566,7 @@ body .main .tal{
 	display: block;
 	--svg-color: rgba(0,0,0,0.48);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .documents_item:hover svg{
 	--svg-color: #5173BE;
@@ -2751,6 +2792,7 @@ body .main .tal{
 	opacity: 0;
 	transform: translate(-50%,-50%);
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .input_emulator-radio span{
 	border-radius: 50%;
@@ -2761,10 +2803,12 @@ body .main .tal{
 .input_emulator input:checked+span:before{
 	border-color: #5173BE;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .input_emulator input:checked+span{
 	background-color: #5173BE;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .input_emulator-checkbox input:checked+span{
 	background-color: transparent;
@@ -2810,6 +2854,7 @@ body .main .tal{
 	line-height: 16px;
 	font-weight: 300;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .form_box-v3 .form_item:last-of-type{
 	margin-bottom: 0;
@@ -2823,6 +2868,7 @@ body .main .tal{
 .form_box-v3 .form_item.invalid .form_item-text_wrong{
 	opacity: 1;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .form_box-v3 h5{}
 
@@ -2873,8 +2919,9 @@ body .main .tal{
     font-size: 16px;
     line-height: 24px;
     border-radius: 4px;
-    transition: all 0.2s ease-in-out;
     border: 1px solid #E0E0E0;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 .input_emulator-file label span{
 	display: block;
@@ -2932,6 +2979,7 @@ body .main .tal{
 	padding-left: 8px;
 	color: #8f8f8f;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .jack_box input:checked~.jack_text{
 	color: inherit;
@@ -3017,6 +3065,7 @@ body .main .tal{
 	opacity: 1;
 	max-height: 10000px;
 	transition: opacity 0.4s ease-in-out;
+	-webkit-transition: opacity 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 1100px){
@@ -3132,6 +3181,7 @@ body .main .tal{
 	opacity: 1;
 	max-height: 10000px;
 	transition: opacity 0.4s ease-in-out;
+	-webkit-transition: opacity 0.4s ease-in-out;
 }
 .feedback_link_description figure{
 	width: 192px;
@@ -3249,6 +3299,7 @@ body .main .tal{
     display: block;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_arrow-right{
 	left: auto;
@@ -3259,6 +3310,7 @@ body .main .tal{
 	--svg-color-3: #4A4A4A;	
 	--svg-opacity-3: 0.5;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_arrow:hover svg{
 	--svg-opacity-3: 1;
@@ -3272,6 +3324,7 @@ body .main .tal{
 	padding: 8px;
 	min-width: 96px;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_head_item:hover .calendar_head_content{
 	background-color: rgba(205, 230, 247, 0.24);
@@ -3294,6 +3347,7 @@ body .main .tal{
 	border-radius: 8px;
 	border: 1px solid transparent;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_row:after{
 	content: "";
@@ -3351,6 +3405,7 @@ body .main .tal{
 	width: 128px;
 	text-align: center;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_cell:hover{
 	background-color: #CDE6F7;
@@ -3378,6 +3433,7 @@ body .main .tal{
 .calendar_cell .button_container{
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .calendar_cell:hover .button_container{
 	opacity: 1;
@@ -3437,6 +3493,7 @@ body .main .tal{
     display: block;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 .rozklad_container .calendar_arrow-right{
 	left: auto;
