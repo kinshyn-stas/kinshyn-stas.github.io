@@ -519,6 +519,18 @@ function clickItemHandler(event){
 				tabContent.classList.add('active');
 			})
 		},
+
+		'popup-open': function(target){
+			document.querySelector(target.dataset.label).classList.add('active');
+		},
+
+		'popup-close': function(target){
+			if(target.dataset.label){
+				document.querySelector(target.dataset.label).classList.remove('active')
+			} else {
+				target.closest('.popup-container').classList.remove('active');
+			}
+		},
 	}
 
 	if(item.dataset.action){
