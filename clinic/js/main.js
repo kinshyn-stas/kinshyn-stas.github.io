@@ -450,15 +450,16 @@ class Slider{
 				touchEnd.call(this,event);				
 			}
 
-	    	touchPointCurrentY = event.changedTouches['0'].screenY;
+	    	/*touchPointCurrentY = event.changedTouches['0'].screenY;
 			let n = touchPointCurrentY - touchPointStartY;
-			if(n <= document.body.offsetHeight/3){
+			console.log(n,document.documentElement.clientHeight/3);
+			if(n <= document.documentElement.clientHeight/3){
 				event.preventDefault();
-				touchPointStartY = touchPointCurrentY;
-			} else if(n >= -document.body.offsetHeight/3){
+				touchEnd.call(this,event);	
+			} else if(n >= -document.documentElement.clientHeight/3){
 				event.preventDefault();
-				touchPointStartY = touchPointCurrentY;
-			}
+				touchEnd.call(this,event);	
+			}*/
 
   		}
 
@@ -466,8 +467,8 @@ class Slider{
 	    	//if(!this.touchBlockFlag) return;
 	    	event.preventDefault();
 			this.box.removeEventListener('touchmove', touchMoveBinded);
-			let touchPointStart = 0;
-		    let touchPointCurrent = 0;
+			touchPointStart = 0;
+		    touchPointCurrent = 0;
 			x.style.transform = `translateX(${this.boxShift}px)`;
 		}
 
