@@ -519,7 +519,7 @@ function clickItemHandler(event){
 				})
 
 				let inputS = form.querySelector('input[type=submit]')
-				inputS.value = "Дякуєм за відповідь!";			
+				inputS.value = "Дякуємо за відповідь!";			
 				inputS.disabled = true;			
 				inputS.classList.add('disabled');			
 			}
