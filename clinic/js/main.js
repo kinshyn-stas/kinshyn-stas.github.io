@@ -15,8 +15,9 @@ window.onload = function(){
 			mobile: 1,
 			touch: 3,
 			desktop: 5,
-			multiShift: true,
+			//multiShift: true,
 		},
+		slideClickRewind: true,
 		moveTime: 0.5,
 	});
 
@@ -385,7 +386,11 @@ class Slider{
 
 			function func(){
 				this.sliders.forEach(slide => slide.classList.remove('active'));
-				slide.classList.add('active');
+
+				let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
+				if(n<=0) n = 0;
+
+				this.sliders[n].classList.add('active')
 				this.slideAll();
 			}
 		})

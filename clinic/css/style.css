@@ -1164,6 +1164,15 @@ body .main .tal{
 	margin-top: -60px;
 	margin-bottom: -60px;
 }
+.specialists_slider .slider_box{
+	max-width: 74.5%;
+	margin: 0 auto;
+}
+.specialists_slider .slider_box:before,
+.specialists_slider .slider_box:after{
+	content: "";
+	display: block;
+}
 .specialists_slide{
 	position: relative;
 	top: 0;
@@ -2897,13 +2906,15 @@ body .main .tal{
 }
 .input_emulator-date input{
 	width: 100%;
-	height: 40px;
 	padding-right: 46px;
 }
-.input_emulator-date input[type="date"]::-webkit-inner-spin-button {
+/*.input_emulator-date input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
-/*.input_emulator-date input[type="date"]::-webkit-calendar-picker-indicator {
+.input_emulator-date input[type="date"]::-webkit-clear-button{
+	display: none;
+}
+.input_emulator-date input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }*/
 .input_emulator-date svg{
