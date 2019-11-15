@@ -1159,24 +1159,32 @@ body .main .tal{
 .specialists_block{}
 .specialists_slider{}
 .specialists_slider .slider_block{
+	position: relative;
 	padding-top: 60px;
 	padding-bottom: 60px;
 	margin-top: -60px;
 	margin-bottom: -60px;
 }
-.specialists_slider .slider_box{
-	max-width: 74.5%;
-	margin: 0 auto;
-}
-.specialists_slider .slider_box:before,
-.specialists_slider .slider_box:after{
+.specialists_slider .slider_block:before,
+.specialists_slider .slider_block:after{
 	content: "";
-	display: block;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 192px;
+    background-image: linear-gradient(-270deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.specialists_slider .slider_block:after{
+	left: auto;
+	right: 0;
+	background-image: linear-gradient(270deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
 }
 .specialists_slide{
 	position: relative;
 	top: 0;
-	/*margin: 0 64px;*/
 	width: 224px;
 	padding: 16px;
 	margin-bottom: 10px;

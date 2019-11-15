@@ -14,8 +14,8 @@ window.onload = function(){
 		multiDisplay: {
 			mobile: 1,
 			touch: 3,
-			desktop: 5,
-			//multiShift: true,
+			desktop: 7,
+			multiShift: true,
 		},
 		slideClickRewind: true,
 		moveTime: 0.5,
@@ -316,62 +316,57 @@ class Slider{
 
 
 	infinitySlideWork(){
-		let l = this.slideOnScreen;
+		if(this.activeSlider > this.sliders.length - this.slideOnScreen){
+			let sr = this.slideOnScreen - this.sliders.length + this.activeSlider;
 
-		if(this.activeSlider > this.sliders.length - l){
-			for(let i=0; i<l; i++){
-				this.box.append(this.sliders[i].cloneNode(true));
+			for(let i=0; i<sr; i++){
+				let s = this.sliders[i].cloneNode(true);
+				this.box.append(s);
 			}
 			this.sliders = [].slice.call(this.box.children);
 
 			this.installActiveSlider(this.activeSlider);
-			this.slideAll(func.bind(this));
+			this.slideAll(func0.bind(this));
 
-			function func(){
-				this.box.style.transition = ``;
-				this.installActiveSlider(0);
+			function func0(){
+				this.box.style.transition = ``;				
+				for(let i=0; i<sr; i++){
+					this.sliders[0].remove();
+					this.sliders.shift();
+				}	
+				this.installActiveSlider(this.activeSlider - sr);
 				this.slideAll(func2.bind(this));
 
 				function func2(){
-					for(let i=0; i<l; i++){
-						this.sliders[this.sliders.length - 1].remove();
-						this.sliders.pop();
-					}	
 					this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
 					this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
-				};						
+				}
 			}
 
 		} else if(this.activeSlider < 0){
+			let sr = this.slideOnScreen;
 			this.box.style.transition = ``;
-			for(let i=0; i<l; i++){
-				this.box.prepend(this.sliders[this.sliders.length - i - 1].cloneNode(true));
+
+			for(let i=0; i<sr; i++){
+				let s = this.sliders[this.sliders.length - i - 1].cloneNode(true);
+				this.box.prepend(s);
 			}
 			this.sliders = [].slice.call(this.box.children);
+			this.installActiveSlider(sr);
+			this.slideAll(func0.bind(this));
 
-			this.installActiveSlider(l);
-			this.slideAll(func.bind(this));
-
-			function func(){
+			function func0(){
 				this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
 				this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
 				this.installActiveSlider(0);
 				this.slideAll(func2.bind(this));
 
 				function func2(){
-					this.box.style.transition = ``;
-					this.installActiveSlider(this.sliders.length - l);
-					for(let i=0; i<l; i++){
-						this.sliders[0].remove();
-						this.sliders.shift();
+					for(let i=0; i<sr; i++){
+						let s = this.sliders[this.sliders.length - 1].remove();
+						this.sliders.pop();
 					}
-					this.slideAll(func3.bind(this));
-
-					function func3(){
-						this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
-						this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
-					}
-				};			
+				}
 			}
 		} else {
 			this.installActiveSlider(this.activeSlider);
@@ -387,11 +382,19 @@ class Slider{
 			function func(){
 				this.sliders.forEach(slide => slide.classList.remove('active'));
 
-				let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
-				if(n<=0) n = 0;
+				if(this.params.infinity){
+					let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
+					this.sliders[n].classList.add('active');
+					console.log(n);
+					this.infinitySlideWork();
+				} else {
+					let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
+					if(n<=0) n = 0;
 
-				this.sliders[n].classList.add('active')
-				this.slideAll();
+					this.sliders[n].classList.add('active');
+					
+					this.slideAll();					
+				}
 			}
 		})
 	}
