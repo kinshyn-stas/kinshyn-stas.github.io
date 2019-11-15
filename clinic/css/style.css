@@ -1243,6 +1243,17 @@ body .main .tal{
 	.specialists_slider .slider_block:before{
 		display: none;
 	}
+	.specialists_slide:hover{
+		top: 0;
+		box-shadow: none;
+	}
+	.specialists_slide:hover figure{
+		transform: none;
+		-webkit-transform: none;
+	}
+	.specialists_slide:hover figure img{
+		filter: grayscale(0);	
+	}
 }
 
 
