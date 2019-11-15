@@ -516,6 +516,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-color: #FFFFFF;
 }
 .threshhold_image{
+	display: block;
 	text-align: center;
 }
 .threshhold_image img{
