@@ -225,7 +225,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-color: #ffffff;
 	border-radius: 32px;
 }
-.logo{}
+.logo{
+	display: block;
+}
 .logo img{
 	display: block;
 }
