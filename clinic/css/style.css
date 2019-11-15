@@ -2892,6 +2892,7 @@ body .main .tal{
 }
 .input_emulator-date input{
 	width: 100%;
+	height: 40px;
 	padding-right: 46px;
 }
 .input_emulator-date input[type="date"]::-webkit-inner-spin-button {
