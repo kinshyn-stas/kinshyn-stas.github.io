@@ -561,9 +561,7 @@ body .main .tal{
 }
 .lang_item{
 	order: 4;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	display: block;
 	transition: opacity 0.2s ease-in-out;
 	-webkit-transition: opacity 0.2s ease-in-out;
 }
@@ -590,7 +588,7 @@ body .main .tal{
 	color: rgba(0, 0, 0, 0.48);
 	font-weight: 300;
 	font-size: 12px;
-	line-height: 14px;
+	line-height: 24px;
 }
 .lang_box.active .lang_name{
 	display: inline-block;
