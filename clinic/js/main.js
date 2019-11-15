@@ -655,6 +655,7 @@ function emulateSelector(select){
 		constructor(parametrs){
 			this.parametrs = parametrs;
 			this.box = this.parametrs.item;
+			this.box.classList.add('calendar');
 			this.direction = true;
 			this.type = parametrs.type;
 			this.dayName = [{name: 'НД',output: true,},{name: 'ПН',output: false,},{name: 'ВТ',output: false,},{name: 'СР',output: false,},{name: 'ЧТ',output: false,},{name: 'ПТ',output: false,},{name: 'СБ',output: true,},]
@@ -675,7 +676,7 @@ function emulateSelector(select){
 
 		takeJSON(){
 			this.data = JSON.parse(rozklad);
-			console.log(this.data);
+			//console.log(this.data);
 		}
 
 		countColumns(){
@@ -691,7 +692,6 @@ function emulateSelector(select){
 			this.columns = m;
 
 			if(this.parametrs.type != 'big') this.columns = 8;
-			console.log(this.columns);
 		}
 
 		cleanBox(){
@@ -720,10 +720,11 @@ function emulateSelector(select){
 				callback: func.bind(this),
 			});
 
-			function func(n){
+			function func(n,i){
 				let columnHead = document.createElement('div');
 				columnHead.classList = 'calendar_head_item';
 				columnHead.dataset.date = +this.date;
+				columnHead.dataset.column = i;
 
 				columnHead.onclick = function(e){
 					if(!this.box.classList.contains('collapse')) return;
@@ -811,12 +812,22 @@ function emulateSelector(select){
 			this.calculateDate({
 				callback: func.bind(this),
 			});
-			
-			console.log(params.timetable);
 
-			function func(n){
+			function func(n,i){
 				let columnCell = document.createElement('div');
 				columnCell.classList = 'calendar_cell';
+				columnCell.dataset.column = i;
+
+				columnCell.addEventListener('mouseover', func1);
+				columnCell.addEventListener('mouseout', func2);
+				function func1(event){
+					let cell = event.target.closest('.calendar_cell');
+					cell.closest('.calendar').querySelectorAll('.calendar_head_item')[i].classList.add('hover');
+				}
+				function func2(event){
+					let cell = event.target.closest('.calendar_cell');
+					let b = cell.closest('.calendar').querySelectorAll('.calendar_head_item')[i].classList.remove('hover');
+				}
 
 				let x;
 				params.events.forEach((e)=>{
@@ -896,7 +907,7 @@ function emulateSelector(select){
 				if(n>=this.dayName.length - 1) n = 0;
 				if(!this.dayName[n].output){	
 
-					params.callback(n);
+					params.callback(n,i);
 
 					i++;
 				}

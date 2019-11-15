@@ -3351,6 +3351,7 @@ body .main .tal{
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
+.calendar_head_item.hover .calendar_head_content,
 .calendar_head_item:hover .calendar_head_content{
 	background-color: rgba(205, 230, 247, 0.24);
 }
