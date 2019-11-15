@@ -5,7 +5,7 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
 		infinity: true,
-		//navigationDotters: true,
+		navigationDotters: true,
 	});
 
 	new classMultiplyWrapper(Slider, {
@@ -449,17 +449,6 @@ class Slider{
 				//this.touchBlockFlag = true;
 				touchEnd.call(this,event);				
 			}
-
-	    	/*touchPointCurrentY = event.changedTouches['0'].screenY;
-			let n = touchPointCurrentY - touchPointStartY;
-			console.log(n,document.documentElement.clientHeight/3);
-			if(n <= document.documentElement.clientHeight/3){
-				event.preventDefault();
-				touchEnd.call(this,event);	
-			} else if(n >= -document.documentElement.clientHeight/3){
-				event.preventDefault();
-				touchEnd.call(this,event);	
-			}*/
 
   		}
 
