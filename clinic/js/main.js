@@ -534,6 +534,12 @@ function clickItemHandler(event){
 			} else {
 				box.classList.add('active');
 			}
+
+
+			box.setAttribute('tabindex','1');
+			box.onblur = function(){
+				this.classList.remove('active');
+			};
 		},
 
 		'change-language-mobile': function(target){
