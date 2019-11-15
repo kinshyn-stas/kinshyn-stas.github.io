@@ -424,9 +424,12 @@ class Slider{
 	}
 
 	touchFlip(event){
+		event.preventDefault();
 		let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
+		let touchPointStartY = event.changedTouches['0'].screenY;
+		let touchPointCurrentY = 0;
 		//this.touchBlockFlag = false;
 
 		let touchMoveBinded = touchMove.bind(this);
@@ -435,17 +438,28 @@ class Slider{
 	    	let m = touchPointCurrent - touchPointStart;
 
 			if(m >= document.body.offsetWidth/4){
-				event.preventDefault();
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
 				//this.touchBlockFlag = true;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
-				event.preventDefault();
 				this.slideMove({direction: 'right'});
 				touchPointStart = touchPointCurrent;
 				//this.touchBlockFlag = true;
 				touchEnd.call(this,event);				
+			}
+
+	    	touchPointCurrentY = event.changedTouches['0'].screenY;
+			let n = touchPointCurrentY - touchPointStartY;
+			console.log(n,document.documentElement.clientHeight/2);
+			if(n >= document.documentElement.clientHeight/2){
+				console.log('t1');
+				window.scrollBy(0,-200);
+				touchPointStartY = touchPointCurrentY;
+			} else if(n <= -document.documentElement.clientHeight/2){
+				console.log('t2');
+				window.scrollBy(0,200);
+				touchPointStartY = touchPointCurrentY;
 			}
 
   		}
@@ -454,8 +468,8 @@ class Slider{
 	    	//if(!this.touchBlockFlag) return;
 	    	event.preventDefault();
 			this.box.removeEventListener('touchmove', touchMoveBinded);
-			let touchPointStart = 0;
-		    let touchPointCurrent = 0;
+			touchPointStart = 0;
+		    touchPointCurrent = 0;
 			x.style.transform = `translateX(${this.boxShift}px)`;
 		}
 
