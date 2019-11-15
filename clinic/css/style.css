@@ -1253,6 +1253,7 @@ body .main .tal{
 	}
 	.specialists_slide:hover figure img{
 		filter: grayscale(1);
+		border-radius: 16px	
 	}
 }
 

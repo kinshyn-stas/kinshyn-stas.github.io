@@ -17,7 +17,7 @@ window.onload = function(){
 			desktop: 7,
 			multiShift: true,
 		},
-		slideClickRewind: true,
+		//slideClickRewind: true,
 		moveTime: 0.5,
 	});
 
@@ -113,6 +113,7 @@ class Slider{
 
 		this.sliders = [].slice.call(this.container.children);
 		this.sliders.forEach((item,i,arr)=>{
+			item.classList.add('slider_slide');
 			this.box.append(item);
 		});			
 		this.block.append(this.box);
@@ -375,28 +376,32 @@ class Slider{
 	}
 
 	prepareSlidesOnclick(){
-		this.sliders.forEach((slide)=>{
+		this.container.addEventListener('click', func.bind(this));
 
-			slide.addEventListener('click', func.bind(this));
+		function func(event){
+			if(!event.target.closest('.slider_slide')) return;
+			let slide = event.target.closest('.slider_slide');
 
-			function func(){
-				this.sliders.forEach(slide => slide.classList.remove('active'));
+			this.sliders.forEach(slide => slide.classList.remove('active'));
 
-				if(this.params.infinity){
-					let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
-					this.sliders[n].classList.add('active');
-					console.log(n);
-					this.infinitySlideWork();
-				} else {
-					let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
-					if(n<=0) n = 0;
+			if(this.params.infinity){
+				console.log(this.activeSlider);
+				let n = this.activeSlider - Math.floor(this.slideOnScreen / 2);
 
-					this.sliders[n].classList.add('active');
-					
-					this.slideAll();					
-				}
+
+				console.log(n);
+
+				this.installActiveSlider(n);
+				this.infinitySlideWork();
+			} else {
+				let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
+				if(n<=0) n = 0;
+
+				this.sliders[n].classList.add('active');
+			
+				this.slideAll();					
 			}
-		})
+		}
 	}
 
 	mouseFlip(event){
