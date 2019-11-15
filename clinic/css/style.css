@@ -1238,6 +1238,13 @@ body .main .tal{
 	border-radius: 16px 16px 0 0;	
 }
 
+@media screen and (max-width: 768px){
+	.specialists_slider .slider_block:after,
+	.specialists_slider .slider_block:before{
+		display: none;
+	}
+}
+
 
 .testimonials_block{}
 .testimonials_box{
