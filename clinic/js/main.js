@@ -230,6 +230,7 @@ class Slider{
 			if(slide.classList.contains('active')){
 				this.boxShift = -(i * this.boxWidth);
 				this.box.style.transform = `translateX(${this.boxShift}px)`;
+				this.box.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 				n = slide.dataset.number;
 			}
 		});
@@ -336,6 +337,7 @@ class Slider{
 						this.sliders.pop();
 					}	
 					this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+					this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
 				};						
 			}
 
@@ -351,6 +353,7 @@ class Slider{
 
 			function func(){
 				this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+				this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
 				this.installActiveSlider(0);
 				this.slideAll(func2.bind(this));
 
@@ -365,6 +368,7 @@ class Slider{
 
 					function func3(){
 						this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
+						this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
 					}
 				};			
 			}
@@ -399,6 +403,7 @@ class Slider{
 			mousePointCurrent = event.clientX;
 			let m = (mousePointCurrent - mousePointStart);
 			x.style.transform = `translateX(${this.boxShift + m}px)`;
+			x.style.webkiteTransform = `translateX(${this.boxShift + m}px)`;
 
 			if(m < -document.body.offsetWidth/4){
 				this.slideMove({direction: 'right'});
@@ -417,6 +422,7 @@ class Slider{
 			mousePointStart = 0;
 			mousePointCurrent = 0;
 			x.style.transform = `translateX(${this.boxShift}px)`;
+			x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
 		this.box.addEventListener('mousemove', mouseMoveBinded);
@@ -459,6 +465,7 @@ class Slider{
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
 			x.style.transform = `translateX(${this.boxShift}px)`;
+			x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
 		this.box.addEventListener('touchmove', touchMoveBinded);
