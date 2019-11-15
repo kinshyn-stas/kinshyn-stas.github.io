@@ -5,7 +5,7 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
 		infinity: true,
-		navigationDotters: true,
+		//navigationDotters: true,
 	});
 
 	new classMultiplyWrapper(Slider, {
