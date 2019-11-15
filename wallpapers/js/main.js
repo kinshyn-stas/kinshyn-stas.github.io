@@ -685,7 +685,7 @@ function hiddenScrollAside(selector){
 			}
 			box.append(cont);
 			cont.style.height = `100%`;
-			cont.style.overflowY = `visible`;
+			cont.style.overflowY = `scroll`;
 		}
 		
 		cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;
