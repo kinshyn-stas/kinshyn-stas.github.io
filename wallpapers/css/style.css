@@ -1179,6 +1179,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.catalog_container-cat .catalog_container_top{
 		margin-bottom: 24px;
 	}
+	.catalog_panel_box{
+		margin-top: 40px;
+		margin-bottom: 24px;
+	}
 	.catalog_panel_item{
 		width: 100%;
 	}
@@ -1219,10 +1223,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.catalog_box_scroll .catalog_punkt{
 		width: 31.5789%;
-	}
-	.catalog_box{
-		padding-top: 16px;
-		margin-top: -16px;
 	}
 	.catalog_item{
 		margin-bottom: 16px;
