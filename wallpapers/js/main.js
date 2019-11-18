@@ -742,8 +742,6 @@ function hiddenScrollAside(selector){
 			cont.style.overflowY = `scroll`;
 		}
 		
-		let t = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`
-		console.log(cont.offsetWidth,cont.clientWidth,cont.clientLeft);
 		cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;
 	})
 };
@@ -758,12 +756,6 @@ function toggleAsideElasticBlock(){
 
 	let h0 = container.offsetHeight;
 
-	let h1 = 0;
-	aside.querySelectorAll('.list_box-elastic').forEach(item => {
-		item.classList.remove('hidden');
-		h1 += item.offsetHeight
-	});
-
 	let h2 = 0;
 	aside.querySelectorAll('.list_list-elastic').forEach(item => {
 		item.classList.remove('hidden');
@@ -772,10 +764,14 @@ function toggleAsideElasticBlock(){
 
 	if(document.body.offsetWidth <= 1100) h2 = 0;
 
-	if(document.body.offsetHeight < h0 + h2){
+	console.log(document.documentElement.clientHeight,h0,h2);
+
+	if(document.documentElement.clientHeight < h0 + h2){
+		console.log('t1');
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.remove('hidden'));
 		aside.querySelectorAll('.list_list-elastic').forEach(item => item.classList.add('hidden'));
 	} else {
+		console.log('t2');
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.add('hidden'));
 		aside.querySelectorAll('.list_list-elastic').forEach(item => item.classList.remove('hidden'));
 	}
