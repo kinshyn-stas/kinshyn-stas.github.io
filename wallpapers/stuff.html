@@ -121,17 +121,6 @@
 										<a class="list_box_item"><span>Вариант 7</span></a>
 									</div>
 								</div>
-
-								<div class="button_container">
-									<a class="button_photo" href="photo_upload.html">
-										<span>Cо своего фото</span>
-										<span class="button_photo_icon">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M11.1429 6V11.1429H6V12.8571H11.1429V18H12.8571V12.8571H18V11.1429H12.8571V6H11.1429Z" fill="#D92432" stroke="#D92432"/>
-											</svg>
-										</span>
-									</a>
-								</div>
 							</div>
 							
 							<div class="list_container list_container-elastic">
@@ -206,44 +195,53 @@
 
 		<main class="main">
 			
-			<section class="main-block contacts_block">
+			<section class="main-block stuff_block">
 				<div class="center-main-block">
-					<h4>Мы находимся</h4>
-					<div class="contacts_box">
-						<figure class="contacts_image">
-							<img src="img/map.jpg" alt="" />
-						</figure>
-						<div class="contacts_text">
-							<div class="contacts_text_top">
-								<p class="contacts_text_big">График роботы колл-центра</p>
-								<p>Ежедневно с 9.00 до 22.00</p>
-								<p>8(499) 504 44 72<br>email: sale@klv-oboi.ru</p>
+					
+					<div class="stuff_before">
+						<a class="stuff_before_link">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M5.33333 2.66669L6.26667 3.60002L2.53333 7.33335H16V8.66669H2.53333L6.26667 12.4L5.33333 13.3334L0 8.00002L5.33333 2.66669Z" fill="#393939"/>
+							</svg>
+							<span>Вернуться назад</span>
+						</a>
+					</div>
+					<div class="stuff_top">
+						<h2>Кафе на улице</h2>
+					</div>
+					<div class="stuff_box">
+						<div class="stuff_images">
+							<div class="stuff_images_top">
+								<img src="img/stuff/stuff-1.jpg" alt="" />
 							</div>
-							<div class="contacts_text_bottom">
-								<p class="contacts_text_big">г. Киев,<br>Мрузовский переулок,д.1 строение 4, офис 25.</p>
-								<p class="contacts_text_big">график работы<br>Пн-Пт с 8.00 до 21.00</p>
+							<div class="stuff_images_bottom">
+								<div class="stuff_images_bottom_item">
+									<img src="img/stuff/stuff-2.jpg" alt="" />
+								</div>
+								<div class="stuff_images_bottom_item">
+									<img src="img/stuff/stuff-3.jpg" alt="" />
+								</div>
+								<div class="stuff_images_bottom_item">
+									<img src="img/stuff/stuff-4.jpg" alt="" />
+								</div>
 							</div>
+						</div>
+						<div class="stuff_forms">
+							
+							<form class="stuff_form stuff_form_top">
+								<p>Быстрый заказ</p>
+								<div class="stuff_form_item">
+									<input type="tel">
+									<input type="submit" class="button_submit" value="Заказать">
+								</div>
+							</form>
+
+							<form class="stuff_form stuff_form_bottom">
+								
+							</form>
+
 						</div>
 					</div>
-
-					<h4>Обратная связь</h4>
-					<form class="photo_form">
-						<div class="photo_form_item">
-							<input type="text" placeholder="Имя">
-						</div>
-						<div class="photo_form_item">
-							<input type="tel" placeholder="Телефон">
-						</div>
-						<div class="photo_form_item">
-							<input type="email" placeholder="Email">
-						</div>
-						<div class="photo_form_item photo_form_item-full">
-							<textarea placeholder="Ваш комментарий"></textarea>
-						</div>
-						<div class="photo_form_item photo_form_item-submit">
-							<input type="submit" class="button_submit" value="Отправить">
-						</div>
-					</form>
 
 				</div>
 			</section>
@@ -255,7 +253,7 @@
 	<div id="popup-photo" class="popup-container">
 		<div class="popup-background click-item" data-action="popup-close"></div>
 		<div class="popup">
-			<h4 class="popup_title">Ваша заявка успешно отправлена</h4>
+			<h3 class="popup_title">Ваша заявка успешно отправлена</h3>
 			<p>Мы свяжемся с вами в течении дня, а пока вы можете<br class="display-d"> ознакомиться с другой продукцией.</p>
 			<form class="popup_form">
 				<div class="popup_input_item popup_input_item-submit">
@@ -268,7 +266,7 @@
 	<div id="popup-communication" class="popup-container">
 		<div class="popup-background click-item" data-action="popup-close"></div>
 		<div class="popup">
-			<h4 class="popup_title">Связь с нами</h4>
+			<h3 class="popup_title">Связь с нами</h3>
 			<p>Мы свяжемся с вами в течении дня </p>
 			<form class="popup_form">
 				<div class="popup_input_item">
