@@ -576,6 +576,14 @@ function clickItemHandler(event){
 			}
 		},
 
+		'select_tag_remove': function(target){
+			let box = target.closest('.catalog_panel_item');
+			let select = box.querySelector('.select');
+			select.classList.remove('select_on');
+			select.querySelector('.select_option.selected').remove('selected');
+			select.querySelector('.select_option.default').add('selected');
+		},
+
 		'popup-open': function(target){
 			document.querySelector(target.dataset.label).classList.add('active');
 		},
@@ -629,6 +637,8 @@ function emulateSelector(select){
 					option.classList.remove('selected')
 				});
 				option.classList.add('selected');
+
+				if(!option.classList.contains('default')) emul.classList.toggle('select_on');
 			};
 			if(item.selected) option.classList.add('selected');
 			if(item.dataset.default == 'true') option.classList.add('default');

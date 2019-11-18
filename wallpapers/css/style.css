@@ -1311,7 +1311,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .select_option.default{
 	order: 6;
 }
-.select.active .select_option.disabled{
+.select.active .select_option.disabled:not(.selected){
 	display: none;
 }
 .select_remove{
@@ -1327,7 +1327,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.select.active~.select_remove{
+.select.select_on~.select_remove{
 	display: block;
 }
 .select_remove svg{
