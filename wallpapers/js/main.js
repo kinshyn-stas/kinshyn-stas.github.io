@@ -22,6 +22,9 @@ window.onload = function(){
 	document.addEventListener('click', clickItemHandler);
 
 
+	document.addEventListener('change',togglePartForm);
+
+
 	document.addEventListener('keydown', function(event){
 		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
 		    let keycode = event.keyCode;
@@ -772,4 +775,16 @@ function toggleAsideElasticBlock(){
 		aside.querySelectorAll('.list_box-elastic').forEach(item => item.classList.add('hidden'));
 		aside.querySelectorAll('.list_list-elastic').forEach(item => item.classList.remove('hidden'));
 	}
+};
+
+
+function togglePartForm(event){
+	if(!event.target.classList.contains('tekstura_input_toggle')) return;
+	let target = event.target.closest('.tekstura_input_toggle');
+
+	document.querySelectorAll(`.tekstura_description`).forEach(item => {
+		item.classList.remove('active');
+	});
+
+	target.closest('.tekstura_item').querySelector('.tekstura_description').classList.add('active');
 };
