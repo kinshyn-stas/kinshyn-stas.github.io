@@ -1993,6 +1993,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding-right: 416px;
 	}
 	.tekstura_description{
+		position: absolute;
 		width: 392px;
 		min-width: 392px;
 		margin-left: 24px;
@@ -2003,7 +2004,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 @media (max-width: 768px){
 	.tekstura_container{
-		flex-wrap: wrap;
+		padding-right: 0;
 	}
 	.tekstura_row-title{
 		margin-bottom: 16px;
@@ -2012,6 +2013,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin-bottom: 8px;
 	}
 	.tekstura_description{
+		position: relative;
 		width: 100%;
 		min-width: 0;
 		margin-left: 0;
