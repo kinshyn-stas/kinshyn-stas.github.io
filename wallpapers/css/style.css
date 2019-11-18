@@ -1966,6 +1966,46 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	transform: translateY(-50%);
 }
 
+@media (max-width: 1200px){
+	.tekstura_container{
+		flex-wrap: wrap;
+	}
+	.tekstura_description{
+		width: 100%;
+		min-width: 0;
+		margin-left: 0;
+	}
+	.tekstura_description_title{
+		display: none;
+	}
+}
+@media (max-width: 1100px){
+	.tekstura_container{
+		flex-wrap: nowrap;
+	}
+	.tekstura_description{
+		width: 392px;
+		min-width: 392px;
+		margin-left: 24px;
+	}
+	.tekstura_description_title{
+		display: block;
+	}
+}
+@media (max-width: 768px){
+	.tekstura_container{
+		flex-wrap: wrap;
+	}
+	.tekstura_description{
+		width: 100%;
+		min-width: 0;
+		margin-left: 0;
+	}
+	.tekstura_description_title{
+		display: none;
+	}
+}
+
 
 .example_block{}
 .example_box{
