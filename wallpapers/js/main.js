@@ -726,20 +726,24 @@ function hiddenScrollAside(selector){
 	document.querySelectorAll(selector).forEach(box =>{
 		box.classList.add('scroll-emul_block');
 		box.style.overflowX = 'hidden';
-
-		let cont = document.createElement('div');
-		cont.classList = 'scroll-emul_container';
+		let cont = box.querySelector('.scroll-emul_container');
 
 
 		if(!box.children[0].classList.contains('scroll-emul_container')){
+			cont = document.createElement('div');
+			cont.classList = 'scroll-emul_container';
+
 			while(box.children.length){
 				cont.append(box.children[0])
 			}
+
 			box.append(cont);
 			cont.style.height = `100%`;
 			cont.style.overflowY = `scroll`;
 		}
 		
+		let t = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`
+		console.log(cont.offsetWidth,cont.clientWidth,cont.clientLeft);
 		cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;
 	})
 };
