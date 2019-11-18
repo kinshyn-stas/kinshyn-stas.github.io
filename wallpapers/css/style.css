@@ -1922,16 +1922,48 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-weight: 400;
 }
 .tekstura_description_item .plus{
-	position: absolute;
-	top: 
+	position: relative;
+	padding-left: 32px;
 }
 .tekstura_description_item .plus:before{
 	content: "";
-
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	z-index: 10;
+	display: block;
+	width: 14px;
+	height: 2px;
+	background-color: #393939;
+	transform: translateY(-50%);
 }
-.tekstura_description_item .minus{}
+.tekstura_description_item .plus:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 11px;
+	z-index: 10;
+	display: block;
+	width: 2px;
+	height: 14px;
+	background-color: #393939;
+	transform: translateY(-50%);	
+}
+.tekstura_description_item .minus{
+	position: relative;
+	padding-left: 32px;
+}
 .tekstura_description_item .minus:before{
 	content: "";
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	z-index: 10;
+	display: block;
+	width: 14px;
+	height: 2px;
+	background-color: #393939;
+	transform: translateY(-50%);
 }
 
 
