@@ -81,9 +81,9 @@ class Slider{
 		this.slideOnScreen = 1;
 		if(this.params.multiDisplay){
 			let w = document.body.offsetWidth;
-			if(w>0 && w<=700){
+			if(w>0 && w<=768){
 				this.slideOnScreen = this.params.multiDisplay.mobile;
-			} else if(w>700 && w<=1100){
+			} else if(w>768 && w<=1100){
 				this.slideOnScreen = this.params.multiDisplay.touch;
 			} else {
 				this.slideOnScreen = this.params.multiDisplay.desktop;
@@ -207,9 +207,11 @@ class Slider{
 
 		if(this.params.multiDisplay && this.params.multiDisplay.marginRight){
 			let w = document.body.offsetWidth;
-			if(w>0 && w<=700){
+			console.log(w)
+			if(w>0 && w<=768){
+				console.log('n1')
 				this.marginRight = this.params.multiDisplay.marginRight.mobile;
-			} else if(w>700 && w<=1100){
+			} else if(w>768 && w<=1100){
 				this.marginRight = this.params.multiDisplay.marginRight.touch;
 			} else {
 				this.marginRight = this.params.multiDisplay.marginRight.desktop;
@@ -533,9 +535,15 @@ function clickItemHandler(event){
 			if(box.classList.contains('active')){
 				box.classList.remove('active');
 			} else {
-				aside.querySelectorAll('.list_box')	.forEach(box => box.classList.remove('active'));
+				aside.querySelectorAll('.list_box').forEach(box => box.classList.remove('active'));
 				box.classList.add('active');	
 			}
+		},
+
+		'panel-toggle': function(target){
+			let box = target.closest('.catalog_panel_toggler');
+			box.querySelectorAll('.catalog_panel_toggler_item').forEach(item => item.classList.toggle('active'));
+			document.querySelectorAll('.catalog_panel_box').forEach(item => item.classList.toggle('active'));
 		},
 
 		'change-tab': function(target){
@@ -628,7 +636,7 @@ function emulateSelector(select){
 			emulList.append(option);
 		});
 
-		select.parentNode.append(emul);
+		select.parentNode.prepend(emul);
 
 		let heightStart = emul.querySelector('.select_option').offsetHeight;
 		let heightEnd = 0;
@@ -653,6 +661,40 @@ class inputFileEmulator{
 			let input = box.querySelector('input');
 			let label = box.querySelector('label');
 
+			['dragenter','dragover', 'dragleave', 'drop'].forEach(eventName => label.addEventListener(eventName, ()=>event.preventDefault(), false));
+
+			['dragenter','dragover'].forEach(eventName => label.addEventListener(eventName, () => label.classList.add('highlight'), false));
+			['dragleave', 'drop'].forEach(eventName => label.addEventListener(eventName, () => label.classList.remove('highlight'), false));
+
+			label.addEventListener('drop', (e) => {
+				let dt = e.dataTransfer;
+				let files = dt.files;
+
+				handleFiles(files);
+
+				function handleFiles(files){
+					([...files]).forEach(uploadFile);
+				}
+
+				function uploadFile(file){
+					let url = 'ВАШ URL ДЛЯ ЗАГРУЗКИ ФАЙЛОВ';
+					let formData = new FormData();
+
+					formData.append('file', file);
+
+					fetch(url, {
+						method: `POST`,
+						body: formData
+					})
+					.then(() => {
+						console.log('test1')
+					})
+					.catch(() => {
+						console.log('test2')
+					})
+				}
+			}, false)
+
 			input.addEventListener('change', function(e){
 				let fileName = '';
 
@@ -663,7 +705,7 @@ class inputFileEmulator{
 					fileName = e.target.value.split('\\').pop();
 				}
 
-				if (fileName) label.querySelector('span').innerHTML = `<span>${fileName}</span>`;
+				if (fileName) label.innerHTML = `<span>${fileName}</span>`;
 			})
 		})
 	}
