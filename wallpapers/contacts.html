@@ -227,7 +227,7 @@
 					</div>
 
 					<h4>Обратная связь</h4>
-					<form class="photo_form">
+					<form class="photo_form" onsubmit="return event.preventDefault()">
 						<div class="photo_form_item">
 							<input type="text" placeholder="Имя">
 						</div>
@@ -241,7 +241,7 @@
 							<textarea placeholder="Ваш комментарий"></textarea>
 						</div>
 						<div class="photo_form_item photo_form_item-submit">
-							<input type="submit" class="button_submit" value="Отправить">
+							<input type="submit" class="button_submit click-item"  data-action="popup-open" data-label="#popup-contacts" value="Отправить">
 						</div>
 					</form>
 
@@ -252,11 +252,11 @@
 
 	</div>
 
-	<div id="popup-photo" class="popup-container">
+	<div id="popup-contacts" class="popup-container">
 		<div class="popup-background click-item" data-action="popup-close"></div>
 		<div class="popup">
-			<h3 class="popup_title">Ваша заявка успешно отправлена</h3>
-			<p>Мы свяжемся с вами в течении дня, а пока вы можете<br class="display-d"> ознакомиться с другой продукцией.</p>
+			<h3 class="popup_title">Ваше сообщение отправлено</h3>
+			<p>Мы свяжемся с вами в течении дня а пока<br class="display-d"> ознакомьтесь с нашей продукциеей</p>
 			<form class="popup_form">
 				<div class="popup_input_item popup_input_item-submit">
 					<a class="button_submit click-item" data-action="popup-close">Перейти в каталог</a>
