@@ -679,6 +679,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .list_box_item:hover{
 	color: #D92432;
 }
+.list_box_item.actual{
+	color: #D92432;
+	font-weight: 700;
+}
 .list_list{
 	padding: 0 12px;
 	font-family: Gilroy, Roboto, sans-serif;
@@ -1646,5 +1650,68 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.advantage_item{
 		width: 100%;
 		max-width: 288px;
+	}
+}
+
+
+.dostavka_block{}
+.dostavka_block h4{
+	margin-bottom: 32px;
+}
+.dostavka_box{
+	margin-bottom: 24px;
+	font-weight: 300;
+}
+.dostavka_item{
+	margin-bottom: 56px;
+}
+.dostavka_title{
+	margin-bottom: 24px;
+	padding: 8px 16px;
+	background-color: #D92432;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21px;
+	border-radius: 20px;
+}
+.dostavka_body{}
+.dostavka_body p{
+	margin-bottom: 24px;
+}
+.dostavka_body p:last-of-type{
+	margin-bottom: 0;
+}
+.dostavka_list{
+	margin-bottom: 24px;
+	list-style: none;
+}
+.dostavka_list li{
+	position: relative;
+	padding-left: 12px;
+	margin-bottom: 9px;
+}
+.dostavka_list li:before{
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 0;
+	z-index: 10;
+	display: inherit;
+	width: 4px;
+	height: 4px;
+	background-color: #D92432;
+	border-radius: 50%;
+}
+.dostavka_list li.b{
+	font-weight: 500;
+}
+.dostavka_list li.b:before{
+	display: none;
+}
+
+@media (max-width: 768px){
+	.dostavka_item{
+		margin-bottom: 32px;
 	}
 }
