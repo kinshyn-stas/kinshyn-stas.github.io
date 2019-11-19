@@ -221,38 +221,287 @@
 						<h2>Кафе на улице</h2>
 					</div>
 					<div class="stuff_box">
-						<div class="stuff_images">
-							<div class="stuff_images_top">
+						<div class="stuff_images click-obj">
+							<div class="stuff_images_item click-item actual" data-action="change_stuff-image">
 								<img src="img/stuff/stuff-1.jpg" alt="" />
 							</div>
-							<div class="stuff_images_bottom">
-								<div class="stuff_images_bottom_item">
-									<img src="img/stuff/stuff-2.jpg" alt="" />
-								</div>
-								<div class="stuff_images_bottom_item">
-									<img src="img/stuff/stuff-3.jpg" alt="" />
-								</div>
-								<div class="stuff_images_bottom_item">
-									<img src="img/stuff/stuff-4.jpg" alt="" />
-								</div>
+							<div class="stuff_images_item click-item" data-action="change_stuff-image">
+								<img src="img/stuff/stuff-2.jpg" alt="" />
+							</div>
+							<div class="stuff_images_item click-item" data-action="change_stuff-image">
+								<img src="img/stuff/stuff-3.jpg" alt="" />
+							</div>
+							<div class="stuff_images_item click-item" data-action="change_stuff-image">
+								<img src="img/stuff/stuff-4.jpg" alt="" />
 							</div>
 						</div>
 						<div class="stuff_forms">
 							
 							<form class="stuff_form stuff_form_top">
 								<p>Быстрый заказ</p>
-								<div class="stuff_form_item">
-									<input type="tel">
+								<div class="stuff_form_top_item">
+									<input type="tel" placeholder="Номер телефона">
 									<input type="submit" class="button_submit" value="Заказать">
 								</div>
 							</form>
 
 							<form class="stuff_form stuff_form_bottom">
-								
+								<div class="stuff_form_bottom_part stuff_form_bottom_part-top">
+									<p>Выберите размер</p>
+									<div class="stuff_form_size">
+										<div class="stuff_form_size_item stuff_form_size_item-width">
+											<span class="stuff_form_size_arrow stuff_form_size_arrow-left click-item" data-action="change-size" data-direction="left">
+												<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M5.5 1L1 5.5M1 5.5L5.5 10M1 5.5H13" stroke="#757575"/>
+												</svg>
+											</span>
+											<span class="stuff_form_size_arrow stuff_form_size_arrow-right click-item" data-action="change-size" data-direction="right">
+												<svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12 5.5L7.5 1M12 5.5L7.5 10M12 5.5H0" stroke="#757575"/>
+												</svg>
+											</span>
+											<input type="tel" name="" value="70">
+										</div>
+										<div class="stuff_form_size_item stuff_form_size_item-height">
+											<span class="stuff_form_size_arrow stuff_form_size_arrow-top click-item" data-action="change-size" data-direction="top">
+												<svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M5 1.5L0.5 6M5 1.5L9.5 6M5 1.5L5 13.5" stroke="#757575"/>
+												</svg>
+											</span>
+											<span class="stuff_form_size_arrow stuff_form_size_arrow-bottom click-item" data-action="change-size" data-direction="bottom">
+												<svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M0.5 8L5 12.5M5 12.5L9.5 8M5 12.5L5 0.5" stroke="#757575"/>
+												</svg>
+											</span>
+											<input type="tel" name="" value="70">
+										</div>
+										<div class="stuff_form_size_text">см</div>
+									</div>
+									<p>Выберите материал</p>
+									<div class="stuff_form_select">
+										<select class="select_emulator">
+											<option selected>
+												<span class="stuff_form_select_text-main">Classic</span>
+												<span class="stuff_form_select_text-price">10$/м2</span>
+											</option>
+											<option>
+												<span class="stuff_form_select_text-main">Atlas</span>
+												<span class="stuff_form_select_text-price">17$/м2</span>
+											</option>
+											<option>
+												<span class="stuff_form_select_text-main">Holst</span>
+												<span class="stuff_form_select_text-price">12$/м2</span>
+											</option>
+											<option selected>
+												<span class="stuff_form_select_text-main">Cristal</span>
+												<span class="stuff_form_select_text-price">24$/м2</span>
+											</option>
+										</select>
+										<a class="select_remove click-item" data-action="select_tag_remove"></a>
+									</div>
+								</div>
+
+								<div class="stuff_form_bottom_part stuff_form_bottom_part-bottom">
+									<p class="stuff_form_bottom_part-bottom_title">Контактные даные</p>
+									<div class="stuff_form_bottom_part-bottom_item">
+										<input type="text" name="" placeholder="Имя">
+									</div>
+									<div class="stuff_form_bottom_part-bottom_item">
+										<input type="tel" name="" placeholder="Номер телефона">
+									</div>
+									<div class="stuff_form_bottom_part-bottom_item">
+										<input type="email" name="" placeholder="Email">
+									</div>
+									<p class="stuff_form_bottom_part-bottom_price">
+										<span>Цена</span>
+										<b>95 грн</b>
+									</p>
+									<div class="stuff_form_bottom_part-bottom_input">
+										<input class="button_order" type="submit" name="" value="Заказать">
+									</div>
+								</div>
 							</form>
 
 						</div>
 					</div>
+
+				</div>
+			</section>
+
+			<section class="main-block main-block-line advantage_block">
+				<div class="center-main-block">
+					
+					<h4>Преимущество фотообоев</h4>
+					<div class="advantage_box">
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-1.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Изготовления за 2 дня</p>
+								<p>Нам понадобится всего два дня, чтобы изготовить фотообои для вас</p>
+							</figcaption>
+						</div>
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-2.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Оплата после доставки</p>
+								<p>Вы сможете сами убедиться в качестве фотообоев до оплаты и оплатить ваш заказ после его доставки</p>
+							</figcaption>
+						</div>
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-3.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Бесплатная доставка</p>
+								<p>Бесплатная доставка по Киеву и Днепропетровску</p>
+							</figcaption>
+						</div>
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-4.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Услуги дизайнера</p>
+								<p>Бесплатная доработка изображений профессиональным дизайнером</p>
+							</figcaption>
+						</div>
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-5.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Подбор под ваш интерьер</p>
+								<p>Наши специалисты подберут фотообои под ваш интерьер</p>
+							</figcaption>
+						</div>
+						
+						<div class="advantage_item">
+							<figure>
+								<img src="img/advantage/advantage-6.png" alt="" />
+							</figure>
+							<figcaption>
+								<p class="advantage_title">Скидка 5%</p>
+								<p>Скидка 5% при оформлении заказа площадью более 10 м²</p>
+							</figcaption>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+			
+			<section class="main-block main-block-line catalog_block">
+				<div class="center-main-block">
+
+					<h4>Похожие запросы</h4>
+
+						<div class="catalog_box">
+
+							<div class="catalog_punkt">
+								<figure>
+									<img src="img/examples/example-1.jpg" alt="" />
+								</figure>
+								<figcaption>
+									<p class="catalog_punkt_t">
+										<a href="card.html" target="_blank">Фотообои кафе на улице</a>
+									</p>
+									<p class="catalog_punkt_b">от 748грн м2</p>
+								</figcaption>
+							</div>
+
+							<div class="catalog_punkt">
+								<figure>
+									<img src="img/examples/example-2.jpg" alt="" />
+								</figure>
+								<figcaption>
+									<p class="catalog_punkt_t">
+										<a href="card.html" target="_blank">Фотообои кафе на улице</a>
+									</p>
+									<p class="catalog_punkt_b">от 748грн м2</p>
+								</figcaption>
+							</div>
+
+							<div class="catalog_punkt">
+								<figure>
+									<img src="img/examples/example-3.jpg" alt="" />
+								</figure>
+								<figcaption>
+									<p class="catalog_punkt_t">
+										<a href="card.html" target="_blank">Фотообои кафе на улице</a>
+									</p>
+									<p class="catalog_punkt_b">от 748грн м2</p>
+								</figcaption>
+							</div>
+
+						</div>
+
+				</div>
+			</section>
+
+			<section class="main-block stuff-contacts_block">
+				<div class="center-main-block">
+
+					<h4>Добавить отзыв</h4>
+					<p>Оставьте, пожалуйста, свой отзыв. Ваши отзывы и рекомендации очень важны для нас и помогают нам повышать качество обслуживания</p>
+					<form class="photo_form" onsubmit="return event.preventDefault()">
+						<div class="photo_form_item">
+							<input type="text" placeholder="Имя">
+						</div>
+						<div class="photo_form_item">
+							<input type="tel" placeholder="Телефон">
+						</div>
+						<div class="photo_form_item">
+							<input type="email" placeholder="Email">
+						</div>
+						<div class="photo_form_item photo_form_item-full">
+							<textarea placeholder="Ваш комментарий"></textarea>
+						</div>
+						<div class="photo_form_item photo_form_item-submit">
+							<div class="stars_container">
+								<div class="stars_text">Ваша оценка</div>
+								<div class="stars_box">
+									<div class="stars_item">
+										<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#CAC3C1"/>
+										</svg>
+									</div>
+									<div class="stars_item">
+										<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#CAC3C1"/>
+										</svg>
+									</div>
+									<div class="stars_item">
+										<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#CAC3C1"/>
+										</svg>
+									</div>
+									<div class="stars_item">
+										<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#CAC3C1"/>
+										</svg>
+									</div>
+									<div class="stars_item">
+										<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#CAC3C1"/>
+										</svg>
+									</div>
+								</div>
+							</div>
+							<input type="submit" class="button_submit click-item"  data-action="popup-open" data-label="#popup-contacts" value="Отправить">
+						</div>
+						<div class="photo_form_item photo_form_item-full photo_form_item-other">
+							<a target="_blank">Читать отзывы наших клиентов</a>
+						</div>
+					</form>
 
 				</div>
 			</section>

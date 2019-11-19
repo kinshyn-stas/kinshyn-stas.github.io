@@ -47,6 +47,9 @@ window.onload = function(){
 
 	toggleAsideElasticBlock();
 	window.addEventListener('resize',toggleAsideElasticBlock);
+
+
+	document.addEventListener('mouseover',handlerStarsHover);
 };
 
 
@@ -587,6 +590,22 @@ function clickItemHandler(event){
 			select.querySelector('.select_option.default').add('selected');
 		},
 
+		'change_stuff-image': function(target){
+			target.closest('.click-obj').querySelectorAll('.click-item').forEach(item => item.classList.remove('actual'));
+			target.classList.add('actual');
+		},
+
+		'change-size': function(target){
+			let input = target.closest('.stuff_form_size_item').querySelector('input');
+			let direction = target.dataset.direction;
+
+			if(direction == 'top' || direction == 'right'){
+				input.value++;
+			} else {
+				input.value--;
+			}
+		},
+
 		'popup-open': function(target){
 			document.querySelector(target.dataset.label).classList.add('active');
 		},
@@ -787,4 +806,19 @@ function togglePartForm(event){
 	});
 
 	target.closest('.tekstura_item').querySelector('.tekstura_description').classList.add('active');
+};
+
+
+function handlerStarsHover(event){
+	if(!event.target.closest('.stars_item')) return;
+	let target = event.target.closest('.stars_item');
+	let box = target.closest('.stars_box');
+	let stars = box.querySelectorAll('.stars_item');
+
+	stars.forEach(item => item.classList.remove('active'));
+
+	for(let i=0; i<stars.length - 1; i++){
+		stars[i].classList.add('active');
+		if(stars[i] === target) break;
+	}
 };
