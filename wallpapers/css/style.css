@@ -1472,14 +1472,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     border: 1px solid #E0E0E0;
 }
 .input_emulator-file input{
-    position: absolute;
-    z-index: -1;
-	width: 0.1px;
-	height: 0.1px;
-	padding: 0;
-	border: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
 	opacity: 0;
-    overflow: hidden;
 }
 .input_emulator-file label{
 	position: relative;

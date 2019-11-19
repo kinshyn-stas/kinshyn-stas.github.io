@@ -693,40 +693,6 @@ class inputFileEmulator{
 			let input = box.querySelector('input');
 			let label = box.querySelector('label');
 
-			['dragenter','dragover', 'dragleave', 'drop'].forEach(eventName => label.addEventListener(eventName, ()=>event.preventDefault(), false));
-
-			['dragenter','dragover'].forEach(eventName => label.addEventListener(eventName, () => label.classList.add('highlight'), false));
-			['dragleave', 'drop'].forEach(eventName => label.addEventListener(eventName, () => label.classList.remove('highlight'), false));
-
-			label.addEventListener('drop', (e) => {
-				let dt = e.dataTransfer;
-				let files = dt.files;
-
-				handleFiles(files);
-
-				function handleFiles(files){
-					([...files]).forEach(uploadFile);
-				}
-
-				function uploadFile(file){
-					let url = 'ВАШ URL ДЛЯ ЗАГРУЗКИ ФАЙЛОВ';
-					let formData = new FormData();
-
-					formData.append('file', file);
-
-					fetch(url, {
-						method: `POST`,
-						body: formData
-					})
-					.then(() => {
-						console.log('test1')
-					})
-					.catch(() => {
-						console.log('test2')
-					})
-				}
-			}, false)
-
 			input.addEventListener('change', function(e){
 				let fileName = '';
 
