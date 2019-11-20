@@ -2936,15 +2936,6 @@ body .main .tal{
 	width: 100%;
 	padding-right: 46px;
 }
-/*.input_emulator-date input[type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-.input_emulator-date input[type="date"]::-webkit-clear-button{
-	display: none;
-}
-.input_emulator-date input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}*/
 .input_emulator-date svg{
 	position: absolute;
 	top: 50%;
@@ -2952,6 +2943,12 @@ body .main .tal{
 	z-index: 10;
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
+}
+.input_emulator-date:hover svg path{
+	fill-opacity: 1!important;
+	fill: #3E61AC!important;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 
 .input_emulator-file{
@@ -2993,6 +2990,12 @@ body .main .tal{
 	z-index: 10;
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
+}
+.input_emulator-file:hover svg path{
+	fill-opacity: 1!important;
+	fill: #3E61AC!important;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 
 .form_box-v4{}
