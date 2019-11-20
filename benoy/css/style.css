@@ -1864,8 +1864,6 @@ input[type=checkbox]:checked+.decision_form_sq:before{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 50px;
-	/*flex-direction: column;
-	justify-content: space-between;*/
 	width: calc(50% - 20px);
 	min-height: 290px;
 	margin-bottom: 40px;
@@ -1879,11 +1877,15 @@ input[type=checkbox]:checked+.decision_form_sq:before{
 	position: relative;
 	padding-top: 106px;
 }
+.product_box.reverse .product_logo{
+	grid-column: 2/3;
+	grid-row: 1/2;	
+}
 .product_logo img{
 	position: absolute;
-    top: 60%;
+    top: 96px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-100%);
 }
 .product_logo figcaption{
 	font-size: 16px;
@@ -1919,8 +1921,8 @@ input[type=checkbox]:checked+.decision_form_sq:before{
     transform: translateY(-50%);
 }
 .product_box.reverse .product_text{
-	left: -100%;
-	right: auto;
+	grid-column: 1/2;
+	grid-row: 1/3;
 }
 .product_box.reverse .product_text:before{
     left: auto;
@@ -1938,6 +1940,10 @@ input[type=checkbox]:checked+.decision_form_sq:before{
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	border-top: 1px solid #E2E2E2;
+}
+.product_box.reverse .product_link_box{
+	grid-column: 2/3;
+	grid-row: 2/3;	
 }
 .product_link{
 	color: #0D8288;
@@ -2953,22 +2959,7 @@ h2+.diamond_box{
 		left: 185px;
 	}
 	.product_box{
-		width: 50%;
-		margin-right: 50%;
-	}
-	.product_box.reverse{
-		margin-left: 0;
-		margin-right: 50%;
-	}
-	.product_box.reverse .product_text{
-		left: auto;
-		right: -100%;
-	}
-	.product_box.reverse .product_text:before{
-		left: -12px;
-	    right: auto;
-	    border-left: none;
-	    border-right: 15px solid #ffffff;
+		width: 100%;
 	}
 }
 @media screen and (max-width: 1100px){
@@ -3720,29 +3711,38 @@ h2+.diamond_box{
 		padding: 0 0 30px;
 	}
 	.product_box{
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
 		width: 100%;
-		margin-right: 0;
 		margin-bottom: 20px;
 	}
-	.product_box.reverse{
-		margin-right: 0;
-	}
-	.product_logo{
+	.product_logo,
+	.product_box.reverse .product_logo{
+		grid-column: 1/2;
+		grid-row: 1/2;
 		padding-top: 84px;
 	}
 	.product_logo img{
-		top: 50%;
+		top: 74px;
 	}
-	.product_text{
-		position: static;
+	.product_text,
+	.product_box.reverse .product_text{
+		grid-column: 1/2;
+		grid-row: 2/3;
 		padding: 21px 20px 30px;
 		background-color: transparent;
 		font-size: 14px;
 		line-height: 1.8;
+		text-align: center;
 		border: none;
 	}
 	.product_text:before{
 		display: none;
+	}
+	.product_link_box,
+	.product_box.reverse .product_link_box{		
+		grid-column: 1/2;
+		grid-row: 3/4;
 	}
 	.services_block{
 		padding: 0 0 10px;
