@@ -6,6 +6,7 @@ window.onload = function(){
 		selector: '.offers_slider',
 		infinity: true,
 		navigationDotters: true,
+		autoShift: true,
 	});
 
 	new classMultiplyWrapper(Slider, {
@@ -17,7 +18,7 @@ window.onload = function(){
 			desktop: 7,
 			multiShift: true,
 		},
-		//slideClickRewind: true,
+		slideClickRewind: true,
 		moveTime: 0.5,
 	});
 
@@ -69,15 +70,16 @@ function classMultiplyWrapper(Cls,parametrs){
 
 class Slider{
 	constructor(params){
-		this.container = params.item;
 		this.params = params;
+		this.container = params.item;
 		params.moveTime ? (this.moveTime = params.moveTime) : (this.moveTime = 0.4);
 		this.createSliderBox();
-		if(this.params.navigationDotters) this.createSliderNavigationDotters();
+		if(this.params.navigationDotters && !this.params.multiDisplay) this.createSliderNavigationDotters();
 		this.prepare();
 		if(this.params.navigationArrows) this.createSliderNavigationArrows();
-		if(this.params.navigationCounter) this.createSliderNavigationCounter();
+		if(this.params.navigationCounter && !this.params.multiDisplay) this.createSliderNavigationCounter();
 		if(this.params.slideClickRewind) this.prepareSlidesOnclick();
+		if(this.params.autoShift) this.changeSlidesAutomaticaly();
 			
 
 		this.box.addEventListener('mousedown',this.mouseFlip.bind(this));
@@ -92,9 +94,9 @@ class Slider{
 		this.slideOnScreen = 1;
 		if(this.params.multiDisplay){
 			let w = document.body.offsetWidth;
-			if(w>0 && w<=700){
+			if(w>0 && w<=768){
 				this.slideOnScreen = this.params.multiDisplay.mobile;
-			} else if(w>700 && w<=1100){
+			} else if(w>768 && w<=1100){
 				this.slideOnScreen = this.params.multiDisplay.touch;
 			} else {
 				this.slideOnScreen = this.params.multiDisplay.desktop;
@@ -193,39 +195,43 @@ class Slider{
 		this.container.append(slider_nav);
 	}
 
+	changeSlidesAutomaticaly(){
+		this.autoShift = setInterval(()=>{
+			this.slideMove({direction: 'right'});
+		}, this.moveTime * 20000);
+	}
+
 	extendSlides(){
 		this.boxWidth = this.box.offsetWidth/this.slideOnScreen;
+		let d = this.boxWidth;
+		let marginRight = 0;
 
-		if(this.params.multiDisplay && this.params.multiDisplay.marginRight){
-			let marginRight;
-			let w = document.body.offsetWidth 
-			if(w>0 && w<=700){
-				marginRight = this.params.multiDisplay.marginRight.mobile;
-			} else if(w>700 && w<=1100){
-				marginRight = this.params.multiDisplay.marginRight.touch;
-			} else {
-				marginRight = this.params.multiDisplay.marginRight.desktop;
+		if(this.params.multiDisplay){
+			if(this.params.multiDisplay.marginRight){
+				let w = document.body.offsetWidth 
+				if(w>0 && w<=700){
+					marginRight = this.params.multiDisplay.marginRight.mobile;
+				} else if(w>700 && w<=1100){
+					marginRight = this.params.multiDisplay.marginRight.touch;
+				} else {
+					marginRight = this.params.multiDisplay.marginRight.desktop;
+				}
 			}
 
-			this.sliders.forEach((slide,i,arr)=>{
-				let d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;	
-				slide.style.width = `${d}px`;
-				slide.style.minWidth = `${d}px`;
-				if((i + 1) % this.slideOnScreen) slide.style.marginRight = `${marginRight}px`;
-			});			
-		} else {
-			this.sliders.forEach((slide,i,arr)=>{	
-				slide.style.width = `${this.boxWidth}px`;
-				slide.style.minWidth = `${this.boxWidth}px`;
-			});
+			d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;		
 		}
 
 		this.sliders.forEach((slide,i,arr)=>{	
+			slide.style.width = `${d}px`;
+			slide.style.minWidth = `${d}px`;
 			slide.dataset.number = i;
+			if((i + 1) % this.slideOnScreen) slide.style.marginRight = `${marginRight}px`;
 		});
 	}
 
 	slideAll(callback){
+		if(this.flagBlock) return;
+		this.flagBlock = true;
 		let n = 0;
 
 		this.sliders.forEach((slide,i,arr)=>{
@@ -255,7 +261,10 @@ class Slider{
 			this.emulSlides[n].classList.add('active');	
 		}
 
-		if(callback) setTimeout(callback, this.moveTime * 1000);
+		setTimeout(() => {
+			this.flagBlock = false;
+			if(callback) callback();
+		}, this.moveTime * 1000);		
 	}
 
 	slideMove(params){
@@ -314,7 +323,6 @@ class Slider{
 			})	
 		}
 	}
-
 
 	infinitySlideWork(){
 		if(this.activeSlider > this.sliders.length - this.slideOnScreen){
@@ -376,32 +384,43 @@ class Slider{
 	}
 
 	prepareSlidesOnclick(){
-		this.container.addEventListener('click', func.bind(this));
+		/*this.container.addEventListener('click', func.bind(this));
 
 		function func(event){
 			if(!event.target.closest('.slider_slide')) return;
 			let slide = event.target.closest('.slider_slide');
+			let number = +slide.dataset.number
 
 			this.sliders.forEach(slide => slide.classList.remove('active'));
 
 			if(this.params.infinity){
-				console.log(this.activeSlider);
-				let n = this.activeSlider - Math.floor(this.slideOnScreen / 2);
+				console.log('activeSlider: ' + this.activeSlider);
+				console.log('number: ' + number);
+				let n = number - Math.floor(this.slideOnScreen/2);
+				if(n>=this.sliders.length){
+					console.log('t1');
+					n = 0;
+				} else if(n<0){
+					console.log('t2');
+					n = this.sliders.length + n - Math.floor(this.slideOnScreen/2);
+				}
 
 
-				console.log(n);
+				console.log('n: ' + n);
 
-				this.installActiveSlider(n);
-				this.infinitySlideWork();
+
+				for(let i = 0; i< n - this.activeSlider; i++){
+					this.installActiveSlider(this.activeSlider + 1);
+					this.infinitySlideWork();``
+				}
 			} else {
 				let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
 				if(n<=0) n = 0;
-
-				this.sliders[n].classList.add('active');
+				if(n>= this.slider.length) n = this.slider.length - 1;
 			
-				this.slideAll();					
+				this.slideMove({counter : n});					
 			}
-		}
+		}*/
 	}
 
 	mouseFlip(event){
@@ -446,9 +465,6 @@ class Slider{
 		let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
-		let touchPointStartY = event.changedTouches['0'].screenY;
-		let touchPointCurrentY = 0;
-		//this.touchBlockFlag = false;
 
 		let touchMoveBinded = touchMove.bind(this);
 		function touchMove(event){
@@ -459,20 +475,17 @@ class Slider{
 				event.preventDefault();
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
-				//this.touchBlockFlag = true;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
 				event.preventDefault();
 				this.slideMove({direction: 'right'});
 				touchPointStart = touchPointCurrent;
-				//this.touchBlockFlag = true;
 				touchEnd.call(this,event);				
 			}
 
   		}
 
 		function touchEnd(event){
-	    	//if(!this.touchBlockFlag) return;
 	    	event.preventDefault();
 			this.box.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
@@ -938,6 +951,7 @@ function emulateSelector(select){
 		}
 	}
 // calendar end
+
 
 class inputFileEmulator{
 	constructor(selector){
