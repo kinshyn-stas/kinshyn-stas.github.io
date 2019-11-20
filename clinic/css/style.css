@@ -3422,7 +3422,7 @@ body .main .tal{
 	position: absolute;
 	left: 8px;
 	bottom: 0;
-	width: 100%;
+	width: calc(100% - 16px);
 	height: 1px;
 	background-color: #CDE6F7;
 }
