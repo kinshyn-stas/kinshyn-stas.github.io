@@ -565,14 +565,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	padding: 24px 16px 24px 24px;
 }
 .logo{
-	width: 124px;
-	height: 30px;
-	font-size: 22px;
-	font-weight: 500;
-	line-height: 30px;
+	position: relative;
+	width: 224px;
+	height: 56px;
+	margin: -13px 0;
 }
-.logo span{
-	display: block;
+.logo-m{
+	display: none;
+
 }
 .aside-main_buttons{
 	display: none;
@@ -790,6 +790,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.aside-main_part-3 .button_container{
 		padding: 0 8px 8px;
 		margin-top: 0;
+	}
+}
+@media screen and (max-width: 768px){
+	.logo{
+		width: 56px;
+	}
+	.logo-d{
+		display: none;
+	}
+	.logo-m{
+		display: block;
 	}
 }
 
