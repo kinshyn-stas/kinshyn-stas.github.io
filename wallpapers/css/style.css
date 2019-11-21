@@ -2132,6 +2132,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 }
 @media (max-width: 768px){
+	.tekstura_container{
+		margin-bottom: 56px;
+	}
 	.catalog_panel_box-tekstura{
 		margin-top: 0;
 	}
@@ -2142,6 +2145,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding-right: 0;
 	}
 	.tekstura_row-title{
+		margin-top: 24px;
 		margin-bottom: 16px; 
 	}
 	.tekstura_row-white{
@@ -2156,6 +2160,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.tekstura_description_title{
 		display: none;
+	}
+}
+@media (max-width: 360px){
+	.tekstura_container{
+		font-size: 12px;
+	}
+	.tekstura_cell:nth-of-type(2),
+	.tekstura_cell:nth-of-type(3){
+		width: 80px;
+		min-width: 80px;
+	}
+	.tekstura_row-title .tekstura_cell:nth-of-type(3){
+		width: 100px;
+		min-width: 100px;
 	}
 }
 
