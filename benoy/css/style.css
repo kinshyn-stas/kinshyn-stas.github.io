@@ -1180,6 +1180,8 @@ input:placeholder{
 }
 .partners_logo img{
 	display: block;
+    max-width: 80%;
+	max-height: 50%;
 }
 
 
