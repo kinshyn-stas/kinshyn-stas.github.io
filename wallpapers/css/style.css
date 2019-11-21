@@ -1200,6 +1200,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-bottom: 0;
 }
 .catalog_punkt_t{}
+.catalog_punkt_m{
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21px;
+	text-align: center;
+}
 .catalog_punkt_b{
 	color: #959595;
 }
@@ -1219,6 +1225,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 }
 @media (max-width: 768px){
+	.catalog_container-cat{
+		margin-bottom: 16px;
+	}
 	.catalog_container-cat .catalog_container_top{
 		margin-bottom: 24px;
 	}
