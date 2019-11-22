@@ -188,6 +188,7 @@ class Slider{
 			slider_nav.append(butt);
 			
 			function func(){
+				clearInterval(this.autoShift);
 				return this.slideMove({counter: butt.dataset.number});
 			}
 		});
@@ -432,6 +433,7 @@ class Slider{
 		let mouseMoveBinded = mouseMove.bind(this);
 		function mouseMove(event){
 			event.preventDefault();
+			clearInterval(this.autoShift);
 			mousePointCurrent = event.clientX;
 			let m = (mousePointCurrent - mousePointStart);
 			x.style.transform = `translateX(${this.boxShift + m}px)`;
@@ -473,11 +475,13 @@ class Slider{
 
 			if(m >= document.body.offsetWidth/4){
 				event.preventDefault();
+				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
 				event.preventDefault();
+				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
 				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);				
