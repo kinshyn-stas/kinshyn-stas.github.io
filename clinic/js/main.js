@@ -604,8 +604,11 @@ function clickItemHandler(event){
 			let box = target.closest('.documents_list');
 			let item = target.closest('.documents_list_item');
 
+			let flag = false;
+			if(item.classList.contains('active')) flag = true;
+
 			box.querySelectorAll('.documents_list_item').forEach(t => t.classList.remove('active'));
-			item.classList.add('active');
+			if(!flag) item.classList.add('active');
 		},
 
 		'change-tab': function(target){
