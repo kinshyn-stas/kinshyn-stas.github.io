@@ -57,6 +57,9 @@ window.onload = function(){
 
 
 	countTextareaSybmols('.textarea-count');
+
+
+	document.addEventListener('keydown',focusSearch)
 };
 
 
@@ -1014,4 +1017,38 @@ function togglePartForm(event){
 	document.querySelectorAll(`.change-item[name=${name}]`).forEach(item => {
 		if(item.dataset.label) document.querySelectorAll(item.dataset.label).forEach(t => t.hidden = !item.checked);
 	});
+};
+
+
+function focusSearch(event){
+	if(!event.target.closest('#search')) return;
+	
+	let input = event.target.closest('#search');
+
+	let box = input.closest('.search_box');
+
+	let list = box.querySelector('.search_list');
+	list.classList.add('active');
+
+	let words = ['Search', 'SEO', 'Seagul', 'Send'];
+
+	list.querySelectorAll('.search_list_item').forEach(item => item.remove());
+
+	words.forEach(word => {
+		let item = document.createElement('div');
+		item.classList = 'search_list_item';
+		item.textContent = word;
+		item.onclick = ()=>{
+			input.value = word;
+			list.classList.remove('active');
+		}
+		list.append(item);
+	})
+
+	box.append(list);
+
+	box.setAttribute('tabindex','1');
+	box.onblur = function(){
+		list.classList.remove('active');
+	};
 };
