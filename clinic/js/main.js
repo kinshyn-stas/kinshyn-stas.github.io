@@ -10,6 +10,13 @@ window.onload = function(){
 	});
 
 	new classMultiplyWrapper(Slider, {
+		selector: '.test_slider',
+		//infinity: true,
+		//navigationDotters: true,
+		//autoShift: true,
+	});
+
+	new classMultiplyWrapper(Slider, {
 		selector: '.specialists_slider',
 		infinity: true,
 		multiDisplay: {
