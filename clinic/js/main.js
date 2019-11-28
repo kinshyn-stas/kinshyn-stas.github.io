@@ -469,7 +469,6 @@ class Slider{
 
 	touchFlip(event){
 		console.log('touch1');
-		event.preventDefault();
 		let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
@@ -484,31 +483,32 @@ class Slider{
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
-				//touchPointStart = touchPointCurrent;
+				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
 				console.log('touch2r');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
-				//touchPointStart = touchPointCurrent;
+				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);		
 			}
 
   		}
 
 		function touchEnd(event){
+			console.log('touch3');
 	    	event.preventDefault();
 			this.box.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
-			x.style.transform = `translateX(${this.boxShift}px)`;
-			x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
+			//x.style.transform = `translateX(${this.boxShift}px)`;
+			//x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
 		this.box.addEventListener('touchmove', touchMoveBinded);
-		//this.box.addEventListener('touchend', touchEnd.bind(this));
-		//this.box.addEventListener('touchcancel', touchEnd.bind(this));
+		this.box.addEventListener('touchend', touchEnd.bind(this));
+		this.box.addEventListener('touchcancel', touchEnd.bind(this));
 	}
 };
 
