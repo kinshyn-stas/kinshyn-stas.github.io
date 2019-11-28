@@ -12,12 +12,12 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.specialist_slider',
 		infinity: true,
-		multiDisplay: {
+		/*multiDisplay: {
 			mobile: 1,
 			touch: 3,
 			desktop: 7,
 			multiShift: true,
-		},
+		},*/
 		//slideClickRewind: true,
 		//moveTime: 0.5,
 	});
