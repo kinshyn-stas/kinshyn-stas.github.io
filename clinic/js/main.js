@@ -507,8 +507,8 @@ class Slider{
 		}
 
 		this.box.addEventListener('touchmove', touchMoveBinded);
-		this.box.addEventListener('touchend', touchEnd.bind(this));
-		this.box.addEventListener('touchcancel', touchEnd.bind(this));
+		//this.box.addEventListener('touchend', touchEnd.bind(this));
+		//this.box.addEventListener('touchcancel', touchEnd.bind(this));
 	}
 };
 
