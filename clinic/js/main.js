@@ -5,15 +5,8 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
 		infinity: true,
-		navigationDotters: true,
+		//navigationDotters: true,
 		autoShift: true,
-		multiDisplay: {
-			mobile: 1,
-			touch: 1,
-			desktop: 1,
-			multiShift: false,
-		},
-		moveTime: 0.5,
 	});
 
 	new classMultiplyWrapper(Slider, {
@@ -257,7 +250,7 @@ class Slider{
 		if(n == 0) this.sliders[0].classList.add('active');
 		if(n >= this.sliders.length) n = this.sliders.length - 1;
 
-		if(this.params.navigationDotters){
+		if(this.params.navigationDotters && !this.params.multiDisplay){
 			this.butts.forEach((butt,i,arr)=>{
 				butt.classList.remove('active');
 				if(i==n) butt.classList.add('active');
