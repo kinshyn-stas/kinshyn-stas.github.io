@@ -468,6 +468,7 @@ class Slider{
 	}
 
 	touchFlip(event){
+		console.log('touch1');
 		let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
@@ -478,12 +479,14 @@ class Slider{
 	    	let m = touchPointCurrent - touchPointStart;
 
 			if(m >= document.body.offsetWidth/4){
+				console.log('touch2l');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
+				console.log('touch2r');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
