@@ -1120,7 +1120,7 @@ body .main .tal{
 	background-color: #ffffff;
 }
 .offers_slide{
-	display: flex;
+	/*display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 568px;
@@ -1128,7 +1128,7 @@ body .main .tal{
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding: 67px 128px 64px;
+	padding: 67px 128px 64px;*/
 }
 .offers_slide_top{}
 .offers_slide_logo{
