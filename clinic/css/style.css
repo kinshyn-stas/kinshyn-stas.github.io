@@ -1120,7 +1120,7 @@ body .main .tal{
 	background-color: #ffffff;
 }
 .offers_slide{
-	/*display: flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 568px;
@@ -1128,7 +1128,7 @@ body .main .tal{
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding: 67px 128px 64px;*/
+	padding: 67px 128px 64px;
 }
 .offers_slide_top{}
 .offers_slide_logo{
@@ -1152,14 +1152,14 @@ body .main .tal{
 }
 @media screen and (max-width: 768px){	
 	.offers_slide{
-		/*min-height: 440px;
+		min-height: 440px;
 		padding: 24px 16px 65px;
-		text-align: center;*/
+		text-align: center;
 	}
 	.offers_slide_logo{
-		/*display: inline-block;
+		display: inline-block;
 		width: 144px;
-		margin-bottom: 24px;*/
+		margin-bottom: 24px;
 	}
 	.offers_slide_title{
 		text-align: left;
