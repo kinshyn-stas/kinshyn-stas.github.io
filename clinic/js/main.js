@@ -483,15 +483,16 @@ class Slider{
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
-				touchPointStart = touchPointCurrent;
+				//touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
 				console.log('touch2r');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
-				touchPointStart = touchPointCurrent;
-				touchEnd.call(this,event);				
+				//touchPointStart = touchPointCurrent;
+				touchEnd.call(this,event);		
+				console.log(-document.body.offsetWidth/4);		
 			}
 
   		}
