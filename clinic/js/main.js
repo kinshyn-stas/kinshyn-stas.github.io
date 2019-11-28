@@ -4,9 +4,9 @@ window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
-		infinity: true,
+		//infinity: true,
 		//navigationDotters: true,
-		autoShift: true,
+		//autoShift: true,
 	});
 
 	new classMultiplyWrapper(Slider, {
