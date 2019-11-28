@@ -5,6 +5,12 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
 		infinity: true,
+		multiDisplay: {
+			mobile: 1,
+			touch: 1,
+			desktop: 1,
+			multiShift: true,
+		},
 		//navigationDotters: true,
 		//autoShift: true,
 	});
