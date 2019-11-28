@@ -4,22 +4,9 @@ window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
-		//infinity: true,
-		//navigationDotters: true,
-		//autoShift: true,
-	});
-
-	new classMultiplyWrapper(Slider, {
-		selector: '.test_slider',
 		infinity: true,
 		//navigationDotters: true,
 		//autoShift: true,
-		multiDisplay: {
-			mobile: 1,
-			touch: 1,
-			desktop: 1,
-			multiShift: true,
-		},
 	});
 
 	new classMultiplyWrapper(Slider, {
@@ -285,6 +272,7 @@ class Slider{
 	}
 
 	slideMove(params){
+		console.log(params);
 		this.installActiveSlider();
 
 		if(this.params.multiDisplay && this.params.multiDisplay.multiShift){
