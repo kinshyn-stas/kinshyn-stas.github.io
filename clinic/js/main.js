@@ -7,8 +7,8 @@ window.onload = function(){
 		infinity: true,
 		multiDisplay: {
 			mobile: 1,
-			touch: 1,
-			desktop: 1,
+			touch: 2,
+			desktop: 3,
 			multiShift: true,
 		},
 		//navigationDotters: true,
