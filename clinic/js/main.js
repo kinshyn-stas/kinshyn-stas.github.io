@@ -499,7 +499,7 @@ class Slider{
 		function touchEnd(event){
 			console.log('touch3');
 	    	event.preventDefault();
-			//this.box.removeEventListener('touchmove', touchMoveBinded);
+			this.box.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
 			//x.style.transform = `translateX(${this.boxShift}px)`;
