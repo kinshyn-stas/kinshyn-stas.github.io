@@ -7,6 +7,13 @@ window.onload = function(){
 		infinity: true,
 		navigationDotters: true,
 		autoShift: true,
+		multiDisplay: {
+			mobile: 1,
+			touch: 1,
+			desktop: 1,
+			multiShift: false,
+		},
+		moveTime: 0.5,
 	});
 
 	new classMultiplyWrapper(Slider, {
