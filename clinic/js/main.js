@@ -5,12 +5,6 @@ window.onload = function(){
 	new classMultiplyWrapper(Slider, {
 		selector: '.offers_slider',
 		infinity: true,
-		multiDisplay: {
-			mobile: 1,
-			touch: 2,
-			desktop: 3,
-			multiShift: true,
-		},
 		//navigationDotters: true,
 		//autoShift: true,
 	});
@@ -475,6 +469,7 @@ class Slider{
 
 	touchFlip(event){
 		console.log('touch1');
+		event.preventDefault();
 		let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
@@ -498,7 +493,6 @@ class Slider{
 				this.slideMove({direction: 'right'});
 				//touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);		
-				console.log(-document.body.offsetWidth/4);		
 			}
 
   		}
