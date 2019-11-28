@@ -241,7 +241,7 @@ class Slider{
 	}
 
 	slideAll(callback){
-		if(this.flagBlock) return;
+		//if(this.flagBlock) return;
 		this.flagBlock = true;
 		let n = 0;
 
