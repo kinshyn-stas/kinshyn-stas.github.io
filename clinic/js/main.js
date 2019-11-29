@@ -10,19 +10,6 @@ window.onload = function(){
 	});
 
 	new classMultiplyWrapper(Slider, {
-		selector: '.specialist_slider',
-		infinity: true,
-		/*multiDisplay: {
-			mobile: 1,
-			touch: 3,
-			desktop: 7,
-			multiShift: true,
-		},*/
-		//slideClickRewind: true,
-		//moveTime: 0.5,
-	});
-
-	new classMultiplyWrapper(Slider, {
 		selector: '.specialists_slider',
 		infinity: true,
 		multiDisplay: {
