@@ -135,20 +135,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 #c1{
 	display: block;
-	width: 400px;
-	height: 200px;
+	width: 100vw;
+	height: 100vh;
 	max-width: 100%;
-	margin: 60px auto;
 	background-color: #ffffff;
-	border: 3px solid green;
-}
-
-#c2{
-	display: block;
-	width: 600px;
-	height: 600px;
-	max-width: 100%;
-	margin: 60px auto;
-	background-color: #ffffff;
-	border: 3px solid green;
 }
