@@ -98,8 +98,8 @@ class Slider{
 		if(this.params.autoShift) this.changeSlidesAutomaticaly();
 			
 
-		this.box.addEventListener('mousedown',this.mouseFlip.bind(this));
-		this.box.addEventListener("touchstart", this.touchFlip.bind(this));
+		this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
+		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
 
 		window.addEventListener('resize', this.prepare.bind(this));
 	}
@@ -469,15 +469,15 @@ class Slider{
 
 		function mouseUp(event){
 			event.preventDefault();
-			this.box.removeEventListener('mousemove', mouseMoveBinded);
+			this.container.removeEventListener('mousemove', mouseMoveBinded);
 			mousePointStart = 0;
 			mousePointCurrent = 0;
 			x.style.transform = `translateX(${this.boxShift}px)`;
 			x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
-		this.box.addEventListener('mousemove', mouseMoveBinded);
-		this.box.addEventListener('mouseup', mouseUp.bind(this));
+		this.container.addEventListener('mousemove', mouseMoveBinded);
+		this.container.addEventListener('mouseup', mouseUp.bind(this));
 	}
 
 	touchFlip(event){
@@ -512,16 +512,16 @@ class Slider{
 		function touchEnd(event){
 			console.log('touch3');
 	    	event.preventDefault();
-			this.box.removeEventListener('touchmove', touchMoveBinded);
+			this.container.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
 			//x.style.transform = `translateX(${this.boxShift}px)`;
 			//x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
-		this.box.addEventListener('touchmove', touchMoveBinded);
-		this.box.addEventListener('touchend', touchEnd.bind(this));
-		this.box.addEventListener('touchcancel', touchEnd.bind(this));
+		this.container.addEventListener('touchmove', touchMoveBinded);
+		this.container.addEventListener('touchend', touchEnd.bind(this));
+		this.container.addEventListener('touchcancel', touchEnd.bind(this));
 	}
 };
 
