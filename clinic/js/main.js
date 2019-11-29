@@ -184,17 +184,19 @@ class Slider{
 			slider_nav_butt.style.transition = `all ${this.moveTime} ease-in-out`;
 			slider_nav_butt.dataset.number = i;
 			this.butts.push(slider_nav_butt);
+			slider_nav.append(slider_nav_butt);
 		}
 
-		this.butts.forEach((butt,i,arr)=>{
-			butt.addEventListener('click',func.bind(this));
-			slider_nav.append(butt);
-			
-			function func(){
-				clearInterval(this.autoShift);
-				return this.slideMove({counter: butt.dataset.number});
-			}
-		});
+		this.container.addEventListener('click',func.bind(this));
+		this.container.addEventListener('touchstart',func.bind(this));
+
+		function func(event){
+			if(!event.target.closest('.slider_nav_butt')) return;
+			let butt = event.target.closest('.slider_nav_butt');
+
+			clearInterval(this.autoShift);
+			return this.slideMove({counter: butt.dataset.number});
+		}
 
 		this.container.append(slider_nav);
 	}
