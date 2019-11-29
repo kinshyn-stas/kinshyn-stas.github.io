@@ -1240,7 +1240,7 @@ body .main .tal{
 	-webkit-transition: all 0.2s ease-in-out;
 }
 .specialists_slide figure img{
-	/*position: absolute;
+	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 10;
@@ -1252,7 +1252,7 @@ body .main .tal{
 	object-position: center;
 	border-radius: 16px;
 	transition: all 0.1s ease-in-out;
-	-webkit-transition: all 0.1s ease-in-out;*/
+	-webkit-transition: all 0.1s ease-in-out;
 }
 .specialists_slide figcaption{
 	padding: 24px 0 13px;
