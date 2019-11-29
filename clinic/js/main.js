@@ -250,7 +250,7 @@ class Slider{
 		if(n == 0) this.sliders[0].classList.add('active');
 		if(n >= this.sliders.length) n = this.sliders.length - 1;
 
-		if(this.params.navigationDotters && !this.params.multiDisplay){
+		if(this.params.navigationDotters){
 			this.butts.forEach((butt,i,arr)=>{
 				butt.classList.remove('active');
 				if(i==n) butt.classList.add('active');
@@ -272,7 +272,6 @@ class Slider{
 	}
 
 	slideMove(params){
-		console.log(params);
 		this.installActiveSlider();
 
 		if(this.params.multiDisplay && this.params.multiDisplay.multiShift){
@@ -430,7 +429,7 @@ class Slider{
 
 	mouseFlip(event){
 		event.preventDefault();
-		let x = this.box;		
+		//let x = this.box;		
 		let mousePointStart = event.clientX;
 		let mousePointCurrent = 0;
 
@@ -440,8 +439,8 @@ class Slider{
 			clearInterval(this.autoShift);
 			mousePointCurrent = event.clientX;
 			let m = (mousePointCurrent - mousePointStart);
-			x.style.transform = `translateX(${this.boxShift + m}px)`;
-			x.style.webkiteTransform = `translateX(${this.boxShift + m}px)`;
+			//x.style.transform = `translateX(${this.boxShift + m}px)`;
+			//x.style.webkiteTransform = `translateX(${this.boxShift + m}px)`;
 
 			if(m < -document.body.offsetWidth/4){
 				this.slideMove({direction: 'right'});
@@ -459,8 +458,8 @@ class Slider{
 			this.container.removeEventListener('mousemove', mouseMoveBinded);
 			mousePointStart = 0;
 			mousePointCurrent = 0;
-			x.style.transform = `translateX(${this.boxShift}px)`;
-			x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
+			//x.style.transform = `translateX(${this.boxShift}px)`;
+			//x.style.webkiteTransform = `translateX(${this.boxShift}px)`;
 		}
 
 		this.container.addEventListener('mousemove', mouseMoveBinded);
@@ -468,8 +467,7 @@ class Slider{
 	}
 
 	touchFlip(event){
-		console.log('touch1');
-		let x = this.box;		
+		//let x = this.box;		
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
 
@@ -479,14 +477,12 @@ class Slider{
 	    	let m = touchPointCurrent - touchPointStart;
 
 			if(m >= document.body.offsetWidth/4){
-				console.log('touch2l');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
 				touchEnd.call(this,event);
 			} else if(m <= -document.body.offsetWidth/4){
-				console.log('touch2r');
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
@@ -497,7 +493,6 @@ class Slider{
   		}
 
 		function touchEnd(event){
-			console.log('touch3');
 	    	event.preventDefault();
 			this.container.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
