@@ -13,7 +13,7 @@ window.addEventListener('resize',() => changeCanvasSize('c1'));*/
 
 
 function drawContour(){
-	let w = canvas.width;
+	/*let w = canvas.width;
 	let h = canvas.height;
 	let c = 10;
 
@@ -74,10 +74,10 @@ function drawContour(){
 	}
 
 
-	ctx.stroke();
+	ctx.stroke();*/
 
 
-	/*let obj = {
+	let obj = {
 		x1 : 0,
 		y1 : 0,
 		x2 : 0,
@@ -102,8 +102,10 @@ function drawContour(){
 		ctx.clearRect(0,0,1000,1000);
 		ctx.beginPath();
 		ctx.moveTo(10,10);
-		ctx.bezierCurveTo(obj.x1,obj.y1,obj.x2,obj.y2,100,100);
-		ctx.bezierCurveTo(obj.x3,obj.y3,obj.x4,obj.y4,200,200);
+		ctx.quadraticCurveTo(obj.x1,obj.y1,obj.x2,obj.y2);
+		ctx.quadraticCurveTo(obj.x3,obj.y3,obj.x4,obj.y4);
+		//ctx.bezierCurveTo(obj.x1,obj.y1,obj.x2,obj.y2,100,100);
+		//ctx.bezierCurveTo(obj.x3,obj.y3,obj.x4,obj.y4,200,200);
 		ctx.strokeStyle = 'red';
 		ctx.stroke();
 	}
@@ -113,8 +115,8 @@ function drawContour(){
 
 	document.addEventListener('change', ()=> {
 		func();
-		d();
-	});*/
+		d1();
+	});
 }
 
 drawContour();
