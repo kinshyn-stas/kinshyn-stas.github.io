@@ -13,7 +13,7 @@ window.addEventListener('resize',() => changeCanvasSize('c1'));*/
 
 
 function drawContour(){
-	/*let w = canvas.width;
+	let w = canvas.width;
 	let h = canvas.height;
 	let c = 10;
 
@@ -30,7 +30,7 @@ function drawContour(){
 	let yM = 0;
 
 	let d = 0;
-	let wavesStep = 2;
+	let wavesStep = 1;
 	let direction = true;
 	let q = 120;
 
@@ -74,10 +74,10 @@ function drawContour(){
 	}
 
 
-	ctx.stroke();*/
+	ctx.stroke();
 
 
-	let obj = {
+	/*let obj = {
 		x1 : 0,
 		y1 : 0,
 		x2 : 0,
@@ -98,7 +98,7 @@ function drawContour(){
 
 	func();
 
-	function d(){
+	function d1(){
 		ctx.clearRect(0,0,1000,1000);
 		ctx.beginPath();
 		ctx.moveTo(10,10);
@@ -108,13 +108,13 @@ function drawContour(){
 		ctx.stroke();
 	}
 
-	d();
+	d1();
 
 
 	document.addEventListener('change', ()=> {
 		func();
 		d();
-	});
+	});*/
 }
 
 drawContour();
