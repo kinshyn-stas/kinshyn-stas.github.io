@@ -12,8 +12,8 @@ changeCanvasSize('c1');
 window.addEventListener('resize',() => changeCanvasSize('c1'));*/
 
 
-function drawContour(){
-	/*let w = canvas.width;
+/*function drawContour(){
+	let w = canvas.width;
 	let h = canvas.height;
 	let c = 10;
 
@@ -77,7 +77,7 @@ function drawContour(){
 	ctx.stroke();*/
 
 
-	let obj = {
+/*	let obj = {
 		x1 : 0,
 		y1 : 0,
 		x2 : 0,
@@ -102,10 +102,10 @@ function drawContour(){
 		ctx.clearRect(0,0,1000,1000);
 		ctx.beginPath();
 		ctx.moveTo(10,10);
-		ctx.quadraticCurveTo(obj.x1,obj.y1,obj.x2,obj.y2);
-		ctx.quadraticCurveTo(obj.x3,obj.y3,obj.x4,obj.y4);
-		//ctx.bezierCurveTo(obj.x1,obj.y1,obj.x2,obj.y2,100,100);
-		//ctx.bezierCurveTo(obj.x3,obj.y3,obj.x4,obj.y4,200,200);
+		//ctx.quadraticCurveTo(obj.x1,obj.y1,obj.x2,obj.y2);
+		//ctx.quadraticCurveTo(obj.x3,obj.y3,obj.x4,obj.y4);
+		ctx.bezierCurveTo(obj.x1,obj.y1,obj.x2,obj.y2,100,100);
+		ctx.bezierCurveTo(obj.x3,obj.y3,obj.x4,obj.y4,200,200);
 		ctx.strokeStyle = 'red';
 		ctx.stroke();
 	}
@@ -117,6 +117,63 @@ function drawContour(){
 		func();
 		d1();
 	});
+
+	document.addEventListener('input', ()=> {
+		func();
+		d1();
+	});
+}*/
+
+//drawContour();
+
+
+function drawByCurves(ctx, points) {
+  ctx.beginPath();
+  ctx.setLineDash([]);
+  ctx.moveTo(points[0].x, points[0].y);
+  var dl = 0, k = 0.33;
+  for (var i = 0; i < points.length - 2; i++) {
+    var dr = (points[i+2].y - points[i].y) / 2 * k;
+    ctx.bezierCurveTo(
+    points[i].x+k*30, points[i].y+dl,    
+    points[i+1].x-k*30, points[i+1].y-dr,
+    points[i+1].x, points[i+1].y);
+    dl = dr;
+  }
+  ctx.strokeStyle = 'blue';
+  ctx.stroke();
 }
 
-drawContour();
+
+let points = [
+	{
+		x: 1920,
+		y: 145,
+	},
+	{
+		x: 1856,
+		y: 212,
+	},
+	{
+		x: 1455,
+		y: 337,
+	},
+	{
+		x: 1273,
+		y: 564,
+	},
+	{
+		x: 969,
+		y: 1029,
+	},
+	{
+		x: 1920,
+		y: 1024,
+	},
+	{
+		x: 1920,
+		y: 145,
+	},
+];
+
+drawByCurves(ctx, points);
