@@ -12,7 +12,7 @@ function drawSvg(){
 	];
 	//console.log(path.getAttribute('d'));
 
-	let a0 = path.getAttribute('d').split('');
+	let a0 = p1.getAttribute('d').split('');
 	let a1 = a0.slice();
 	let a2 = [];
 	let a2c = 0;
