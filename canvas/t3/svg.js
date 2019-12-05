@@ -3,9 +3,24 @@
 class makeSvg{
 	constructor(){
 		this.draw = SVG('drawing').size(951, 879);
-		this.group = this.draw.group().attr({ filter: "#000"});
-		this.path = this.draw.path().attr({ id: 'p1', fill: "#c2c2c2", stroke: "#000", d: "M304.129 419.693C484.478 0.0482788 862.278 192.963 951 0.0482788V879C951 879 0 884 0 879C-0.00287749 570.618 188.403 688.97 304.129 419.693Z",});
+		this.group = this.draw.group().attr({ filter: "url(#filter0_i)"});
+		this.path = this.draw.path().attr({ id: 'p1', fill: "url(#paint0_linear)", d: "M304.129 419.693C484.478 0.0482788 862.278 192.963 951 0.0482788V879C951 879 0 884 0 879C-0.00287749 570.618 188.403 688.97 304.129 419.693Z",});
 		this.group.add(this.path);
+		this.defs = this.draw.defs().attr({id: 'd1'});
+		d1.innerHTML = `<filter id="filter0_i" x="0" y="0.0482788" width="951" height="911.174" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+					<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+					<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+					<feOffset dy="30"/>
+					<feGaussianBlur stdDeviation="20"/>
+					<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+					<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+					<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+				</filter>
+				<linearGradient id="paint0_linear" x1="-4.65925" y1="-140" x2="506.631" y2="991.808" gradientUnits="userSpaceOnUse">
+					<stop offset="0.520833" stop-color="#5840BA"/>
+					<stop offset="1" stop-color="#6F59CD"/>
+				</linearGradient>`;
 
 		this.arr = [
 			"M304.129 419.693C484.478 0.0482788 862.278 192.963 951 0.0482788V879C951 879 0 884 0 879C-0.00287749 570.618 188.403 688.97 304.129 419.693Z",
@@ -20,18 +35,19 @@ class makeSvg{
 		this.arrLast = this.arr[0];
 		this.mX = 0;
 		this.mY = 0;
+		this.cD = 35;
 
 
-		//drawing.querySelector('svg').addEventListener('mouseover',this.m.bind(this));
 		document.body.addEventListener('mousemove',this.m.bind(this));
 
 		this.t();
 	}
 
 	m(event){
-		console.log('mouse: ' + (event.clientX));
-		this.mX = event.clientX - drawing.getBoundingClientRect().x;
-		this.mY = event.clientY - drawing.getBoundingClientRect().y;
+		this.mX = event.clientX - drawing.querySelector('svg').getBoundingClientRect().x;
+		if(this.mX < 0) this.mX = 0;
+		this.mY = event.clientY - drawing.querySelector('svg').getBoundingClientRect().y;
+		if(this.mY < 0) this.mY = 0;
 	}
 
 	t(){
@@ -74,13 +90,15 @@ class makeSvg{
 				let v = +item.v.join('')
 
 				if(item.c){
-					if(Math.abs(this.mX - v) < 250){
-						v += (this.mX - v)/2;
+					if(Math.abs(this.mX - v) < this.cD && v >= this.cD){
+						console.log(this.mX,v);
+						//v += (this.cD - Math.abs(this.mX - v));
 					}
 				} else {
-					if(Math.abs(this.mY - v) < 250){
-						v += (this.mY - v)/2;
-					}
+					/*if(Math.abs(this.mY - v) < this.cD && v >= this.cD){
+						console.log(this.mY,v);
+						v += (this.cD - Math.abs(this.mY - v));
+					}*/
 				}
 
 				item.v = v;
