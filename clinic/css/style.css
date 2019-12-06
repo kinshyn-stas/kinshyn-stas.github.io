@@ -651,6 +651,9 @@ body .main .tal{
 .header-main_right_bottom_tp{
 	margin-bottom: 4px;
 }
+.header-main_right_bottom_tp a{
+	color: inherit;
+}
 .header-main_right_bottom_tb{
 	margin-bottom: 0;
 }
@@ -669,8 +672,11 @@ body .main .tal{
 .header-main_nav{
 	display: flex;
 }
-.header-main_nav a{
-	display: inline-flex;
+.header-main_nav_item{
+	position: relative;
+}
+.header-main_nav_item>a{
+	display: flex;
 	align-items: center;
 	height: 100%;
 	padding: 12px 16px;
@@ -679,8 +685,8 @@ body .main .tal{
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
-.header-main_nav a:last-of-type{
-	margin-bottom: 0;
+.header-main_nav_item>a:last-of-type{
+	margin-right: 0;
 }
 .header-main_nav a:hover,
 .header-main_nav a.active{
@@ -695,6 +701,29 @@ body .main .tal{
 .header-main_nav a:hover span,
 .header-main_nav a.active span{
 	opacity: 0.88;
+}
+.header-main_nav_list{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	max-height: 0;
+	background-color: #fbfbfb;
+	font-size: 14px;
+	opacity: 0;
+	overflow: hidden;
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+}
+.header-main_nav_item:hover .header-main_nav_list{
+	opacity: 1;
+	max-height: 10000px;
+	transition: opacity 0.4s ease-in-out, max-height 0.2s linear;
+	-webkit-transition: opacity 0.4s ease-in-out, max-height 0.2s linear;
+}
+.header-main_nav_list a{
+	display: block;
+	padding: 6px 16px;
 }
 
 @media screen and (max-width: 1100px){	
