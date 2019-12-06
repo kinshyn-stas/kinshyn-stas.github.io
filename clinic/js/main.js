@@ -43,9 +43,10 @@ window.onload = function(){
 	document.addEventListener('keydown', function(event){
 		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
 		    let keycode = event.keyCode;
-		    if ((44 < keycode && keycode < 58)||(keycode == 187)||(keycode == 8)||(keycode == 37)||(keycode == 39)){} else {
-		    	event.preventDefault();
-		    };			
+
+		    if ((0 <= event.key && event.key <= 9)||(event.key == "Backspace")||(event.key == "Delete")){} else {
+				event.preventDefault();
+			};
 		};
 	});
 
