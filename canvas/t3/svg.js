@@ -32,14 +32,16 @@ class makeSvg{
 		];*/
 
 		this.arr = [
-			"M 1080.5 977.5 V 12.9998 C 910.001 -46 886.501 124.5 816 160 C 750.159 193.154 619 239.5 569 383.5 C 519 527.5 510 542 325 607 C 71.9192 695.92 -1 869.666 1.5 977.5 H 1080.5 Z",
+			"M 1080 977 V 12.9998 C 910 -46 886 124 816 160 C 750 193 619 239 569 383 C 519 527 510 542 325 607 C 72 696 -1 890 2 978 H 1080 Z",
 		];
 
 		this.arrCounter = 0;
 		this.arrLast = this.arr[0];
 		this.mX = 0;
 		this.mY = 0;
-		this.cD = 35;
+
+
+		this.stepN = 0;
 
 
 		document.body.addEventListener('mousemove',this.m.bind(this));
@@ -59,46 +61,59 @@ class makeSvg{
 
 		let arr0 = this.arr[this.arrCounter].slice()
 		let arr1 = arr0.split(' ');
-		//let xCounter = -1;
+
+		let tcb = [];
 
 		function randomInteger(min, max) {
 		   return Math.floor(min + Math.random() * (max + 1 - min));
 		}
 
 		arr1.forEach((item,i,arr) => {
-			if(item == 'M'){
-				arr[i + 1] = b(this,arr[i + 1],true);
-				arr[i + 2] = b(this,arr[i + 2],false);
-				//xCounter = (-1 * xCounter);
-			}
 			if(item == 'C'){
-				arr[i + 1] = b(this,arr[i + 1],true);
-				arr[i + 2] = b(this,arr[i + 2],false);
-				arr[i + 3] = b(this,arr[i + 3],true);
-				arr[i + 4] = b(this,arr[i + 4],false);
-				arr[i + 5] = b(this,arr[i + 5],true);
-				arr[i + 6] = b(this,arr[i + 6],false);
-				//xCounter = (-1 * xCounter);
+				tcb.push(i);
 			}
-			//console.log(item);
-		})
+		});
 
-		function b(self,n,d){
-			//console.log(self.mX);
-			//let result = dX * xCounter;
-			let result = randomInteger(-7, 7) * 5;
-			if(result < 0) result = 0;
-			result += +n;
+		function l(){
+			let n1 = this.stepN - 1;
+			if(n1 < 0) n1 = tcb.length - 1
+			arr1[tcb[n1] + 1] = +arr1[tcb[n1] + 1] + 10;
+			arr1[tcb[n1] + 3] = +arr1[tcb[n1] + 3] + 20;
+			arr1[tcb[n1] + 5] = +arr1[tcb[n1] + 5] + 30;
 
-			if(Math.abs(result - self.mX) < 100 && result >= 100 && d){
-				result += 100 - Math.abs(result - self.mX);
+			arr1[tcb[this.stepN] + 1] = +arr1[tcb[this.stepN] + 1] + 30;
+			arr1[tcb[this.stepN] + 3] = +arr1[tcb[this.stepN] + 3] + 20;
+			arr1[tcb[this.stepN] + 5] = +arr1[tcb[this.stepN] + 5] + 10;	
+		};
+
+		l.call(this);
+
+		this.stepN++;
+		if(this.stepN > tcb.length - 1) this.stepN = 0;
+
+		let P = 70;
+
+		tcb.forEach((item,i,arr) => {
+			arr1[item + 1] = func.call(this,arr1[item + 1],true);
+			arr1[item + 2] = func.call(this,arr1[item + 2],false);
+			arr1[item + 3] = func.call(this,arr1[item + 3],true);
+			arr1[item + 4] = func.call(this,arr1[item + 4],false);
+			arr1[item + 5] = func.call(this,arr1[item + 5],true);
+			arr1[item + 6] = func.call(this,arr1[item + 6],false);
+		});
+
+		function func(n,d){
+			let result = +n;
+
+			if(Math.abs(result - this.mX) < P && result >= P && d){
+				return result += P - Math.abs(result - this.mX);
 			};
 
-			if(Math.abs(result - self.mY) < 100 && result >= 100 && !d){
-				result += 100 - Math.abs(result - self.mY);
+			if(Math.abs(result - this.mY) < P && result >= P && !d){
+				return result += P - Math.abs(result - this.mY);
 			};
 
-			return parseInt(result);
+			return result;
 		}
 
 		let result = arr1.join(' ');
