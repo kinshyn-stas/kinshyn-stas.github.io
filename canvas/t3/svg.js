@@ -77,13 +77,13 @@ class makeSvg{
 		function l(){
 			let n1 = this.stepN - 1;
 			if(n1 < 0) n1 = tcb.length - 1
-			arr1[tcb[n1] + 1] = +arr1[tcb[n1] + 1] + 10;
-			arr1[tcb[n1] + 3] = +arr1[tcb[n1] + 3] + 20;
-			arr1[tcb[n1] + 5] = +arr1[tcb[n1] + 5] + 30;
+			arr1[tcb[n1] + 1] = +arr1[tcb[n1] + 1] + 20;
+			arr1[tcb[n1] + 3] = +arr1[tcb[n1] + 3] + 30;
+			arr1[tcb[n1] + 5] = +arr1[tcb[n1] + 5] + 40;
 
-			arr1[tcb[this.stepN] + 1] = +arr1[tcb[this.stepN] + 1] + 30;
-			arr1[tcb[this.stepN] + 3] = +arr1[tcb[this.stepN] + 3] + 20;
-			arr1[tcb[this.stepN] + 5] = +arr1[tcb[this.stepN] + 5] + 10;	
+			arr1[tcb[this.stepN] + 1] = +arr1[tcb[this.stepN] + 1] + 20;
+			arr1[tcb[this.stepN] + 3] = +arr1[tcb[this.stepN] + 3] + 30;
+			arr1[tcb[this.stepN] + 5] = +arr1[tcb[this.stepN] + 5] + 40;	
 		};
 
 		l.call(this);
