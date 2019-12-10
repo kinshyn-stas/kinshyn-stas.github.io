@@ -107,12 +107,12 @@ class makeSvg{
 
 
 		function findNearPoint(i,n,x,y){
-			if((Math.abs(x - this.mX) < P || Math.abs(y - this.mY) < P) && x >= P && y >= P){
+			if((Math.abs(x - this.mX) < P && Math.abs(y - this.mY) < P) && x >= P && y >= P){
 				if((Math.abs(x - this.mX) + Math.abs(y - this.mY)) < (Math.abs(x - pointN.x) + Math.abs(y - pointN.y))){
 					pointN.place = i;
 					pointN.n = n;
 					pointN.x = x;
-					pointN.y = y;					
+					pointN.y = y;				
 				}
 			};
 		}
@@ -124,32 +124,31 @@ class makeSvg{
 
 			let arr0 = arr.slice();
 
+			let d = (Math.abs(pointN.x - this.mX) + Math.abs(pointN.y - this.mY)) / 2;
 
 			let n1 = pointN.place - 1;
 			if(n1 >= 0){
-				arr0[tcb[n1] + 1] = +arr0[tcb[n1] + 1] + 30;
-				arr0[tcb[n1] + 2] = +arr0[tcb[n1] + 2] + 30;
-				arr0[tcb[n1] + 3] = +arr0[tcb[n1] + 3] + 50;
-				arr0[tcb[n1] + 4] = +arr0[tcb[n1] + 4] + 50;
-				arr0[tcb[n1] + 5] = +arr0[tcb[n1] + 5] + 70;
-				arr0[tcb[n1] + 6] = +arr0[tcb[n1] + 6] + 70;
+				arr0[tcb[n1] + 1] = +arr0[tcb[n1] + 1] + (d / 3);
+				arr0[tcb[n1] + 2] = +arr0[tcb[n1] + 2] + (d / 3);
+				arr0[tcb[n1] + 3] = +arr0[tcb[n1] + 3] + ((2 * d) / 3);
+				arr0[tcb[n1] + 4] = +arr0[tcb[n1] + 4] + ((2 * d) / 3);
+				arr0[tcb[n1] + 5] = +arr0[tcb[n1] + 5] + d;
+				arr0[tcb[n1] + 6] = +arr0[tcb[n1] + 6] + d;
 			}
 
-			//console.log(arr0[tcb[pointN.place] + 1]);
 
-			arr0[tcb[pointN.place] + 1] = +arr0[tcb[pointN.place] + 1] + 70;
-			arr0[tcb[pointN.place] + 2] = +arr0[tcb[pointN.place] + 2] + 70;
-			arr0[tcb[pointN.place] + 3] = +arr0[tcb[pointN.place] + 3] + 50;
-			arr0[tcb[pointN.place] + 4] = +arr0[tcb[pointN.place] + 4] + 50;
-			arr0[tcb[pointN.place] + 5] = +arr0[tcb[pointN.place] + 5] + 30;	
-			arr0[tcb[pointN.place] + 6] = +arr0[tcb[pointN.place] + 6] + 30;	
+			arr0[tcb[pointN.place] + 1] = +arr0[tcb[pointN.place] + 1] + d;
+			arr0[tcb[pointN.place] + 2] = +arr0[tcb[pointN.place] + 2] + d;
+			arr0[tcb[pointN.place] + 3] = +arr0[tcb[pointN.place] + 3] + ((2 * d) / 3);
+			arr0[tcb[pointN.place] + 4] = +arr0[tcb[pointN.place] + 4] + ((2 * d) / 3);
+			arr0[tcb[pointN.place] + 5] = +arr0[tcb[pointN.place] + 5] + (d / 3);	
+			arr0[tcb[pointN.place] + 6] = +arr0[tcb[pointN.place] + 6] + (d / 3);	
 
-			//console.log(arr0[tcb[pointN.place] + 1]);
 
 			return arr0;
 		}
 
-		arr1 = func2(pointN,tcb,arr1) ? func2(pointN,tcb,arr1) : arr1;
+		arr1 = func2.call(this,pointN,tcb,arr1) ? func2.call(this,pointN,tcb,arr1) : arr1;
 
 		let result = arr1.join(' ');
 		//console.log(result);
