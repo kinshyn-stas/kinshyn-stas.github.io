@@ -81,9 +81,9 @@ class makeSvg{
 			arr1[tcb[n1] + 3] = +arr1[tcb[n1] + 3] + 30;
 			arr1[tcb[n1] + 5] = +arr1[tcb[n1] + 5] + 40;
 
-			arr1[tcb[this.stepN] + 1] = +arr1[tcb[this.stepN] + 1] + 20;
+			arr1[tcb[this.stepN] + 1] = +arr1[tcb[this.stepN] + 1] + 40;
 			arr1[tcb[this.stepN] + 3] = +arr1[tcb[this.stepN] + 3] + 30;
-			arr1[tcb[this.stepN] + 5] = +arr1[tcb[this.stepN] + 5] + 40;	
+			arr1[tcb[this.stepN] + 5] = +arr1[tcb[this.stepN] + 5] + 20;	
 		};
 
 		l.call(this);
@@ -92,29 +92,57 @@ class makeSvg{
 		if(this.stepN > tcb.length - 1) this.stepN = 0;
 
 		let P = 70;
+		let pointN = {
+			place: 0,
+			n: 0,
+			x: P,
+			y: P,
+		};
 
 		tcb.forEach((item,i,arr) => {
-			arr1[item + 1] = func.call(this,arr1[item + 1],true);
-			arr1[item + 2] = func.call(this,arr1[item + 2],false);
-			arr1[item + 3] = func.call(this,arr1[item + 3],true);
-			arr1[item + 4] = func.call(this,arr1[item + 4],false);
-			arr1[item + 5] = func.call(this,arr1[item + 5],true);
-			arr1[item + 6] = func.call(this,arr1[item + 6],false);
+			findNearPoint.call(this,i,1,arr1[item + 1],arr1[item + 2]);
+			findNearPoint.call(this,i,3,arr1[item + 3],arr1[item + 4]);
+			findNearPoint.call(this,i,5,arr1[item + 5],arr1[item + 6]);
 		});
 
-		function func(n,d){
-			let result = +n;
 
-			if(Math.abs(result - this.mX) < P && result >= P && d){
-				return result += P - Math.abs(result - this.mX);
+		function findNearPoint(i,n,x,y){
+			if((Math.abs(x - this.mX) < P || Math.abs(y - this.mY) < P) && x >= P && y >= P){
+				if((Math.abs(x - this.mX) + Math.abs(y - this.mY)) < (Math.abs(x - pointN.x) + Math.abs(y - pointN.y))){
+					pointN.place = i;
+					pointN.n = n;
+					pointN.x = x;
+					pointN.y = y;					
+				}
 			};
-
-			if(Math.abs(result - this.mY) < P && result >= P && !d){
-				return result += P - Math.abs(result - this.mY);
-			};
-
-			return result;
 		}
+
+		//console.log(pointN);
+
+		function func2(pointN,tcb,arr){
+			if(!pointN.place) return;
+
+			let arr0 = arr.slice();
+
+
+			let n1 = pointN.place - 1;
+			if(n1 < 0) n1 = tcb.length - 1
+			arr0[tcb[n1] + 1] = +arr0[tcb[n1] + 1] + 30;
+			arr0[tcb[n1] + 3] = +arr0[tcb[n1] + 3] + 40;
+			arr0[tcb[n1] + 5] = +arr0[tcb[n1] + 5] + 60;
+
+			//console.log(arr0[tcb[pointN.place] + 1]);
+
+			arr0[tcb[pointN.place] + 1] = +arr0[tcb[pointN.place] + 1] + 60;
+			arr0[tcb[pointN.place] + 3] = +arr0[tcb[pointN.place] + 3] + 50;
+			arr0[tcb[pointN.place] + 5] = +arr0[tcb[pointN.place] + 5] + 30;	
+
+			//console.log(arr0[tcb[pointN.place] + 1]);
+
+			return arr0;
+		}
+
+		arr1 = func2(pointN,tcb,arr1) ? func2(pointN,tcb,arr1) : arr1;
 
 		let result = arr1.join(' ');
 		//console.log(result);
