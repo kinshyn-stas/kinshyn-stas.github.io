@@ -126,16 +126,23 @@ class makeSvg{
 
 
 			let n1 = pointN.place - 1;
-			if(n1 < 0) n1 = tcb.length - 1
-			arr0[tcb[n1] + 1] = +arr0[tcb[n1] + 1] + 30;
-			arr0[tcb[n1] + 3] = +arr0[tcb[n1] + 3] + 40;
-			arr0[tcb[n1] + 5] = +arr0[tcb[n1] + 5] + 60;
+			if(n1 >= 0){
+				arr0[tcb[n1] + 1] = +arr0[tcb[n1] + 1] + 30;
+				arr0[tcb[n1] + 2] = +arr0[tcb[n1] + 2] + 30;
+				arr0[tcb[n1] + 3] = +arr0[tcb[n1] + 3] + 50;
+				arr0[tcb[n1] + 4] = +arr0[tcb[n1] + 4] + 50;
+				arr0[tcb[n1] + 5] = +arr0[tcb[n1] + 5] + 70;
+				arr0[tcb[n1] + 6] = +arr0[tcb[n1] + 6] + 70;
+			}
 
 			//console.log(arr0[tcb[pointN.place] + 1]);
 
-			arr0[tcb[pointN.place] + 1] = +arr0[tcb[pointN.place] + 1] + 60;
+			arr0[tcb[pointN.place] + 1] = +arr0[tcb[pointN.place] + 1] + 70;
+			arr0[tcb[pointN.place] + 2] = +arr0[tcb[pointN.place] + 2] + 70;
 			arr0[tcb[pointN.place] + 3] = +arr0[tcb[pointN.place] + 3] + 50;
+			arr0[tcb[pointN.place] + 4] = +arr0[tcb[pointN.place] + 4] + 50;
 			arr0[tcb[pointN.place] + 5] = +arr0[tcb[pointN.place] + 5] + 30;	
+			arr0[tcb[pointN.place] + 6] = +arr0[tcb[pointN.place] + 6] + 30;	
 
 			//console.log(arr0[tcb[pointN.place] + 1]);
 
