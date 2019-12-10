@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <style>
+    .message-ball {
+      font-size: 20px;
+      line-height: 200px;
+      text-align: center;
+    }
+    .circle {
+      transition-property: width, height, margin-left, margin-top;
+      transition-duration: 2s;
+      position: fixed;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: red;
+      border-radius: 50%;
+    }
+  </style>
+
+<button onclick="go()">Click me</button>
+
+  <script>
+
+  function go() {
+    showCircle(150, 150, 100, div => {
+    	console.log(div);
+      div.classList.add('message-ball');
+      div.append("Hello, world!");
+    });
+  }
+
+  function showCircle(cx, cy, radius, callback) {
+    let div = document.createElement('div');
+    div.style.width = 0;
+    div.style.height = 0;
+    div.style.left = cx + 'px';
+    div.style.top = cy + 'px';
+    div.className = 'circle';
+    document.body.append(div);
+
+    setTimeout(() => {
+    	let promise = new Promise(function(resolve,reject){
+	      div.style.width = radius * 2 + 'px';
+	      div.style.height = radius * 2 + 'px';
+
+	      div.addEventListener('transitionend', function handler() {
+	        div.removeEventListener('transitionend', handler);
+    	    resolve();
+	      });
+    	})
+
+    	promise.then(()=>{
+    		callback();
+    	})
+    });
+  }
+  </script>
+
+<!--<script>
+	function delay(ms) {
+	  return new Promise(function(resolve,reject){
+	  	setTimeout(resolve, ms);
+	  })
+	}
+
+	delay(3000).then(() => alert('выполнилось через 3 секунды'));
+</script>-->
+</body>
+</html>
