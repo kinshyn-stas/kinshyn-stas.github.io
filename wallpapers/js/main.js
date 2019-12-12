@@ -104,7 +104,7 @@ class Slider{
 	}
 
 	createSliderBox(){
-		if(this.container.children[0].classList.contains('slider_block')){
+		if(this.container.children.length && this.container.children[0].classList.contains('slider_block')){
 			this.block = this.container.children[0];
 			return;
 		}
@@ -213,7 +213,7 @@ class Slider{
 
 		if(this.params.multiDisplay && this.params.multiDisplay.marginRight){
 			let w = document.body.offsetWidth;
-			console.log(w)
+			//console.log(w)
 			if(w>0 && w<=768){
 				console.log('n1')
 				this.marginRight = this.params.multiDisplay.marginRight.mobile;
