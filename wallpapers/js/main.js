@@ -586,8 +586,8 @@ function clickItemHandler(event){
 			let box = target.closest('.catalog_panel_item');
 			let select = box.querySelector('.select');
 			select.classList.remove('select_on');
-			select.querySelector('.select_option.selected').remove('selected');
-			select.querySelector('.select_option.default').add('selected');
+			select.querySelector('.select_option.selected').classList.remove('selected');
+			select.querySelector('.select_option.default').classList.add('selected');
 		},
 
 		'change_stuff-image': function(target){
@@ -632,7 +632,7 @@ function emulateSelector(select){
 	let selects = document.querySelectorAll(select);
 
 	selects.forEach((select) =>{
-		select.hidden = true;
+		select.classList.add('collapsed');
 
 		let emul = document.createElement('div');
 		emul.classList = "select";
@@ -654,7 +654,16 @@ function emulateSelector(select){
 			option.innerHTML = item.innerHTML;
 			option.dataset.value = item.value;
 			option.onclick = ()=>{
-				select.value=option.dataset.value;
+				select.querySelectorAll('option').forEach(item =>{
+					if(item.value == option.dataset.value){
+						if(!item.hasAttribute('selected')){
+							item.setAttribute('selected',true);
+							select.onchange();
+						}
+					} else {
+						item.removeAttribute('selected');
+					}					
+				})
 				option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
 					option.classList.remove('selected')
 				});
