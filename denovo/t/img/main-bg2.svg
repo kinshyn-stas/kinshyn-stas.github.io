@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1239px" height="252px" viewBox="0 0 1239 252" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>A9CA86E7-91A7-43F1-8B24-81106B319BF2</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="14.4734893%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#DAE1E8" offset="100%"></stop>
+        </linearGradient>
+        <path d="M650.455897,5453.33489 L470.83915,5571.64471 C443.641791,5589.56107 403.951546,5591.85999 382.638033,5576.75403 C361.329664,5561.64808 327.569554,5565.47305 307.629282,5585.25552 L201,5691 L1441,5691 L1312.56346,5630.50874 C1279.30738,5614.8379 1225.99274,5615.30723 1194.09448,5631.54859 L1191.41486,5632.91164 C1159.5166,5649.15019 1116.70956,5646.33697 1096.29611,5626.65567 L1015.54238,5548.82137 C995.123786,5529.14288 958.236597,5528.29976 933.56456,5546.94964 L907.025534,5567.01034 C882.35864,5585.66022 847.333297,5584.44612 829.193153,5564.30954 L732.876032,5457.37064 C723.162425,5446.58337 708.005287,5441.05373 691.843096,5441 C677.505578,5441.04604 662.938499,5445.11193 650.455897,5453.33489 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Data-Center_colokeishn" transform="translate(-201.000000, -5440.000000)">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Clip-2" stroke="#FF8148" fill-opacity="0.4" fill="url(#linearGradient-1)" opacity="0.250566123" stroke-dasharray="7" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>
