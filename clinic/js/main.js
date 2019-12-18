@@ -715,7 +715,7 @@ function emulateSelector(select){
 
 		takeJSON(){
 			this.data = JSON.parse(rozklad);
-			//console.log(this.data);
+			console.log(this.data);
 		}
 
 		countColumns(){
