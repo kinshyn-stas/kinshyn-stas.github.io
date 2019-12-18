@@ -60,33 +60,14 @@ class Slider{
 		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
 
 		window.addEventListener('resize', this.prepare.bind(this));
-		window.addEventListener('resize', this.checkSize.bind(this));
 	}
 
 	checkSize(p){
 		let w = document.body.offsetWidth;
-		let result = true;
-
-		if(!p.desktop && w > 1100){
-			removeSlider.call(this);
-			result = false;
-		}
-
-		if(!p.touch && (w > 768 && w < 1100)){
-			removeSlider.call(this);
-			result = false;
-		}
-
-		if(!p.mobile && w <768){			
-			removeSlider.call(this);
-			result = false;
-		}
-
-		return result;
-
-		function removeSlider(){
-			console.log(this);
-		}
+		if(p.desktop && w > 1100) return true;
+		if(p.touch && (w > 768 && w < 1100)) return true;
+		if(p.mobile && w <768) return true;
+		return false;
 	}
 
 	prepare(){

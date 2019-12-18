@@ -404,6 +404,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.products_box{
 		display: block;
 	}
+	.products_item{
+		margin-bottom: 12px;
+	}
 	.products_button{
 		display: none;
 	}
