@@ -293,9 +293,81 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .aside-main{
-	width: 200px;
-	min-width: 200px;
+	width: 201px;
+	min-width: 201px;
+	color: #24272D;
 	border-right: 1px solid #EBECEC;
+}
+
+.aside_head{
+	padding: 16px 30px;
+	border-bottom: 4px solid #E46914;
+}
+.logotype{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logotype img{
+	display: block;
+}
+
+.aside_body{}
+.aside_list{}
+.aside_item{
+	display: flex;
+	align-items: center;
+	min-height: 53px;
+	padding: 10px 16px;
+	font-size: 12px;
+	line-height: 14px;
+	border-bottom: 1px solid #EBECEC;
+}
+.aside_item_icon{
+	margin-right: 9px;
+}
+.aside_item_icon svg{
+	display: block;
+}
+.aside_item_text{}
+
+.aside_bottom{
+	padding: 22px 16px 12px;
+	background-color: #F6F6F6;
+}
+.aside_contacts{
+	margin-bottom: 24px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 17px;
+}
+.aside_contacts_item{
+	display: flex;
+	margin-bottom: 16px;
+}
+.aside_contacts_item:last-of-type{
+	margin-bottom: 0;
+}
+.aside_contacts_item svg{
+	display: block;
+	margin-right: 8px;
+}
+.aside_contacts_link{}
+.aside_langs{
+	display: flex;
+}
+.aside_lang{
+	display: block;
+	margin-right: 20px;
+}
+.aside_lang:last-of-type{
+	margin-right: 0;
+}
+.aside_lang:hover{
+	color: #F56107;
+}
+.aside_lang.active{
+	color: #F56107;
 }
 
 @media screen and (max-width: 1100px){
@@ -789,4 +861,78 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @keyframes lightbox{
 	0%{opacity: 0;}
 	100%{opacity: 1;}
+}
+
+
+.talk_block{}
+.talk_block h1{
+	margin-bottom: 50px;
+}
+.talk_box{
+	display: flex;
+}
+.talk_left{
+	width: 324px;
+	min-width: 324px;
+	margin-right: 46px;
+}
+.talk_image-main{
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 94%;
+	margin-bottom: 16px;
+}
+.talk_image-main img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.talk_slider{
+	width: calc(100% + 21px);
+}
+.talk_slide{
+	padding-right: 21px;
+}
+.talk_slide figure{
+	position: relative;
+	height: 0;
+	padding-bottom: 100%;
+}
+.talk_slide figure img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;	
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.talk_text{
+	display: none;
+}
+.talk_right{
+	font-size: 16px;
+	line-height: 1.6;
+}
+.talk_right h2{
+	margin-bottom: 12px;
+}
+.talk_right h4{
+	margin-bottom: 8px;
+}
+.talk_undertitle{
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 17px;
+}
+.talk_right p{}
+.talk_right p:last-of-type{
+	margin-bottom: 0;
 }
