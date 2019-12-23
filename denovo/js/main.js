@@ -13,6 +13,17 @@ window.onload = function(){
 		}
 	});
 
+	new classMultiplyWrapper(Slider, {
+		selector: '.sertificat_box',
+		infinity: true,
+		navigationDotters: true,
+		sizeWork: {
+			desktop: false,
+			touch: false,
+			mobile: true,
+		}
+	});
+
 	document.addEventListener('click', clickItemHandler);
 
 
@@ -496,6 +507,49 @@ function clickItemHandler(event){
 				document.querySelector(target.dataset.label).classList.remove('active')
 			} else {
 				target.closest('.popup-container').classList.remove('active');
+			}
+		},
+
+		'open-lightbox': function(target){
+			target.classList.add('lightbox_target')
+			let image = target.querySelector('img');
+			let container = document.createElement('div');
+			container.classList = 'lightbox_container click-obj';
+			container.innerHTML = `<div class="lightbox_background"></div>
+								<div class="lightbox">
+									<div class="lightbox_close click-item" data-action="remove">		
+										<i class="fa fa-times"></i>
+									</div>
+									<div class="lightbox_arrow lightbox_arrow-left click-item" data-action="switch_lightbox" data-direction="-1">
+										<i class="fa fa-arrow-left"></i>
+									</div>
+									<div class="lightbox_arrow lightbox_arrow-right click-item" data-action="switch_lightbox" data-direction="1">
+										<i class="fa fa-arrow-right"></i>
+									</div>
+									<img class="active" src="${image.src}" alt="" />
+								</div>`
+
+			document.body.append(container);
+		},
+
+		'switch_lightbox': function(target){
+			let lightbox = target.closest('.lightbox');
+			let img = lightbox.querySelector('img');
+			let arr = document.querySelector('.lightbox_target').closest('.lightbox_box').querySelectorAll('.lightbox_item');
+			let direction = target.dataset.direction;
+
+			for(let i=0; i<arr.length; i++){
+				if(arr[i].classList.contains('lightbox_target')){
+					arr[i].classList.remove('lightbox_target');
+					let n = i + +direction;
+					if(n >= arr.length) n = 0;
+					if(n < 0) n = arr.length - 1;
+					arr[n].classList.add('lightbox_target');
+					img.src = arr[n].querySelector('img').src;
+					img.classList.remove('active');
+					setTimeout(()=>img.classList.add('active'), 0)
+					break;
+				}
 			}
 		},
 	}
