@@ -267,10 +267,13 @@ class Slider{
 		setTimeout(() => {
 			this.flagBlock = false;
 			if(callback) callback();
+			this.flagBlockSlide = false
 		}, this.moveTime * 1000);	
 	}
 
 	slideMove(params){
+		if(this.flagBlockSlide) return;
+		this.flagBlockSlide = true;
 		this.installActiveSlider();
 
 		if(this.params.multiDisplay && this.params.multiDisplay.multiShift){
@@ -399,22 +402,6 @@ class Slider{
 			let number = +slide.dataset.number
 			this.sliders.forEach(slide => slide.classList.remove('active'));
 			if(this.params.infinity){
-				/*console.log('activeSlider: ' + this.activeSlider);
-				console.log('number: ' + number);
-				let n = number - Math.floor(this.slideOnScreen/2);
-				if(n>=this.sliders.length){
-					console.log('t1');
-					n = 0;
-				} else if(n<0){
-					console.log('t2');
-					n = this.sliders.length + n - Math.floor(this.slideOnScreen/2);
-				}
-				console.log('n: ' + n);
-				for(let i = 0; i< n - this.activeSlider; i++){
-					this.installActiveSlider(this.activeSlider + 1);
-					this.infinitySlideWork();
-				}*/
-
 				this.sliders.forEach((item,i) => {
 					item.classList.remove('active');
 					if(item == slide){
@@ -567,6 +554,7 @@ class SliderTalk extends Slider{
 			this.flagBlock = false;
 			if(callback) callback();
 			this.changeSlideContent();
+			this.flagBlockSlide = false;
 		}, this.moveTime * 1000);	
 	}
 
