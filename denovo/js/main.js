@@ -28,6 +28,7 @@ window.onload = function(){
 		selector: '.talk_slider',
 		infinity: true,
 		navigationArrows: true,
+		slideClickRewind: true,
 		multiDisplay: {
 			mobile: 5,
 			touch: 5,
@@ -138,19 +139,13 @@ class Slider{
 	createSliderNavigationArrows(){
 		let slider_arrow_right = document.createElement('div');
 		slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
-		slider_arrow_right.innerHTML = `<svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<rect x="18.6445" y="35.2929" width="24.4558" height="24.4558" rx="3.5" transform="rotate(-135 18.6445 35.2929)"/>
-		<path d="M17.2983 21.7448L21.3713 17.6718L17.2983 13.5989" stroke-width="1.5"/>
-		</svg>`
+		slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
 		slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
 		this.container.append(slider_arrow_right);
 
 		let slider_arrow_left = document.createElement('div');
 		slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
-		slider_arrow_left.innerHTML = `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<rect x="18" y="0.707107" width="24.4558" height="24.4558" rx="3.5" transform="rotate(45 18 0.707107)"/>
-		<path d="M19.3462 14.2554L15.2733 18.3283L19.3462 22.4012" stroke-width="1.5"/>
-		</svg>`
+		slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
 		slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
 		this.container.append(slider_arrow_left);
 	}
@@ -333,6 +328,9 @@ class Slider{
 	}
 
 	infinitySlideWork(){
+		if(this.flagBlockInfinity) return;
+		this.flagBlockInfinity = true;
+
 		if(this.activeSlider > this.sliders.length - this.slideOnScreen){
 			let sr = this.slideOnScreen - this.sliders.length + this.activeSlider;
 
@@ -357,13 +355,13 @@ class Slider{
 				function func2(){
 					this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
 					this.box.style.webkiteTransition = `-webkite-transform ${this.moveTime}s ease-in-out`;
+					this.flagBlockInfinity = false;
 				}
 			}
 
 		} else if(this.activeSlider < 0){
 			let sr = this.slideOnScreen;
-			this.box.style.transition = ``;
-
+			this.box.style.transition = ``;  
 			for(let i=0; i<sr; i++){
 				let s = this.sliders[this.sliders.length - i - 1].cloneNode(true);
 				this.box.prepend(s);
@@ -381,25 +379,27 @@ class Slider{
 				function func2(){
 					for(let i=0; i<sr; i++){
 						let s = this.sliders[this.sliders.length - 1].remove();
-						this.sliders.pop();
+						this.sliders.pop();				
 					}
+					this.installActiveSlider(0);
+					this.flagBlockInfinity = false;
 				}
 			}
 		} else {
 			this.installActiveSlider(this.activeSlider);
-			this.slideAll();
+			this.slideAll(() => this.flagBlockInfinity = false);
 		}				
 	}
 
-	prepareSlidesOnclick(){
-		/*this.container.addEventListener('click', func.bind(this));
+	prepareSlidesOnclick(){		
+		this.container.addEventListener('click', func.bind(this));
 		function func(event){
 			if(!event.target.closest('.slider_slide')) return;
 			let slide = event.target.closest('.slider_slide');
 			let number = +slide.dataset.number
 			this.sliders.forEach(slide => slide.classList.remove('active'));
 			if(this.params.infinity){
-				console.log('activeSlider: ' + this.activeSlider);
+				/*console.log('activeSlider: ' + this.activeSlider);
 				console.log('number: ' + number);
 				let n = number - Math.floor(this.slideOnScreen/2);
 				if(n>=this.sliders.length){
@@ -412,16 +412,23 @@ class Slider{
 				console.log('n: ' + n);
 				for(let i = 0; i< n - this.activeSlider; i++){
 					this.installActiveSlider(this.activeSlider + 1);
-					this.infinitySlideWork();``
-				}
-			} else {
-				let n = slide.dataset.number - Math.floor(this.slideOnScreen / 2);
-				if(n<=0) n = 0;
-				if(n>= this.slider.length) n = this.slider.length - 1;
-			
-				this.slideMove({counter : n});					
+					this.infinitySlideWork();
+				}*/
+
+				this.sliders.forEach((item,i) => {
+					item.classList.remove('active');
+					if(item == slide){
+						item.classList.add('active');
+						this.installActiveSlider(i);
+					}
+				});
+				
+				this.infinitySlideWork();
+			} else {			
+				this.installActiveSlider(slide.dataset.number)
+				this.slideAll();					
 			}
-		}*/
+		}
 	}
 
 	mouseFlip(event){
