@@ -54,6 +54,9 @@ window.onload = function(){
 
 
 	//new inputFileEmulator('.input_emulator-file');
+
+
+	changeModelInfo();
 };
 
 
@@ -664,3 +667,37 @@ class inputFileEmulator{
 		})
 	}
 }
+
+
+function changeModelInfo(){
+	document.querySelectorAll('.model').forEach((container) => {
+		let box = container.querySelectorAll('.model_list');
+		let list = container.querySelectorAll('.model_item');
+		let high = container.querySelector('.model_highlight');
+		let text = container.querySelector('.model_description_content');
+		list[0].classList.add('active');
+
+		list.forEach(item => {
+			item.onclick = event =>{
+				let target = event.target.closest('.model_item');
+				if(target.classList.contains('active')) return;
+				list.forEach(item => item.classList.remove('active'));
+				target.classList.add('active');
+				func1();
+			}
+		});
+
+		function func1(){
+			let target = container.querySelector('.model_item.active');
+			text.innerHTML = target.querySelector('.model_text').innerHTML;
+			text.classList.remove('active');
+			setTimeout(()=>text.classList.add('active'));
+
+			let boxPosition = container.getBoundingClientRect();
+			high.style.top = `${target.getBoundingClientRect().top - boxPosition.top}px`;
+			high.style.height = `${getComputedStyle(target).height}`;
+		};
+
+		func1();
+	});
+};
