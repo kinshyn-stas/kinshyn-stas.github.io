@@ -484,7 +484,7 @@ class Slider{
   		}
 
 		function touchEnd(event){
-	    	//event.preventDefault();
+	    	event.preventDefault();
 			this.container.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
