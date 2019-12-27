@@ -458,11 +458,15 @@ class Slider{
 		this.container.addEventListener('mouseup', mouseUp.bind(this));
 	}
 
-	touchFlip(event){	
+	touchFlip(event){
 		let touchPointStart = event.changedTouches['0'].screenX;
 		let touchPointCurrent = 0;
 
 		let touchMoveBinded = touchMove.bind(this);
+		let touchEndBinded = touchEnd.bind(this);
+
+		this.touchTimeStart = +new Date();
+
 		function touchMove(event){
 	    	touchPointCurrent = event.changedTouches['0'].screenX;
 	    	let m = touchPointCurrent - touchPointStart;
@@ -472,27 +476,34 @@ class Slider{
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'left'});
 				touchPointStart = touchPointCurrent;
-				touchEnd.call(this,event);
+				touchEndBinded(event);
 			} else if(m <= -document.body.offsetWidth/4){
 				event.preventDefault();
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
 				touchPointStart = touchPointCurrent;
-				touchEnd.call(this,event);		
+				touchEndBinded(event);		
 			}
 
   		}
+  		
 
 		function touchEnd(event){
 	    	event.preventDefault();
 			this.container.removeEventListener('touchmove', touchMoveBinded);
+			this.container.removeEventListener('touchend', touchEndBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
+
+			this.touchTimeEnd = +new Date();
+			if(this.touchTimeEnd - this.touchTimeStart > 300){
+				event.target.click();
+			}					    
 		}
 
 		this.container.addEventListener('touchmove', touchMoveBinded);
-		this.container.addEventListener('touchend', touchEnd.bind(this));
-		this.container.addEventListener('touchcancel', touchEnd.bind(this));
+		this.container.addEventListener('touchend', touchEndBinded);
+		this.container.addEventListener('touchcancel', touchEndBinded);
 	}
 };
 
@@ -573,7 +584,6 @@ class SliderTalk extends Slider{
 
 function clickItemHandler(event){
 	if(!event.target.closest('.click-item')) return;
-	console.log(event.type);
 	let item = event.target.closest('.click-item');	
 
 	let obj = {
@@ -599,7 +609,6 @@ function clickItemHandler(event){
 
 		'open-lightbox': function(target){
 			target.classList.add('lightbox_target')
-			let image = target.querySelector('img');
 			let container = document.createElement('div');
 			container.classList = 'lightbox_container click-obj';
 			container.innerHTML = `<div class="lightbox_background"></div>
@@ -613,7 +622,7 @@ function clickItemHandler(event){
 									<div class="lightbox_arrow lightbox_arrow-right click-item" data-action="switch_lightbox" data-direction="1">
 										<i class="fa fa-arrow-right"></i>
 									</div>
-									<img class="active" src="${image.src}" alt="" />
+									<img class="active" src="${target.src}" alt="" />
 								</div>`
 
 			document.body.append(container);
@@ -622,7 +631,7 @@ function clickItemHandler(event){
 		'switch_lightbox': function(target){
 			let lightbox = target.closest('.lightbox');
 			let img = lightbox.querySelector('img');
-			let arr = document.querySelector('.lightbox_target').closest('.lightbox_box').querySelectorAll('.lightbox_item');
+			let arr = document.querySelector('.lightbox_target').closest('.lightbox_box').querySelectorAll('.lightbox_item img');
 			let direction = target.dataset.direction;
 
 			for(let i=0; i<arr.length; i++){
@@ -632,7 +641,7 @@ function clickItemHandler(event){
 					if(n >= arr.length) n = 0;
 					if(n < 0) n = arr.length - 1;
 					arr[n].classList.add('lightbox_target');
-					img.src = arr[n].querySelector('img').src;
+					img.src = arr[n].src;
 					img.classList.remove('active');
 					setTimeout(()=>img.classList.add('active'), 0)
 					break;
@@ -710,7 +719,7 @@ function changeModelInfo(){
 function test(event){
 	//if(event.type == 'touchstart') event.cancelable = false;
 	//if(event.type == 'touchend') event.cancelable = false;
-	console.log(event.type,event.target,event);
+	//console.log(event.type,event.target);
 }
 
 document.addEventListener('click',test);
@@ -718,7 +727,7 @@ document.addEventListener('mousedown',test);
 document.addEventListener('mouseup',test);
 document.addEventListener('touchstart',test);
 document.addEventListener('touchend',test);
-document.addEventListener('touchmove',test);
+//document.addEventListener('touchmove',test);
 document.addEventListener('touchenter',test);
 document.addEventListener('touchleave',test);
 document.addEventListener('touchcancel',test);
