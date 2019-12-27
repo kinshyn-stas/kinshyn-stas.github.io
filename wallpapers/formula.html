@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wallpapers</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<div class="main-container pink-var">
+		<br><br>
+		Высота:
+		<input id="height" type="number" name="" value="0"><br><br>
+		Ширина:
+		<input id="width" type="number" name="" value="0"><br><br>
+		Стоимость:
+		<span id="p">?</span><br><br>
+		<button id="butt" style="background-color: #000; color: #fff;">Считать</button>
+	</div>
+	
+
+	<script>
+		butt.onclick=function(){
+			let result=0;
+			let h = +height.value;
+			let l = +width.value;
+			let p1 = 10;
+			let p2 = 20;
+			//let h1,h2;
+
+
+			func1();
+
+			function func1(){
+				if(h <= 250){
+					result += (250 * l * p1 + h * l * p2);
+				} else if(h <= 280){
+					result += (280 * l * p1 + h * l * p2);
+				} else if(h <= 300){
+					result += (300 * l * p1 + h * l * p2);
+				} else {
+					let g = parseInt(h / 300);
+					result += (300 * l * p1 + g * l * p2);
+					h = h - (300 * g);
+					func1()
+				}
+
+			}
+
+
+
+			p.innerHTML = result;
+		}
+	</script>
+</body>
+</html>

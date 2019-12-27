@@ -951,6 +951,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .talk_slide{
 	padding-right: 21px;
+	cursor: pointer;
 }
 .talk_slide figure{
 	position: relative;
