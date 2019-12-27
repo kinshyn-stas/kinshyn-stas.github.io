@@ -38,7 +38,7 @@ window.onload = function(){
 	});
 
 	document.addEventListener('click', clickItemHandler);
-	document.addEventListener('touchstart', clickItemHandler);
+	//document.addEventListener('touchstart', clickItemHandler);
 
 
 	document.addEventListener('keydown', function(event){
@@ -145,14 +145,14 @@ class Slider{
 		slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
 		slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
 		slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
-		slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
+		//slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
 		this.container.append(slider_arrow_right);
 
 		let slider_arrow_left = document.createElement('div');
 		slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
 		slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
 		slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
-		slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
+		//slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
 		this.container.append(slider_arrow_left);
 	}
 
@@ -191,7 +191,7 @@ class Slider{
 		}
 
 		this.container.addEventListener('click',func.bind(this));
-		this.container.addEventListener('touchstart',func.bind(this));
+		//this.container.addEventListener('touchstart',func.bind(this));
 
 		function func(event){
 			if(!event.target.closest('.slider_nav_butt')) return;
@@ -402,7 +402,6 @@ class Slider{
 
 	prepareSlidesOnclick(){		
 		this.container.addEventListener('click', func.bind(this));
-		this.container.addEventListener('touchstart', func.bind(this));
 		function func(event){
 			if(!event.target.closest('.slider_slide')) return;
 			let slide = event.target.closest('.slider_slide');
@@ -485,7 +484,7 @@ class Slider{
   		}
 
 		function touchEnd(event){
-	    	event.preventDefault();
+	    	//event.preventDefault();
 			this.container.removeEventListener('touchmove', touchMoveBinded);
 			touchPointStart = 0;
 		    touchPointCurrent = 0;
@@ -574,6 +573,7 @@ class SliderTalk extends Slider{
 
 function clickItemHandler(event){
 	if(!event.target.closest('.click-item')) return;
+	console.log(event.type);
 	let item = event.target.closest('.click-item');	
 
 	let obj = {
@@ -705,3 +705,20 @@ function changeModelInfo(){
 		func1();
 	});
 };
+
+
+function test(event){
+	//if(event.type == 'touchstart') event.cancelable = false;
+	//if(event.type == 'touchend') event.cancelable = false;
+	console.log(event.type,event.target,event);
+}
+
+document.addEventListener('click',test);
+document.addEventListener('mousedown',test);
+document.addEventListener('mouseup',test);
+document.addEventListener('touchstart',test);
+document.addEventListener('touchend',test);
+document.addEventListener('touchmove',test);
+document.addEventListener('touchenter',test);
+document.addEventListener('touchleave',test);
+document.addEventListener('touchcancel',test);
