@@ -402,6 +402,7 @@ class Slider{
 
 	prepareSlidesOnclick(){		
 		this.container.addEventListener('click', func.bind(this));
+		this.container.addEventListener('touchstart', func.bind(this));
 		function func(event){
 			if(!event.target.closest('.slider_slide')) return;
 			let slide = event.target.closest('.slider_slide');
