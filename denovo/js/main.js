@@ -38,6 +38,7 @@ window.onload = function(){
 	});
 
 	document.addEventListener('click', clickItemHandler);
+	document.addEventListener('touchstart', clickItemHandler);
 
 
 	document.addEventListener('keydown', function(event){
