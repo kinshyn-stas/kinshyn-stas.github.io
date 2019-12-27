@@ -144,12 +144,14 @@ class Slider{
 		slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
 		slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
 		slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
+		slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
 		this.container.append(slider_arrow_right);
 
 		let slider_arrow_left = document.createElement('div');
 		slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
 		slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
 		slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
+		slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
 		this.container.append(slider_arrow_left);
 	}
 
