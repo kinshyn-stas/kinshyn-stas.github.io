@@ -363,13 +363,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .aside_body{}
 .aside_list{}
 .aside_item{
-	display: flex;
-	align-items: center;
-	min-height: 53px;
-	padding: 10px 16px;
+	position: relative;
 	font-size: 12px;
 	line-height: 14px;
 	border-bottom: 1px solid #EBECEC;
+}
+.aside_item_link{
+	display: flex;
+	align-items: center;
+	min-height: 53px;
+	padding: 10px 16px;	
 }
 .aside_item_icon{
 	margin-right: 9px;
@@ -378,6 +381,36 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	display: block;
 }
 .aside_item_text{}
+.aside_item_list{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 0px;
+	height: 0;
+	padding: 0;
+	background-color: #F3F6F9;
+	opacity: 0;
+	transform: translate(100%,-50%);
+	-webkit-transform: translate(100%,-50%);
+}
+.aside_item:hover .aside_item_list{
+	width: 300px;
+	height: auto;
+	padding: 20px;
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+	-webkit-transition: opacity 0.2s ease-in-out;
+}
+.aside_item_list_item{
+	display: block;
+	margin-bottom: 20px;
+}
+.aside_item_list_item:last-of-type{
+	margin-bottom: 0;
+}
+.aside_item_list_item:hover{
+	color: #f56107;
+}
 
 .aside_bottom{
 	padding: 22px 16px 12px;
