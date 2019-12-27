@@ -496,9 +496,9 @@ class Slider{
 		    touchPointCurrent = 0;
 
 			this.touchTimeEnd = +new Date();
-			if(this.touchTimeEnd - this.touchTimeStart > 100){
+			/*if(this.touchTimeEnd - this.touchTimeStart > 100){
 				event.target.click();
-			}					    
+			}	*/				    
 		}
 
 		this.container.addEventListener('touchmove', touchMoveBinded);
