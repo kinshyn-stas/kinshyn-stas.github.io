@@ -1299,6 +1299,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
+	.text_block blockquote{
+		padding: 20px;
+	}
+	.text_content{
+		margin-right: 0;
+	}
 	.text_info-columns{
 		columns: 1;
 	}
