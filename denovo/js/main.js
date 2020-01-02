@@ -26,11 +26,11 @@ window.onload = function(){
 		},
 	});
 
-	/*new classMultiplyWrapper(SliderBanner, {
+	new classMultiplyWrapper(SliderBanner, {
 		selector: '.banner_slider',
 		infinity: true,
-		autoShift: true,
-	});*/
+		//autoShift: true,
+	});
 
 	document.addEventListener('click', clickItemHandler);
 	//document.addEventListener('touchstart', clickItemHandler);
@@ -584,6 +584,26 @@ class SliderBanner extends Slider{
 		super(params);
 	}	
 
+	prepare(){
+		this.activeSlider = 0;
+		
+		this.slideOnScreen = 1;
+		if(this.params.multiDisplay){
+			let w = document.body.offsetWidth;
+			if(w>0 && w<=768){
+				this.slideOnScreen = this.params.multiDisplay.mobile;
+			} else if(w>768 && w<=1100){
+				this.slideOnScreen = this.params.multiDisplay.touch;
+			} else {
+				this.slideOnScreen = this.params.multiDisplay.desktop;
+			}
+		}
+
+		this.extendSlides();
+		this.extendNavs();
+		this.slideAll();
+	}
+
 	createSliderBox(){
 		this.block = document.createElement('div');
 		this.block.classList = ('slider_block');
@@ -615,11 +635,10 @@ class SliderBanner extends Slider{
 				this.slideAll();
 			}
 		})
-		this.extendNavs();
 	}
 
 	extendNavs(){
-		let d = (this.box.offsetWidth / this.navList.length) - 1;
+		let d = (this.box.offsetWidth / this.navList.length);
 
 		this.navList.forEach(nav =>{	
 			nav.style.width = `${d}px`;
