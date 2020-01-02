@@ -1621,7 +1621,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 30px;
 }
-.main-footer_column{}
 .main-footer_link{
 	display: block;
 	margin-bottom: 16px;
@@ -1662,11 +1661,47 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	left: 0;
 	transform: translateY(-50%);
 }
-.main-footer_link-contact span{}
+
+@media screen and (max-width: 768px){
+	.main-footer_box{
+		display: block;
+	}
+}
 
 
-.treshold{}
-.treshold_box{}
-.treshold_years{}
-.treshold_link{}
-.treshold_link a{}
+.treshold{
+	padding: 20px 0;
+    background: #e7ecef;
+}
+.treshold_box{
+	display: flex;
+    color: #1c2129;
+	font-size: 14px;
+    line-height: 1;
+}
+.treshold_years{
+	width: 50%;
+}
+.treshold_link{
+	width: 50%;
+}
+.treshold_link a{
+	color: #000000;
+	font-size: 12px;
+}
+.treshold_link a:hover{
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 768px){
+	.treshold_box{
+		display: block;
+	}
+	.treshold_years{
+		width: 100%;
+		margin-bottom: 12px;
+	}
+	.treshold_link{
+		width: 100%;
+	}
+}
