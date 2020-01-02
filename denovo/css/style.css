@@ -1661,6 +1661,27 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	left: 0;
 	transform: translateY(-50%);
 }
+.main-footer_soc{}
+.main-footer_soc_title{
+	display: block;
+	margin-bottom: 20px;
+	color: #000000;
+	font-size: 14px;
+	font-weight: 700;	
+}
+.main-footer_soc_links{
+	display: flex;
+}
+.main-footer_soc_link{
+	display: inline-block;
+	margin-right: 20px;
+}
+.main-footer_soc_link:last-of-type{
+	margin-right: 0;
+}
+.main-footer_soc_link svg{
+	display: block;
+}
 
 @media screen and (max-width: 768px){
 	.main-footer_box{
