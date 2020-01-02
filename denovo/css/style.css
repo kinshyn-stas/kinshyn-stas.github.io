@@ -1608,3 +1608,65 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		font-size: 24px;
 	}
 }
+
+
+.main-footer{
+	padding: 35px 0;
+	background-color: #f5f5f5;
+    color: #696969;
+	font-size: 14px;
+}
+.main-footer_box{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 30px;
+}
+.main-footer_column{}
+.main-footer_link{
+	display: block;
+	margin-bottom: 16px;
+}
+.main-footer_link:hover{
+	text-decoration: underline;
+}
+.main-footer_link-big{
+	margin-bottom: 24px;
+	color: #000000;
+	font-size: 16px;
+	font-weight: 700;
+}
+.main-footer_link-big:hover{
+	color: #000000;
+}
+.main-footer_link-middle{
+	margin-bottom: 30px;
+	color: #000000;
+	font-size: 14px;
+	font-weight: 700;
+}
+.main-footer_link-middle:hover{
+	color: #000000;
+}
+.main-footer_link-contact{
+	position: relative;
+	padding-left: 30px;
+	margin-bottom: 30px;
+	color: #fc8123;
+}
+.main-footer_link-contact:hover{
+	color: #fc8123;
+}
+.main-footer_link-contact svg{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+.main-footer_link-contact span{}
+
+
+.treshold{}
+.treshold_box{}
+.treshold_years{}
+.treshold_link{}
+.treshold_link a{}
