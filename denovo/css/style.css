@@ -1312,3 +1312,60 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		display: none;
 	}
 }
+
+
+.benefits_block{}
+.benefits_title{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	text-align: center;
+}
+.benefits_title:before,
+.benefits_title:after{
+	content: "";
+    display: block;
+	width: 140px;
+    height: 1px;
+    margin: auto 14px;
+    background-color: #20262E;
+}
+.benefits_box{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 32px;
+}
+.benefits_item{
+	margin-bottom: 32px;
+}
+.benefits_item figure{
+	margin-bottom: 16px;
+}
+.benefits_item figure img{
+	display: block;
+}
+.benefits_text{}
+.benefits_text_title{
+	margin-bottom: 8px;
+}
+.benefits_text p{
+	margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px){
+	.benefits_title{
+		justify-content: flex-start;
+	}
+	.benefits_title:before,
+	.benefits_title:after{
+		display: none;
+	}
+	.benefits_box{
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (max-width: 480px){
+	.benefits_box{
+		display: block;
+	}
+}
