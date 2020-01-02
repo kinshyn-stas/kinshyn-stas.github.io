@@ -337,14 +337,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .main-container{
 	display: flex;
+	align-items: flex-start;
 }
 
 
 .aside-main{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	width: 201px;
 	min-width: 201px;
+	min-height: 100vh;
 	color: #24272D;
-	border-right: 1px solid #EBECEC;
 }
 
 .aside_head{
@@ -360,7 +364,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	display: block;
 }
 
-.aside_body{}
+.aside_body{
+	flex-grow: 100;
+}
 .aside_list{}
 .aside_item{
 	position: relative;
@@ -373,6 +379,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	align-items: center;
 	min-height: 53px;
 	padding: 10px 16px;	
+	background-color: transparent;
+	transition: all 0.2s ease-in-out;
+}
+.aside_item_link svg path{
+	transition: all 0.2s ease-in-out;	
+}
+.aside_item_link:hover{
+	background-color: #F56107;
+	color: #ffffff;
+}
+.aside_item_link:hover svg path{
+	fill: #ffffff!important;
 }
 .aside_item_icon{
 	margin-right: 9px;
@@ -394,22 +412,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	-webkit-transform: translate(100%,-50%);
 }
 .aside_item:hover .aside_item_list{
-	width: 300px;
+	width: 288px;
 	height: auto;
-	padding: 20px;
 	opacity: 1;
+	padding: 12px 0;
 	transition: opacity 0.2s ease-in-out;
 	-webkit-transition: opacity 0.2s ease-in-out;
 }
 .aside_item_list_item{
 	display: block;
-	margin-bottom: 20px;
+	padding: 8px 24px;
+	margin-bottom: 4px;
 }
 .aside_item_list_item:last-of-type{
 	margin-bottom: 0;
 }
 .aside_item_list_item:hover{
-	color: #f56107;
+	background-color: #F56107;
+	color: #ffffff;
 }
 
 .aside_bottom{
@@ -452,8 +472,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 1100px){
+	.main-container{
+		flex-direction: column;
+	}
 	.aside-main{
 		display: none;
+		width: 100%;
 	}
 }
 
@@ -461,6 +485,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .main{
 	flex-grow: 100;
 	max-width: 100%;
+	border-left: 1px solid #EBECEC;
 }
 .main-block{
 	margin-bottom: 100px;
@@ -472,6 +497,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	padding-right: 20px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@media screen and (max-width: 1100px){
+	.main{
+		border-left: none;
+	}
 }
 
 
