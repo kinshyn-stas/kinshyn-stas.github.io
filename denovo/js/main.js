@@ -3,17 +3,6 @@
 window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
-		selector: '.products_box',
-		infinity: true,
-		navigationDotters: true,
-		sizeWork: {
-			desktop: false,
-			touch: false,
-			mobile: true,
-		}
-	});
-
-	new classMultiplyWrapper(Slider, {
 		selector: '.sertificat_box',
 		infinity: true,
 		navigationDotters: true,
@@ -93,8 +82,8 @@ class Slider{
 	checkSize(p){
 		let w = document.body.offsetWidth;
 		if(p.desktop && w > 1100) return true;
-		if(p.touch && (w > 768 && w < 1100)) return true;
-		if(p.mobile && w <768) return true;
+		if(p.touch && (w > 768 && w <= 1100)) return true;
+		if(p.mobile && w <= 768) return true;
 		return false;
 	}
 
