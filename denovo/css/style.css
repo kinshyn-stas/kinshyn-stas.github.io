@@ -506,7 +506,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-right: auto;
 }
 .center-main-block-full{
-	width: 100%;
+	max-width: 100%;
 }
 .center-main-block-no-padding{
 	max-width: 100%;
@@ -514,6 +514,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	padding-right: 0;
 }
 
+@media screen and (min-width: 1441px){
+	.center-main-block{
+		max-width: 1068px;
+		padding-left: 70px;
+		padding-right: 70px;
+	}
+}
 @media screen and (max-width: 1100px){
 	.main{
 		width: 100%;
