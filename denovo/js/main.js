@@ -56,6 +56,9 @@ window.onload = function(){
 
 
 	installVideoHeight();
+
+
+	aboutTimerCountdown();
 };
 
 
@@ -862,6 +865,7 @@ function installVideoHeight(){
 
 function aboutTimerCountdown(){
 	let timer = document.getElementById('about_timer');
+	timer.style.hidden = false;
 	let days = timer.querySelector('#about_days .about_timer_number');
 	let hours = timer.querySelector('#about_hours .about_timer_number');
 	let minutes = timer.querySelector('#about_minutes .about_timer_number');
@@ -878,6 +882,6 @@ function aboutTimerCountdown(){
 		seconds.textContent = n.getSeconds() - begin.getSeconds();
 	}
 
+	calc();
 	setInterval(calc,1000);
 }
-aboutTimerCountdown();
