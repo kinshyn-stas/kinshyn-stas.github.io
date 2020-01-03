@@ -33,18 +33,24 @@ window.onload = function(){
 	});
 
 	document.addEventListener('click', clickItemHandler);
-	//document.addEventListener('touchstart', clickItemHandler);
 
+
+	document.addEventListener('input', function(event){
+		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
+			event.target.value = event.target.value.replace(/\D/g,"");
+		}		
+	});
 
 	document.addEventListener('keydown', function(event){
 		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
-		    let keycode = event.keyCode;
-		    if ((44 < keycode && keycode < 58)||(keycode == 187)||(keycode == 8)||(keycode == 37)||(keycode == 39)){} else {
-		    	event.preventDefault();
-		    };			
-		};
+			let key = event.key.toLowerCase();
+			if(event.target.value.length>11 && key != 'backspace' && key != 'delete') event.preventDefault();
+		}		
 	});
 
+	new classMultiplyWrapper(FormValidate, {
+		selector: '.form_validate',
+	});
 
 	//emulateSelector('.select_emulator');
 
@@ -885,3 +891,67 @@ function aboutTimerCountdown(){
 	calc();
 	setInterval(calc,1000);
 }
+
+
+class FormValidate{
+	constructor(params){
+		this.form = params.item;
+		this.status = false;
+		this.items = this.form.querySelectorAll('.form_validate_item');
+		this.submit = this.form.querySelector('.form_validate_submit');
+		this.submit.disabled = true;
+
+		this.form.addEventListener('input',this.checkInputsPattern.bind(this));
+		this.form.addEventListener('change',this.checkInputsPattern.bind(this));
+	}
+
+	checkInputsPattern(event){
+		if(event.target.tagName.toLowerCase() != 'input') return;
+		let eType = event.target.type.toLowerCase();
+		console.log(!(event.target.required && event.target.dataset.pattern),!(eType == 'checkbox' || eType == 'radio'))
+		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio')) return;
+
+		let regexp =  new RegExp(event.target.dataset.pattern,'i');
+
+		if(event.type == 'input'){
+			if(regexp.test(`^${event.target.value}$`)){
+				event.target.closest('.form_validate_item').classList.remove('invalid');
+				event.target.classList.remove('invalid');
+			} 
+		} else if(event.type == 'change'){
+			if(regexp.test(`${event.target.value}`)){
+				event.target.closest('.form_validate_item').classList.remove('invalid');
+				event.target.classList.remove('invalid');
+			} else {
+				event.target.closest('.form_validate_item').classList.add('invalid');
+				event.target.classList.add('invalid');
+			};
+
+			if(eType == 'checkbox' || eType == 'radio'){
+				if(event.target.checked){
+					event.target.closest('.form_validate_item').classList.remove('invalid');
+					event.target.classList.remove('invalid');
+				} else {
+					event.target.closest('.form_validate_item').classList.add('invalid');
+					event.target.classList.add('invalid');
+				}
+			}
+
+			this.checkItems();
+		}
+
+	}
+
+	checkItems(){
+		this.status = true;
+		this.items.forEach(item => {
+			if(item.classList.contains('invalid') || !item.querySelector('input').value) this.status = false;
+		})
+
+		if(this.status){
+			this.submit.disabled = false;
+		} else {
+			this.submit.disabled = true;
+		}
+	}
+};

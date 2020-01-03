@@ -215,8 +215,7 @@ textarea{
 	padding: 10px 20px;
 	resize: none;
 }
-input.invalid,
-input:invalid{
+input.invalid{
 	border-color: #ff0000;
 }
 input:focus,
@@ -2159,6 +2158,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .order_item textarea{
 	width: 100%;
 }
+.order_item .form_validate_alert{
+	display: none;
+	margin-top: 5px;
+	color: #ff0000;
+	font-size: 12px;
+	text-align: left;
+}
+.order_item.invalid .form_validate_alert{
+	display: block;
+}
 .order_item-agree{
 	margin-bottom: 30px;
 }
@@ -2227,6 +2236,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .button_submit:hover:before{
 	transform: translate(-50%,-50%) scale(1.1);
+}
+.button_submit:disabled:before{
+	background-color: #67a972;
+	border-color: #67a972;
+}
+.button_submit:disabled:hover:before{
+	transform: translate(-50%,-50%);
 }
 
 .order_right{
