@@ -35,19 +35,6 @@ window.onload = function(){
 	document.addEventListener('click', clickItemHandler);
 
 
-	document.addEventListener('input', function(event){
-		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
-			event.target.value = event.target.value.replace(/\D/g,"");
-		}		
-	});
-
-	document.addEventListener('keydown', function(event){
-		if(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel'){
-			let key = event.key.toLowerCase();
-			if(event.target.value.length>11 && key != 'backspace' && key != 'delete') event.preventDefault();
-		}		
-	});
-
 	new classMultiplyWrapper(FormValidate, {
 		selector: '.form_validate',
 	});
@@ -903,6 +890,8 @@ class FormValidate{
 
 		this.form.addEventListener('input',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('change',this.checkInputsPattern.bind(this));
+		this.form.addEventListener('input',this.validatePhone.bind(this));
+		this.form.addEventListener('keydown',this.validatePhone.bind(this));
 	}
 
 	checkInputsPattern(event){
@@ -952,6 +941,17 @@ class FormValidate{
 			this.submit.disabled = false;
 		} else {
 			this.submit.disabled = true;
+		}
+	}
+
+	validatePhone(){
+		if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+
+		if(event.type == 'input'){
+			event.target.value = event.target.value.replace(/\D/g,"");
+		} else if(event.type == 'keydown'){
+			let key = event.key.toLowerCase();
+			if(event.target.value.length>11 && key != 'backspace' && key != 'delete') event.preventDefault();
 		}
 	}
 };
