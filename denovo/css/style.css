@@ -114,6 +114,7 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: inherit;
 	word-break: break-word;
 	box-sizing: border-box;
 	-webkit-appearance: none;
@@ -199,31 +200,37 @@ label{
 }
 input,
 textarea{
-	padding: 12px 16px;
+	padding: 14px 20px;
 	background: #f5f5f5;
-	font-size: 16px;
-	line-height: 1.2;
+	color: inherit;
+	font-size: 12px;
+	line-height: 20px;
 	outline: none;
 	border-radius: 7px;
 	border: 1px solid #ffffff;
 	transition: all 0.2s ease-in-out;
 }
 textarea{
+	min-height: 104px;
+	padding: 10px 20px;
 	resize: none;
 }
 input.invalid,
 input:invalid{
-	border-color: #D92432;
+	border-color: #ff0000;
 }
 input:focus,
 textarea:focus{
 	outline: none;
-	border-color: #D92432;
+	border-color: #31beff;
 }
 input::placeholder,
 textarea::placeholder{
 	color: #757575;
 	font-weight: 300;
+}
+input.fill{
+	border-color: #008000;
 }
 input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
 input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
@@ -2106,5 +2113,165 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.about_timer_separator{
 		font-size: 30px;
+	}
+}
+
+
+.order_block{}
+.order_box{
+	display: flex;
+	flex-wrap: wrap;
+}
+.order_left{
+	width: 50%;
+	padding: 0 30px 0 10px;
+	border-right: 1px solid #d9dadd;
+}
+.order_form{}
+.order_title{
+	position: relative;
+    padding-top: 2em;
+    margin-bottom: 40px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+.order_title:before{
+	content: attr(data-text);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    color: #f5f5f5;
+    font-size: 2.6em;
+}
+.order_item{
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.order_item input,
+.order_item textarea{
+	width: 100%;
+}
+.order_item-agree{
+	margin-bottom: 30px;
+}
+.order_item-agree label{
+	position: relative;
+	padding-left: 25px;
+	font-size: 14px;
+    line-height: 20px;
+	cursor: pointer;
+}
+.order_item-agree label input[type=checkbox]{
+	display: none;
+}
+.order_item-agree label .input_emul{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 4;
+}
+.input_emul .input_emul_agree{
+	display: none;
+}
+.input_emul .input_emul_not-agree{
+	display: block;
+}
+.order_item-agree label input[type=checkbox]:checked+.input_emul .input_emul_agree{
+	display: block;
+}
+.order_item-agree label input[type=checkbox]:checked+.input_emul .input_emul_not-agree{
+	display: none;
+}
+.order_item-agree label a{
+	text-decoration: underline;
+}
+.button_submit{
+	position: relative;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	min-width: 200px;
+	padding: 15px 10px;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 20px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.button_submit span{
+	z-index: 4;
+}
+.button_submit:before{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	background-color: #358d44;
+	border: 1px solid #358D44;
+	box-shadow: 0 5px 20px rgba(53, 141, 68, 0.47);
+	transform: translate(-50%,-50%);
+	transition: all 0.2s ease-in-out;
+}
+.button_submit:hover:before{
+	transform: translate(-50%,-50%) scale(1.1);
+}
+
+.order_right{
+	width: 50%;
+	padding-left: 50px;
+	font-size: 18px;
+	line-height: 20px;
+}
+.order_right p{
+	margin-bottom: 20px;
+}
+.order_right ul{
+	padding-left: 0;
+	list-style: none;
+}
+.order_right ul li{
+	position: relative;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+.order_right ul li:before{
+	content: "";
+	position: absolute;
+    top: 6px;
+    left: 0;
+    z-index: 4;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 768px){
+	.order_left{
+		width: 100%;
+		padding: 0 0 30px;
+		border-right: none;
+		border-bottom: 1px solid #d9dadd;
+	}
+	.order_title{
+		font-size: 19px;
+	}
+	.order_right{
+		width: 100%;
+		padding: 30px 0 0;
 	}
 }
