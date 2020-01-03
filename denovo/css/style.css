@@ -520,6 +520,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding-left: 70px;
 		padding-right: 70px;
 	}
+	.center-main-block-full{
+		max-width: 100%;
+	}
+	.center-main-block-no-padding{
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 @media screen and (max-width: 1100px){
 	.main{
@@ -1786,10 +1794,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .about_image{
 	position: relative;
-	width: 605px;
-	min-width: 605px;
+	width: 575px;
+	min-width: 575px;
 	margin-top: 80px;
-	padding-right: 30px;
+	height: 100%;
 }
 .about_image_cloud-1{
 	position: absolute;
