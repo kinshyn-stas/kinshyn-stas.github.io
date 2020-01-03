@@ -631,7 +631,9 @@ class SliderBanner extends Slider{
 		this.navList = [].slice.call(this.nav.children);
 		this.navList.forEach(item => {
 			item.onclick = (event) => {
-				this.installActiveSlider(item.dataset.number);
+				this.sliders.forEach((slide,i) => {
+					if(slide.dataset.number == item.dataset.number) this.installActiveSlider(i);
+				})				
 				this.slideAll();
 			}
 		})
@@ -680,7 +682,7 @@ class SliderBanner extends Slider{
 
 		this.navList.forEach(item => {
 				item.classList.remove('active');
-				if(item.dataset.number == this.activeSlider) item.classList.add('active');
+				if(item.dataset.number == this.sliders[this.activeSlider].dataset.number) item.classList.add('active');
 			}
 		)
 
