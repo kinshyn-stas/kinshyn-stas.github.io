@@ -858,3 +858,26 @@ function installVideoHeight(){
 		item.style.paddingBottom = `${p}%`;
 	})
 };
+
+
+function aboutTimerCountdown(){
+	let timer = document.getElementById('about_timer');
+	let days = timer.querySelector('#about_days .about_timer_number');
+	let hours = timer.querySelector('#about_hours .about_timer_number');
+	let minutes = timer.querySelector('#about_minutes .about_timer_number');
+	let seconds = timer.querySelector('#about_seconds .about_timer_number');
+	let begin = new Date();
+	begin.setFullYear(2011,1,1);
+	begin.setHours(2,0,0);
+
+	function calc(){
+		let n = new Date();
+		days.textContent = parseInt(((n - begin) / 24) / 3600000);
+		hours.textContent = n.getHours() - begin.getHours();
+		minutes.textContent = n.getMinutes() - begin.getMinutes();
+		seconds.textContent = n.getSeconds() - begin.getSeconds();
+	}
+
+	setInterval(calc,1000);
+}
+aboutTimerCountdown();

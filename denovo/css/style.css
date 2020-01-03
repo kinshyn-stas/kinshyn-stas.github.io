@@ -1733,3 +1733,50 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		width: 100%;
 	}
 }
+
+
+.about_block{}
+.about_timer{
+	display: flex;
+	align-items: center;
+}
+.about_timer_title{
+	width: 350px;
+	min-width: 350px;
+    padding: 32px 10px;
+    background-color: #f56107;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px 0 0 5px;
+}
+.about_timer_time{
+	flex-grow: 100;
+	display: flex;
+	padding-left: 40px;
+	text-align: center;
+}
+.about_timer_item{
+	/*width: 24%;*/
+	padding: 0 20px;
+    color: #888888;
+	font-size: 14px;
+}
+.about_timer_number{
+	display: block;
+    color: #f56107;
+	font-size: 48px;
+    font-weight: 700;
+}
+.about_timer_label{
+	display: block;
+	text-transform: lowercase;
+}
+.about_timer_separator{
+	color: #d7d7d7;
+	line-height: 1;
+	font-size: 50px;
+}
