@@ -1623,10 +1623,49 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     color: #f5f5f5;
 	font-size: 2.6em;
 }
+.consultant_form{}
+.consultant_item{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-left: 10px;
+}
+.consultant_item input[type=email]{
+	width: 260px;
+	max-width: 100%;
+}
+.consultant_item button{
+	position: relative;
+    z-index: 10;
+    left: -10px;
+}
+.consultant_item .form_validate_alert{
+	display: none;
+	margin-top: 10px;
+	width: 100%;
+	color: #ff0000;
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+}
+.consultant_item.invalid .form_validate_alert{
+	display: block;
+}
 
 @media screen and (max-width: 768px){
 	.consultant_title{
-		font-size: 24px;
+		font-size: 20px;
+	}
+	.consultant_title:before{
+		font-size: 2em;
+	}
+	.consultant_item{
+		padding-left: 0;
+	}
+	.consultant_item button{
+		left: 0;
+		margin-top: 20px;
 	}
 }
 
