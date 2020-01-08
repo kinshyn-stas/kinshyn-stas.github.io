@@ -898,38 +898,59 @@ class FormValidate{
 	checkInputsPattern(event){
 		if(event.target.tagName.toLowerCase() != 'input') return;
 		let eType = event.target.type.toLowerCase();
-		console.log(!(event.target.required && event.target.dataset.pattern),!(eType == 'checkbox' || eType == 'radio'))
 		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio')) return;
 
 		let regexp =  new RegExp(event.target.dataset.pattern,'i');
 
 		if(event.type == 'input'){
-			if(regexp.test(`^${event.target.value}$`)){
-				event.target.closest('.form_validate_item').classList.remove('invalid');
-				event.target.classList.remove('invalid');
-			} 
+			if(regexp.test(`^${event.target.value}$`)) this.changeClassList(event.target,true); 
 		} else if(event.type == 'change'){
-			if(regexp.test(`${event.target.value}`)){
-				event.target.closest('.form_validate_item').classList.remove('invalid');
-				event.target.classList.remove('invalid');
-			} else {
-				event.target.closest('.form_validate_item').classList.add('invalid');
-				event.target.classList.add('invalid');
-			};
+			regexp.test(`${event.target.value}`) ? this.changeClassList(event.target,true) : this.changeClassList(event.target,false);
 
 			if(eType == 'checkbox' || eType == 'radio'){
-				if(event.target.checked){
-					event.target.closest('.form_validate_item').classList.remove('invalid');
-					event.target.classList.remove('invalid');
+				if(event.target.name){
+					let flag = false;
+					let counter = 0;
+
+					this.form.querySelectorAll(`input[name=${event.target.name}]`).forEach(item => {
+						if(item.checked){
+							flag = true;
+							counter++;
+						} 
+					})
+
+					if(flag){
+						this.changeClassList(event.target,true);
+					} else {
+						this.changeClassList(event.target,false);
+					}
+
+					
+					if(!event.target.closest('.order_select')) return;
+					if(!event.target.closest('.order_select').querySelector('.order_select_num')) return;
+					event.target.closest('.order_select').querySelector('.order_select_num').textContent = counter;
 				} else {
-					event.target.closest('.form_validate_item').classList.add('invalid');
-					event.target.classList.add('invalid');
+					if(event.target.checked){
+						this.changeClassList(event.target,true);
+					} else {
+						this.changeClassList(event.target,false);
+					}
 				}
 			}
 
 			this.checkItems();
 		}
 
+	}
+
+	changeClassList(target,direction = true){
+		if(direction){
+			target.closest('.form_validate_item').classList.remove('invalid');
+			target.classList.remove('invalid');
+		} else {
+			target.closest('.form_validate_item').classList.add('invalid');
+			target.classList.add('invalid');
+		}
 	}
 
 	checkItems(){
