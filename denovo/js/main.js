@@ -364,6 +364,7 @@ class Slider{
 
 		} else if(this.activeSlider < 0){
 			let sr = this.slideOnScreen;
+			if(!this.params.multiShift) sr = 1;
 			this.box.style.transition = ``;  
 			for(let i=0; i<sr; i++){
 				let s = this.sliders[this.sliders.length - i - 1].cloneNode(true);
