@@ -42,7 +42,7 @@ window.onload = function(){
 	//emulateSelector('.select_emulator');
 
 
-	//new inputFileEmulator('.input_emulator-file');
+	new inputFileEmulator('.input_emulator-file');
 
 
 	changeModelInfo();
@@ -783,29 +783,6 @@ function clickItemHandler(event){
 };
 
 
-class inputFileEmulator{
-	constructor(selector){
-		document.querySelectorAll(selector).forEach(box =>{
-			let input = box.querySelector('input');
-			let label = box.querySelector('label');
-
-			input.addEventListener('change', function(e){
-				let fileName = '';
-
-				if (this.files && this.files.length > 1){
-					fileName = ( this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
-				}
-				else{
-					fileName = e.target.value.split('\\').pop();
-				}
-
-				if (fileName) label.innerHTML = `<span>${fileName}</span>`;
-			})
-		})
-	}
-}
-
-
 function changeModelInfo(){
 	document.querySelectorAll('.model').forEach((container) => {
 		let box = container.querySelectorAll('.model_list');
@@ -878,7 +855,7 @@ function aboutTimerCountdown(){
 
 	calc();
 	setInterval(calc,1000);
-}
+};
 
 
 class FormValidate{
@@ -975,5 +952,28 @@ class FormValidate{
 			let key = event.key.toLowerCase();
 			if(event.target.value.length>11 && key != 'backspace' && key != 'delete') event.preventDefault();
 		}
+	}
+};
+
+
+class inputFileEmulator{
+	constructor(selector){
+		document.querySelectorAll(selector).forEach(box =>{
+			let input = box.querySelector('input');
+			let label = box.querySelector('label');
+
+			input.addEventListener('change', function(e){
+				let fileName = '';
+
+				if (this.files && this.files.length > 1){
+					fileName = ( this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
+				}
+				else{
+					fileName = e.target.value.split('\\').pop();
+				}
+
+				if (fileName) label.innerHTML = `<span>${fileName}</span>`;
+			})
+		})
 	}
 };

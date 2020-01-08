@@ -1799,7 +1799,7 @@
 				<div class="center-main-block">
 					
 					<div class="order_box">
-							<form class="order_form order_form-flex form_validate">
+							<form class="order_form order_form-grid form_validate">
 								<h2 class="order_title" data-text="НАДІСЛАТИ">НАДІШЛІТЬ ВАШЕ РЕЗЮМЕ</h2>
 								<div class="order_item form_validate_item">
 									<div class="order_select click-obj">
@@ -1838,6 +1838,16 @@
 								</div>
 								<div class="order_item form_validate_item">
 									<input type="tel" placeholder="Телефон*" data-pattern="[0-9]{9,12}" autocomplete="off" required>
+									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
+								</div>
+								<div class="order_item form_validate_item">
+									<div class="input_emulator-file">
+										<input id="f1" type="file" class="inputFile" required>
+										<label for="f1" class="inputFileLabel">
+											<span>Прикріпити резюме</span>
+										</label>
+										<span class="form_validate_alert form_validate_alert-gray">формат завантажених файлів: *.txt, *.doc, *.docx, *.pdf / розмір не більше 3Мв</span>
+									</div>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
