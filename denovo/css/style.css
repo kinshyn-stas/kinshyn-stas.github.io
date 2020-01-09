@@ -641,6 +641,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		width: 100%;
 		height: auto;
 		background-color: #ffffff;
+		overflow: visible;
 	}
 	.aside-main.active{
 		height: 100%;
