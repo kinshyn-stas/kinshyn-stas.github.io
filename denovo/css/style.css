@@ -351,7 +351,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(../img/refresh.png);
+	background-image: url(../img/refresh.svg);
 	background-position: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
