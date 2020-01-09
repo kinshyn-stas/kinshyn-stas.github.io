@@ -702,6 +702,16 @@ function clickItemHandler(event){
 			target.closest('.click-obj').classList.toggle('active');
 		},
 
+		'toggle-menu': function(target){
+			let obj = target.closest('.click-obj');
+			obj.classList.toggle('active');
+			if(obj.classList.contains('active')){
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = 'auto';
+			}
+		},
+
 		'remove': function(target){
 			target.closest('.click-obj').remove();
 		},
