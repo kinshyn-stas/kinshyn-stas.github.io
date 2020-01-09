@@ -719,6 +719,7 @@ function clickItemHandler(event){
 		},
 
 		'open-lightbox': function(target){
+			if(document.body.clientWidth<769) return;
 			target.classList.add('lightbox_target')
 			let container = document.createElement('div');
 			container.classList = 'lightbox_container click-obj';
@@ -977,3 +978,72 @@ class inputFileEmulator{
 		})
 	}
 };
+
+
+/*function asidePseudoScroll(){
+	if(!document.querySelector('.aside-main')) return;
+	let aside = document.querySelector('.aside-main');
+	let content = aside.querySelector('.aside_content');
+
+	aside.addEventListener('mouseover', mouseover);
+
+	function mouseover(e){
+		//let yStart = parseInt(getComputedStyle(content).top);
+		//console.log(yStart);
+		let yStart = 0;
+
+		aside.addEventListener('mousedown', mousedown);
+		aside.addEventListener('mouseout', mouseEnd);
+
+		function mousedown(e){
+			yStart = e.clientY;
+
+			aside.addEventListener('mousemove', mousemove);
+			aside.addEventListener('mouseup', mouseEnd);
+		}
+
+		function mousemove(e){
+			console.log(e.clientY);
+			content.style.top = `${yStart - e.clientY}px`;
+		}
+
+
+		function mouseEnd(e){
+			aside.removeEventListener('mouseout', mouseEnd);
+			aside.removeEventListener('mousedown', mousedown);
+			aside.removeEventListener('mousemove', mousemove);
+			aside.removeEventListener('mouseup', mouseEnd);
+		}
+	}
+}
+
+asidePseudoScroll();*/
+
+
+function hiddenScrollAside(selector){
+    document.querySelectorAll(selector).forEach(box =>{
+        box.classList.add('scroll-emul_block');
+        box.style.overflowX = 'hidden';
+        let cont = box.querySelector('.scroll-emul_container');
+
+
+        if(!box.children[0].classList.contains('scroll-emul_container')){
+            cont = document.createElement('div');
+            cont.classList = 'scroll-emul_container';
+
+            while(box.children.length){
+                cont.append(box.children[0])
+            }
+
+            box.append(cont);
+            cont.style.height = `100%`;
+            cont.style.overflowY = `scroll`;
+            cont.style.overflowX = `hidden`;
+        }
+
+        cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;
+    })
+};
+
+hiddenScrollAside('.aside-main');
+window.addEventListener('resize',() => hiddenScrollAside('.aside-main'));
