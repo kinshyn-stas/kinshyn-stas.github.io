@@ -29,6 +29,7 @@ window.onload = function(){
 	new classMultiplyWrapper(SliderBanner, {
 		selector: '.banner_slider',
 		infinity: true,
+		navigationDotters: true,
 		//autoShift: true,
 	});
 
@@ -52,6 +53,10 @@ window.onload = function(){
 
 
 	aboutTimerCountdown();
+
+
+	hiddenScrollAside('.aside-main');
+	window.addEventListener('resize',() => hiddenScrollAside('.aside-main'));
 };
 
 
@@ -990,46 +995,6 @@ class inputFileEmulator{
 };
 
 
-/*function asidePseudoScroll(){
-	if(!document.querySelector('.aside-main')) return;
-	let aside = document.querySelector('.aside-main');
-	let content = aside.querySelector('.aside_content');
-
-	aside.addEventListener('mouseover', mouseover);
-
-	function mouseover(e){
-		//let yStart = parseInt(getComputedStyle(content).top);
-		//console.log(yStart);
-		let yStart = 0;
-
-		aside.addEventListener('mousedown', mousedown);
-		aside.addEventListener('mouseout', mouseEnd);
-
-		function mousedown(e){
-			yStart = e.clientY;
-
-			aside.addEventListener('mousemove', mousemove);
-			aside.addEventListener('mouseup', mouseEnd);
-		}
-
-		function mousemove(e){
-			console.log(e.clientY);
-			content.style.top = `${yStart - e.clientY}px`;
-		}
-
-
-		function mouseEnd(e){
-			aside.removeEventListener('mouseout', mouseEnd);
-			aside.removeEventListener('mousedown', mousedown);
-			aside.removeEventListener('mousemove', mousemove);
-			aside.removeEventListener('mouseup', mouseEnd);
-		}
-	}
-}
-
-asidePseudoScroll();*/
-
-
 function hiddenScrollAside(selector){
     document.querySelectorAll(selector).forEach(box =>{
     	if(document.body.clientWidth > 1100){
@@ -1071,6 +1036,3 @@ function hiddenScrollAside(selector){
     	}
     })
 };
-
-hiddenScrollAside('.aside-main');
-window.addEventListener('resize',() => hiddenScrollAside('.aside-main'));
