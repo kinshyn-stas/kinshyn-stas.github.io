@@ -115,7 +115,6 @@ class Slider{
 			}
 			box.remove();
 			deleteElem(this.container.querySelector('.slider_block'));
-			console.log(this.slider_nav);
 			deleteElem(this.slider_nav);
 			deleteElem(this.slider_arrow_right);
 			deleteElem(this.slider_arrow_left);
@@ -128,8 +127,6 @@ class Slider{
 	}
 
 	create(){
-		console.log(this);
-		console.log(this.sizeFlag);
 		this.createSliderBox();
 		if(this.params.navigationDotters && !this.params.multiDisplay) this.createSliderNavigationDotters();
 		this.prepare();
@@ -927,15 +924,12 @@ class FormValidate{
 		this.form.addEventListener('input',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('change',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('input',this.validatePhone.bind(this));
-		this.form.addEventListener('keydown',this.validatePhone.bind(this));
-		this.form.addEventListener('input',this.limitedTextArea.bind(this));
-		this.form.addEventListener('keydown',this.limitedTextArea.bind(this));
 	}
 
 	checkInputsPattern(event){
 		if(event.target.tagName.toLowerCase() != 'input') return;
 		let eType = event.target.type.toLowerCase();
-		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio')) return;
+		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio') && !(eType == 'file')) return;
 
 		let target = event.target;
 		let regexp =  new RegExp(target.dataset.pattern);
@@ -1015,32 +1009,10 @@ class FormValidate{
 
 	validatePhone(){
 		if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
-
-		if(event.type == 'input'){
-			event.target.value = event.target.value.replace(/\D/g,"");
-			if(event.target.value.slice(0,3) != '380'){
-				event.target.value = `380${event.target.value.slice(3)}`;
-			}
-		} else if(event.type == 'keydown'){
-			let key = event.key.toLowerCase();
-			if(event.target.value.length>11 && key != 'backspace' && key != 'delete'){
-				event.target.value.length = 11;
-				event.preventDefault();
-			} 
-		}
-	}
-
-	limitedTextArea(){
-		if(!(event.target.tagName.toLowerCase() == 'textarea')) return;
-
-		if(event.type == 'input'){
-			if(event.target.value.length>2501) event.target.value = event.target.value.slice(0,2501);
-		} else if(event.type == 'keydown'){
-			let key = event.key.toLowerCase();
-			if(event.target.value.length>2500 && key != 'backspace' && key != 'delete'){
-				event.preventDefault();
-				event.target.value = event.target.value.slice(0,2501);
-			} 			
+		
+		event.target.value = event.target.value.replace(/\D/g,"");
+		if(event.target.value.slice(0,3) != '380'){
+			event.target.value = `380${event.target.value.slice(3)}`;
 		}
 	}
 };
@@ -1051,6 +1023,8 @@ class inputFileEmulator{
 		document.querySelectorAll(selector).forEach(box =>{
 			let input = box.querySelector('input');
 			let label = box.querySelector('label');
+			let acceptArr;
+			if(input.getAttribute('accept')) acceptArr = input.getAttribute('accept').split('/');
 
 			input.addEventListener('change', function(e){
 				let fileName = '';
@@ -1063,6 +1037,15 @@ class inputFileEmulator{
 				}
 
 				if (fileName) label.innerHTML = `<span>${fileName}</span>`;
+
+				if(acceptArr){
+					let n = fileName.slice(fileName.lastIndexOf('.') + 1);
+					let result = acceptArr.findIndex(item => item == n);
+					if(result == -1){
+						input.value = '';
+						label.innerHTML = `<span>Неверный формат файла</span>`;
+					}
+				}
 			})
 		})
 	}

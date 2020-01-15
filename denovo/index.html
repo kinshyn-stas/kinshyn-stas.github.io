@@ -1703,31 +1703,31 @@
 							<form class="order_form form_validate">
 								<h2 class="order_title" data-text="ОТРИМАТИ">ОТРИМАТИ ТЕСТ-ДРАЙВ, РОЗРАХУНОК, КОНСУЛЬТАЦІЮ</h2>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Ім'я*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='50' autocomplete="off" required>
+									<input type="text" placeholder="Ім'я*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' maxlength='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Прізвище*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='50' autocomplete="off" required>
+									<input type="text" placeholder="Прізвище*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' maxlength='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Посада*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='100' autocomplete="off" required>
+									<input type="text" placeholder="Посада*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' maxlength='100' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Компанія (без форми власності)*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='100' autocomplete="off" required>
+									<input type="text" placeholder="Компанія (без форми власності)*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' maxlength='100' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="tel" placeholder="Телефон*" data-pattern="[0-9]{9,12}" autocomplete="off" required>
+									<input type="tel" placeholder="Телефон*" data-pattern="[0-9]{9,12}" data-min="12" maxlength="12" autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="email" placeholder="Email*" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min='3' data-max='50' autocomplete="off" required>
+									<input type="email" placeholder="Email*" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min='3' maxlength='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item">
-									<textarea placeholder="Повідомлення"></textarea>
+									<textarea placeholder="Повідомлення" maxlength="2500"></textarea>
 								</div>
 								<div class="order_item order_item-agree form_validate_item">
 									<label>
@@ -1768,15 +1768,15 @@
 							<form class="order_form form_validate">
 								<h2 class="order_title" data-text="ЗАВАНТАЖИТИ">ЗАВАНТАЖИТИ WHITEBOOK «IAAS АБО СВОЄ ЗАЛІЗО»</h2>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Ім'я*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Ім'я*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min="3" maxlength="100" autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Прізвище*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Прізвище*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min="3" maxlength="100" autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^.+@.+\..+$" required>
+									<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min="3" maxlength="100" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item order_item-agree form_validate_item">
@@ -1828,11 +1828,11 @@
 
 			<section class="main-block consultant_block">
 				<div class="center-main-block">
-					<h2 class="consultant_title" data-text="ПІДПИСКА">ПІДПИСКА НА НОВИНИУ</h2>
+					<h2 class="consultant_title" data-text="ПІДПИСКА">ПІДПИСКА НА НОВИНИ</h2>
 
 					<form class="consultant_form form_validate">
 						<div class="consultant_item form_validate_item">							
-							<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^.+@.+\..+$" required>
+							<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min="3" maxlength="100" required>
 							<button class="button_submit form_validate_submit">
 								<span>Завантажити</span>
 							</button>
@@ -1880,29 +1880,29 @@
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Прізвище та ім'я*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Прізвище та ім'я*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min="3" maxlength="100" autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="tel" placeholder="Телефон*" data-pattern="[0-9]{9,12}" autocomplete="off" required>
+									<input type="tel" placeholder="Телефон*" data-pattern="[0-9]{9,12}" data-min="12" maxlength="12" autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
 									<div class="input_emulator-file">
-										<input id="f1" type="file" class="inputFile" required>
+										<input id="f1" type="file" class="inputFile" accept="txt/doc/docx/pdf" required>
 										<label for="f1" class="inputFileLabel">
 											<span>Прикріпити резюме</span>
 										</label>
-										<span class="form_validate_alert form_validate_alert-gray">формат завантажених файлів: *.txt, *.doc, *.docx, *.pdf / розмір не більше 3Мв</span>
+										<span class="form_validate_alert form_validate_alert-gray">формат завантажених файлів: *.txt, *.doc, *.docx, *.pdf / розмір не більше 5Мв</span>
 									</div>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^.+@.+\..+$" required>
+									<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min="3" maxlength="100" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item">									
-									<textarea placeholder="Повідомлення"></textarea>
+									<textarea placeholder="Повідомлення" maxlength="2500"></textarea>
 								</div>
 								<div class="order_item order_item-last">
 									<button class="button_submit form_validate_submit">
