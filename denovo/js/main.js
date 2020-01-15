@@ -74,30 +74,69 @@ function classMultiplyWrapper(Cls,parametrs){
 class Slider{
 	constructor(params){
 		this.params = params;
-		if(this.params.sizeWork && !this.checkSize(this.params.sizeWork)) return;
 		this.container = params.item;
-		params.moveTime ? (this.moveTime = params.moveTime) : (this.moveTime = 0.4);
+		this.params.moveTime ? (this.moveTime = this.params.moveTime) : (this.moveTime = 0.4);
+		if(this.params.sizeWork){
+			this.sizeFlag = 0;
+			this.checkSize(this.params.sizeWork);
+			window.addEventListener('resize', this.checkSize.bind(this,this.params.sizeWork));
+		}
+		if(!this.sizeFlag) this.create();
+
+		this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
+		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
+
+		window.addEventListener('resize', this.prepare.bind(this));	
+	}
+
+	checkSize(p){
+		let trigger = false;
+		let w = document.body.offsetWidth;
+		if(p.desktop && w > 1100) trigger = true;
+		if(p.touch && (w > 768 && w <= 1100)) trigger = true;
+		if(p.mobile && w <= 768) trigger = true;
+		
+		if(trigger){
+			console.log('+')
+			if(this.sizeFlag != 1){
+				this.sizeFlag = 1;
+				this.create();				
+			}
+		} else {
+			console.log('-')
+			this.sizeFlag = 2;
+
+			if(!this.container.querySelector('.slider_box')) return;
+			let box = this.container.querySelector('.slider_box');
+			while(box.children[0]){
+				box.children[0].style.width = '';
+				box.children[0].style.minWidth = '';
+				this.container.append(box.children[0]);
+			}
+			box.remove();
+			deleteElem(this.container.querySelector('.slider_block'));
+			console.log(this.slider_nav);
+			deleteElem(this.slider_nav);
+			deleteElem(this.slider_arrow_right);
+			deleteElem(this.slider_arrow_left);
+			deleteElem(this.slider_counter);
+
+			function deleteElem(elem){
+				if(elem) elem.remove();
+			}
+		}
+	}
+
+	create(){
+		console.log(this);
+		console.log(this.sizeFlag);
 		this.createSliderBox();
 		if(this.params.navigationDotters && !this.params.multiDisplay) this.createSliderNavigationDotters();
 		this.prepare();
 		if(this.params.navigationArrows) this.createSliderNavigationArrows();
 		if(this.params.navigationCounter && !this.params.multiDisplay) this.createSliderNavigationCounter();
 		if(this.params.slideClickRewind) this.prepareSlidesOnclick();
-		if(this.params.autoShift) this.changeSlidesAutomaticaly();
-			
-
-		this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
-		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
-
-		window.addEventListener('resize', this.prepare.bind(this));
-	}
-
-	checkSize(p){
-		let w = document.body.offsetWidth;
-		if(p.desktop && w > 1100) return true;
-		if(p.touch && (w > 768 && w <= 1100)) return true;
-		if(p.mobile && w <= 768) return true;
-		return false;
+		if(this.params.autoShift) this.changeSlidesAutomaticaly();	
 	}
 
 	prepare(){
@@ -143,31 +182,31 @@ class Slider{
 	}
 
 	createSliderNavigationArrows(){
-		let slider_arrow_right = document.createElement('div');
-		slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
-		slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
-		slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
+		this.slider_arrow_right = document.createElement('div');
+		this.slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
+		this.slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
+		this.slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
 		//slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
-		this.container.append(slider_arrow_right);
+		this.container.append(this.slider_arrow_right);
 
-		let slider_arrow_left = document.createElement('div');
-		slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
-		slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
-		slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
+		this.slider_arrow_left = document.createElement('div');
+		this.slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
+		this.slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
+		this.slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
 		//slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
-		this.container.append(slider_arrow_left);
+		this.container.append(this.slider_arrow_left);
 	}
 
 	createSliderNavigationCounter(){
-		let slider_counter = document.createElement('div');
-		slider_counter.classList = 'slider_counter';
+		this.slider_counter = document.createElement('div');
+		this.slider_counter.classList = 'slider_counter';
 
 		let numberStart = `01`;
 		let numberEnd = Math.ceil(this.sliders.length / this.slideOnScreen);
 		numberEnd = (numberEnd<10) ? `0${numberEnd}` : numberEnd;
 
-		slider_counter.innerHTML = `<span class="slider_counter_number slider_counter_number-start">${numberStart}</span><span class="slider_counter_line"></span><span class="slider_counter_number slider_counter_number-end">${numberEnd}</span>`;
-		this.container.append(slider_counter);
+		this.slider_counter.innerHTML = `<span class="slider_counter_number slider_counter_number-start">${numberStart}</span><span class="slider_counter_line"></span><span class="slider_counter_number slider_counter_number-end">${numberEnd}</span>`;
+		this.container.append(this.slider_counter);
 	}
 
 	changeSliderNavigationCounter(){
@@ -179,8 +218,8 @@ class Slider{
 	}
 
 	createSliderNavigationDotters(){
-		let slider_nav = document.createElement('ul');
-		slider_nav.classList = 'slider_nav';
+		this.slider_nav = document.createElement('ul');
+		this.slider_nav.classList = 'slider_nav';
 
 		this.butts = [];
 		for(let i=0; i<this.sliders.length; i++){
@@ -189,7 +228,7 @@ class Slider{
 			slider_nav_butt.style.transition = `all ${this.moveTime} ease-in-out`;
 			slider_nav_butt.dataset.number = i;
 			this.butts.push(slider_nav_butt);
-			slider_nav.append(slider_nav_butt);
+			this.slider_nav.append(slider_nav_butt);
 		}
 
 		this.container.addEventListener('click',func.bind(this));
@@ -203,7 +242,7 @@ class Slider{
 			return this.slideMove({counter: butt.dataset.number});
 		}
 
-		this.container.append(slider_nav);
+		this.container.append(this.slider_nav);
 	}
 
 	changeSlidesAutomaticaly(){
@@ -1022,9 +1061,7 @@ function hiddenScrollAside(selector){
 
 	        cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;	
     	} else {
-    		console.log('t1')
     		if(!box.children[0].classList.contains('scroll-emul_container')) return;
-    		console.log('t2')
 
 	        box.classList.remove('scroll-emul_block');
 	        box.style.overflowX = 'auto';
