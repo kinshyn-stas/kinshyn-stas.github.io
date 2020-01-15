@@ -928,6 +928,8 @@ class FormValidate{
 		this.form.addEventListener('change',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('input',this.validatePhone.bind(this));
 		this.form.addEventListener('keydown',this.validatePhone.bind(this));
+		this.form.addEventListener('input',this.limitedTextArea.bind(this));
+		this.form.addEventListener('keydown',this.limitedTextArea.bind(this));
 	}
 
 	checkInputsPattern(event){
@@ -935,19 +937,20 @@ class FormValidate{
 		let eType = event.target.type.toLowerCase();
 		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio')) return;
 
-		let regexp =  new RegExp(event.target.dataset.pattern,'i');
+		let target = event.target;
+		let regexp =  new RegExp(target.dataset.pattern);
 
 		if(event.type == 'input'){
-			if(regexp.test(`^${event.target.value}$`)) this.changeClassList(event.target,true); 
+			if(this.testValue(target)) this.changeClassList(target,true);
 		} else if(event.type == 'change'){
-			regexp.test(`${event.target.value}`) ? this.changeClassList(event.target,true) : this.changeClassList(event.target,false);
+			this.testValue(target) ? this.changeClassList(target,true) : this.changeClassList(target,false);
 
 			if(eType == 'checkbox' || eType == 'radio'){
 				if(event.target.name){
 					let flag = false;
 					let counter = 0;
 
-					this.form.querySelectorAll(`input[name=${event.target.name}]`).forEach(item => {
+					this.form.querySelectorAll(`input[name=${target.name}]`).forEach(item => {
 						if(item.checked){
 							flag = true;
 							counter++;
@@ -955,20 +958,20 @@ class FormValidate{
 					})
 
 					if(flag){
-						this.changeClassList(event.target,true);
+						this.changeClassList(target,true);
 					} else {
-						this.changeClassList(event.target,false);
+						this.changeClassList(target,false);
 					}
 
 					
-					if(!event.target.closest('.order_select')) return;
-					if(!event.target.closest('.order_select').querySelector('.order_select_num')) return;
-					event.target.closest('.order_select').querySelector('.order_select_num').textContent = counter;
+					if(!target.closest('.order_select')) return;
+					if(!target.closest('.order_select').querySelector('.order_select_num')) return;
+					target.closest('.order_select').querySelector('.order_select_num').textContent = counter;
 				} else {
-					if(event.target.checked){
-						this.changeClassList(event.target,true);
+					if(target.checked){
+						this.changeClassList(target,true);
 					} else {
-						this.changeClassList(event.target,false);
+						this.changeClassList(target,false);
 					}
 				}
 			}
@@ -976,6 +979,15 @@ class FormValidate{
 			this.checkItems();
 		}
 
+	}
+
+	testValue(target){
+		let regexp =  new RegExp(target.dataset.pattern);
+		let result = true;
+		if(!regexp.test(`${target.value}`)) result = false;
+		if(target.dataset.min && (target.value.length < +target.dataset.min)) result = false;
+		if(target.dataset.max && (target.value.length > +target.dataset.max)) result = false;
+		return result;
 	}
 
 	changeClassList(target,direction = true){
@@ -1006,9 +1018,29 @@ class FormValidate{
 
 		if(event.type == 'input'){
 			event.target.value = event.target.value.replace(/\D/g,"");
+			if(event.target.value.slice(0,3) != '380'){
+				event.target.value = `380${event.target.value.slice(3)}`;
+			}
 		} else if(event.type == 'keydown'){
 			let key = event.key.toLowerCase();
-			if(event.target.value.length>11 && key != 'backspace' && key != 'delete') event.preventDefault();
+			if(event.target.value.length>11 && key != 'backspace' && key != 'delete'){
+				event.target.value.length = 11;
+				event.preventDefault();
+			} 
+		}
+	}
+
+	limitedTextArea(){
+		if(!(event.target.tagName.toLowerCase() == 'textarea')) return;
+
+		if(event.type == 'input'){
+			if(event.target.value.length>2501) event.target.value = event.target.value.slice(0,2501);
+		} else if(event.type == 'keydown'){
+			let key = event.key.toLowerCase();
+			if(event.target.value.length>2500 && key != 'backspace' && key != 'delete'){
+				event.preventDefault();
+				event.target.value = event.target.value.slice(0,2501);
+			} 			
 		}
 	}
 };

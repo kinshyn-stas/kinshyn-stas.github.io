@@ -1703,19 +1703,19 @@
 							<form class="order_form form_validate">
 								<h2 class="order_title" data-text="ОТРИМАТИ">ОТРИМАТИ ТЕСТ-ДРАЙВ, РОЗРАХУНОК, КОНСУЛЬТАЦІЮ</h2>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Ім'я*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Ім'я*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Прізвище*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Прізвище*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Посада*" data-pattern="^[А-Яа-яІіЇї]+$" autocomplete="off" required>
+									<input type="text" placeholder="Посада*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='100' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="text" placeholder="Компанія (без форми власності)*" data-pattern="[a-zA-ZА-Яа-яІіЇї]{2,}" autocomplete="off" required>
+									<input type="text" placeholder="Компанія (без форми власності)*" data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" data-min='3' data-max='100' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
@@ -1723,7 +1723,7 @@
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item form_validate_item">
-									<input type="email" placeholder="Email*" autocomplete="off" data-pattern="^.+@.+\..+$" required>
+									<input type="email" placeholder="Email*" data-pattern="^[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,12}$" data-min='3' data-max='50' autocomplete="off" required>
 									<span class="form_validate_alert">Заповніть обов'язкове поле</span>
 								</div>
 								<div class="order_item">
@@ -1731,7 +1731,7 @@
 								</div>
 								<div class="order_item order_item-agree form_validate_item">
 									<label>
-										<input type="checkbox" required checked>
+										<input type="checkbox" required>
 										<span class="input_emul">
 											<img class="input_emul_agree" src="img/check2.svg" alt="agree" />
 											<img class="input_emul_not-agree" src="img/check1.svg" alt="not agree" />

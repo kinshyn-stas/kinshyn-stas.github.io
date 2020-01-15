@@ -724,7 +724,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	border-left: 1px solid #EBECEC;
 }
 .main-block{
-	display: none;
 	margin-bottom: 100px;
 }
 .center-main-block{
@@ -1233,9 +1232,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.sertificat_block{
-	display: block;
-}
+.sertificat_block{}
 .sertificat_block h2{
 	margin-bottom: 26px;
 }
