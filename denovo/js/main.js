@@ -36,6 +36,9 @@ window.onload = function(){
 	document.addEventListener('click', clickItemHandler);
 
 
+	document.addEventListener('mouseover', menuListHandler);
+
+
 	new classMultiplyWrapper(FormValidate, {
 		selector: '.form_validate',
 	});
@@ -998,7 +1001,6 @@ class inputFileEmulator{
 function hiddenScrollAside(selector){
     document.querySelectorAll(selector).forEach(box =>{
     	if(document.body.clientWidth > 1100){
-    		console.log('t0')
 	        box.classList.add('scroll-emul_block');
 	        box.style.overflowX = 'hidden';
 	        let cont = box.querySelector('.scroll-emul_container');
@@ -1035,4 +1037,12 @@ function hiddenScrollAside(selector){
 	        cont.remove();
     	}
     })
+};
+
+
+function menuListHandler(event){
+	if(!event.target.closest('.aside_item.click-obj')) return;
+	let item = event.target.closest('.aside_item');
+	let p = item.querySelector('.aside_item_list');
+	p.style.top = `${item.getBoundingClientRect().top}px`;
 };

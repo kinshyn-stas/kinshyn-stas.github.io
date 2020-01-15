@@ -555,17 +555,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .aside_item_text{}
 .aside_item_list{
-	position: absolute;
-	top: 50%;
-	right: 0;
+	position: fixed;
+	left: 200px;
 	width: 0px;
 	height: 0;
 	padding: 0;
 	background-color: #F3F6F9;
 	opacity: 0;
 	overflow: hidden;
-	transform: translate(100%,-50%);
-	-webkit-transform: translate(100%,-50%);
 }
 .aside_item:hover .aside_item_list{
 	width: 288px;
