@@ -97,20 +97,18 @@ class Slider{
 		if(p.mobile && w <= 768) trigger = true;
 		
 		if(trigger){
-			console.log('+')
 			if(this.sizeFlag != 1){
 				this.sizeFlag = 1;
 				this.create();				
 			}
 		} else {
-			console.log('-')
 			this.sizeFlag = 2;
 
 			if(!this.container.querySelector('.slider_box')) return;
 			let box = this.container.querySelector('.slider_box');
 			while(box.children[0]){
-				box.children[0].style.width = '';
-				box.children[0].style.minWidth = '';
+				box.children[0].style.width = '100%';
+				box.children[0].style.minWidth = '100%';
 				this.container.append(box.children[0]);
 			}
 			box.remove();
@@ -137,6 +135,7 @@ class Slider{
 	}
 
 	prepare(){
+		if(this.sizeFlag == 2) return;
 		this.activeSlider = 0;
 		
 		this.slideOnScreen = 1;
