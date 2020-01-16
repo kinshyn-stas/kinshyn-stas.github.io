@@ -58,8 +58,8 @@ window.onload = function(){
 	aboutTimerCountdown();
 
 
-	hiddenScrollAside('.aside-main');
-	window.addEventListener('resize',() => hiddenScrollAside('.aside-main'));
+	hiddenScrollAside('.aside_body');
+	window.addEventListener('resize',() => hiddenScrollAside('.aside_body'));
 };
 
 
@@ -1056,6 +1056,7 @@ function hiddenScrollAside(selector){
     	if(document.body.clientWidth > 1100){
 	        box.classList.add('scroll-emul_block');
 	        box.style.overflowX = 'hidden';
+	        box.style.overflowY = 'visible';
 	        let cont = box.querySelector('.scroll-emul_container');
 
 
