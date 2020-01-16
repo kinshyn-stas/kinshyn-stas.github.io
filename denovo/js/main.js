@@ -58,8 +58,8 @@ window.onload = function(){
 	aboutTimerCountdown();
 
 
-	//hiddenScrollAside('.aside_body');
-	//window.addEventListener('resize',() => hiddenScrollAside('.aside_body'));
+	hiddenScrollAside('.aside_body');
+	window.addEventListener('resize',() => hiddenScrollAside('.aside_body'));
 };
 
 
