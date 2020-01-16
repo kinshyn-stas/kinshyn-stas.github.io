@@ -2758,20 +2758,41 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-/*.test{
+.scroll-emul_block{
+	overflow-y: hidden;
+}
+.scroll-emul_container{
+	position: relative;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+.scroll-emul_content{
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	 -ms-overflow-style: none;
+}
+.scroll-emul_content::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+.scroll-emul_line{
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	z-index: 10;
+	width: 3px;
+	height: calc(100% - 2px);
+	background-color: rgba(220, 220, 220, 0.5);
+	border-radius: 2px;
+}
+.scroll-emul_line_item{
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 3px;
 	height: 100%;
-	display: flex;
+	background-color: rgba(220, 220, 220, 0.8);
+	border-radius: 2px;
 }
-.test_1{
-	width: 540px;
-	max-width: 100%;
-	background-color: #ffffff;
-}
-.test_2{
-	flex-grow: 100;
-	background-color: #000000;
-}*/

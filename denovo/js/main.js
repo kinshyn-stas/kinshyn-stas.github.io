@@ -1055,38 +1055,59 @@ function hiddenScrollAside(selector){
     document.querySelectorAll(selector).forEach(box =>{
     	if(document.body.clientWidth > 1100){
 	        box.classList.add('scroll-emul_block');
-	        box.style.overflowX = 'hidden';
-	        box.style.overflowY = 'visible';
 	        let cont = box.querySelector('.scroll-emul_container');
 
-
 	        if(!box.children[0].classList.contains('scroll-emul_container')){
-	            cont = document.createElement('div');
-	            cont.classList = 'scroll-emul_container';
+		        cont = document.createElement('div');
+		        cont.classList = 'scroll-emul_container';
+
+	        	let content = document.createElement('div');
+	        	content.classList = 'scroll-emul_content';
 
 	            while(box.children.length){
-	                cont.append(box.children[0])
+	                content.append(box.children[0])
 	            }
 
-	            box.append(cont);
-	            cont.style.height = `100%`;
-	            cont.style.overflowY = `scroll`;
-	            cont.style.overflowX = `hidden`;
-	        }
+		        let line = document.createElement('div');
+		        line.classList = 'scroll-emul_line';
 
-	        cont.style.width = `calc(100% + ${cont.offsetWidth - cont.clientWidth - cont.clientLeft}px)`;	
+		        let line_item = document.createElement('div');
+		        line_item.classList = 'scroll-emul_line_item';
+
+		        cont.append(content);
+		        line.append(line_item);
+		        cont.append(line);
+	            box.append(cont);
+
+		        content.style.width = `calc(100% + ${content.offsetWidth - content.clientWidth - content.clientLeft}px)`;
+
+		        let contentFullHeight = 0;
+		        for(let i = 0; i<content.children.length; i++){
+		        	contentFullHeight += parseFloat(content.children[i].offsetHeight);
+		        };
+		        let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
+		        line.hidden = (line_itemHeight >= 100)
+		        line_item.style.height = `${line_itemHeight}%`;
+
+		        content.addEventListener('scroll', scrollContent);
+
+		        function scrollContent(e){
+		        	line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
+		        }
+	        } else {
+	        	
+	        }
     	} else {
     		if(!box.children[0].classList.contains('scroll-emul_container')) return;
 
 	        box.classList.remove('scroll-emul_block');
-	        box.style.overflowX = 'auto';
 
-    		let cont = box.querySelector('.scroll-emul_container');
-    		while(cont.children.length){
+    		let content = box.querySelector('.scroll-emul_content');
+    		while(content.children.length){
 	            box.append(cont.children[0])
 	        }
 
-	        cont.remove();
+	        box.querySelector('.scroll-emul_container').remove();
     	}
     })
 };
