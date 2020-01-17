@@ -315,9 +315,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .header-main{
 	position: relative;
-	color: var(--color-submain);
-	padding: 12px 0 21px;
 	background-color: var(--color2);
+	padding: 0 0 10px;
+	color: var(--color-submain);
+	font-size: 14px;
+	line-height: 18px;
 }
 .header-main:after{
 	content: "";
@@ -335,17 +337,94 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	display: none;
 }
 .header_top{
-
+	display: flex;
+	align-items: flex-start;
 }
-.header_nav{}
-.header_nav_link{}
-.header_nav_link:hover{}
-.header_nav_link.active{}
-.header_place{}
-.header_place_item{}
-.header_list_item-actual{}
-.header_list{}
-.header_list_item{}
+.header_nav{
+	flex-grow: 100;
+	display: flex;
+	align-items: center;
+}
+.header_nav_link{
+	display: inline-block;
+	padding: 11px 0;
+	margin-right: 49px;
+	border-top: 2px solid transparent;
+}
+.header_nav_link:last-of-type{
+	margin-right: 0;
+}
+.header_nav_link:hover{
+	color: var(--color1);
+	border-top: 2px solid var(--color1);
+}
+.header_nav_link.active{
+	color: var(--color1);
+	border-top: 2px solid var(--color1);
+}
+.header_place{
+	display: flex;
+	padding: 11px 0;
+}
+.header_place_item{
+	position: relative;
+	min-width: 90px;
+	padding: 0 25px;
+	text-align: right;
+	border-right: 1px solid #D6E7B8;
+	cursor: pointer;
+}
+.header_place_item:last-of-type{
+	padding-right: 0;
+	border-right: 0;
+}
+.header_list_item-actual{
+    display: flex;
+    align-items: center;
+}
+.header_list_item-actual:after{
+	content: "";
+	position: relative;
+    top: 1px;
+	display: block;
+	width: 6px;
+	height: 3px;
+	margin-left: 3px;
+	background-image: url(../img/arrow_list.svg);
+	background-size: cover;
+	transition: all 0.2s ease-in-out;
+}
+.header_list_item-actual:hover:after{
+	top: 4px;
+}
+.header_list{
+	display: none;
+	position: absolute;
+	right: 20px;
+	bottom: 0;
+	z-index: 10;
+	min-width: 65px;
+	padding: 4px 16px 8px;
+	background-color: #FFFFFF;
+	text-align: right;
+	border-radius: 3px;
+	border: 1px solid #E1E1E2;
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+}
+.header_list-long{
+	min-width: 140px;
+}
+.header_place_item:last-of-type{
+	right: 0;
+}
+.header_place_item.active .header_list{
+	display: block;
+}
+.header_list_item{
+	display: block;
+	margin: 8px 0;
+}
 .header_list_item.actual{
 	display: none;
 }
