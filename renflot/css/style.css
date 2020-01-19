@@ -682,7 +682,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	z-index: 20;
 	width: 100%;
 }
-.banner_nav .center-main-block{	
+.banner_box{	
 	display: flex;
 	justify-content: space-between;
 }
@@ -723,5 +723,37 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (max-width: 768px){
 	.banner_block{
 		padding: 66px 0 56px;
+	}
+	.banner_nav{
+		position: relative;
+		margin-top: 44px;
+	}
+	.banner_box{
+		flex-wrap: wrap;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+	.banner_nav_item{
+		width: 50%;
+		border-radius: 0;
+		border-right: 1px solid #C8E493;
+		border-bottom: 1px solid #C8E493;
+		transform: none;
+		-webkit-transform: none;
+	}
+	.banner_nav_item:nth-of-type(2n + 2){
+		border-right: none;
+	}
+	.banner_nav_item:nth-of-type(n + 5){
+		flex-direction: row-reverse;
+    	justify-content: center;
+		width: 100%;
+		border-right: none;
+	}
+	.banner_nav_item:nth-of-type(n + 5) span{
+		margin-bottom: 0;
+	}
+	.banner_nav_item:last-of-type{
+		border-bottom: none;
 	}
 }
