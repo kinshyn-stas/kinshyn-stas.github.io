@@ -32,6 +32,7 @@ body{
 h1,h2,h3,h4,h5,h6{
   	margin-top: 0;
   	margin-bottom: 24px;
+  	color: #1C2833;
   	font-weight: 700;
 	line-height: 1.25;
 }
@@ -198,6 +199,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-image: url(../img/wave.svg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px){
+	.wave:before{
+		display: none;
+	}
 }
 
 
