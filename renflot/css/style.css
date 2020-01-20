@@ -177,6 +177,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .hidden{
 	display: none!important;
 }
+.color-main{
+	color: #1C2833!important;
+}
+.color-submain{
+	color: #51565A!important;
+}
+.color1{
+	color: #7FA244!important;
+}
+.color2{
+	color: #E1FEAA!important;
+}
+.color-gold{
+	color: #DCBC5A!important;
+}
+.color-trans{
+	color: #8D8D8D!important;
+}
 
 
 .button_container{}
