@@ -1055,6 +1055,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .footer_soc_item svg{
 	display: block;
+	--svg-color-1: #7FA244;
+	--svg-color-2: transparent;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.footer_soc_item:hover svg{
+	--svg-color-1: #ffffff;	
+	--svg-color-2: #7FA244;
 }
 .footer_accordion{
 	margin-bottom: 40px;
