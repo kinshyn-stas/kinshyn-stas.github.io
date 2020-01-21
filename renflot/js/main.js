@@ -20,6 +20,12 @@ window.onload = function(){
 
 	document.addEventListener('click', clickItemHandler);
 
+	document.addEventListener('change', validateInputTel);
+	document.addEventListener('input', validateInputTel);
+
+	new classMultiplyWrapper(InputLine, {
+		selector: '.input-line_parent',
+	});
 
 	/*new classMultiplyWrapper(FormValidate, {
 		selector: '.form_validate',
@@ -779,6 +785,12 @@ class FormValidate{
 };
 
 
+function validateInputTel(event){
+	if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+	event.target.value = event.target.value.replace(/\D/g,"");
+};
+
+
 class inputFileEmulator{
 	constructor(selector){
 		document.querySelectorAll(selector).forEach(box =>{
@@ -810,4 +822,83 @@ class inputFileEmulator{
 			})
 		})
 	}
+};
+
+
+class InputLine{
+	constructor(params){
+		this.params = params;
+		this.parent = params.item;
+		this.inputMin = this.parent.querySelector('.input-line_field-min');
+		this.inputMax = this.parent.querySelector('.input-line_field-max');
+		this.controllMin = this.parent.querySelector('.input-line_controller-min');
+		this.controllMax = this.parent.querySelector('.input-line_controller-max');
+		this.line = this.parent.querySelector('.input-line');
+
+		this.prepare();
+	}
+
+	prepare(){
+		this.min = +this.inputMin.dataset.val;
+		this.max = +this.inputMax.dataset.val;
+		this.inputMin.value = this.min;
+		this.inputMax.value = this.max;
+		this.lineWidth = this.line.offsetWidth;
+
+		this.parent.addEventListener('change', this.changeValue.bind(this));		
+		this.parent.addEventListener('input', this.changeValue.bind(this));		
+		this.parent.addEventListener('mousedown', this.controllStart.bind(this));		
+	}
+
+	changeValue(){
+
+	}
+
+	controllStart(){
+		if(!event.target.closest('.input-line_controller')) return;
+		let target = event.target.closest('.input-line_controller');
+		let d = 1;
+		if(target.dataset.role == 'min') d = 0;
+		let lineLeft = this.line.getBoundingClientRect().left;
+
+		function controllMove(event){
+			let position = parseInt((event.screenX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
+			if(position < 0) position = 0;
+			if(position > 100) position = 100;
+
+			let posMin = getComputedStyle(this.controllMin).left;
+			let posMax = getComputedStyle(this.controllMax).left;
+
+			if(d){
+				this.controllMax.style.left = `${position}%`;
+				if(parseInt(getComputedStyle(this.controllMax).left) <= parseInt(getComputedStyle(this.controllMin).left) + 20) this.controllMax.style.left = `calc(${parseInt(getComputedStyle(this.controllMin).left) + 20}px)`;
+			} else {
+				this.controllMin.style.left = `${position}%`;
+				if(parseInt(getComputedStyle(this.controllMin).left) >= parseInt(getComputedStyle(this.controllMax).left) - 20) this.controllMin.style.left = `calc(${parseInt(getComputedStyle(this.controllMax).left) - 20}px)`;
+			}
+
+			if(position < 1) position = 1;
+			let result = position * this.max / 100;
+
+			if(d){
+				this.inputMax.value = result;
+				if(this.inputMax.value <= this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
+			} else {
+				this.inputMin.value = result;
+				if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
+			}
+		}
+
+		function controllEnd(event){
+			document.removeEventListener('mousemove', controllMove);
+			document.removeEventListener('mouseup', controllEnd);
+		}
+
+		controllMove = controllMove.bind(this);
+		controllEnd = controllEnd.bind(this);
+		
+		document.addEventListener('mousemove', controllMove);
+		document.addEventListener('mouseup', controllEnd);
+	}
+
 };

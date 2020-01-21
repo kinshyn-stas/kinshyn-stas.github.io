@@ -242,7 +242,7 @@
 								</div>
 
 								<div class="form_content">
-									
+
 									<div class="form_item">
 										
 										<p class="form_item_title">Тип</p>
@@ -288,14 +288,15 @@
 										<p class="form_item_title">Стоимость аренды (грн./час)</p>
 
 										<div class="form_item_box">										
-											<input class="input-line_field input-line-min quadra" type="tel">
-											<input class="input-line_field input-line-max quadra" type="tel">
+											<input class="input-line_field input-line_field-min quadra" data-val="100" data-role="min" type="tel">
+											<input class="input-line_field input-line_field-max quadra" data-val="10000" data-role="max" type="tel">
 										</div>
 
 										<div class="input-line_box">
-											<div class="input-line"></div>
-											<div class="input-line_controller" data-direction="min"></div>
-											<div class="input-line_controller" data-direction="max"></div>
+											<div class="input-line">
+												<div class="input-line_controller input-line_controller-min" data-role="min"></div>
+												<div class="input-line_controller input-line_controller-max" data-role="max"></div>
+											</div>
 										</div>
 										
 									</div>
@@ -305,14 +306,15 @@
 										<p class="form_item_title">Количество гостей</p>
 
 										<div class="form_item_box">										
-											<input class="input-line_field input-line-min quadra" type="tel">
-											<input class="input-line_field input-line-max quadra" type="tel">
+											<input class="input-line_field input-line_field-min quadra" data-val="1" data-role="min" type="tel">
+											<input class="input-line_field input-line_field-max quadra" data-val="100" data-role="max" type="tel">
 										</div>
 
 										<div class="input-line_box">
-											<div class="input-line"></div>
-											<div class="input-line_controller" data-direction="min"></div>
-											<div class="input-line_controller" data-direction="max"></div>
+											<div class="input-line">
+												<div class="input-line_controller input-line_controller-min" data-role="min"></div>
+												<div class="input-line_controller input-line_controller-max" data-role="max"></div>
+											</div>
 										</div>
 										
 									</div>
