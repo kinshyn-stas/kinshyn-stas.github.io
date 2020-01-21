@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansproextralight.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansproextralight.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansproextralight.ttf") format("ttf"),
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansproextralightitalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansproextralightitalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansproextralightitalic.ttf") format("ttf"),
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprolight.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprolight.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprolight.ttf") format("ttf"),
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprolightitalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprolightitalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprolightitalic.ttf") format("ttf"),
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesanspro.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesanspro.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesanspro.ttf") format("ttf"),
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansproitalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansproitalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansproitalic.ttf") format("ttf"),
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprosemibold.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprosemibold.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprosemibold.ttf") format("ttf"),
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprosemibolditalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprosemibolditalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprosemibolditalic.ttf") format("ttf"),
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprobold.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprobold.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprobold.ttf") format("ttf"),
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansprobolditalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansprobolditalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansprobolditalic.ttf") format("ttf"),
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansproblack.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansproblack.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansproblack.ttf") format("ttf"),
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/SourceSansPro/sourcesansproblackitalic.woff2") format("woff2"),
+         url("../fonts/SourceSansPro/sourcesansproblackitalic.woff") format("woff"),
+         url("../fonts/SourceSansPro/sourcesansproblackitalic.ttf") format("ttf"),
+    font-weight: 900;
+    font-style: italic;
+}
