@@ -225,90 +225,102 @@
 						
 						<div class="catalog_left">
 							
-							<form class="catalog_form">
+							<form class="catalog_form click-obj active">
 								
-								<div class="catalog_form_switcher">
-									<span>Скрыть фильтры</span>
-									<img src="img/switch-on.svg" alt="" />
+								<div class="catalog_form_switch">
+
+									<div class="catalog_form_switcher catalog_form_switcher-on click-item">
+										<span>Скрыть фильтры</span>
+										<img src="img/switch-on.svg" alt="" />
+									</div>
+
+									<div class="catalog_form_switcher catalog_form_switcher-off click-item">
+										<span>Показать фильтры</span>
+										<img src="img/switch-on.svg" alt="" />
+									</div>
+
 								</div>
 
-
-								<div class="form_item">
+								<div class="form_content">
 									
-									<p class="form_item_title">Тип</p>
+									<div class="form_item">
+										
+										<p class="form_item_title">Тип</p>
 
-									<div class="form_item_list-checkbox">
-										
-										<label class="emul_input">
-											<input type="checkbox" name="t1" checked>
-											<span class="emul_input_in"></span>
-											<span class="emul_input_text">Все</span>
-										</label>
+										<div class="form_item_list-checkbox">
+											
+											<label class="emul_input">
+												<input type="checkbox" name="t1" checked>
+												<span class="emul_input_in"></span>
+												<span class="emul_input_text">Все</span>
+											</label>
 
-										<label class="emul_input">
-											<input type="checkbox" name="t1">
-											<span class="emul_input_in"></span>
-											<span class="emul_input_text">Теплоходы</span>
-										</label>
-										
-										<label class="emul_input">
-											<input type="checkbox" name="t1">
-											<span class="emul_input_in"></span>
-											<span class="emul_input_text">Парусные яхты</span>
-										</label>
-										
-										<label class="emul_input">
-											<input type="checkbox" name="t1">
-											<span class="emul_input_in"></span>
-											<span class="emul_input_text">Моторные яхты</span>
-										</label>
-										
-										<label class="emul_input">
-											<input type="checkbox" name="t1">
-											<span class="emul_input_in"></span>
-											<span class="emul_input_text">Катера</span>
-										</label>
+											<label class="emul_input">
+												<input type="checkbox" name="t1">
+												<span class="emul_input_in"></span>
+												<span class="emul_input_text">Теплоходы</span>
+											</label>
+											
+											<label class="emul_input">
+												<input type="checkbox" name="t1">
+												<span class="emul_input_in"></span>
+												<span class="emul_input_text">Парусные яхты</span>
+											</label>
+											
+											<label class="emul_input">
+												<input type="checkbox" name="t1">
+												<span class="emul_input_in"></span>
+												<span class="emul_input_text">Моторные яхты</span>
+											</label>
+											
+											<label class="emul_input">
+												<input type="checkbox" name="t1">
+												<span class="emul_input_in"></span>
+												<span class="emul_input_text">Катера</span>
+											</label>
+
+										</div>
 
 									</div>
 
-								</div>
+									<div class="form_item input-line_parent">
+											
+										<p class="form_item_title">Стоимость аренды (грн./час)</p>
 
-								<div class="form_item input-line_parent">
+										<div class="form_item_box">										
+											<input class="input-line_field input-line-min quadra" type="tel">
+											<input class="input-line_field input-line-max quadra" type="tel">
+										</div>
+
+										<div class="input-line_box">
+											<div class="input-line"></div>
+											<div class="input-line_controller" data-direction="min"></div>
+											<div class="input-line_controller" data-direction="max"></div>
+										</div>
 										
-									<p class="form_item_title">Стоимость аренды (грн./час)</p>
-
-									<div class="form_item_box">										
-										<input class="input-line_field input-line-min quadra" type="tel">
-										<input class="input-line_field input-line-max quadra" type="tel">
 									</div>
 
-									<div class="input-line_box">
-										<div class="input-line"></div>
-										<div class="input-line_controller" data-direction="min"></div>
-										<div class="input-line_controller" data-direction="max"></div>
-									</div>
-									
-								</div>
+									<div class="form_item form_item-last input-line_parent">
+											
+										<p class="form_item_title">Количество гостей</p>
 
-								<div class="form_item form_item-last input-line_parent">
+										<div class="form_item_box">										
+											<input class="input-line_field input-line-min quadra" type="tel">
+											<input class="input-line_field input-line-max quadra" type="tel">
+										</div>
+
+										<div class="input-line_box">
+											<div class="input-line"></div>
+											<div class="input-line_controller" data-direction="min"></div>
+											<div class="input-line_controller" data-direction="max"></div>
+										</div>
 										
-									<p class="form_item_title">Количество гостей</p>
-
-									<div class="form_item_box">										
-										<input class="input-line_field input-line-min quadra" type="tel">
-										<input class="input-line_field input-line-max quadra" type="tel">
 									</div>
 
-									<div class="input-line_box">
-										<div class="input-line"></div>
-										<div class="input-line_controller" data-direction="min"></div>
-										<div class="input-line_controller" data-direction="max"></div>
+									<div class="button_container">
+										<button class="button_order">ПОДОБРАТЬ</button>
 									</div>
-									
-								</div>
 
-								<div class="button_container">
-									<button class="button_order">ПОДОБРАТЬ</button>
 								</div>
 
 							</form>
