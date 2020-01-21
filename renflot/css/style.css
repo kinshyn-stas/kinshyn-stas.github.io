@@ -1806,4 +1806,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.catalog_left{
 		display: none;
 	}
+	.catalog_params_item{
+		padding: 0 10px;
+	}
 }
