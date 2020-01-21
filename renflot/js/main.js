@@ -851,42 +851,45 @@ class InputLine{
 	}
 
 	changeValue(){
+		if(!event.target.closest('.input-line_field')) return;
 
+		let target = event.target.closest('.input-line_field');
+		this.direction = 1;
+		if(target.dataset.role == 'min') this.direction = 0;
+
+		if(this.direction){
+			if(+this.inputMax.value > this.max) this.inputMax.value = this.max;
+			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
+		} else {
+			if(+this.inputMin.value < this.min) this.inputMin.value = this.min;
+			if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
+		}
+
+		this.changePositionsWrite();
+	}
+
+	changePositionsWrite(){
+		if(this.direction){
+			this.positionWrite = 100* +this.inputMax.value / (this.max - this.min);
+			this.controllMax.style.left = `${this.positionWrite}%`;
+			if(parseInt(getComputedStyle(this.controllMax).left) <= parseInt(getComputedStyle(this.controllMin).left) + 20) this.controllMax.style.left = `calc(${parseInt(getComputedStyle(this.controllMin).left) + 20}px)`;
+		} else {
+			this.positionWrite = 100* +this.inputMin.value / (this.max - this.min);
+			this.controllMin.style.left = `${this.positionWrite}%`;
+			if(parseInt(getComputedStyle(this.controllMin).left) >= parseInt(getComputedStyle(this.controllMax).left) - 20) this.controllMin.style.left = `calc(${parseInt(getComputedStyle(this.controllMax).left) - 20}px)`;
+		}
 	}
 
 	controllStart(){
 		if(!event.target.closest('.input-line_controller')) return;
+
 		let target = event.target.closest('.input-line_controller');
-		let d = 1;
-		if(target.dataset.role == 'min') d = 0;
+		this.directionMove = 1;
+		if(target.dataset.role == 'min') this.directionMove = 0;
 		let lineLeft = this.line.getBoundingClientRect().left;
 
 		function controllMove(event){
-			let position = parseInt((event.screenX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
-			if(position < 0) position = 0;
-			if(position > 100) position = 100;
-
-			let posMin = getComputedStyle(this.controllMin).left;
-			let posMax = getComputedStyle(this.controllMax).left;
-
-			if(d){
-				this.controllMax.style.left = `${position}%`;
-				if(parseInt(getComputedStyle(this.controllMax).left) <= parseInt(getComputedStyle(this.controllMin).left) + 20) this.controllMax.style.left = `calc(${parseInt(getComputedStyle(this.controllMin).left) + 20}px)`;
-			} else {
-				this.controllMin.style.left = `${position}%`;
-				if(parseInt(getComputedStyle(this.controllMin).left) >= parseInt(getComputedStyle(this.controllMax).left) - 20) this.controllMin.style.left = `calc(${parseInt(getComputedStyle(this.controllMax).left) - 20}px)`;
-			}
-
-			if(position < 1) position = 1;
-			let result = position * this.max / 100;
-
-			if(d){
-				this.inputMax.value = result;
-				if(this.inputMax.value <= this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
-			} else {
-				this.inputMin.value = result;
-				if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
-			}
+			this.changePositions(event);
 		}
 
 		function controllEnd(event){
@@ -901,4 +904,32 @@ class InputLine{
 		document.addEventListener('mouseup', controllEnd);
 	}
 
+	changePositions(event){
+		this.position = parseInt((event.screenX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
+		if(this.position < 0) this.position = 0;
+		if(this.position > 100) this.position = 100;
+
+		if(this.directionMove){
+			this.controllMax.style.left = `${this.position}%`;
+			if(parseInt(getComputedStyle(this.controllMax).left) <= parseInt(getComputedStyle(this.controllMin).left) + 20) this.controllMax.style.left = `calc(${parseInt(getComputedStyle(this.controllMin).left) + 20}px)`;
+		} else {
+			this.controllMin.style.left = `${this.position}%`;
+			if(parseInt(getComputedStyle(this.controllMin).left) >= parseInt(getComputedStyle(this.controllMax).left) - 20) this.controllMin.style.left = `calc(${parseInt(getComputedStyle(this.controllMax).left) - 20}px)`;
+		}
+
+		this.changeValueMove();		
+	}
+
+	changeValueMove(){
+		if(this.position < 1) this.position = 1;
+		this.result = this.position * this.max / 100;
+
+		if(this.directionMove){
+			this.inputMax.value = this.result;
+			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
+		} else {
+			this.inputMin.value = this.result;
+			if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
+		}
+	}
 };
