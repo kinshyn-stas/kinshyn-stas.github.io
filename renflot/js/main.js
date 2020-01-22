@@ -901,6 +901,9 @@ class InputLine{
 		function controllEnd(event){
 			document.removeEventListener('mousemove', controllMove);
 			document.removeEventListener('mouseup', controllEnd);
+			document.removeEventListener('touchmove', controllMove);
+			document.removeEventListener('touchend', controllEnd);
+			document.removeEventListener('touchcancel', controllEnd);
 		}
 
 		controllMove = controllMove.bind(this);
