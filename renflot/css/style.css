@@ -125,6 +125,7 @@ h4{
 @media screen and (max-width: 768px){
 	h1{
 		font-size: 32px;
+		margin-bottom: 16px;
 	}
 	h2{
 		font-size: 24px;
@@ -1527,6 +1528,33 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .catalog_block{
 	margin-bottom: 120px;
 }
+
+.catalog_nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 13px 0;
+	margin-bottom: 48px;
+	background-color: #FFFFFF;
+	color: #8D8D8D;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #E1E1E2;
+}
+.catalog_nav_item{
+	width: 25%;
+	padding: 0 10px;
+	border-right: 1px solid #E1E1E2;
+}
+.catalog_nav_item:last-of-type{
+	border-right: none;
+}
+.catalog_nav_item:hover{
+	color: inherit;
+}
+
 .catalog_container{
 	display: flex;
 	justify-content: space-between;
@@ -1925,6 +1953,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}	
 	.catalog_block h2{
 		margin-bottom: 16px;
+	}
+	.catalog_nav{
+		display: none;
 	}
 	.catalog_container{
 		display: block;
