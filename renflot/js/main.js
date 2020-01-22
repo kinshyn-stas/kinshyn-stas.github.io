@@ -881,7 +881,6 @@ class InputLine{
 		this.max = +this.inputMax.dataset.val;
 		this.inputMin.value = this.min;
 		this.inputMax.value = this.max;
-		this.lineWidth = this.line.offsetWidth;
 		this.controllMin.style.left = '0';
 		this.controllMax.style.left = '100%';
 	}
@@ -922,6 +921,7 @@ class InputLine{
 		let target = event.target.closest('.input-line_controller');
 		this.directionMove = 1;
 		if(target.dataset.role == 'min') this.directionMove = 0;
+		this.lineWidth = this.line.offsetWidth;
 		let lineLeft = this.line.getBoundingClientRect().left;
 
 		function controllMove(event){
