@@ -3,6 +3,17 @@
 window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
+		selector: '.catalog_slider',
+		navigationDotters: true,
+		navigationDottersCount: 2,
+		sizeWork: {
+			desktop: true,
+			touch: true,
+			mobile: false,
+		}
+	});
+
+	new classMultiplyWrapper(Slider, {
 		selector: '.testimonials_slider',
 		navigationDotters: true,
 		multiDisplay: {
