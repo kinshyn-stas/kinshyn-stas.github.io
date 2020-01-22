@@ -8,14 +8,15 @@ document.body.appendChild( renderer.domElement );
 //
 
 var texture = new THREE.TextureLoader().load( "img/textures/leha.jpg" );
-texture.wrapS = THREE.RepeatWrapping;
+/*texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
-texture.repeat.set( 1, 1 );
+texture.repeat.set( 1, 1 );*/
 //
 
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-var cube = new THREE.Mesh( geometry, texture );
+//var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var material = new THREE.MeshBasicMaterial( { map: texture } );
+var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
 camera.position.z = 5;
