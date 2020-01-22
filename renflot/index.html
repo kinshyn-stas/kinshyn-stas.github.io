@@ -225,7 +225,12 @@
 						
 						<div class="catalog_left">
 							
-							<form class="catalog_form click-obj active">
+							<div class="catalog_form click-obj active">
+
+								<div class="catalog_form_switch_mobile">									
+									<img src="img/arrow_filter.svg" alt="" />
+									<span>Подобрать судно</span>
+								</div>
 								
 								<div class="catalog_form_switch">
 
@@ -241,7 +246,7 @@
 
 								</div>
 
-								<div class="form_content">
+								<form class="form_content">
 
 									<div class="form_item">
 										
@@ -288,7 +293,7 @@
 										<p class="form_item_title">Стоимость аренды (грн./час)</p>
 
 										<div class="form_item_box">										
-											<input class="input-line_field input-line_field-min quadra" data-val="100" data-role="min" type="tel">
+											<input class="input-line_field input-line_field-min quadra" data-val="0" data-role="min" type="tel">
 											<input class="input-line_field input-line_field-max quadra" data-val="10000" data-role="max" type="tel">
 										</div>
 
@@ -306,7 +311,7 @@
 										<p class="form_item_title">Количество гостей</p>
 
 										<div class="form_item_box">										
-											<input class="input-line_field input-line_field-min quadra" data-val="1" data-role="min" type="tel">
+											<input class="input-line_field input-line_field-min quadra" data-val="0" data-role="min" type="tel">
 											<input class="input-line_field input-line_field-max quadra" data-val="100" data-role="max" type="tel">
 										</div>
 
@@ -323,9 +328,9 @@
 										<button class="button_order">ПОДОБРАТЬ</button>
 									</div>
 
-								</div>
+								</form>
 
-							</form>
+							</div>
 
 						</div>
 

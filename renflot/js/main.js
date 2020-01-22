@@ -836,6 +836,16 @@ class InputLine{
 		this.line = this.parent.querySelector('.input-line');
 
 		this.prepare();
+
+		this.parent.addEventListener('change', this.changeValue.bind(this));		
+		this.parent.addEventListener('input', this.changeValue.bind(this));		
+		this.parent.addEventListener('mousedown', this.controllStart.bind(this));
+		this.parent.addEventListener('touchstart', this.controllStart.bind(this), false);
+		this.parent.ondragstart = function(){
+			return false
+		};
+
+		window.addEventListener('resize', this.prepare.bind(this));
 	}
 
 	prepare(){
@@ -844,10 +854,6 @@ class InputLine{
 		this.inputMin.value = this.min;
 		this.inputMax.value = this.max;
 		this.lineWidth = this.line.offsetWidth;
-
-		this.parent.addEventListener('change', this.changeValue.bind(this));		
-		this.parent.addEventListener('input', this.changeValue.bind(this));		
-		this.parent.addEventListener('mousedown', this.controllStart.bind(this));		
 	}
 
 	changeValue(){
@@ -902,10 +908,21 @@ class InputLine{
 		
 		document.addEventListener('mousemove', controllMove);
 		document.addEventListener('mouseup', controllEnd);
+
+		document.addEventListener('touchmove', controllMove, false);
+		document.addEventListener('touchend', controllEnd, false);
+		document.addEventListener('touchcancel', controllEnd, false);
 	}
 
 	changePositions(event){
-		this.position = parseInt((event.screenX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
+		let coordinatX;
+		if(event.type == 'mousemove'){
+			coordinatX = event.screenX;
+		} else if(event.type == 'touchmove'){
+			coordinatX = event.changedTouches[0].screenX;
+		}
+
+		this.position = parseInt((coordinatX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
 		if(this.position < 0) this.position = 0;
 		if(this.position > 100) this.position = 100;
 

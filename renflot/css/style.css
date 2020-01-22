@@ -1450,6 +1450,25 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	border-radius: 5px;
 	border: 1px solid #E1E1E2;
 }
+.catalog_form_switch_mobile{
+	position: relative;
+	display: none;
+	padding: 11px 36px;
+	background-color: #EAF9D0;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 23px;
+	text-align: center;
+}
+.catalog_form_switch_mobile img{
+	position: absolute;
+	top: 50%;
+	left: 17px;
+	display: block;
+	width: 19px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
 .catalog_form_switch{}
 .catalog_form_switcher{
 	display: flex;
@@ -1804,7 +1823,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.catalog_container{
 		display: block;
 	}
-	.catalog_left{
+	.catalog_form{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 12000;
+		width: 100%;
+		height: 100vh;
+		padding: 0 16px 16px;
+		background-color: #ffffff;
+		border-radius: 0;
+		border: none;
+	}
+	.catalog_form_switch_mobile{
+		display: block;
+		width: calc(100% + 32px);
+		margin-left: -16px;
+	}
+	.catalog_form .form_content{
+		height: auto;
+		padding-top: 15px;
+		opacity: 1;
+	}
+	.catalog_form_switch{
 		display: none;
 	}
 	.catalog_params_item{
