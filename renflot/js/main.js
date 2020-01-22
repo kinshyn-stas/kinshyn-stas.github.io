@@ -834,26 +834,34 @@ class InputLine{
 		this.controllMin = this.parent.querySelector('.input-line_controller-min');
 		this.controllMax = this.parent.querySelector('.input-line_controller-max');
 		this.line = this.parent.querySelector('.input-line');
+		this.documentWidth = document.documentElement.clientWidth;
 
 		this.prepare();
 
 		this.parent.addEventListener('change', this.changeValue.bind(this));		
-		this.parent.addEventListener('input', this.changeValue.bind(this));		
+		//this.parent.addEventListener('input', this.changeValue.bind(this));		
 		this.parent.addEventListener('mousedown', this.controllStart.bind(this));
 		this.parent.addEventListener('touchstart', this.controllStart.bind(this), false);
 		this.parent.ondragstart = function(){
 			return false
 		};
 
-		window.addEventListener('resize', this.prepare.bind(this));
+		window.addEventListener('resize', this.resizeX.bind(this,this.prepare));
 	}
 
-	prepare(){
+	resizeX(callback){
+		if(this.documentWidth != document.documentElement.clientWidth) callback.call(this);
+	}
+
+	prepare(event){
+		if(event) console.log(event)
 		this.min = +this.inputMin.dataset.val;
 		this.max = +this.inputMax.dataset.val;
 		this.inputMin.value = this.min;
 		this.inputMax.value = this.max;
 		this.lineWidth = this.line.offsetWidth;
+		this.controllMin.style.left = '0';
+		this.controllMax.style.left = '100%';
 	}
 
 	changeValue(){
