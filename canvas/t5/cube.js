@@ -7,7 +7,8 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 //
 
-var texture = new THREE.TextureLoader().load( "img/textures/leha.jpg" );
+var texture = new THREE.TextureLoader().load( "leha.jpg" );
+console.log(THREE)
 /*texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
 texture.repeat.set( 1, 1 );*/
