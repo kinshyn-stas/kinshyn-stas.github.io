@@ -651,6 +651,23 @@ function clickItemHandler(event){
 				}
 			}
 		},
+
+		'form-clear': function(target){
+			if(!event.target.closest('form')) return;
+			let form = event.target.closest('form');
+			form.querySelectorAll('input, textarea, .input-line_controller').forEach(item => {
+				if(item.type == 'checkbox' || item.type == 'radio'){
+					item.checked = false;
+					if(item.dataset.role == 'checkbox-all') item.checked = true;
+				} else if(item.classList.contains('input-line_controller')){
+					item.style.left = '0';
+					if(item.dataset.role == 'max') item.style.left = '100%';
+				} else {
+					item.value = '';
+					if(item.dataset.val) item.value = item.dataset.val;
+				}
+			})
+		},
 	}
 
 	if(item.dataset.action){
