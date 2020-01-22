@@ -37,7 +37,7 @@ window.onload = function(){
 	//new inputFileEmulator('.input_emulator-file');
 
 
-	installVideoHeight();
+	//installVideoHeight();
 };
 
 
@@ -668,6 +668,11 @@ function clickItemHandler(event){
 				}
 			})
 		},
+
+		'open-filter': function(target){
+			if(!document.getElementById('catalog_filter')) return;
+			document.getElementById('catalog_filter').classList.add('active');
+		},
 	}
 
 	if(item.dataset.action){
@@ -679,7 +684,7 @@ function clickItemHandler(event){
 };
 
 
-function installVideoHeight(){
+/*function installVideoHeight(){
 	document.querySelectorAll('.video_box').forEach(item => {
 		let video;
 		if(item.querySelector('video')){
@@ -694,10 +699,10 @@ function installVideoHeight(){
 		}
 		item.style.paddingBottom = `${p}%`;
 	})
-};
+};*/
 
 
-class FormValidate{
+/*class FormValidate{
 	constructor(params){
 		this.form = params.item;
 		this.status = false;
@@ -799,7 +804,7 @@ class FormValidate{
 			event.target.value = `380${event.target.value.slice(3)}`;
 		}
 	}
-};
+};*/
 
 
 function validateInputTel(event){

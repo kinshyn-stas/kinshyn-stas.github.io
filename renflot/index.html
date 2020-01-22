@@ -220,14 +220,23 @@
 			<section class="main-block catalog_block">
 				<div class="center-main-block">
 					
+					<div class="catalog_filter_switcher_mobile">
+						<a class="button_order click-item" data-action="open-filter">
+							<span>подобрать судно</span>
+							<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 0H16V2H0V0ZM2 4H14V6H2V4ZM4 8H12V10H4V8ZM6 12H10V14H6V12Z" fill="var(--svg-color-2)"/>
+							</svg>
+						</a>
+					</div>
+
 					<h2 class="wave">Популярные суда</h2>
 					<div class="catalog_container">
 						
 						<div class="catalog_left">
 							
-							<div class="catalog_form click-obj active">
+							<div id="catalog_filter" class="catalog_form click-obj">
 
-								<div class="catalog_form_switch_mobile">									
+								<div class="catalog_form_switch_mobile click-item">									
 									<img src="img/arrow_filter.svg" alt="" />
 									<span>Подобрать судно</span>
 								</div>
