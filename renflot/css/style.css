@@ -1754,6 +1754,42 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	left: 100%;
 }
 
+.catalog_advantages{
+	margin-top: 32px;
+	background-color: #EAF9D0;
+	padding: 32px 15px 31px;
+	font-size: 15px;
+	line-height: 19px;
+	border-radius: 5px;
+}
+.catalog_advantages h3{
+	margin-bottom: 15px;
+	text-align: center;
+}
+.list_check{
+	padding-left: 0;
+	list-style: none;
+}
+.list_check li{
+	position: relative;
+	padding-left: 22px;
+	margin-bottom: 16px;
+}
+.list_check li:last-of-type{
+	margin-bottom: 0;
+}
+.list_check li:before{
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: 0;
+	display: block;
+	width: 14px;
+	height: 11px;
+	background-image: url(../img/check-gold.svg);
+	background-size: contain;
+}
+
 .catalog_right{
 	width: calc(100% - 300px);
 }
@@ -2000,6 +2036,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.catalog_form .button_container .button_order-borderless{
 		display: inline-block;
+	}
+	.catalog_advantages{
+		display: none;
 	}
 	.catalog_right{
 		width: 100%;
