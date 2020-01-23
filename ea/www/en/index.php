@@ -3,7 +3,7 @@
 	require('template-parts/preloader.php');
 	require('template-parts/header-main.php');
 ?>
-  <main class="homepage">
+  <main class="homepage" lang="en">
     <section class="container-fluid home-mainblock">
 			<h2 class="backblock-heading"></h2>
 			<div class="row">

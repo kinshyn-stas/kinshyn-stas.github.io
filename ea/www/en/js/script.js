@@ -187,7 +187,7 @@ jQuery(function($) {
 	        ease: 'Power1.easeOut'
         });
     }
-    $(window).on('mousemove', moveCursor);
+    //$(window).on('mousemove', moveCursor);
     function zoomCursor(e) {
       $(this).css("z-index", "10001");
 	    TweenMax.to($circleCursor, .1, {
