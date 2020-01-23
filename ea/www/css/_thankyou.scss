@@ -1,0 +1,41 @@
+.thankyoupage {
+  .firstblock {
+    min-height: 100vh;
+    padding: 7rem 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: normal;
+    -webkit-align-items: normal;
+    -ms-flex-align: normal;
+    align-items: normal;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    .frontblock-heading {
+      margin-bottom: 1rem;
+    }
+
+    .content-part {
+      margin-bottom: 12rem;
+    }
+
+    .back-part {
+      text-align: center;
+    }
+    @media only screen and (max-width: $large) {
+      min-height: 92.5vh;
+    }
+  }
+}

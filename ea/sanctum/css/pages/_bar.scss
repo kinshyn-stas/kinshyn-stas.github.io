@@ -1,0 +1,40 @@
+.barpage {
+  .bg-container {
+    background-image: url(../img/pages/bar/bar_head_bg.jpg);
+    // background-size: auto 82vh;
+    // background-position: left -4vw bottom;
+  }
+  .side-item__bar {
+    margin-top: 0;
+    .bg-part {
+      min-height: 420px;
+    }
+    .info-part {
+      margin-left: -33.5%;
+      .info__text {
+        margin-bottom: 0!important;
+      }
+    }
+  }
+}
+/* bar-slider */
+.bar-slider {
+  .scroll-frame__row {
+    .scroll-frame__item {
+      max-width: 370px;
+      width: 100%;
+      .bar-item__img {
+        height: 520px;
+        width: 100%;
+        @include bgcent;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+    }
+  }
+  @media only screen and (max-width: $medium) {
+    .scroll-frame__row .scroll-frame__item {
+      max-width: calc(100vw - 30px);
+    }
+  }
+}

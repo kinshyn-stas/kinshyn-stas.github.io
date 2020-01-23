@@ -1,0 +1,111 @@
+footer {
+  padding: 9.5rem 10% 7rem!important;
+  overflow: hidden;
+  @media only screen and (max-width: $large-xl) {
+    padding: 4rem 85px!important;
+  }
+  @media only screen and (max-width: $large) {
+    padding: 4rem 15px!important;
+  }
+
+  .top-line {
+    .logo {
+      img,
+      svg {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        opacity: 0.5;
+        width: auto;
+        height: 48px;
+
+        .symbOth,
+        .symbPoint {
+          display: none;
+        }
+      }
+    }
+
+    .info {
+      a,
+      h3 {
+        font-family: $font-gilroy;
+        font-weight: 300;
+        font-size: 1.35rem;
+        line-height: 1.2;
+        @media only screen and (max-width: $large-xl) {
+          font-size: 1.25rem;
+        }
+        @media only screen and (max-width: $large) {
+          font-size: 1rem;
+        }
+      }
+
+      a {
+        color: $color-midgrey;
+      }
+      @media only screen and (max-width: $large) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .contacts {
+      p,
+      p a {
+        font-family: $font-open;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        color: darken($color-darkgrey, 15%);
+        margin-bottom: 1rem;
+        @media only screen and (max-width: $large) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .bottom-line {
+    margin-top: 5rem;
+    padding: 0.7rem 0;
+    color: darken($color-darkgrey, 15%);
+    font-family: $font-open;
+    font-size: 1rem;
+    line-height: 1;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    position: relative;
+    @media only screen and (max-width: $large-xl) {
+      margin-top: 2rem;
+    }
+
+    > div {
+      -webkit-align-self: center;
+      -ms-flex-item-align: center;
+      align-self: center;
+    }
+
+    &::after,
+    &::before {
+      @include bf_aft_block;
+      height: 1px;
+      width: 150vw;
+      background-color: $color-darkgrey;
+      left: 15px;
+      z-index: 1;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+    @media only screen and (max-width: $large) {
+      .col-lg-10 {
+        text-align: right;
+      }
+    }
+  }
+}

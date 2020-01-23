@@ -1,0 +1,356 @@
+.project-page {
+  .project-firstblock {
+    .content-part {
+      min-height: 280px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      @media only screen and (max-width: $large) {
+        min-height: 210px;
+      }
+
+      .btn {
+        font-size: 14px;
+        margin-bottom: 1rem;
+
+        &::before {
+          background-color: $color-black;
+          height: 1px;
+        }
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+        font-size: 3.5rem;
+        font-weight: 400;
+        @media only screen and (max-width: $large-xl) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .bg-block {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 700px;
+    @media only screen and (max-width: $large-xl) {
+      min-height: 480px;
+    }
+    @media only screen and (max-width: $large) {
+      min-height: 320px;
+    }
+  }
+
+  .project-info {
+    .content-part {
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      padding: 40px 0;
+
+      .info-block {
+        h4 {
+          font-weight: 700;
+        }
+
+        p {
+          font-size: 14px;
+        }
+        @media only screen and (max-width: $large) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .info-more {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .project-block {
+    &.bgblk {}
+
+    &.unstandart {
+      .content-line {
+        width: 80vw;
+        @media only screen and (max-width: $large-xxl) {
+          width: 90vw;
+        }
+        @media only screen and (max-width: $large) {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &.full-cont {
+      padding: 2.5rem 0;
+    }
+
+    .img-block {
+      text-align: center;
+      padding: 3rem 15px;
+      -webkit-align-self: center;
+      -ms-flex-item-align: center;
+      align-self: center;
+
+      img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+      }
+      @media only screen and (max-width: $large) {
+        padding: 1rem 15px;
+      }
+    }
+  }
+
+  .project-nav {
+    padding: 2.5rem 120px;
+    border-top: 1px solid $color-black;
+
+    .row {
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin: 0;
+
+      .btn.btnarrprev {
+        color: transparent;
+
+        &:hover {
+          color: $color-black;
+        }
+      }
+    }
+    @media only screen and (max-width: $large-xl) {
+      padding: 1.5rem 105px;
+    }
+    @media only screen and (max-width: $large) {
+      padding: 1.5rem 15px;
+
+      a {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+/* LEGERIUM */
+
+.legerium-page {
+  .bg-block {
+    background-image: url("../img/projects/legerium/lgbg.jpg");
+  }
+
+  .project-block {
+    &.unstandart {
+      background-color: $color-lightgrey;
+    }
+  }
+}
+/* C3 */
+
+.c3-page {
+  .bg-block {
+    background-image: url("../img/projects/c3/c3bg.jpg");
+  }
+
+  .project-block {
+    &.bgblk {
+      background-color: #E9F2F7;
+    }
+  }
+}
+/* selfinvest */
+
+.selfinvest-page {
+  .bg-block {
+    background-image: url("../img/projects/selfinvest/sibg.jpg");
+  }
+}
+/* FREAKDAYS */
+
+.freakdays-page {
+  .bg-block {
+    background-image: url("../img/projects/freakdays/fdbg.jpg");
+  }
+
+  .project-block {
+    &.bgblk {
+      margin-bottom: -5.5rem;
+      overflow: hidden;
+
+      &::after {
+        @include bf_aft_block;
+        width: 125vh;
+        height: 125vh;
+        right: -15vh;
+        bottom: -60vh;
+        background-color: #383838;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+/* INVERIA EVENTS */
+
+.inveriaevents-page {
+  .bg-block {
+    background-image: url("../img/projects/inveriaevents/iebg.jpg");
+  }
+
+  .project-block {
+    &.bgblk {
+      background-color: #F2F2F2;
+    }
+  }
+}
+/* SKLYANKA */
+
+.sklyanka-page {
+  .bg-block {
+    background-image: url("../img/projects/sklyanka/sklbg.jpg");
+  }
+
+  .project-block {
+    &.bgblk {
+      background-color: #F3F3F3;
+    }
+
+    &.nopad {
+      .img-block {
+        padding: 0 15px;
+      }
+    }
+  }
+}
+/* NASH FORMAT*/
+
+.nf-page {
+  .bg-block {
+    background-image: url("../img/projects/nashformat/nfbg.jpg");
+  }
+
+  .project-block {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-weight: 300;
+    }
+
+    &.bgblk {
+      background-color: #f24e42;
+
+      h2,
+      p {
+        color: $color-white;
+      }
+    }
+
+    &.nopad {
+      padding: 0;
+
+      .img-block {
+        img {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+
+    &.mrb {
+      overflow: visible;
+      z-index: 5;
+
+      .mrbimg {
+        padding-bottom: 0;
+      }
+    }
+
+    &.sect1,
+    &.sect3,
+    &.sect5 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    &.sect2.mrb {
+      padding-bottom: 1rem;
+
+      .mrbimg {
+        margin-bottom: -2rem;
+        @media only screen and (max-width: $large) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.sect3 {
+      .img-block {
+        -webkit-align-self: flex-start;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+      }
+    }
+
+    &.sect4.mrb {
+      padding-bottom: 0;
+      z-index: 6;
+
+      .mrbimg {
+        margin-bottom: -4rem;
+        @media only screen and (max-width: $large) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.sect5.mrb {
+      padding-bottom: 0;
+
+      .img-block {
+        margin-bottom: -5rem;
+        @media only screen and (max-width: $large) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.sect6 {
+      padding-top: 3rem;
+
+      .img-block {
+        -webkit-align-self: flex-start;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+      }
+    }
+  }
+}

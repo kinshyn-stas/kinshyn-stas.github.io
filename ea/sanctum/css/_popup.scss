@@ -1,0 +1,108 @@
+body {
+  &.openpop {
+    overflow: hidden!important;
+    padding-right: 6px;
+  }
+}
+.custom-popup, .contact-form-popup, .thank-you-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transition: 1s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .pop-block {
+    width: calc(100% - 30px);
+    max-width: 680px;
+    min-height: 320px;
+    background-color: $color-white;
+    margin: 3rem auto;
+    @include bshad;
+    border-radius: 5px;
+    position: relative;
+    padding: 1rem;
+    .pop-content {
+      min-height: 30vh;
+      .adv-item__content {
+        padding: 2rem;
+        .icon-part {
+          order: 1;
+          width: 100%!important;
+          flex: auto;
+          max-width: none;
+        }
+        .info-part {
+          order: 2;
+          width: 100%!important;
+          flex: auto;
+          max-width: none;
+        }
+      }
+    }
+    .btn.pop-close {
+      font-size: 4rem;
+      color: black;
+      font-weight: 200;
+      position: absolute;
+      min-width: 48px;
+      padding: 0;
+      right: -3rem;
+      top: -3rem;
+    }
+  }
+  .btn-nav {
+    display: none;
+    min-width: auto;
+    position: absolute;
+    top: 48%;
+    filter: grayscale(1);
+    &:hover {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    &.btn-nav-prev {
+      left: calc((100vw - 1200px) / 2);
+      &::before {
+
+      }
+      &::after {
+        display: none;
+      }
+    }
+    &.btn-nav-next {
+      right: calc((100vw - 1200px) / 2);
+      &::after {
+
+      }
+    }
+  }
+  &.openpop {
+    z-index: 9999;
+    opacity: 1;
+  }
+  @media only screen and (max-width: $large) {
+    .pop-block {
+      min-height: auto;
+      .pop-content {
+        min-height: auto;
+        .adv-item__content {
+          padding: 1rem;
+        }
+      }
+      .btn.pop-close {
+        right: -1rem;
+        top: -1rem;
+      }
+    }
+  }
+}

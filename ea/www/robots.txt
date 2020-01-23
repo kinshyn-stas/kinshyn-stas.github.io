@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /rest.php
+Disallow: /thankyou.php
+Disallow: /testimonials.php
+Disallow: /mail
+Disallow: /libs
+Disallow: /js
+Disallow: /img
+Disallow: /fonts
+Disallow: /css
+Sitemap: https://easy-agency.com/easymap.xml

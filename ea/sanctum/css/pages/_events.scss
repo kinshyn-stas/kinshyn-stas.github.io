@@ -1,0 +1,14 @@
+.eventspage {
+  .bg-container {
+    background-image: url(../img/pages/events/events_head_bg.jpg);
+  }
+  .side-item {
+    margin: 0 -15px;
+    padding: 3rem 0;
+  }
+  @media only screen and (max-width: $large) {
+    .side-item {
+      padding: 1rem 0;
+    }
+  }
+}

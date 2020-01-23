@@ -1,0 +1,43 @@
+.helper {
+    width: 24px;
+    height: 24px;
+    background: url("../images/icons/helper.svg") no-repeat center;
+}
+
+.popover {
+    background: #FFFFFF;
+    border: 2px solid #0055A7;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: -100%;
+
+    .popover-bdy {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+    
+        color: #282830;
+        padding: 16px;
+    }
+
+    .arrow {
+        display: none;
+
+        &:after,
+        &:before {
+            display: none;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        bottom: -40px;
+        left: -12px;
+        content: '';
+        background: url("../images/helper-arrow.svg") no-repeat center;
+        width: 71px;
+        height: 40px;
+    }
+}

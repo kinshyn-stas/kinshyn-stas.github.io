@@ -1,0 +1,47 @@
+.icon {
+    background-size: contain!important;
+    display: inline-block;
+    margin: 0 3px;
+
+    &.icon-telegram {
+        background: url("../images/icons/telegram.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-facebook {
+        background: url("../images/icons/facebook.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-instagram {
+        background: url("../images/icons/instagram.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-phone {
+        background: url("../images/icons/phone.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-plus {
+        background: url("../images/icons/plus.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-edit {
+        background: url("../images/icons/edit.svg") no-repeat center;
+        width: 24px;
+        height: 24px;
+    }
+
+    &.icon-logout {
+        background: url("../images/icons/logout.svg") no-repeat center;
+        width: 22px;
+        height: 20px;
+    }
+}

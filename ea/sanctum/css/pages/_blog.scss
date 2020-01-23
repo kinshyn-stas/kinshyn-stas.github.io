@@ -1,0 +1,107 @@
+.blogpage {
+  .bg-container {
+    background-image: url(../img/pages/blog/blog_head_bg.jpg);
+    // background-size: auto 82vh;
+    // background-position: left -4vw bottom;
+  }
+}
+.blog-list {
+  .blog-item {
+    margin-bottom: 4rem;
+    .blog-item__img {
+      @include bgcent;
+      height: 360px;
+      border-radius: 5px;
+    }
+    .blog-item__info {
+      margin: -75px 15px 0;
+      border-radius: 5px;
+      @include bshad;
+      background-color: $color-white;
+      width: calc(100% - 30px);
+      padding: 2rem;
+      .item__head {
+        font-size: 1.125rem;
+      }
+      .item__text {
+        height: auto;
+        @include eclips(3);
+        line-height: 2;
+        position: relative;
+        margin-bottom: 0.5rem;
+        &::after {
+          @include bf_aft_block;
+          bottom: 0;
+          width: 100%;
+          height: 60%;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+        }
+      }
+      .item__date {
+        padding-left: 15px;
+        font-size: 0.875rem;
+        color: $color-darkgrey;
+        font-weight: 500;
+      }
+      .info__text {
+        line-height: 2;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &:not(.event-list) {
+    .item__date {
+      display: none;
+    }
+  }
+  &.event-list.event-list__actual {
+    .blog-list__inner {
+      border-bottom: 1px solid $color-lightgrey;
+    }
+  }
+  &.event-list.event-list__done {
+    .blog-item {
+      opacity: 0.5;
+    }
+  }
+  @media only screen and (max-width: $large-xl) {
+    .blog-item {
+      .blog-item__img {
+        height: 280px;
+      }
+      .blog-item__info {
+        padding: 1.2rem;
+        .item__text, .info__text {
+          line-height: 1.5;
+          font-size: 0.875rem;
+        }
+        .item__date {
+          width: 100%;
+          margin-top: 1rem;
+          display: block;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $large) {
+    .blog-item {
+      margin-bottom: 2rem;
+    }
+  }
+}
+.blognav-line {
+  margin-bottom: 0;
+  @include dflex;
+  align-items: center;
+  justify-content: space-between;
+  .btn-second.btn-nav {
+    @include bshad;
+    padding: 1rem 2rem;
+  }
+  @media only screen and (max-width: $medium) {
+    .btn-second.btn-nav.btn-nav-prev {
+      display: none;
+    }
+  }
+}

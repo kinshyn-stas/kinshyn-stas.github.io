@@ -1,0 +1,298 @@
+.workpage-firstblock {
+  min-height: 400px;
+  @media only screen and (max-width: $large-xl) {
+    min-height: 280px;
+  }
+  @media only screen and (max-width: $large) {
+    min-height: 210px;
+  }
+
+  .backblock-heading {
+    top: auto;
+    bottom: 1rem;
+  }
+
+  .content-part {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 400px;
+    @media only screen and (max-width: $large-xl) {
+      height: 280px;
+    }
+    @media only screen and (max-width: $large) {
+      height: 210px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      @media only screen and (max-width: $large-xl) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+.work-block {}
+
+.work-filter {
+  .filter-list {
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-bottom: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+
+    .filter-item {
+      margin-right: 1rem;
+
+      a {
+        color: $color-midgrey;
+        font-size: 0.8rem;
+      }
+
+      &.active,
+      &:hover {
+        a {
+          color: $color-black;
+        }
+      }
+    }
+  }
+}
+
+.work-list {
+  .work-item {
+    margin: 0.5rem 0 1.5rem;
+    position: relative;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 2rem 0 3.5rem;
+    max-height: 200vh;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    @media only screen and (max-width: $large) {
+      padding: 1.5rem 0;
+      &>.more {
+        margin-left: 15px;
+      }
+    }
+
+    &.itemstyle2,
+    &.itemstyle4,
+    &.itemstyle6,
+    &.itemstyle7 {
+
+        a,
+        h2,
+        h4,
+        li {
+          color: $color-white;
+        }
+
+    }
+
+    &.itemstyle1 {
+      background-color: #F7F7F7;
+    }
+
+    &.itemstyle2 {
+      background-color: #353535;
+    }
+
+    &.itemstyle3 {
+      background: -o-linear-gradient(339deg, #E7EBEE 0%, #8FAABF 100%);
+      background: linear-gradient(111deg, #E7EBEE 0%, #8FAABF 100%);
+    }
+
+    &.itemstyle4 {
+      background: -o-linear-gradient(339deg, #47417F 0%, #1F1D33 100%);
+      background: linear-gradient(111deg, #47417F 0%, #1F1D33 100%);
+    }
+
+    &.itemstyle5 {
+      background: -o-linear-gradient(339deg, #F5F6FB 0%, #C9C9D8 100%);
+      background: linear-gradient(111deg, #F5F6FB 0%, #C9C9D8 100%);
+    }
+
+    &.itemstyle6 {
+      background: -o-linear-gradient(339deg, #C2C3C7 0%, #31383E 100%);
+      background: linear-gradient(111deg, #C2C3C7 0%, #31383E 100%);
+    }
+
+    &.itemstyle7 {
+      background: -o-linear-gradient(339deg, #f34033 0%, #f22a1c 100%);
+      background: linear-gradient(111deg, #f34033 0%, #f22a1c 100%);
+    }
+
+    .info-part {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      h4 {
+        font-size: 1.35rem;
+        margin-top: 0;
+        font-weight: 400;
+      }
+
+      .info-list {
+        margin: auto 0;
+        list-style: none;
+        padding: 0.5rem 0;
+
+        li {
+          line-height: 1.3;
+          font-size: 0.8rem;
+        }
+      }
+
+      .more {
+        font-family: $font-open;
+
+        span {
+          padding-left: 1.5rem;
+        }
+      }
+      @media only screen and (max-width: $large) {
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: stretch;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+
+        h4 {
+          margin-bottom: 0;
+          -webkit-align-self: center;
+          -ms-flex-item-align: center;
+          align-self: center;
+        }
+
+        .info-list {
+          display: none;
+        }
+
+        > .more:last-child {
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    .img-part {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+
+      &::after {
+        @include bf_aft_block;
+        width: 100%;
+        height: 78px;
+        background-image: url("../img/projects/workp-bg.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        bottom: -2rem;
+        left: 0;
+        z-index: 1;
+      }
+
+      img {
+        position: relative;
+        z-index: 3;
+      }
+    }
+
+    &.deactive {
+      max-height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
