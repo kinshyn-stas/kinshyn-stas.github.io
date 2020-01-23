@@ -261,6 +261,29 @@
 
 		<main class="main">
 
+			<section class="main-block rev_block">
+				<div class="center-main-block">
+
+					<div class="rev_box">
+						<div class="rev_title">
+							<p>Вам сподобався продукт?</p>
+						</div>
+						<div class="rev_text">
+							<p>Ми дбаємо про якість і актуальність наших послуг і продуктів, тому для нас дуже важлива ваша думка.</p>
+						</div>
+						<div class="rev_buttons">
+							<a class="button_gray click-item" data-action="popup-open" data-label="#rev_popup">
+								<span>так</span>
+							</a>
+							<a class="button_gray click-item" data-action="popup-open" data-label="#rev_popup">
+								<span>ні</span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
 			<section class="main-block banner_block">
 				<div class="center-main-block center-main-block-no-padding">
 					
@@ -2016,6 +2039,29 @@
 		</main>
 
 	</div>
+
+
+	<div id="rev_popup" class="popup_container click-obj">
+		<div class="popup_background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<div class="popup_close click-item" data-action="popup-close">
+				<img src="img/close.svg" alt="" />
+			</div>
+			<h2>Відгук</h2>
+			<form class="popup_form form_validate">
+				<div class="popup_form_item form_validate_item">
+					<textarea  data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" placeholder="Ваш відгук" autocomplete="off" maxlength="2500" required></textarea>
+					<span class="form_validate_alert">Заповніть обов'язкове поле</span>
+				</div>
+				<div class="popup_form_item">
+					<button class="button_submit form_validate_submit click-item" data-action="popup-close">
+						<span>Відправити</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
 
 	<script type="text/javascript" src="js/css_grid_annotator.js"></script>
 	<script src="js/main.js"></script>

@@ -760,6 +760,7 @@ function clickItemHandler(event){
 		},
 
 		'popup-open': function(target){
+			if(!document.querySelector(target.dataset.label)) return;
 			document.querySelector(target.dataset.label).classList.add('active');
 		},
 
@@ -767,7 +768,7 @@ function clickItemHandler(event){
 			if(target.dataset.label){
 				document.querySelector(target.dataset.label).classList.remove('active')
 			} else {
-				target.closest('.popup-container').classList.remove('active');
+				target.closest('.popup_container').classList.remove('active');
 			}
 		},
 
@@ -927,7 +928,7 @@ class FormValidate{
 	}
 
 	checkInputsPattern(event){
-		if(event.target.tagName.toLowerCase() != 'input') return;
+		if(event.target.tagName.toLowerCase() != 'input' && event.target.tagName.toLowerCase() != 'textarea') return;
 		let eType = event.target.type.toLowerCase();
 		if(!(event.target.required && event.target.dataset.pattern) && !(eType == 'checkbox' || eType == 'radio') && !(eType == 'file')) return;
 
@@ -997,7 +998,9 @@ class FormValidate{
 	checkItems(){
 		this.status = true;
 		this.items.forEach(item => {
-			if(item.classList.contains('invalid') || !item.querySelector('input').value) this.status = false;
+			let field;
+			field = item.querySelector('input, textarea');
+			if(item.classList.contains('invalid') || !field.value) this.status = false;
 		})
 
 		if(this.status){
@@ -1105,7 +1108,7 @@ function hiddenScrollAside(selector){
 
     		let content = box.querySelector('.scroll-emul_content');
     		while(content.children.length){
-	            box.append(cont.children[0])
+	            box.append(content.children[0])
 	        }
 
 	        box.querySelector('.scroll-emul_container').remove();
