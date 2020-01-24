@@ -1555,6 +1555,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	color: inherit;
 }
 
+.title-padding{
+	width: 100%;
+	max-width: 870px;
+	margin-left: auto;
+}
 .catalog_container{
 	display: flex;
 	justify-content: space-between;
@@ -1792,6 +1797,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .catalog_right{
 	width: calc(100% - 300px);
+}
+.catalog_unit{
+	margin-bottom: 64px;
+	border-bottom: 1px solid #E1E1E2;
+}
+.catalog_unit_button{
+	margin: 32px auto 64px;
+}
+.catalog_unit_button .button_order{
+	width: 100%;	
 }
 .catalog_slider{}
 .catalog_slider .slider_box{
