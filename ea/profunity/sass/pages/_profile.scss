@@ -1,0 +1,292 @@
+.page-profile {
+    width: 100%;
+    padding-bottom: 16px;
+    padding-top: 8px;
+
+    @media (max-width: 992px) {
+        padding: 8px;
+    }
+
+    .left-side,
+    .faq-block,
+    .request-block {
+        background: #FFFFFF;
+        border-radius: 25px;
+
+        padding: 32px 50px;
+
+        @media (max-width: 992px) {
+            padding: 24px 16px;
+        }
+    }
+
+    .left-side {
+        @media (min-width: 992px) {
+            height: 100%;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 8px;
+        }
+
+        .tip {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #535353;
+
+            @media (max-width: 992px) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .ticket-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            
+            @media (max-width: 992px) {
+                flex-wrap: wrap;
+                text-align: center;
+                justify-content: center;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+                /* identical to box height */
+
+                color: #282830;
+                margin: 0;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                    margin: 8px 0;
+                }
+            }
+
+            a {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                text-align: center;
+                text-decoration-line: underline;
+
+                color: #0055A7;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+            }
+        }
+        
+        .user-photo {
+            text-align: center;
+            margin-top: 35px;
+
+            img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .name {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+
+            color: #282830;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .section-title {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px!important;
+            line-height: 16px!important;
+
+            color: #535353;
+        }
+
+        h3 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+            color: #282830;
+            margin-top: 6px;
+
+            @media (max-width: 992px) {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #282830;
+            }
+        }
+
+        .skills {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+
+            color: #282830;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .btn-edit {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+
+            span {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #0055A7;
+            }
+        }
+
+        .btn-logout {
+            text-decoration: none;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 21px;
+            color: #B8B8B8;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+            margin-top: 45px;
+
+            span {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .right-side {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        h3 {
+            font-weight: normal;
+        }
+
+        .request-block {
+            margin-bottom: 16px;
+            width: 100%;
+
+            .how-link {
+                text-decoration: none;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+
+                color: #0055A7;
+
+                @media (max-width: 992px) {
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+
+        .faq-block {
+            width: 100%;
+
+            .accordion {
+                margin-top: 31px;
+                margin-bottom: 15px;
+
+                @media (max-width: 992px) {
+                    margin-top: 22px;
+                }
+                
+                .card {
+                    border: none!important;
+                    background: rgba(0, 85, 167, 0.2);
+                    border-radius: 5px;
+                    margin: 2px 0;
+
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 16px;
+
+                    color: #000000;
+
+                    .card-header {
+                        border: none!important;
+                        background: transparent;
+                        cursor: pointer;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            float: right;
+                            background: url("../images/icons/chevron-down.svg") no-repeat center;
+                            width: 15px;
+                            height: 15px;
+                            transition: 0.7s;
+                        }
+
+                        &[aria-expanded=true]:after {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .card-body {
+                        background: transparent;
+                        color: #282830;
+                        padding-top: 5px;
+                    }
+                }
+            }
+
+            h4 {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+
+                color: #535353;
+                margin: 10px 0;
+            }
+
+            a {
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 17px;
+
+                color: #0055A7;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

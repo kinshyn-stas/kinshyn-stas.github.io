@@ -1,0 +1,28 @@
+.page-request {
+    height: 100%;
+    padding-top: 40px;
+
+    @media (max-width: 992px) {
+        padding-top: 16px;
+    }
+
+    h3 {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    
+    .form-page {
+        form {
+            .btn-cancel {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                text-align: center;
+
+                color: #757575;
+                margin: 10px 0;
+            }
+        }
+    }
+}

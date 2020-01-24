@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>Prof Unity</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    Home
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Черный список <i class="icon icon-telegram"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Наш канал <i class="icon icon-telegram"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Мероприятия <i class="icon icon-phone"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Соц-сети <i class="icon icon-facebook"></i> <i class="icon icon-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="navigation">
+            <div class="container">
+                <h1>Ваш личный кабинет</h1>
+                <div class="navigation-content">
+                    <div class="left-side-navigation mr-lg-auto">
+                        <ul class="nav nav-tabs">
+                            <a href="#" class="nav-item nav-link green">Главная страница</a>
+                        </ul>
+                    </div>
+                    <div class="responsive-block-x right-side-navigation">
+                        <div class="nav nav-tabs scrolled">
+                            <a href="#" class="nav-item nav-link">Подать заявку</a>
+                            <a href="#" class="nav-item nav-link">Личные даные</a>
+                            <a href="#" class="nav-item nav-link active">Документы <b class="alert">!</b></a>
+                            <a href="#" class="nav-item nav-link">Членский взнос</a>
+                            <a href="#" class="nav-item nav-link">Электронная визитка</a>
+                            <a href="#" class="nav-item nav-link">Настройки</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="page-personal">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <h3>Для завершения процесса регистрации необходимо пройти 3 простых шага</h3>
+                        </div>
+                        <div class="col-12">
+                            <div class="steps-progress">
+                                <div class="step current">
+                                    <div class="step-counter">
+                                        <b>1</b>
+                                        <p>Личные данные</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-counter">
+                                        <b>2</b>
+                                        <p>Документы</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-counter">
+                                        <b>3</b>
+                                        <p>Членский взнос</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="form-page">
+                                <form>
+                                    <h2>Заполнение личных данных</h2>
+
+                                    <div class="form-group file-input">
+                                        <div class="photo-preview">
+                                            <label for="fileInput">
+                                                <div class="preview"></div>
+                                            </label>
+                                            <input type="file" id="fileInput">
+                                        </div>
+                                        <div class="photo-tip mt-auto">
+                                            <p>
+                                                На фотографии должно быть изображено ваше лицо
+                                            </p>
+                                            <p class="mt-5">
+                                                Размер фотографии не должен превышать 2МБ
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">Регион</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">Город</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">Ближайшее представительство</option>
+                                        </select>
+                                        <div class="helper" data-toggle="popover" data-content="Ближайшее представительство в вашем городе или области"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Перечислите через запятую ваши возможности, которые вы хотите предложить другим участникам</label>
+                                        <div class="helper mt-3" data-toggle="popover" data-content="Ближайшее представительство в вашем городе или области"></div>
+                                        <input type="text" class="form-control" placeholder="Например: Дизайн">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Перечислите через запятую возможности ВАШИХ ДРУЗЕЙ, услуги которых вы бы хотели реокмендовать</label>
+                                        <div class="helper mt-3" data-toggle="popover" data-content="Ближайшее представительство в вашем городе или области"></div>
+                                        <input type="text" class="form-control" placeholder="Например: програмирование">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Место работы">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Должность">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Имеете рекомендации от участников Prof-unity?</label>
+                                        <div class="helper mt-3" data-toggle="popover" data-content="Ближайшее представительство в вашем городе или области"></div>
+                                        <div class="with-tip" data-tip="не обязательно">
+                                            <input type="text" class="form-control" placeholder="Укажите ID пользователя">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="with-tip" data-tip="не обязательно">
+                                            <input type="text" class="form-control" placeholder="Ссылка на ваш Facebook">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="with-tip" data-tip="не обязательно">
+                                            <input type="text" class="form-control" placeholder="Ссылка на ваш Linkedin">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="with-tip" data-tip="не обязательно">
+                                            <input type="text" class="form-control" placeholder="Ссылка на ваш сайт">
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="form-group file-input">
+                                        <div class="photo-preview">
+                                            <label for="fileInput">
+                                                <div class="preview"></div>
+                                            </label>
+                                            <input type="file" id="fileInput">
+                                        </div>
+                                        <div class="photo-tip">
+                                            <p>
+                                                Паспорт 1 страница
+                                            </p>
+                                            <p><small>Пример</small></p>
+                                            <img src="images/example-passport-1.png">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group file-input">
+                                        <div class="photo-preview">
+                                            <label for="fileInput">
+                                                <div class="preview"></div>
+                                            </label>
+                                            <input type="file" id="fileInput">
+                                        </div>
+                                        <div class="photo-tip">
+                                            <p>
+                                                Паспорт 2 страница
+                                            </p>
+                                            <p><small>Пример</small></p>
+                                            <img src="images/example-passport-2.png">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group file-input">
+                                        <div class="photo-preview">
+                                            <label for="fileInput">
+                                                <div class="preview"></div>
+                                            </label>
+                                            <input type="file" id="fileInput">
+                                        </div>
+                                        <div class="photo-tip">
+                                            <p>
+                                                Паспорт страница с пропиской
+                                            </p>
+                                            <p><small>Пример</small></p>
+                                            <img src="images/example-passport-2.png">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group file-input">
+                                        <div class="photo-preview">
+                                            <label for="fileInput">
+                                                <div class="preview"></div>
+                                            </label>
+                                            <input type="file" id="fileInput">
+                                        </div>
+                                        <div class="photo-tip">
+                                            <p>
+                                                ИНН
+                                            </p>
+                                            <p><small>Пример</small></p>
+                                            <img src="images/example-tax-number.png">
+                                        </div>
+                                    </div> -->
+
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-blue">Продолжить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

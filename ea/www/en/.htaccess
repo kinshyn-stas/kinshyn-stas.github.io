@@ -1,0 +1,7 @@
+#Убираем расширение файла из URL
+DirectorySlash off
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ /en/$1.php [NC,L]
+ErrorDocument 404 /404
+ErrorDocument 403 /404

@@ -1,0 +1,153 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #0055A7;
+
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #282830;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus,
+.btn:focus {
+    box-shadow: none;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #282830;
+    margin: 0;
+}
+
+h2 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #282830;
+    margin: 0;
+}
+
+h3 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #000000;
+    margin: 0;
+}
+
+.responsive-block-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.alert {
+    border-radius: 15px;
+
+    &.alert-gray {
+        background: #EDEFF1;
+        border-color: #EDEFF1;
+    }
+
+    &.alert-danger {
+        background: rgba(241, 31, 31, 0.4)!important;
+        border-color: rgba(241, 31, 31, 0.4)!important;
+    }
+
+    &.alert-success {
+        background: rgba(56, 202, 150, 0.4)!important;
+        border-color: rgba(56, 202, 150, 0.4)!important;
+    }
+        
+    p {
+        color: #282830;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    a {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 23px;
+        line-height: 27px;
+        text-align: center;
+        text-decoration-line: underline;
+
+        color: #0055A7;
+
+        @media (max-width: 992px) {
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}
+
+.btn {
+    &.btn-blue {
+        background: #0055A7;
+        border-radius: 100px;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+
+        color: #FFFFFF;
+        padding: 16px;
+
+        min-width: 184px;
+        transition: 0.7s;
+
+        &:hover {
+            box-shadow: 0px 0px 15px #0055A7;
+        }
+
+        &[disabled] {
+            opacity: 0.4;
+            cursor: not-allowed;
+
+            &:hover {
+                box-shadow: none!important;
+            }
+        }
+    }
+
+    &.w-auto {
+        width: auto;
+        min-width: auto;
+    }
+}
+
+@import "header";
+
+@import "main";
+
+@import "footer";

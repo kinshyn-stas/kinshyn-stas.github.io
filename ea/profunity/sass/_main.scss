@@ -1,0 +1,184 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (min-width: 992px) {
+        height: 100%;
+    }
+
+    .navigation {
+        padding-top: 47px;
+        width: 100%;
+
+        @media (max-width: 992px) {
+            padding-top: 24px;
+        }
+        
+        h1 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 43px;
+
+            color: #FFFFFF;
+            margin: 0 0 47px;
+
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
+
+        .navigation-content {
+            @media (min-width: 992px) {
+                display: flex;
+            }
+
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .left-side-navigation,
+        .right-side-navigation {
+            width: 100%;
+        }
+
+        .left-side-navigation {
+            width: 300px;
+
+            @media (max-width: 992px) {
+                padding-left: 8px;
+                width: 100%;
+                padding-right: 8px;
+
+                .nav {
+                    width: 100%;
+                }
+            }
+        }
+
+        .right-side-navigation {
+            @media(min-width: 992px) {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .nav {
+                margin-left: auto;
+            }
+        }
+
+        .container {
+            @media (max-width: 992px) {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        .nav {
+            border: none!important;
+
+            @media (max-width: 992px) {
+                display: -webkit-inline-box;
+            }
+
+            &.scrolled {
+                @media (max-width: 992px) {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 20px!important;
+                    margin-top: 16px;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                }
+            }
+
+            .nav-item.nav-link {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+                padding: 12px 16px;
+
+                color: #FFFFFF;
+                border: none!important;
+                border-radius: 100px;
+                text-align: center;
+
+                position: relative;
+
+                &.green {
+                    background: #38CA96;
+                    padding: 12px 40px;
+
+                    @media (max-width: 992px) {
+                        width: 100%;
+                    }
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
+                .alert {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 12px;
+                    color: #F11F1F;
+                    width: 16px;
+                    height: 16px;
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    align-items: center;
+                    vertical-align: middle;
+                    background: #fff;
+                    border-radius: 50%;
+                    border: 2px solid #0055A7;
+                    padding: 0;
+                    padding-left: 1px;
+                }
+
+                &:hover,
+                &.active {
+                    background: #FFFFFF;
+                    color: #0055A7;
+
+                    .alert {
+                        background: #F11F1F;
+                        color: #fff;
+                        // width: 26px;
+                        // height: 26px;
+                    }
+                }
+            }
+        }
+    }
+
+    .content-container {
+        background: #FFFFFF;
+        border-radius: 25px;
+        display: block;
+        height: 100%;
+        margin: 15px;
+        width: 100%;
+        padding: 16px;
+
+        overflow-y: auto;
+
+        @media (max-width: 992px) {
+            margin: 8px;
+        }
+
+        @import "pages/login";
+        @import "pages/register";
+        @import "pages/request";
+        @import "pages/documents";
+        @import "pages/personal";
+        @import "pages/deposit";
+        @import "pages/settings";
+    }
+    
+    @import "pages/profile";
+}

@@ -1,0 +1,111 @@
+.steps-progress {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 24px 0 0;
+
+    @media (max-width: 992px) {
+        margin: 24px 0;
+    }
+
+    .step {
+        position: relative;
+        width: 100%;
+
+        .step-counter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            b {
+                width: 55px;
+                height: 55px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: transparent;
+                border: 1px solid #C4C4C4;
+                border-radius: 50%;
+                position: relative;
+                z-index: 3;
+
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 28px;
+                text-align: center;
+
+                color: #C4C4C4;
+
+                @media (max-width: 992px) {
+                    width: 31px;
+                    height: 31px;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 16px;
+                text-align: center;
+
+                color: #282830;
+                width: 100%;
+                margin-top: 16px;
+
+                @media (max-width: 992px) {
+                    display: none;
+                }
+            }
+        }
+
+        &:after {
+            content: "";
+            width: 85%;
+            position: absolute;
+            top: 26px;
+            left: 57.5%;
+            height: 1px;
+            background: #C4C4C4;
+            display: block;
+            z-index: 1;
+
+            @media (max-width: 992px) {
+                top: 15px;
+                width: 70%;
+                left: 64.5%;
+            }
+        }
+
+        &:last-child:after {
+            display: none;
+        }
+
+        &.active {
+            .step-counter {
+                b {
+                    background: #0055A7;
+                    border-color: #0055A7;
+                    color: #fff;
+                }
+            }
+
+            &:after {
+                background-color: #0055A7;
+            }
+        }
+
+        &.current {
+            .step-counter {
+                b {
+                    background: #0055A7;
+                    border-color: #0055A7;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

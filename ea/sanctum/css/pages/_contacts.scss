@@ -1,0 +1,34 @@
+.contactspage {
+  .bg-container {
+    background-image: url(../img/pages/contacts/contacts_head_bg.jpg);
+    background-size: auto 82vh;
+    background-position: left -4vw bottom;
+  }
+  .page-header-block.addCircle::before {
+    display: none;
+  }
+  .contacts-part {
+    padding-top: 0!important;
+    margin-top: -6rem;
+    .map-block #map {
+      height: 600px;
+      border-radius: 50%;
+    }
+    .contacts-block {
+      align-self: flex-end;
+      padding: 2rem 15px 2rem 3rem;
+    }
+  }
+  @media only screen and (max-width: $large) {
+    .contacts-part {
+      margin-top: 0;
+      .map-block {
+        order: 2;
+      }
+      .contacts-block {
+        order: 1;
+        padding: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.notfoundpage {
+  .firstblock {
+    background-color: $color-black;
+    color: $color-white;
+    min-height: 100vh;
+    padding: 7rem 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: normal;
+    -webkit-align-items: normal;
+    -ms-flex-align: normal;
+    align-items: normal;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    .content-part {
+      text-align: center;
+      margin-bottom: 12vh;
+
+      img {
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    .back-part {
+      text-align: center;
+    }
+    // @media only screen and (max-width: $large) {
+    //   min-height: 93.5vh;
+    // }
+  }
+
+  .btnarrright {
+    background-image: url("../img/arrowleftw.svg");
+    color: $color-white;
+  }
+
+  .main-header {
+    .logo-block {
+      a svg {
+        .symbOth,
+        .symbPoint {
+          fill: $color-white;
+          stroke: $color-white;
+        }
+      }
+    }
+
+    .main-nav,
+    .side-nav {
+      display: none!important;
+    }
+  }
+}

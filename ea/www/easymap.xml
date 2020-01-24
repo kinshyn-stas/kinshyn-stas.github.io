@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://easy-agency.com/</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/contacts</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/callback</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/freakdays</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/inveriaevents</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/nashformat</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/c3</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/sklyanka</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/legerium</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://easy-agency.com/works/selfinvest</loc>
+  <lastmod>2019-09-03T11:07:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
