@@ -1799,11 +1799,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: calc(100% - 300px);
 }
 .catalog_unit{
+	padding-bottom: 0;
 	margin-bottom: 64px;
 	border-bottom: 1px solid #E1E1E2;
 }
+.catalog_unit:last-of-type{
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;
+}
 .catalog_unit_button{
-	margin: 32px auto 64px;
+	margin: 32px auto 0;
 }
 .catalog_unit_button .button_order{
 	width: 100%;	
