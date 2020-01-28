@@ -2,7 +2,7 @@
 $products_label_stock = true; //$config->get('config_products_label_stock');
 $products_label_special = true; //$config->get('config_products_label_special');
 ?>
-<div class="row test_class">
+<div class="row">
  <?php foreach ($products as $product) { ?>
  <div class="product-layout product-list col-xs-12">
   <div class="product-thumb">

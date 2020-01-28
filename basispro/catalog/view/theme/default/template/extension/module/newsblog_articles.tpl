@@ -6,7 +6,7 @@
 <?php } ?>
 <div class="row">
   <?php foreach ($articles as $article) { ?>
-  <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12 test_4">
     <div class="product-thumb transition">
       <?php if ($article['thumb']) { ?>
       <div class="image"><a href="<?php echo $article['href']; ?>"><img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>" class="img-responsive" /></a></div>

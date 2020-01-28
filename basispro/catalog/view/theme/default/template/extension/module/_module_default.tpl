@@ -4,7 +4,7 @@ $modules_label_special = 1; //$config->get('config_modules_label_special');
 ?>
 <?php if(isset($position) && (($position == 'column_left') || ($position == 'column_right'))) { ?>
         <?php foreach ($products as $product) { ?>
-            <div class="row product-thumb-left">
+            <div class="row product-thumb-left test_product2">
             <div class="col-lg-4 col-md-5">
                 <div class="image">
                     <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
@@ -36,7 +36,7 @@ $modules_label_special = 1; //$config->get('config_modules_label_special');
             </div>
         <?php } ?>
 <?php } else { ?>
-<div class="row">
+<div class="row product-row_flex">
   <?php foreach ($products as $product) { ?>
   <div class="<?php echo $class; ?>">
       <div class="product-thumb">
@@ -59,7 +59,10 @@ $modules_label_special = 1; //$config->get('config_modules_label_special');
               <div class="image">
                   <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
               <div class="caption">
-                  <div class="product-name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                  <div class="product-name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>                  
+              </div>
+
+              <div class="product-thumb_bottom">
                   <?php if ($product['price']) { ?>
                       <p class="price">
                           <?php if (!$product['special']) { ?>
@@ -72,10 +75,11 @@ $modules_label_special = 1; //$config->get('config_modules_label_special');
                           <?php } ?>
                       </p>
                   <?php } ?>
+                <div class="button-group button-cart">
+                    <button  id="button-cart-small" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i><?php echo $button_cart; ?></button>
+                </div>
               </div>
-              <div class="button-group button-cart">
-                  <button  id="button-cart-small" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i><?php echo $button_cart; ?></button>
-              </div>
+              
               <?php if ($product['rating']) { ?>
                   <div class="rating">
                       <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -87,12 +91,14 @@ $modules_label_special = 1; //$config->get('config_modules_label_special');
                       <?php } ?>
                   </div>
               <?php } ?>
-              <div class="description">
+              <div class="description_outer">
+                <div class="description">
                   <?php if ($product['short_description']) { ?>
                       <?php echo $product['short_description']; ?>
                   <?php } else { ?>
                       <?php echo $product['description']; ?>
                   <?php } ?>
+                </div>
               </div>
           </div>
       </div>
