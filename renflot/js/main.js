@@ -615,7 +615,7 @@ function clickItemHandler(event){
 											<path d="M0.000488281 36L15.0005 21L0.000488281 6L3.00049 0L24.0005 21L3.00049 42L0.000488281 36Z" fill="#DCBC5A"/>
 										</svg>
 									</div>
-									<img class="active" src="${target.src}" alt="" />
+									<img class="lightbox_image active" src="${target.src}" alt="" />
 									${target.dataset.text ? ('<div class="lightbox_description">' + target.dataset.text + '</div>') : '<div class="lightbox_description hidden"></div>'}
 								</div>`
 
@@ -994,3 +994,10 @@ class InputLine{
 		}
 	}
 };
+
+
+function fakeForm(event, selector){
+	event.preventDefault();
+	event.target.closest('.popup_container').classList.remove('active');
+	document.querySelectorAll(selector).forEach(item => item.classList.add('active'));
+}
