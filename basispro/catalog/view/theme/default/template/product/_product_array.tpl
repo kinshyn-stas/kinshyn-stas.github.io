@@ -2,7 +2,7 @@
 $products_label_stock = true; //$config->get('config_products_label_stock');
 $products_label_special = true; //$config->get('config_products_label_special');
 ?>
-<div class="row">
+<div class="row product-row_flex">
  <?php foreach ($products as $product) { ?>
  <div class="product-layout product-list col-xs-12">
   <div class="product-thumb">
@@ -26,22 +26,26 @@ $products_label_special = true; //$config->get('config_products_label_special');
      <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
      <div class="caption">
       <div class="product-name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-      <?php if ($product['price']) { ?>
-      <p class="price">
-       <?php if (!$product['special']) { ?>
-       <?php echo $product['price']; ?>
-       <?php } else { ?>
-       <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-       <?php } ?>
-       <?php if ($product['tax']) { ?>
-       <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-       <?php } ?>
-      </p>
-      <?php } ?>
+      </div>
+
+      <div class="product-thumb_bottom">
+        <?php if ($product['price']) { ?>
+        <p class="price">
+         <?php if (!$product['special']) { ?>
+         <?php echo $product['price']; ?>
+         <?php } else { ?>
+         <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+         <?php } ?>
+         <?php if ($product['tax']) { ?>
+         <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
+         <?php } ?>
+        </p>
+        <?php } ?>
+       <div class="button-group button-cart">
+        <button id="button-cart-small" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i><?php echo $button_cart; ?></button>
+       </div>
      </div>
-     <div class="button-group button-cart">
-      <button id="button-cart-small" type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i><?php echo $button_cart; ?></button>
-     </div>
+      
      <?php if ($product['rating']) { ?>
      <div class="rating">
       <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -53,12 +57,14 @@ $products_label_special = true; //$config->get('config_products_label_special');
       <?php } ?>
      </div>
      <?php } ?>
-     <div class="description">
-      <?php if ($product['short_description']) { ?>
-      <?php echo $product['short_description']; ?>
-      <?php } else { ?>
-      <?php echo $product['description']; ?>
-      <?php } ?>
+    <div class="description_outer">
+       <div class="description">
+        <?php if ($product['short_description']) { ?>
+        <?php echo $product['short_description']; ?>
+        <?php } else { ?>
+        <?php echo $product['description']; ?>
+        <?php } ?>
+        </div>
      </div>
     </div>
    </div>
