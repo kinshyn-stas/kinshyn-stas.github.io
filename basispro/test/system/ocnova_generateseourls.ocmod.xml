@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Generate seo-urls</name>
+    <code>generateseourls</code>
+    <version>1.0</version>
+    <author>pasha.strus@gmail.com</author>
+    <link>http://ocnova.pro</link>
+
+    <file path="admin/controller/common/header.php">
+        <operation>
+            <search><![CDATA[$data['logged'] = '';]]></search>
+            <add position="after"><![CDATA[
+                    $data['token'] = '';
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$data['logged'] = true;]]></search>
+            <add position="after"><![CDATA[
+                    $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/common/header.tpl">
+        <operation>
+            <search><![CDATA[
+                <script src="view/javascript/common.js" type="text/javascript"></script>
+            ]]></search>
+            <add position="after"><![CDATA[
+                <!--//added-->
+                <script>
+                function URLify(request) {
+                    $.ajax({
+                        url: 'index.php?route=tool/urlify/autocomplete&token=<?php echo $token; ?>&url=' +  encodeURIComponent(request),
+                        dataType: 'json',
+                        success: function(json) {
+                            $('#input-keyword').val(json);
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                }
+                </script>
+                <!--//added-->
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/product_form.tpl">
+        <operation>
+            <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-name]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/category_form.tpl">
+        <operation>
+            <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-name]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/information_form.tpl">
+    <operation>
+        <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+        <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-title]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+    </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/manufacturer_form.tpl">
+        <operation>
+            <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-name]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/information_extend_form.tpl">
+        <operation>
+            <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-title]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/catalog/information_category_form.tpl">
+        <operation>
+            <search><![CDATA[
+                <?php echo $footer; ?>
+            ]]></search>
+            <add position="before"><![CDATA[
+                <script type="text/javascript"><!--
+                //added Generate seo-urls
+                $('#language + div > .tab-pane:first-child [id ^= input-name]').change(function(){
+                    URLify($(this).val());
+                });
+                //added Generate seo-urls
+                //--></script>
+            ]]></add>
+        </operation>
+    </file>
+
+</modification>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

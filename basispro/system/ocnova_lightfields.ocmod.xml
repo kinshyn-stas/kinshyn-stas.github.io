@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Light fields</name>
+	<code>lightfields</code>
+	<version>1.0</version>
+	<author>pasha.strus@gmail.com</author>
+	<link>http://ocnova.pro</link>
+
+    <file path="admin/controller/customer/customer.php">
+        <operation>
+            <search><![CDATA[
+                  $this->model_customer_customer->editCustomer($this->request->get['customer_id'], $this->request->post);
+			]]></search>
+            <add position="replace"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+
+                    $this->load->model('customer/light_field');
+
+                    $post_data = $this->request->post;
+
+                    $post_data += array(
+                        'firstname' => '',
+                        'lastname' => '',
+                        'email' => 'empty@localhost',
+                        'telephone' => '',
+                        'fax' => '',
+                        'address_1' => '',
+                        'address_2' => '',
+                        'city' => '',
+                        'country_id' => '',
+                        'zone_id' => '',
+                        'postcode' => '',
+                        'company' => '',
+                    );
+
+                    if (isset($post_data['light_field'])) {
+                        foreach ($post_data['light_field'] as $key => $light_field_id) {
+                            if (isset($light_field_id)) {
+                                $light_field_to_standart_fields = $this->model_customer_light_field->getLightFieldToStandartField($key);
+                                foreach ($light_field_to_standart_fields as $light_field_to_standart_field) {
+                                    $standart_field = $light_field_to_standart_field['standart_field_name'];
+                                    if ($post_data['light_field'][$key] != '') {
+                                        $post_data = array_merge($post_data, array($standart_field => $post_data['light_field'][$key]));
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    $this->model_customer_customer->editCustomer($this->request->get['customer_id'], $post_data);
+
+                    $this->model_customer_light_field->addCustomerLightField($post_data, $this->request->get['customer_id']);
+
+                } else {
+                    $this->model_customer_customer->editCustomer($this->request->get['customer_id'], $this->request->post);
+                }
+
+                //added
+			]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $this->response->setOutput($this->load->view('customer/customer_form', $data));
+			]]></search>
+            <add position="before"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+
+                    $this->load->model('customer/light_field');
+
+                    $data['light_fields'] = $this->model_customer_light_field->getCustomerLightFields();
+
+                    if (isset($this->request->post['light_field'])) {
+                        $data['post_light_field'] = $this->request->post['light_field'];
+                    } elseif (isset($customer_info)) {
+                        $data['post_light_field'] = json_decode($customer_info['light_field'], true);
+                    } else {
+                        $data['post_light_field'] = array();
+                    }
+
+                    $data['light_field_status'] = true;
+                }
+                //added
+			]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                protected function validateForm() {
+			]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+
+                    if ($this->request->post['password'] || (!isset($this->request->get['customer_id']))) {
+                        if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+                            $this->error['password'] = $this->language->get('error_password');
+                        }
+
+                        if ($this->request->post['password'] != $this->request->post['confirm']) {
+                            $this->error['confirm'] = $this->language->get('error_confirm');
+                        }
+                    }
+
+                } else {
+			]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                if ($this->error && !isset($this->error['warning'])) {
+			]]></search>
+            <add position="before"><![CDATA[
+                }
+                //added
+			]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                'custom_field'      => json_decode($result['custom_field'], true),
+			]]></search>
+            <add position="after"><![CDATA[
+                'light_field'       => json_decode($result['light_field'], true), //added
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/controller/sale/order.php">
+        <operation>
+            <search><![CDATA[
+                $data['addresses'] = $this->model_customer_customer->getAddresses($order_info['customer_id']);
+			]]></search>
+            <add position="after"><![CDATA[
+            //added
+            if ($this->config->get('config_light_field_status')) {
+                $data['light_field_status'] = true;
+                $this->load->model('customer/light_field');
+
+                $l_filter_data = array(
+                    'sort' => 'lf.sort_order',
+                    'order' => 'ASC',
+                );
+
+                $light_fields = $this->model_customer_light_field->getLightFields($l_filter_data);
+                $data['all_light_fields'] = array();
+
+                foreach ($light_fields as $light_field) {
+                    if (isset($order_info['light_field'][$light_field['light_field_id']])) {
+                        $data['all_light_fields'][] = array(
+                            'light_field_id' => $light_field['light_field_id'],
+                            'light_field_value' => $this->model_customer_light_field->getLightFieldValues($light_field['light_field_id']),
+                            'name' => $light_field['name'],
+                            'type' => $light_field['type'],
+                            'value' => $order_info['light_field'][$light_field['light_field_id']],
+                            'sort_order' => $light_field['sort_order']
+                        );
+                    }
+                }
+            }
+            //added
+			]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $data['tabs'] = array();
+                ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $data['light_field_status'] = true;
+                    $this->load->model('customer/light_field');
+
+                    $l_filter_data = array(
+                        'sort' => 'lf.sort_order',
+                        'order' => 'ASC',
+                    );
+
+                    $light_fields = $this->model_customer_light_field->getLightFields($l_filter_data);
+                    $data['all_light_fields'] = array();
+
+                    foreach ($light_fields as $light_field) {
+                        if (isset($order_info['light_field'][$light_field['light_field_id']])) {
+                            $data['all_light_fields'][] = array(
+                                'name' => $light_field['name'],
+                                'value' => $order_info['light_field'][$light_field['light_field_id']],
+                                'sort_order' => $light_field['sort_order']
+                            );
+                        }
+                    }
+
+                } else {
+                //added
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $extensions = $this->model_extension_extension->getInstalled('fraud');
+            ]]></search>
+            <add position="before"><![CDATA[
+                //added
+                }
+                $this->load->model('extension/extension');
+                //added
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $products = $this->model_sale_order->getOrderProducts($order_id);
+            ]]></search>
+            <add position="before"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $this->load->model('customer/light_field');
+                    $data['light_field_status'] = true;
+
+                    $l_filter_data = array(
+                        'sort'  => 'lf.sort_order',
+                        'order' => 'ASC',
+                    );
+
+                    $light_fields = $this->model_customer_light_field->getLightFields($l_filter_data);
+                    $data['all_light_fields'] = array();
+
+                    foreach ($light_fields as $light_field) {
+                        if (isset($order_info['light_field'][$light_field['light_field_id']])) {
+                            $data['all_light_fields'][] = array(
+                                'name'  => $light_field['name'],
+                                'value' => $order_info['light_field'][$light_field['light_field_id']],
+                                'sort_order' => $light_field['sort_order']
+                            );
+                        }
+                    }
+                }
+                //added
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/model/sale/order.php">
+        <operation>
+            <search><![CDATA[
+                'custom_field'            => json_decode($order_query->row['custom_field'], true),
+            ]]></search>
+            <add position="after"><![CDATA[
+                'light_field'             => json_decode($order_query->row['light_field'], true), //added
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/customer/customer_form.tpl">
+        <operation>
+            <search><![CDATA[
+                    <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
+                ]]></search>
+            <add position="before" offset="1"><![CDATA[
+                        <!--//added-->
+                        <?php if ((isset($light_field_status) && $light_field_status) && ($light_fields)) { ?>
+                            <?php foreach ($light_fields as $light_field) { ?>
+                                <?php if ($light_field['status_edit'] == 0) { ?>
+                                    <?php if ($light_field['type'] == 'select') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <select name="light_field[<?php echo $light_field['light_field_id']; ?>]" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control">
+                                                    <option value=""><?php echo $text_select; ?></option>
+                                                    <?php foreach ($light_field['light_field_value'] as $light_field_value) { ?>
+                                                        <?php if (isset($post_light_field[$light_field['light_field_id']]) && $light_field_value['light_field_value_id'] == $post_light_field[$light_field['light_field_id']]) { ?>
+                                                            <option value="<?php echo $light_field_value['light_field_value_id']; ?>" selected="selected"><?php echo $light_field_value['name']; ?></option>
+                                                        <?php } else { ?>
+                                                            <option value="<?php echo $light_field_value['light_field_value_id']; ?>"><?php echo $light_field_value['name']; ?></option>
+                                                        <?php } ?>
+                                                    <?php } ?>
+                                                </select>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'radio') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <div>
+                                                    <?php foreach ($light_field['light_field_value'] as $light_field_value) { ?>
+                                                        <div class="radio">
+                                                            <?php if (isset($post_light_field[$light_field['light_field_id']]) && $light_field_value['light_field_value_id'] == $post_light_field[$light_field['light_field_id']]) { ?>
+                                                                <label>
+                                                                    <input type="radio" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field_value['light_field_value_id']; ?>" checked="checked" />
+                                                                    <?php echo $light_field_value['name']; ?></label>
+                                                            <?php } else { ?>
+                                                                <label>
+                                                                    <input type="radio" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field_value['light_field_value_id']; ?>" />
+                                                                    <?php echo $light_field_value['name']; ?></label>
+                                                            <?php } ?>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'text') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo (isset($post_light_field[$light_field['light_field_id']]) ? $post_light_field[$light_field['light_field_id']] : $light_field['value']); ?>" placeholder="<?php echo $light_field['name']; ?>" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'textarea') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <textarea name="light_field[<?php echo $light_field['light_field_id']; ?>]" rows="5" placeholder="<?php echo $light_field['name']; ?>" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control"><?php echo (isset($post_light_field[$light_field['light_field_id']]) ? $post_light_field[$light_field['light_field_id']] : $light_field['value']); ?></textarea>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'date') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group date">
+                                                    <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo (isset($post_light_field[$light_field['light_field_id']]) ? $post_light_field[$light_field['light_field_id']] : $light_field['value']); ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="YYYY-MM-DD" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                        </span></div>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'time') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group time">
+                                                    <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo (isset($post_light_field[$light_field['light_field_id']]) ? $post_light_field[$light_field['light_field_id']] : $light_field['value']); ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="HH:mm" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                        </span></div>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($light_field['type'] == 'datetime') { ?>
+                                        <div class="form-group<?php echo ($light_field['required'] ? ' required' : ''); ?> light-field light-field<?php echo $light_field['light_field_id']; ?>">
+                                            <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group datetime">
+                                                    <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo (isset($post_light_field[$light_field['light_field_id']]) ? $post_light_field[$light_field['light_field_id']] : $light_field['value']); ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="YYYY-MM-DD HH:mm" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                        </span></div>
+                                                <?php if (isset($error_light_field[$light_field['light_field_id']])) { ?>
+                                                    <div class="text-danger"><?php echo $error_light_field[$light_field['light_field_id']]; ?></div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } else { ?>
+                ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    <label class="col-sm-2 control-label" for="input-password"><?php echo $entry_password; ?></label>
+                ]]></search>
+            <add position="before" offset="1"><![CDATA[
+                        <?php } ?>
+                        <!--//added-->
+                ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $('select[name=\'customer_group_id\']').on('change', function() {
+                ]]></search>
+            <add position="after"><![CDATA[
+                <?php if ((isset($light_field_status) && $light_field_status)) { //added?>
+                $.ajax({
+                    url: 'index.php?route=customer/light_field/lightfield&token=<?php echo $token; ?>&customer_group_id=' + this.value,
+                    dataType: 'json',
+                    success: function(json) {
+                        $('.light-field').hide();
+                        $('.light-field').removeClass('required');
+
+                        for (i = 0; i < json.length; i++) {
+                            light_field = json[i];
+
+                            $('.light-field' + light_field['light_field_id']).show();
+
+                            if (light_field['required']) {
+                                $('.light-field' + light_field['light_field_id']).addClass('required');
+                            }
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+
+                $('#address').hide();
+                $('#address').parent('div').removeClass('col-sm-2');
+
+                <?php } //added?>
+                ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_form.tpl">
+        <operation>
+            <search><![CDATA[
+                    <li class="disabled"><a href="#tab-payment" data-toggle="tab">3. <?php echo $tab_payment; ?></a></li>
+            ]]></search>
+            <add position="before"><![CDATA[
+              <!--//added-->
+              <?php if (isset($light_field_status) && $light_field_status) { ?>
+              <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <li class="disabled"><a href="#tab-shipping" data-toggle="tab">4. <?php echo $tab_shipping; ?></a></li>
+            ]]></search>
+            <add position="after"><![CDATA[
+             <?php } ?>
+              <!--//added-->
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <label class="col-sm-2 control-label" for="input-customer"><?php echo $entry_customer; ?></label>
+            ]]></search>
+            <add position="before" offset="1"><![CDATA[
+                <!--//added-->
+                <?php if (isset($light_field_status) && $light_field_status) { ?>
+                    <input type="hidden" name="customer_id" value="<?php echo $customer_id; ?>" />
+                <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
+            ]]></search>
+            <add position="before" offset="1"><![CDATA[
+                <?php } ?>
+                <!--//added-->
+                <!--//added-->
+                <?php if (isset($light_field_status) && $light_field_status) { ?>
+                <?php foreach ($all_light_fields as $light_field) { ?>
+                        <?php if ($light_field['type'] == 'select') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field[' ']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <select name="light_field[<?php echo $light_field['light_field_id']; ?>]" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control">
+                                        <option value=""><?php echo $text_select; ?></option>
+                                        <?php foreach ($light_field['light_field_value'] as $light_field_value) { ?>
+                                            <?php if (isset($light_field['value']) && $light_field_value['name'] ==  $light_field['value']) { ?>
+                                                <option value="<?php echo $light_field_value['name']; ?>" selected="selected"><?php echo $light_field_value['name']; ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?php echo $light_field_value['name']; ?>"><?php echo $light_field_value['name']; ?></option>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php if ($light_field['type'] == 'radio') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <div id="input-light-field<?php echo $light_field['light_field_id']; ?>">
+                                        <?php foreach ($light_field['light_field_value'] as $light_field_value) { ?>
+                                            <div class="radio">
+                                                <?php if (isset($light_field['value']) && $light_field_value['name'] ==  $light_field['value']) { ?>
+                                                    <label>
+                                                        <input type="radio" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field_value['name']; ?>" checked="checked" />
+                                                        <?php echo $light_field_value['name']; ?></label>
+                                                <?php } else { ?>
+                                                    <label>
+                                                        <input type="radio" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field_value['name']; ?>" />
+                                                        <?php echo $light_field_value['name']; ?></label>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($light_field['type'] == 'text') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field['value']; ?>" placeholder="<?php echo $light_field['name']; ?>" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php if ($light_field['type'] == 'textarea') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <textarea name="light_field[<?php echo $light_field['light_field_id']; ?>]" rows="5" placeholder="<?php echo $light_field['name']; ?>" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control"><?php echo $light_field['value']; ?></textarea>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($light_field['type'] == 'date') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group date">
+                                        <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field['value']; ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="YYYY-MM-DD" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php if ($light_field['type'] == 'time') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group time">
+                                        <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field['value']; ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="HH:mm" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php if ($light_field['type'] == 'datetime') { ?>
+                            <div class="form-group light-field light-field<?php echo $light_field['light_field_id']; ?>" >
+                                <label class="col-sm-2 control-label" for="input-light-field<?php echo $light_field['light_field_id']; ?>"><?php echo $light_field['name']; ?></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group datetime">
+                                        <input type="text" name="light_field[<?php echo $light_field['light_field_id']; ?>]" value="<?php echo $light_field['value']; ?>" placeholder="<?php echo $light_field['name']; ?>" data-date-format="YYYY-MM-DD HH:mm" id="input-light-field<?php echo $light_field['light_field_id']; ?>" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                <?php } ?>
+                <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    <?php if ($custom_field['location'] == 'account') { ?>
+            ]]></search>
+            <add position="before" offset="1"><![CDATA[
+              <?php } ?>
+                <!--//added-->
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    <legend><?php echo $text_order_detail; ?></legend>
+            ]]></search>
+            <add position="after"><![CDATA[
+                  <!--//added-->
+                  <?php if (isset($light_field_status) && $light_field_status) { ?>
+                  <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    <label class="col-sm-2 control-label" for="input-coupon"><?php echo $entry_coupon; ?></label>
+            ]]></search>
+            <add position="before" offset="1"><![CDATA[
+                <?php } ?>
+                  <!--//added-->
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    custom_field: item['custom_field'],
+            ]]></search>
+            <add position="after"><![CDATA[
+                    <?php if (isset($light_field_status) && $light_field_status) { ?>
+                    light_field: item['light_field'], //added
+                    <?php } ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    $('#tab-customer input[name=\'fax\']').val(item['fax']);
+            ]]></search>
+            <add position="after"><![CDATA[
+                <?php if (isset($light_field_status) && $light_field_status) { ?>
+                //added
+                for (i in item.light_field) {
+                    $('#tab-customer select[name=\'light_field[' + i + ']\']').val(item.light_field[i]);
+                    $('#tab-customer textarea[name=\'light_field[' + i + ']\']').val(item.light_field[i]);
+                    $('#tab-customer input[name^=\'light_field[' + i + ']\'][type=\'text\']').val(item.light_field[i]);
+                    $('#tab-customer input[name^=\'light_field[' + i + ']\'][type=\'hidden\']').val(item.light_field[i]);
+                    $('#tab-customer input[name^=\'light_field[' + i + ']\'][type=\'radio\'][value=\'' + item.light_field[i] + '\']').prop('checked', true);
+                }
+                //added
+                <?php } ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                    $('#button-cart').on('click', function() {
+            ]]></search>
+            <add position="before"><![CDATA[
+                  //added
+                  <?php if (isset($light_field_status) && $light_field_status) { ?>
+                      $('#button-cart').on('click', function() {
+                          $('a[href=\'#tab-total\']').tab('show');
+                      });
+                  <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                   // Payment Address
+            ]]></search>
+            <add position="before"><![CDATA[
+                  <?php } ?>
+                  //added
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                   data: $('select[name=\'payment_method\'] option:selected,  select[name=\'shipping_method\'] option:selected,  #tab-total select[name=\'order_status_id\'], #tab-total select, #tab-total textarea[name=\'comment\'], #tab-total input[name=\'affiliate_id\']'),
+            ]]></search>
+            <add position="replace"><![CDATA[
+                <?php if (isset($light_field_status) && $light_field_status) { //added ?>
+                    data: $('#tab-customer input[type=\'text\'], #tab-customer input[type=\'hidden\'], #tab-customer input[type=\'radio\']:checked, #tab-customer input[type=\'checkbox\']:checked, #tab-customer select, #tab-customer textarea, select[name=\'payment_method\'] option:selected,  select[name=\'shipping_method\'] option:selected,  #tab-total select[name=\'order_status_id\'], #tab-total select, #tab-total textarea[name=\'comment\'], #tab-total input[name=\'affiliate_id\']'),
+                <?php } else { ?>
+                    data: $('select[name=\'payment_method\'] option:selected,  select[name=\'shipping_method\'] option:selected,  #tab-total select[name=\'order_status_id\'], #tab-total select, #tab-total textarea[name=\'comment\'], #tab-total input[name=\'affiliate_id\']'),
+                <?php } //added ?>
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_info.tpl">
+        <operation>
+            <search index="0"><![CDATA[
+                <div class="panel-body">
+            ]]></search>
+            <add position="after"><![CDATA[
+              <!--//added-->
+              <?php if ((isset($light_field_status) && $light_field_status) && ($all_light_fields)) { ?>
+                  <table class="table table-bordered">
+                      <tbody>
+                      <?php foreach ($all_light_fields as $light_field) { ?>
+                          <tr>
+                              <td><?php echo $light_field['name']; ?></td>
+                              <td><?php echo $light_field['value']; ?></td>
+                          </tr>
+                      <?php } ?>
+                      </tbody>
+                  </table>
+              <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <td class="text-left"><?php echo $column_product; ?></td>
+            ]]></search>
+            <add position="before" offset="3"><![CDATA[
+               <?php } ?>
+                  <!--//added-->
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_invoice.tpl">
+        <operation>
+            <search index="0"><![CDATA[
+                </table>
+            ]]></search>
+            <add position="after"><![CDATA[
+              <!--//added-->
+              <?php if ((isset($light_field_status) && $light_field_status) && ($all_light_fields)) { ?>
+                  <table class="table table-bordered table-hover">
+                      <tbody>
+                      <?php foreach ($all_light_fields as $light_field) { ?>
+                          <tr>
+                              <td><?php echo $light_field['name']; ?></td>
+                              <td><?php echo $light_field['value']; ?></td>
+                          </tr>
+                      <?php } ?>
+                      </tbody>
+                  </table>
+              <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <td><b><?php echo $column_product; ?></b></td>
+            ]]></search>
+            <add position="before" offset="3"><![CDATA[
+               <?php } ?>
+                  <!--//added-->
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_shipping.tpl">
+        <operation>
+            <search index="0"><![CDATA[
+                </table>
+            ]]></search>
+            <add position="after"><![CDATA[
+                  <!--//added-->
+                  <?php if ((isset($light_field_status) && $light_field_status) && ($all_light_fields)) { ?>
+                      <table class="table table-bordered  table-hover">
+                          <tbody>
+                          <?php foreach ($all_light_fields as $light_field) { ?>
+                              <tr>
+                                  <td><?php echo $light_field['name']; ?></td>
+                                  <td><?php echo $light_field['value']; ?></td>
+                              </tr>
+                          <?php } ?>
+                          </tbody>
+                      </table>
+                  <?php } else { ?>
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                <td><b><?php echo $column_location; ?></b></td>
+            ]]></search>
+            <add position="before" offset="3"><![CDATA[
+               <?php } ?>
+                  <!--//added-->
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search ><![CDATA[
+                if ($customer) {
+            ]]></search>
+            <add position="after"><![CDATA[
+			    //added
+                if ($this->user->hasPermission('access', 'customer/light_field')) {
+                    $customer[] = array(
+                        'name'	   => $this->language->get('button_edit_fields'),
+                        'href'     => $this->url->link('customer/light_field', 'token=' . $this->session->data['token'], true),
+                        'children' => array()
+                    );
+                }
+				//added
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/en-gb/common/column_left.php">
+        <operation>
+            <search ><![CDATA[
+				<?php
+			]]></search>
+            <add position="after"><![CDATA[
+			    //added
+                    $_['button_edit_fields']                 = 'Light checkout fields';
+				//added
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/ru-ru/common/column_left.php">
+        <operation>
+            <search ><![CDATA[
+				<?php
+			]]></search>
+            <add position="after"><![CDATA[
+			    //added
+                    $_['button_edit_fields']                 = 'Поля light checkout';
+				//added
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/controller/setting/setting.php">
+        <operation>
+            <search ><![CDATA[
+				$data['header'] = $this->load->controller('common/header');
+			]]></search>
+            <add position="before"><![CDATA[
+                //added
+                if (isset($this->request->post['config_light_field_status'])) {
+                    $data['config_light_field_status'] = $this->request->post['config_light_field_status'];
+                } else {
+                    $data['config_light_field_status'] = $this->config->get('config_light_field_status');
+                }
+                //added
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/setting/setting.tpl">
+        <operation>
+            <search ><![CDATA[
+				<div class="tab-pane" id="tab-option">
+			]]></search>
+            <add position="after"><![CDATA[
+			    <!--//added-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Включить Light checkout (упрощенное оформление заказа и регистрация)</label>
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <?php if ($config_light_field_status) { ?>
+                                <input type="radio" name="config_light_field_status" value="1" checked="checked" />
+                                <?php echo $text_yes; ?>
+                            <?php } else { ?>
+                                <input type="radio" name="config_light_field_status" value="1" />
+                                <?php echo $text_yes; ?>
+                            <?php } ?>
+                        </label>
+                        <label class="radio-inline">
+                            <?php if (!$config_light_field_status) { ?>
+                                <input type="radio" name="config_light_field_status" value="0" checked="checked" />
+                                <?php echo $text_no; ?>
+                            <?php } else { ?>
+                                <input type="radio" name="config_light_field_status" value="0" />
+                                <?php echo $text_no; ?>
+                            <?php } ?>
+                        </label>
+                    </div>
+                </div>
+                <!--//added-->
+			]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/account/account.php">
+        <operation>
+            <search><![CDATA[
+                public function index() {
+            ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $data['light_field_status'] = true;
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/common/header.php">
+        <operation>
+            <search><![CDATA[
+                $data['checkout'] = $this->url->link('checkout/checkout', '', true);
+            ]]></search>
+            <add position="replace"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $data['checkout'] = $this->url->link('checkout/light_checkout', '', true);
+                } else {
+                    $data['checkout'] = $this->url->link('checkout/checkout', '', true);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/module/account.php">
+        <operation>
+            <search><![CDATA[
+                public function index() {
+            ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $data['light_field_status'] = true;
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/account/edit.php">
+        <operation>
+            <search><![CDATA[
+                public function index() {
+            ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $this->response->redirect($this->url->link('account/light_edit', '', true));
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/account/register.php">
+        <operation>
+            <search><![CDATA[
+                public function index() {
+            ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $this->response->redirect($this->url->link('account/light_register', '', true));
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/checkout/checkout.php">
+        <operation>
+            <search><![CDATA[
+                public function index() {
+            ]]></search>
+            <add position="after"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $this->response->redirect($this->url->link('checkout/light_checkout', '', true));
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/account/order.php">
+        <operation>
+            <search><![CDATA[
+                $data['shipping_method'] = $order_info['shipping_method'];
+            ]]></search>
+            <add position="after"><![CDATA[
+            //added
+            if ($this->config->get('config_light_field_status')) {
+                $this->load->model('account/light');
+                $data['light_field_status'] = true;
+
+                $l_filter_data = array(
+                    'sort'  => 'lf.sort_order',
+                    'order' => 'ASC',
+                );
+
+                $light_fields = $this->model_account_light->getLightFields($l_filter_data);
+                $data['all_light_fields'] = array();
+
+                foreach ($light_fields as $light_field) {
+                    if (isset($order_info['light_field'][$light_field['light_field_id']])) {
+                        $data['all_light_fields'][] = array(
+                            'name'  => $light_field['name'],
+                            'value' => $order_info['light_field'][$light_field['light_field_id']],
+                            'sort_order' => $light_field['sort_order']
+                        );
+                    }
+                }
+            }
+            //added
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/api/customer.php">
+        <operation>
+            <search><![CDATA[
+                if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+            ]]></search>
+            <add position="before"><![CDATA[
+            //added
+            if ($this->config->get('config_light_field_status')) {
+
+            } else {
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                // Customer Group
+            ]]></search>
+            <add position="before"><![CDATA[
+                }
+                //added
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/api/order.php">
+        <operation>
+            <search index="1"><![CDATA[
+                // Payment Address
+            ]]></search>
+            <add position="before"><![CDATA[
+                //added
+                if ($this->config->get('config_light_field_status')) {
+
+                } else {
+            ]]></add>
+        </operation>
+        <operation>
+            <search index="1"><![CDATA[
+                // Cart
+            ]]></search>
+            <add position="before"><![CDATA[
+                }
+                //added
+            ]]></add>
+        </operation>
+        <operation>
+            <search index="1"><![CDATA[
+                $order_data['firstname'] = $this->session->data['customer']['firstname'];
+            ]]></search>
+            <add position="before"><![CDATA[
+                    //added
+                    if ($this->config->get('config_light_field_status')) {
+                        $order_data['payment_firstname'] = '';
+                        $order_data['payment_lastname'] = '';
+                        $order_data['payment_company'] = '';
+                        $order_data['payment_address_1'] = '';
+                        $order_data['payment_address_2'] = '';
+                        $order_data['payment_city'] = '';
+                        $order_data['payment_postcode'] = '';
+                        $order_data['payment_zone'] = '';
+                        $order_data['payment_zone_id'] = '';
+                        $order_data['payment_country'] = '';
+                        $order_data['payment_country_id'] = '';
+                        $order_data['payment_address_format'] = '';
+                        $order_data['payment_custom_field'] = '';
+                        $order_data['payment_method'] = '';
+                        $order_data['payment_code'] = 'none';
+
+                        $order_data['shipping_firstname'] = '';
+                        $order_data['shipping_lastname'] = '';
+                        $order_data['shipping_company'] = '';
+                        $order_data['shipping_address_1'] = '';
+                        $order_data['shipping_address_2'] = '';
+                        $order_data['shipping_city'] = '';
+                        $order_data['shipping_postcode'] = '';
+                        $order_data['shipping_zone'] = '';
+                        $order_data['shipping_zone_id'] = '';
+                        $order_data['shipping_country'] = '';
+                        $order_data['shipping_country_id'] = '';
+                        $order_data['shipping_address_format'] = '';
+                        $order_data['shipping_custom_field'] = array();
+                        $order_data['shipping_method'] = '';
+                        $order_data['shipping_code'] = 'none';
+
+                        $order_data['firstname'] = '';
+                        $order_data['lastname'] = '';
+                        $order_data['telephone'] = '';
+                        $order_data['fax'] = '';
+                        $order_data['custom_field'] = '';
+
+                        $order_data['email'] = 'empty@localhost';
+
+                        $this->load->model('account/light');
+
+                        $order_data['light_field'] = (isset($this->request->post['light_field']) ? $this->request->post['light_field'] : array());
+
+                        //magic
+                        if (isset($this->request->post['light_field'])) {
+                            foreach ($this->request->post['light_field'] as $key => $light_field_id) {
+                                if (isset($light_field_id)) {
+                                    $light_field_to_standart_fields = $this->model_account_light->getLightFieldToStandartField($key);
+                                    foreach ($light_field_to_standart_fields as $light_field_to_standart_field) {
+                                        $standart_field = $light_field_to_standart_field['standart_field_name'];
+                                        if ($this->request->post['light_field'][$key] != '') {
+                                            $order_data[$standart_field] = $this->request->post['light_field'][$key];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        $this->model_account_light->addOrderLightField($order_data['light_field'], $order_id);
+
+
+                    } else {
+            ]]></add>
+        </operation>
+        <operation>
+            <search index="1"><![CDATA[
+                // Products
+            ]]></search>
+            <add position="before"><![CDATA[
+                    }
+
+                    //added
+            ]]></add>
+        </operation>
+
+    </file>
+
+    <file path="catalog/model/account/order.php">
+        <operation>
+            <search><![CDATA[
+                'email'                   => $order_query->row['email'],
+            ]]></search>
+            <add position="after"><![CDATA[
+                'light_field'             => json_decode($order_query->row['light_field'], true), //added
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/model/checkout/order.php">
+        <operation>
+            <search><![CDATA[
+                'custom_field'            => json_decode($order_query->row['custom_field'], true),
+            ]]></search>
+            <add position="after"><![CDATA[
+                'light_field'             => json_decode($order_query->row['light_field'], true), //added
+            ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+                $data['products'] = array();
+            ]]></search>
+            <add position="after"><![CDATA[
+                                //added
+                if ($this->config->get('config_light_field_status')) {
+                    $this->load->model('account/light');
+                    $data['light_field_status'] = true;
+
+                    $l_filter_data = array(
+                        'sort'  => 'lf.sort_order',
+                        'order' => 'ASC',
+                    );
+
+                    $light_fields = $this->model_account_light->getLightFields($l_filter_data);
+
+                    $data['all_light_fields'] = array();
+
+                    foreach ($light_fields as $light_field) {
+                        if (isset($order_info['light_field'][$light_field['light_field_id']])) {
+                            $data['all_light_fields'][] = array(
+                                'name'  => $light_field['name'],
+                                'value' => $order_info['light_field'][$light_field['light_field_id']],
+                                'sort_order' => $light_field['sort_order']
+                            );
+                        }
+                    }
+                }
+                //added
+            ]]></add>
+        </operation>
+    </file>
+
+</modification>

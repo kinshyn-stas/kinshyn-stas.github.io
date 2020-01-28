@@ -1,0 +1,92 @@
+/*product-banner*/
+.product-banner {
+    background-color: #fff;
+    height: 360px;
+}
+.product-banner a,
+.product-banner a:hover {
+    color: #333;
+}
+.product-banner .v-align-parent {
+    display: table;
+    width: 100%;
+    height: 250px;
+    padding-top: 30px;
+}
+.product-banner .v-align-parent.white {
+    color: #fff;
+}
+.product-banner .v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+.product-banner .line-1 {
+    font-size: 22px;
+}
+.product-banner .line-2 {
+    font-size: 50px;
+    line-height: 50px;
+    padding: 8px 0 11px 0;
+    font-weight: 700;
+}
+.product-banner .line-3 {
+    font-size: 16px;
+    line-height: 20px;
+}
+.product-banner .image {
+    box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .product-banner .image {
+        display: flex
+    }
+
+    .product-banner .image img {
+        margin: auto
+    }
+}
+
+@media (max-width: 1199px) {
+    .product-banner .v-align-parent {
+        display: block;
+        height: auto;
+    }
+
+    .product-banner .line-1,
+    .product-banner .line-3 {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .product-banner .line-2 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 991px) {
+    .product-banner {
+        height: 220px
+    }
+
+    .product-banner .v-align-parent {
+        padding-top: 20px;
+    }
+
+    .product-banner .line-2 {
+        font-size: 30px;
+        padding: 0;
+        line-height: normal;
+    }
+}
+
+@media (max-width: 767px) {
+    .product-banner .v-align-parent {
+        padding-bottom: 10px;
+    }
+
+    .product-banner .line-3 {
+        display: none;
+    }
+}
