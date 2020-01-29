@@ -13,6 +13,17 @@ window.onload = function(){
 		}
 	});
 
+	new classMultiplyWrapper(Slider, {
+		selector: '.doc-category_box',
+		infinity: true,
+		navigationDotters: true,
+		sizeWork: {
+			desktop: false,
+			touch: false,
+			mobile: true,
+		}
+	});
+
 	new classMultiplyWrapper(SliderTalk, {
 		selector: '.talk_slider',
 		infinity: true,
