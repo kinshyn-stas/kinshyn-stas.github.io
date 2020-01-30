@@ -4060,3 +4060,19 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding: 64px 0;
 	}
 }
+
+
+.sel-block{}
+.sel_title{}
+.sel_box{}
+.sel_item{}
+.sel_item_top{}
+.sel_close{}
+.sel_close img{}
+.sel_date{}
+.sel_date:before{}
+.sel_image{}
+.sel_image img{}
+.sel_item_top figcaption{}
+.sel_link{}
+.sel_bottom{}
