@@ -3441,9 +3441,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-left: 8px;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 768px){
 	.doc-footer{
-		display: none;
+		padding: 40px 0 39px;
 	}
 }
 
@@ -3471,6 +3471,26 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (max-width: 768px){
 	.doc-breadcrumbs{
 		padding: 16px 0 26px;
+	}
+	.doc-footer .doc-center-main-block{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.doc-footer_main-link{
+		margin-top: 24px;		
+	}
+	.doc-footer_contacts{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.doc-footer_contact{
+		margin-top: 24px;
+		margin-right: 22px;
+		margin-bottom: 0;
+	}
+	.doc-footer_contact:last-of-type{
+		margin-right: 0;
 	}
 }
 
