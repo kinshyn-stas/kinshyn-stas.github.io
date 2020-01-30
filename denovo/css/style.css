@@ -4054,3 +4054,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .button_container{
 	margin-top: 48px;
 }
+
+@media screen and (max-width: 768px){
+	.error-block{
+		padding: 64px 0;
+	}
+}
