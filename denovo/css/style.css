@@ -3190,19 +3190,102 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	display: flex;
 	align-items: center;
 }
-.face_form input{
+.face_form_item{}
+.face_form_item-search{
+	position: relative;
 	width: 100%;
+	border-right: 1px solid #EEEEEE;
 }
-.face_form .select{}
-.face_form button{
+.face_form_item-search input{
+	width: 100%;
+	padding-left: 42px;
+	background-color: #FFFFFF;
+	border-radius: 7px 0 0 7px;
+}
+.face_form_item-search a{
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 16px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.face_form_item-search img{
+	display: block;
+	width: 20px;
+}
+.face_form_item-select{
+	font-size: 14px;
+	line-height: 17px;
+}
+.face_form_item-select .select{
+	width: 155px;
+	min-width: 155px;
+}
+.select{
+	position: relative;
+	background-color: #ffffff;
+	text-align: center;	
+}
+.select_option{
+	width: 100%;
+	padding: 16px 4px 17px;
+	background-color: #ffffff;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.select_option:hover{
+	background-color: #f4f4f4;
+}
+.select_tit{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+}
+.select_option.selected{
+	display: none;
+}
+.select_tit:after{
+	content: "";
+	width: 10px;
+	height: 6px;
+	display: block;
+	margin-left: 15px;
+	background-image: url(../images/downarrow_black.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+.select_list_outer{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	height: 0;
+	width: 100%;
+	opacity: 0;
+	overflow: hidden;
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+}
+.select.active .select_list_outer{
+	height: auto;
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+}
+.face_form_item-button{}
+.face_form_item-button button{
 	min-width: 96px;
 	font-size: 14px;
 	line-height: 17px;
 	text-transform: none;
-	border-radius: 0px 7px 7px 0px;
+	border-radius: 0 7px 7px 0;
 }
-.face_form button:before{
-	border-radius: 0px 7px 7px 0px;
+.face_form_item-button button:before{
+	border-radius: 0 7px 7px 0;
 }
 
 

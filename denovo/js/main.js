@@ -54,7 +54,8 @@ window.onload = function(){
 		selector: '.form_validate',
 	});
 
-	//emulateSelector('.select_emulator');
+
+	emulateSelector('.select_emulator');
 
 
 	new inputFileEmulator('.input_emulator-file');
@@ -1145,4 +1146,80 @@ function menuListHandler(event){
 	let item = event.target.closest('.aside_item');
 	let p = item.querySelector('.aside_item_list');
 	p.style.top = `${item.getBoundingClientRect().top}px`;
+};
+
+
+function emulateSelector(select){
+	let selects = document.querySelectorAll(select);
+
+	selects.forEach((select) =>{
+		select.hidden = true;
+
+		let emul = document.createElement('div');
+		emul.classList = "select";
+		emul.onclick = ()=>emul.classList.toggle('active');
+		emul.setAttribute('tabindex','1');
+		emul.onblur = function(){
+			this.classList.remove('active');
+		};
+
+		let tit = document.createElement('div');
+		tit.classList = "select_option select_tit";
+		tit.onclick = () => select.classList.toggle('active');
+		emul.append(tit);
+
+		let emulListOuter = document.createElement('div');
+		emulListOuter.classList = "select_list_outer";
+		emul.append(emulListOuter);
+
+		let emulList = document.createElement('div');
+		emulList.classList = "select_list";
+		emulListOuter.append(emulList);
+
+		select.querySelectorAll('option').forEach((item)=>{
+			let option = document.createElement('div');
+			option.classList = "select_option";
+			option.innerHTML = item.innerHTML;
+			option.dataset.value = item.value;
+
+			option.onclick = ()=>{
+				if(!emul.classList.contains('active')) return;
+				select.value=option.dataset.value;
+				tit.textContent = option.textContent;
+
+				let evt = document.createEvent('HTMLEvents');
+				evt.initEvent('change', true, true);
+				select.dispatchEvent(evt);
+
+				option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
+					option.classList.remove('selected')
+				});
+				option.classList.add('selected');
+			};
+
+			if(item.selected){
+				option.classList.add('selected');
+				tit.textContent = item.textContent;
+			} 
+			if(item.dataset.default == 'true') option.classList.add('default');
+			if(item.disabled) option.classList.add('disabled');
+			emulList.append(option);
+		});
+
+		select.parentNode.append(emul);
+
+		let heightStart = emul.querySelector('.select_option').offsetHeight;
+		let heightEnd = 0;
+		emul.querySelectorAll('.select_option').forEach((option)=>{
+			heightEnd += option.offsetHeight;
+		});
+		//emul.style.height = heightStart + 'px';
+		//emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
+	})
+
+	let z = 1;
+	for(let i=selects.length - 1; i>=0; i--){
+		selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
+		z++;
+	}
 };
