@@ -4029,3 +4029,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		line-height: 22px;
 	}
 }
+
+
+.error-block{
+	padding: 72px 0;
+}
+.error-block .doc-center-main-block{
+	max-width: 680px;
+}
+.error_content{
+	text-align: center;
+}
+.error_text{}
+.error_text h1{
+	margin-bottom: 16px;
+}
+.error_image{
+	margin-top: 48px;
+	text-align: center;
+}
+.error_image img{
+	display: inline-block;
+}
+.button_container{
+	margin-top: 48px;
+}
