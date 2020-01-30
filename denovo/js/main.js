@@ -838,6 +838,18 @@ function clickItemHandler(event){
 			obj.classList.remove('active');
 			target.pause();
 		},
+
+		'add-comment': function(target){
+			document.querySelector('.doc-comment').classList.remove('hidden');
+		},
+
+		'show-comments': function(target){
+			let box = target.closest('.doc-comments_item');
+			if(box.nextElementSibling.classList.contains('doc-comments_box')){
+				target.classList.toggle('collapse');
+				box.nextElementSibling.classList.toggle('collapsed');
+			}
+		},
 	}
 
 	if(item.dataset.action){

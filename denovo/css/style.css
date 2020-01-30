@@ -3627,12 +3627,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+	transform: scale(1,1);
+	-webkit-transform: scale(1,1);
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.doc-comments.active .doc-comments_switcher:after{
+	transform: scale(1,-1);
+	-webkit-transform: scale(1,-1);
 }
 .doc-comments_switcher span{
 	color: #808080;	
 }
-.doc-comments_switcher_on{}
+.doc-comments_switcher_on{
+	display: none;
+}
 .doc-comments_switcher_off{
+	display: block;
+}
+.doc-comments.active .doc-comments_switcher_on{
+	display: block;
+}
+.doc-comments.active .doc-comments_switcher_off{
 	display: none;
 }
 .doc-comments_add{
@@ -3645,8 +3661,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-comments_add span{
 	color: #F56107;	
 }
-.doc-comments_body{}
-.doc-comments_box{}
+.doc-comments_body{
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+}
+.doc-comments.active .doc-comments_body{
+	height: auto;
+	opacity: 1;
+	transition: opacity 0.4s ease-in-out;
+	-webkit-transition: opacity 0.4s ease-in-out;
+}
+.doc-comments_box{
+	height: auto;
+	opacity: 1;
+	overflow: hidden;
+	transition: opacity 0.4s ease-in-out;
+	-webkit-transition: opacity 0.4s ease-in-out;
+}
+.doc-comments_box.collapsed{
+	height: 0;
+	opacity: 0;
+}
 .doc-comments_item{
 	padding-bottom: 32px;
 	margin-bottom: 32px;
@@ -3741,3 +3777,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	transform: scale(1,-1);
 	-webkit-transform: scale(1,-1);
 }
+.doc-comment_bottom_panel_item-show.collapse:after{
+	transform: scale(1,1);
+	-webkit-transform: scale(1,1);	
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+
+
+.doc-comment{
+	padding: 72px 0 48px;
+	background-color: #F6F6F6;
+}
+.doc-comment .doc-center-main-block{}
+.doc-comment_form{
+	text-align: center;
+}
+.doc-comment_form_item{
+	margin-bottom: 32px;
+}
+.doc-comment_form_item:last-of-type{
+	margin-bottom: 0;
+}
+.doc-comment_form_item textarea{
+	width: 100%;
+	min-height: 160px;
+	background-color: #ffffff;
+	text-align: left;
+}
+.doc-comment_form_item button{}
