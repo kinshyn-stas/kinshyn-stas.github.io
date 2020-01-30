@@ -2956,6 +2956,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
+	.doc-main-block.rev_block{
+		padding: 32px 0;
+	}
 	.rev_box{
 		flex-wrap: wrap;
 		text-align: center;
@@ -3354,14 +3357,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	line-height: 160%;
 }
 .doc-breadcrumbs_box_item{
-	display: inline-block;
+	display: inline;
 }
 .doc-breadcrumbs_box_item:after{
 	content: "/";
 	display: inline-block;
-	padding: 0 0.3em;
+	padding-left: 0.3em;
 }
-.doc-breadcrumbs_box_item:lst-of-type:after{
+.doc-breadcrumbs_box_item:last-of-type:after{
 	display: none;
 }
 
@@ -3373,7 +3376,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .filling-block{
-	padding: 18px 0 72px;
+	padding: 18px 0 52px;
 }
 .filling-block .doc-center-main-block{
 	display: flex;
@@ -3515,6 +3518,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filling_content_header_panel{
 	display: flex;
+	flex-wrap: wrap;
 }
 .filling_content_header_panel_item{
 	display: flex;
@@ -3552,18 +3556,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .filling_content_text p{
 	margin-bottom: 20px;
 }
-.filling_content_text p:last-of-type{
-	margin-bottom: 0;
-}
-.filling_content_text p:last-of-type+*{
-	margin-top: 20px;
-}
 .filling_content_text img{
 	margin-bottom: 20px;
 }
-.filling_articles{
-	padding-bottom: 53px;
-}
+.filling_articles{}
 .filling_articles_title{
 	font-weight: normal;
 	font-size: 24px;
@@ -3590,6 +3586,61 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1100px){
+	.filling-block .doc-center-main-block{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.filling_aside{
+		margin-bottom: 32px;
+	}
+	.filling_content{
+		padding-left: 0;
+	}
+}
+@media screen and (max-width: 768px){
+	.filling-block{
+		padding: 0 0 44px;
+	}
+	.filling_aside{
+		width: 100%;
+		min-width: 0;
+		padding: 0 20px;
+	}
+	.filling_switcher{
+		padding: 20px 0;
+	}
+	.filling_switcher_title{
+		font-size: 16px;
+		line-height: 19px;
+	}
+	.filling_aside.active .filling_nav{
+		padding-bottom: 0;
+	}
+	.filling_content_header_title{
+		margin-bottom: 24px;
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.filling_content_header_panel_item{
+		margin-right: 24px;
+	}
+	.filling_content_header_panel_item:last-of-type{
+		margin-right: 0;
+	}
+	.filling_content_text{
+		padding-top: 32px;
+		padding-bottom: 44px;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 190%;
+	}
+	.filling_articles_title{
+		font-size: 18px;
+		line-height: 22px;
+	}
 }
 
 
@@ -3784,12 +3835,54 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	-webkit-transition: all 0.2s ease-in-out;
 }
 
+@media screen and (max-width: 768px){
+	.doc-comments{
+		padding: 64px 0;
+	}
+	.doc-comments_header{
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.doc-comments_header_title{
+		width: calc(100% - 20px);
+		margin-right: 0;
+		font-size: 18px;
+		line-height: 22px;
+	}
+	.doc-comments_switcher{
+		width: 20px;
+		margin-bottom: 0;
+		font-size: 0;
+	}
+	.doc-comments_switcher:after{
+		width: 20px;
+		height: 20px;
+	}
+	.doc-comments_add{
+		margin: 8px 0 0;
+	}
+	.doc-comments_box .doc-comments_box .doc-comments_item{
+		padding-left: 16px;
+	}
+	.doc-comment_header{
+		margin-bottom: 20px;
+	}
+}
+
 
 .doc-comment{
 	padding: 72px 0 48px;
 	background-color: #F6F6F6;
 }
 .doc-comment .doc-center-main-block{}
+.doc-comment_title{
+	display: none;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 29px;
+	text-align: center;
+	text-transform: uppercase;
+}
 .doc-comment_form{
 	text-align: center;
 }
@@ -3805,4 +3898,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-color: #ffffff;
 	text-align: left;
 }
-.doc-comment_form_item button{}
+
+@media screen and (max-width: 768px){
+	.doc-comment{
+		padding: 64px 0;
+	}
+	.doc-comment_title{
+		display: block;
+		font-size: 18px;
+		line-height: 22px;
+	}
+}
