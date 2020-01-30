@@ -3175,7 +3175,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .face-block{
 	padding: 112px 0;
-	background-color: ;
+	background-color: #f4f4f4;
 	background-image: url(../images/bg_face.jpg);
 	background-size: cover;
 }
@@ -3286,6 +3286,23 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .face_form_item-button button:before{
 	border-radius: 0 7px 7px 0;
+}
+
+@media screen and (max-width: 768px){
+	.face-block{
+		padding: 64px 0;
+	}
+	.face_content{
+		max-width: 100%;
+	}
+	.doc-main-block .face_title{
+		font-size: 24px;
+		line-height: 29px;
+		text-align: center;
+	}
+	.face_form_item-select{
+		display: none;
+	}
 }
 
 
