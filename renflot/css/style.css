@@ -470,6 +470,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-color: #ffffff;
 	border-radius: 10px;
 }
+.lightbox *{
+	-moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+   	-khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  	-webkit-user-select: none; /* Chrome, Safari, and Opera */
+  	-webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
 .lightbox h2{
 	margin-bottom: 32px;
 }

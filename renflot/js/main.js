@@ -588,7 +588,7 @@ function clickItemHandler(event){
 			if(target.dataset.label){
 				document.querySelector(target.dataset.label).classList.remove('active')
 			} else {
-				target.closest('.popup-container').classList.remove('active');
+				target.closest('.popup_container').classList.remove('active');
 			}
 		},
 
@@ -615,11 +615,27 @@ function clickItemHandler(event){
 											<path d="M0.000488281 36L15.0005 21L0.000488281 6L3.00049 0L24.0005 21L3.00049 42L0.000488281 36Z" fill="#DCBC5A"/>
 										</svg>
 									</div>
-									<img class="lightbox_image active" src="${target.src}" alt="" />
+									<div class="lightbox_box">
+										<img id="lightbox_image" class="lightbox_image active" src="${target.src}" alt="" />
+									</div>
 									${target.dataset.text ? ('<div class="lightbox_description">' + target.dataset.text + '</div>') : '<div class="lightbox_description hidden"></div>'}
 								</div>`
 
 			document.body.append(container);
+			setMaxHeaderImage(lightbox_image);
+
+			function setMaxHeaderImage(target){
+				let lightbox = document.querySelector('.lightbox');
+				let lightboxHeight = +parseFloat(getComputedStyle(lightbox).height);
+				lightboxHeight = lightboxHeight - +parseFloat(getComputedStyle(lightbox).paddingTop) - +parseFloat(getComputedStyle(lightbox).paddingBottom);
+				lightbox.querySelectorAll('h1,h2,.lightbox_description').forEach(item => {
+					let h = +parseFloat(getComputedStyle(item).height)
+					if(!h) return;
+					lightboxHeight -= h;
+				});
+
+				target.style.maxHeight = `${lightboxHeight}px`;
+			}
 		},
 
 		'switch_lightbox': function(target){
@@ -656,10 +672,25 @@ function clickItemHandler(event){
 						description.classList.add('hidden');
 					}
 
+					setMaxHeaderImage(img);
+
 					img.classList.remove('active');
 					setTimeout(()=>img.classList.add('active'), 0)
 					break;
 				}
+			}
+
+			function setMaxHeaderImage(target){
+				let lightbox = document.querySelector('.lightbox');
+				let lightboxHeight = +parseFloat(getComputedStyle(lightbox).height);
+				lightboxHeight = lightboxHeight - +parseFloat(getComputedStyle(lightbox).paddingTop) - +parseFloat(getComputedStyle(lightbox).paddingBottom);
+				lightbox.querySelectorAll('h1,h2,.lightbox_description').forEach(item => {
+					let h = +parseFloat(getComputedStyle(item).height)
+					if(!h) return;
+					lightboxHeight -= h;
+				});
+
+				target.style.maxHeight = `${lightboxHeight}px`;
 			}
 		},
 
