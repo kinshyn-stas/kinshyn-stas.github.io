@@ -3152,6 +3152,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (max-width: 1100px){
 	.doc-header{
 		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		width: 100%;
+		min-width: 100vw;
 	}
 }
 
