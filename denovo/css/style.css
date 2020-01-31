@@ -4062,17 +4062,116 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.sel-block{}
-.sel_title{}
-.sel_box{}
-.sel_item{}
-.sel_item_top{}
-.sel_close{}
-.sel_close img{}
-.sel_date{}
-.sel_date:before{}
-.sel_image{}
-.sel_image img{}
-.sel_item_top figcaption{}
-.sel_link{}
-.sel_bottom{}
+.sel-block{
+	padding-bottom: 36px;
+}
+.sel_title{
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 43px;
+	text-transform: uppercase;
+}
+.sel_box{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 50px;
+}
+.sel_item{
+	margin-bottom: 36px;
+}
+.sel_item_top{
+	position: relative;
+	padding: 18px 12px 16px;
+	background-color: #F3F6F9;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+	border-radius: 5px;
+}
+.sel_item_close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(50%,-50%); 
+}
+.sel_item_close img{
+	width: 24px;
+}
+.sel_date{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #808080;
+}
+.sel_date:before{
+	content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-right: 4px;
+	background-image: url(../images/calendar.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.sel_image{
+	margin: 23px auto 27px;
+}
+.sel_image img{
+	height: 80px;
+}
+.sel_link_box{
+	color: #F56107;
+	font-weight: 400;
+}
+.sel_link{
+	text-decoration: underline;
+}
+.sel_item_bottom{
+	margin-top: 16px;
+	font-weight: 400;
+}
+
+@media screen and (max-width: 1100px){
+	.sel_box{
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.sel_box{
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 15px;
+	}
+	.sel_item{
+		justify-self: flex-end;
+		width: 160px;
+		max-width: calc(50vw - 27px);
+	}
+	.sel_item:nth-of-type(2n + 2){
+		justify-self: flex-start;
+	}
+	.sel_item_top{
+		padding: 16px 12px 16px;		
+	}
+	.sel_image img{
+		height: 56px;
+	}
+	.sel_image{
+		margin: 16px auto 19px;
+	}
+}
+@media screen and (max-width: 370px){
+	.sel_box{
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+	.sel_item{
+		width: 200px;
+		max-width: 100%;
+		justify-self: center;
+	}
+	.sel_item:nth-of-type(2n + 2){
+		justify-self: center;
+	}
+}
