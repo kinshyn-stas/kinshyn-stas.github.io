@@ -3,7 +3,7 @@
 window.onload = function(){
 
 	new classMultiplyWrapper(Slider, {
-		selector: '.catalog_slider',
+		selector: '.catalog_slider-main',
 		navigationDotters: true,
 		navigationDottersCount: 2,
 		sizeWork: {
@@ -11,6 +11,12 @@ window.onload = function(){
 			touch: true,
 			mobile: false,
 		}
+	});
+
+	new classMultiplyWrapper(Slider, {
+		selector: '.catalog_slider-category',
+		navigationDotters: true,
+		navigationDottersCount: 2,
 	});
 
 	new classMultiplyWrapper(Slider, {

@@ -727,6 +727,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .header_mobile_menu_butt img{
 	display: block;
+	height: 18px;
 }
 .header_mobile_menu_butt span{
 	display: inline-block;
@@ -869,8 +870,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		display: flex;
 	}
 	.header_top{
-		display: none;
+		height: 0;
 		padding: 0 16px;
+		opacity: 0;
+		overflow: hidden;
 	}
 	.header_mobile.active+.header_top{
 		position: absolute;
@@ -882,6 +885,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		width: 100%;
 		height: calc(100vh - 54px);
 		background-color: #E1FEAA;
+		opacity: 1;
+		transition: height 0.2s linear, opacity 0.4s ease-in-out;
+		-webkit-transition: height 0.2s linear, opacity 0.4s ease-in-out;
 	}
 	.header_nav{
 		flex-direction: column;
@@ -2096,7 +2102,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: 100%;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px){	
 	.catalog_box{
 		justify-content: center;
 		margin-bottom: -40px;
@@ -2105,6 +2111,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		width: 100%;
 		max-width: 420px;
 		margin-bottom: 40px;
+	}
+	.catalog_slide_uno .catalog_item:nth-of-type(2n + 2){
+		display: none;
 	}
 	.catalog_image_panel_left{
 		flex-direction: column;
@@ -2115,6 +2124,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.catalog_image_panel_tag:last-of-type{
 		margin-bottom: 0;
+	}
+	.catalog_unit_button{
+		max-width: 420px;
+	}
+	.catalog_unit_button:not(:last-of-type){
+		padding-bottom: 40px;
+		margin-bottom: 40px;
+		border-bottom: 1px solid #E1E1E2;
 	}
 }
 @media screen and (max-width: 768px){
@@ -2177,7 +2194,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.catalog_right{
 		width: 100%;
 	}
-	.catalog_slider .catalog_slide:nth-of-type(n + 2){
+	.catalog_slider-main .catalog_slide:nth-of-type(n + 2){
 		display: none;
 	}
 	.catalog_params_item{
