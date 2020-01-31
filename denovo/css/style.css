@@ -2831,7 +2831,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.blog_block{}
+.blog_block{
+	margin: 0;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-image: url(../images/bg_consultant.svg);
+	background-position: center bottom;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
 .blog_header{}
 .blog_header_title{
 	margin-bottom: 4px;
