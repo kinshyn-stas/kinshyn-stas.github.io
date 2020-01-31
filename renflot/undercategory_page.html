@@ -807,7 +807,7 @@
 					<p>Ежедневно с 10:00 до 19:00</p>
 					<p><a href="mailto:order@rentflot.ua" class="color1">order@rentflot.ua</a></p>
 					<div class="button_container">
-						<a class="button_order">написать директору</a>
+						<a class="button_order click-item" data-action="popup-open" data-label="#popup-dir">написать директору</a>
 					</div>
 
 				</div>
@@ -815,6 +815,43 @@
 			</div>
 		</footer>
 
+	</div>
+
+
+	<div id="popup-dir" class="popup_container">
+		<div class="popup_background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<a class="popup_close click-item" data-action="popup-close">
+				<img src="img/close.svg" alt="" />
+			</a>
+			<h2>Написать директору</h2>
+			<p>Если у вас возникли жалобы или пожелания, связанные с работой нашей компании, напишите письмо непосредственно директору. Все письма поступят на личную почту и не пройдут без внимания</p>
+			<form class="popup_form" onsubmit="fakeForm(event,'#popup-dir-thx')">
+				<div class="popup_form_item">
+					<input type="text" placeholder="Имя" required />
+				</div>
+				<div class="popup_form_item">
+					<input type="tel" placeholder="Телефон" required maxlength="11" />
+				</div>
+				<div class="popup_form_item popup_form_item-full">
+					<input type="text" placeholder="сообщение" />
+				</div>
+				<div class="popup_form_item popup_form_item-full">
+					<button class="button_order button_order-reverse">отправить</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="popup-dir-thx" class="popup_container">
+		<div class="popup_background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<a class="popup_close click-item" data-action="popup-close">
+				<img src="img/close.svg" alt="" />
+			</a>
+			<h2>Сообщение отправлено</h2>
+			<p>Спасибо за ваше обращение, оно успешно доставлено директору</p>
+		</div>
 	</div>
 
 

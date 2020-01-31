@@ -415,12 +415,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: 100%;
 }
 .popup_form .button_order{
-	min-width: 0;
+	min-width: 174px;
 }
 
 @media screen and (max-width: 768px){
 	.popup{
 		padding: 30px 50px;
+		overflow-y: auto;
 	}
 	.popup h2 br{
 		display: none;
