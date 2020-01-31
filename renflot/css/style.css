@@ -1041,13 +1041,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .breadcrumbs{
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	margin-top: 24px;
 	color: #8D8D8D;
 	font-size: 14px;
 	line-height: 18px;
 }
 .breadcrumbs a{
-	display: inline-block;
+	display: inline-flex;
 }
 .breadcrumbs a:after{
 	content: "~";
@@ -1935,6 +1936,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .catalog_slider{}
 .catalog_slider .slider_box{
 	align-items: flex-start;
+	margin-bottom: -80px;
+}
+.catalog_slider>.catalog_slide{
 	margin-bottom: -80px;
 }
 .catalog_slide{}
