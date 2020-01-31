@@ -1,0 +1,114 @@
+<!--
+##==================================================================##
+## @author    : OCdevWizard                                         ##
+## @contact   : ocdevwizard@gmail.com                               ##
+## @support   : http://help.ocdevwizard.com                         ##
+## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+##==================================================================##
+-->
+<div class="modal-content" id="modal-comment-constructor-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">{{ text_modal_heading }}</h4>
+  </div>
+  <div class="modal-body">
+    <div id="content" class="row" style="padding-bottom: 0;">
+      <div class="panel-body" style="padding-top: 0;padding-bottom: 0;">
+        <ul class="nav nav-tabs" id="modal-setting-tabs">
+          <li class="active dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog"></i> {{ tab_control_panel }} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#modal-general-block" data-toggle="tab"><i class="fa fa-cogs"></i> {{ tab_general_setting }}</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form method="post" enctype="multipart/form-data" id="modal-form" class="form-horizontal">
+          <input type="hidden" style="display:none;" name="comment_id" value="{{ comment_id }}" />
+          <input type="hidden" style="display:none;" name="respond_id" value="{{ comment_id }}" />
+          <input type="hidden" style="display:none;" name="post_id" value="{{ post_id }}" />
+          <div class="tab-content">
+            <!-- TAB General block -->
+            <div class="tab-pane fade active in" role="tabpanel" id="modal-general-block">
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input-status">{{ entry_status }}</label>
+                <div class="col-sm-9">
+                  <select name="status" id="input-status" class="form-control">
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input-comment_type">{{ entry_comment_type }}</label>
+                <div class="col-sm-9">
+                  <select name="comment_type" id="input-comment_type" class="form-control">
+                    <option value="1" selected="selected">{{ text_comment_type_1 }}</option>
+                    <option value="0">{{ text_comment_type_2 }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group required respond-type-1">
+                <label class="col-sm-3 control-label" for="input-firstname">{{ entry_firstname }}</label>
+                <div class="col-sm-9">
+                  <input value="" type="text" name="firstname" placeholder="{{ placeholder_comment_firstname }}" class="form-control" />
+                  <div class="modal-error-block" id="modal-error-firstname"></div>
+                </div>
+              </div>
+              <div class="form-group required respond-type-1">
+                <label class="col-sm-3 control-label" for="input-email">{{ entry_email }}</label>
+                <div class="col-sm-9">
+                  <input value="" type="text" name="email" placeholder="{{ placeholder_comment_email }}" class="form-control" />
+                  <div class="modal-error-block" id="modal-error-email"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="input-status">{{ entry_notification_on_respond }}</label>
+                <div class="col-sm-9">
+                  <select name="notification_on_respond" id="input-status" class="form-control">
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                  </select>
+                  <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> {{ entry_notification_on_respond_faq }}</div>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-3 control-label">{{ entry_respond_text }}</label>
+                <div class="col-sm-9">
+                  {% for language in languages %}
+                  <div class="input-group" style="margin-bottom: 5px;">
+                    <span class="input-group-addon"><img src="{{ language['image'] }}" title="{{ language['name'] }}" /></span>
+                    <textarea name="comment_description[{{ language['language_id'] }}][description]" id="description{{ language['language_id'] }}" class="form-control"></textarea>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs" onclick="texteditor_action({id: '#description{{ language['language_id'] }}'});">{{ text_open_texteditor }}</button>
+                    <button type="button" class="btn btn-default btn-xs" onclick="texteditor_action({id: '#description{{ language['language_id'] }}', start: false, destroy: true});" style="display: none;">{{ text_save_texteditor }}</button>
+                  </div>
+                  <div class="modal-error-block" id="modal-error-comment-description-language-description-{{ language['language_id'] }}"></div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-info" onclick="submit_comment_respond(this, 'add');">{{ button_submit }}</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">{{ button_close }}</button>
+  </div>
+</div>
+</div>
+<script>
+$('select[name=comment_type]').change(function() {
+  var val = $(this).val();
+
+  if (val == 1) {
+    $('.respond-type-1').hide();
+  } else {
+    $('.respond-type-1').show();
+  }
+});
+$('select[name=comment_type]').trigger('change');  
+</script>

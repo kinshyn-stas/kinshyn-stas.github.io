@@ -1,0 +1,21 @@
+<div class="panel panel-default {{ _code }}-tags-block" id="{{ _code }}-tags-block-{{ module_id }}">
+  <!--
+  ##==================================================================##
+  ## @author    : OCdevWizard                                         ##
+  ## @contact   : ocdevwizard@gmail.com                               ##
+  ## @support   : http://help.ocdevwizard.com                         ##
+  ## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+  ## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+  ##==================================================================##
+  -->
+  <div class="panel-heading"><i class="fa fa-tags" aria-hidden="true"></i> {{ heading_title }}</div>
+  <div class="list-group">
+    <div class="list-group-item {{ _code }}-list-group-item">
+      {% if (results) %}
+        {% for result in results %}
+          <a href="{{ result['href'] }}"><span class="label label-default">{{ result['name'] }}</span></a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>

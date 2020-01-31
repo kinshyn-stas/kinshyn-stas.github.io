@@ -1,0 +1,112 @@
+<!--
+##==================================================================##
+## @author    : OCdevWizard                                         ##
+## @contact   : ocdevwizard@gmail.com                               ##
+## @support   : http://help.ocdevwizard.com                         ##
+## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+##==================================================================##
+-->
+{% if (histories) %}
+  <div class="btn-group">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-trash-o"></i> {{ button_delete_menu }} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a onclick="delete_all('email-template');">{{ button_delete_all }}</a></li>
+      <li><a onclick="delete_all_selected('email-template');">{{ button_delete_selected }}</a></li>
+    </ul>
+  </div>
+{% endif %}
+<button type="button" onclick="$('a[href=#email-template-constructor-block]').click();" class="btn btn-primary"><i class="fa fa-refresh"></i> {{ button_update }}</button>
+<button type="button" onclick="open_email_template();" class="btn btn-primary"><i class="fa fa-plus-circle"></i> {{ button_add_email_template }}</button>
+<div class="special-margin"></div>
+<div class="table-responsive">
+  <table class="table table-bordered main-table-data">
+    <thead>
+      <tr>
+        <td width="1" style="text-align: center;"><input type="checkbox" onclick="$('#history-email-template input[name*=\'selected\']').attr('checked', this.checked);" /></td>
+        <td class="text-left" width="15%">{{ column_email_template_name }}</td>
+        <td class="text-left">{{ column_email_template_date_added }}</td>
+        <td class="text-left">{{ column_email_template_date_modified }}</td>
+        <td class="text-left">{{ column_email_template_status }}</td>
+        <td class="text-center">{{ column_email_template_action }}</td>
+      </tr>
+      <tr>
+        <td class="text-center fixed-thead"></td>
+        <td class="text-center fixed-thead input-group-sm"><input type="text" name="filter_heading" value="" class="form-control"/></td>
+        <td class="text-center fixed-thead input-group-sm"><input type="text" name="filter_date_added" value="" class="form-control datetime"/></td>
+        <td class="text-center fixed-thead input-group-sm"><input type="text" name="filter_date_modified" value="" class="form-control datetime"/></td>
+        <td class="text-center fixed-thead input-group-sm">
+          <select name="filter_status" class="form-control">
+            <option value="*"></option>
+            <option value="1">{{ text_enabled }}</option>
+            <option value="0">{{ text_disabled }}</option>
+          </select>
+        </td>
+        <td class="text-center fixed-thead">
+          <button class="btn btn-default btn-sm" type="button" id="submit-filter-email-template-form"><i class="fa fa-search"></i> {{ button_filter }}</button>
+          <button class="btn btn-default btn-sm" type="button" id="clear-filter-email-template-form"><i class="fa fa-eraser"></i> {{ button_clear_filter }}</button>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      {% if (histories) %}
+      {% for history in histories %}
+      <tr>
+        <td style="text-align: center;"><input type="checkbox" name="selected[]" value="{{ history['template_id'] }}" /></td>
+        <td class="text-left">{{ history['name'] }}</td>
+        <td class="text-left">{{ history['date_added'] }}</td>
+        <td class="text-left">{{ history['date_modified'] }}</td>
+        <td class="text-left">{{ history['status'] }}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-primary" onclick="open_email_template({id: '{{ history['template_id'] }}'});" data-toggle="tooltip" title="" data-original-title="{{ button_edit }}"><i class="fa fa-pencil"></i></button>
+          <a onclick="confirm('{{ text_are_you_sure }}') ? delete_selected('email-template', '{{ history['template_id'] }}') : false;" data-toggle="tooltip" title="" class="btn btn-warning" data-original-title="{{ button_delete }}"><i class="fa fa-trash-o"></i></a>
+          <button type="button" class="btn btn-default" onclick="confirm('{{ text_are_you_sure }}') ? copy_selected('email-template', '{{ history['template_id'] }}') : false;" data-toggle="tooltip" title="" data-original-title="{{ button_copy }}"><i class="fa fa-copy"></i></button>
+        </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+        <tr>
+          <td class="text-center" colspan="6">{{ text_no_results }}</td>
+        </tr>
+      {% endif %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <div class="row">
+            <div class="col-sm-6 text-left">{{ pagination }}</div>
+            <div class="col-sm-6 text-right fixed-pagination-results">{{ results }}</div>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<script type="text/javascript">
+  $('#history-email-template input[name=\'filter_heading\']').autocomplete({
+    'source': function(request, response) {
+      $.ajax({
+        url: 'index.php?route=extension/ocdevwizard/{{ _name }}/autocomplete_email_template&{{ token }}&filter_heading='+encodeURIComponent(request),
+        dataType: 'json',
+        success: function(json) {
+          response($.map(json, function(item) {
+            return {
+              label: item['name'],
+              value: item['template_id']
+            }
+          }));
+        }
+      });
+    },
+    'select': function(item) {
+      $('#history-email-template input[name=\'filter_heading\']').val(item['label']);
+    }
+  });
+
+  $('#history-email-template .datetime').datetimepicker({
+    format:     'YYYY-MM-DD',
+    formatDate: 'YYYY-MM-DD',
+  });
+</script>

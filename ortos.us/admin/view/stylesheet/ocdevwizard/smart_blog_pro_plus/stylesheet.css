@@ -1,0 +1,339 @@
+/*
+##==================================================================##
+## @author    : OCdevWizard                                         ##
+## @contact   : ocdevwizard@gmail.com                               ##
+## @support   : http://help.ocdevwizard.com                         ##
+## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+##==================================================================##
+*/
+
+/* start: Assistance */
+.special-margin {
+  height: 7px;
+}
+
+.special-margin-lg {
+  height: 14px;
+}
+
+.panel-default {
+  border-top: 1px solid #E8E8E8;
+}
+
+.dropdown-toggle.disabled {
+  cursor: not-allowed;
+}
+
+#content .well {
+  margin-bottom: 7px;
+}
+
+#content textarea {
+  resize: vertical;
+  min-height: 35px;
+}
+
+#setting-tabs li.active a {
+  cursor: pointer;
+}
+
+#modal-setting-tabs li.active a {
+  cursor: pointer;
+}
+
+#content .form-group .alert-danger,
+#content .form-group .alert-info {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.list-group.list-group-root {
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+  margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+  border-radius: 0;
+  border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group-item {
+  font-weight: bold;
+}
+
+.list-group-item > i.fa {
+  margin-right: 7px;
+}
+
+#modal-setting-tabs li > a i.fa {
+  margin-right: 7px;
+}
+
+button {
+  outline: none !important;
+}
+
+.breadcrumb-module {
+  display: inline-block;
+  background: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.breadcrumb-module > li {
+  display: inline-block;
+}
+
+.breadcrumb-module > li > a {
+  color: #999999;
+  font-size: 11px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.breadcrumb-module > li:last-child > a {
+  color: #1e91cf;
+}
+
+.breadcrumb-module > li > a:hover {
+  text-decoration: none;
+}
+
+.breadcrumb-module > li + li:before {
+  content: "/";
+  font-family: FontAwesome;
+  color: #BBBBBB;
+  padding: 0 5px;
+}
+
+.dropdown-on-hover button {
+  border: 1px solid #fff;
+}
+
+.dropdown-on-hover button .caret {
+  opacity: 0;
+}
+
+.dropdown-on-hover:hover button {
+  border: 1px solid #ccc;
+}
+
+.dropdown-on-hover:hover button .caret {
+  opacity: 1;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  cursor: pointer;
+}
+
+.pro-version-only {
+  opacity: 1;
+  cursor: not-allowed !important;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.pro-version-only:hover {
+  opacity: 0.2;
+}
+
+#modal-form + .alert {
+  margin-top: 17px;
+}
+
+.table-bordered > thead > tr > th.fixed-thead,
+.table-bordered > thead > tr > td.fixed-thead {
+  border-bottom-width: 1px !important;
+  font-weight: normal;
+}
+
+#form .table-responsive {
+  overflow: hidden;
+}
+
+.modal .modal-body .table-responsive table {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  #form .table-responsive {
+    overflow: auto;
+  }
+}
+
+.fixed-pagination-results {
+  line-height: 39px;
+}
+
+.button-disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* end: Assistance */
+/* start: for tab Popup setting */
+.div-background-images input {
+  display: none;
+}
+
+input + .background-for-label {
+  width: 55px;
+  height: 55px;
+  border: 1px solid #000;
+  margin: 0 7px 7px 0;
+  opacity: 0.7;
+}
+
+input:checked + .background-for-label {
+  -webkit-box-shadow: inset 0px 0px 27px 0px #080;
+  -moz-box-shadow: inset 0px 0px 27px 0px #080;
+  box-shadow: inset 0px 0px 27px 0px #080;
+  opacity: 1;
+}
+
+/* end: for tab Popup setting */
+/* start: for tab OCdev Products */
+#promo-block .thumbnail {
+  cursor: pointer;
+  outline: none;
+}
+
+/* end: for tab OCdev Products */
+/* start: for tab Language setting */
+.note-editor {
+  display: inline-grid;
+}
+
+.note-editor,
+.note-editor.note-frame {
+  margin-bottom: 0;
+}
+
+.note-toolbar i {
+  line-height: 1.5px;
+  font-size: 12px !important;
+}
+
+.input-group + .modal-error-block,
+.btn-group + .modal-error-block {
+  margin-bottom: 10px;
+}
+
+/* end: for tab Language setting */
+/* start: for tab License setting */
+.warning-style-license {
+  margin-bottom: 18px;
+}
+
+.warning-style-license .alert-warning {
+  color: #7d684a !important;
+}
+
+.warning-style-license .alert {
+  margin-bottom: 0 !important;
+  border-radius: 0 3px 3px 0 !important;
+}
+
+.default-style-license .alert-warning {
+  color: #7d684a !important;
+}
+
+.default-style-license .alert {
+  margin-bottom: 0 !important;
+  border-radius: 0 3px 3px 0 !important;
+  border: 1px solid #ccc;
+  overflow-x: hidden;
+}
+
+.two-sites-block {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+#license-request .modal-body .form-group input[type=text] {
+  position: relative;
+  outline: none;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  padding: 0 5px !important;
+  transition: all 200ms;
+  opacity: 1;
+  cursor: text !important;
+  font-weight: normal;
+}
+
+#license-request .modal-body .form-group input[type=text]:focus + .form-control-placeholder,
+#license-request .modal-body .form-group input[type=text]:valid + .form-control-placeholder {
+  transform: translate3d(0, -13px, 0);
+  opacity: 1;
+  background: #fff;
+  padding: 0;
+  line-height: 12px;
+  color: #777;
+}
+
+#license-request .modal-body .form-group input[type=text]:focus + .form-control-placeholder + .alert {
+  display: block !important;
+}
+
+#license-request .modal-body .form-group input[type=text]:-webkit-autofill,
+#license-request .modal-body .form-group input[type=text]:-webkit-autofill:hover,
+#license-request .modal-body .form-group input[type=text]:-webkit-autofill:active,
+#license-request .modal-body .form-group input[type=text]:-webkit-autofill:focus {
+  background-color: #FFFFFF !important;
+  color: #333 !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #333 !important;
+}
+
+.required-indicator {
+  color: #f00;
+}
+
+#license-request .modal-body .form-group .alert-danger,
+#license-request .modal-body .form-group .alert-info {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+#license-request .modal-body .form-group label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+#license-request .modal-body .form-group > div {
+  position: relative;
+}
+
+#license-request .modal-body .form-group > div + div {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+  .two-sites-block {
+    display: block;
+  }
+}
+
+/* end: for tab License setting */

@@ -1,0 +1,779 @@
+{{ header }}
+<div class="container">
+	<ul class="breadcrumb">
+		{% set b_i = 1 %}
+		{% for breadcrumb in breadcrumbs %}
+		<li>
+			{% if (b_i < (breadcrumbs|length)) %}
+				<a href="{{ breadcrumb['href'] }}"><span>{{ breadcrumb['text'] }}</span></a>
+			{% else %}
+				<span>{{ breadcrumb['text'] }}</span>
+			{% endif %}
+		</li>
+		{% set b_i = b_i + 1 %}
+		{% endfor %}
+	</ul>
+	<div class="row">
+		{{ column_left }}
+		{% if (column_left and column_right) %}
+			{% set class = 'col-sm-6' %}
+		{% elseif (column_left or column_right) %}
+			{% set class = 'col-sm-9' %}
+		{% else %}
+			{% set class = 'col-sm-12' %}
+		{% endif %}
+		<div id="content" class="{{ class }} {{ _code }}-content">
+			{{ content_top }}
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>{{ heading_title }}</h1>
+					{% if (show_author or show_date_added or show_count_viewed) %}
+						<div class="post-info-block">
+							{% if (author and show_author) %}
+								<span><i class="fa fa-user" aria-hidden="true"></i> {{ text_author }} <a href="{{ authors }}"><span>{{ author }}</span></a></span>
+							{% endif %}
+							{% if (show_date_added) %}
+								<span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ text_date_added }} {{ date_added }}</span>
+							{% endif %}
+							{% if (show_count_viewed) %}
+								<span><i class="fa fa-eye" aria-hidden="true"></i> {{ text_viewed }} {{ viewed }}</span>
+							{% endif %}
+							{% if (show_comment_count) %}
+								<span><i class="fa fa-comments" aria-hidden="true"></i> {{ text_comment }} {{ comment_total }}</span>
+							{% endif %}
+							{% if (show_post_vote) %}
+								<span>{{ text_estimates }} <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{ post_vote_down }} <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{ post_vote_up }}</span>
+							{% endif %}
+						</div>
+						<hr/>
+					{% endif %}
+					{% if ((thumb and show_main_image == 1) or (images and show_additional_image)) %}
+						<div class="images-block">
+							{% if (thumb and show_main_image == 1) %}
+								<div class="image-main">
+									<a class="{{ _code }}-post-thumbnail" href="{{ popup }}" title="{{ heading_title }}">
+										<img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ main_image_alt }}"/>
+									</a>
+								</div>
+							{% endif %}
+							{% if (video and show_main_image == 2) %}
+								{% if (video_show_type == 1) %}
+									<div class="video-main">
+										<div class="video-inner {{ _code }}-youtube" onclick="show_youtube('{{ video }}', this);" style="background-image:url('https://img.youtube.com/vi/{{ video }}/0.jpg');">
+											<div>
+												<i class="fa fa-play"></i>
+												<span></span>
+												<span></span>
+											</div>
+										</div>
+									</div>
+								{% else %}
+									<div class="video-main">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+								{% endif %}
+							{% endif %}
+							{% if (images and show_additional_image) %}
+								<div class="image-additionals">
+									<div class="inner">
+										{% for image in images %}
+											<div><a class="{{ _code }}-post-thumbnail" href="{{ image['popup'] }}" title="{{ heading_title }}"> <img src="{{ image['thumb'] }}" title="{{ heading_title }}" alt="{{ heading_title }}"/></a></div>
+										{% endfor %}
+										{% if (images_other) %}
+											{% for image in images_other %}
+												<div class="more-image-additionals"><a class="{{ _code }}-post-thumbnail" href="{{ image['popup'] }}" title="{{ heading_title }}"> <img src="{{ image['thumb'] }}" title="{{ heading_title }}" alt="{{ heading_title }}"/></a></div>
+											{% endfor %}
+											<div class="show-image-additionals" onclick="$('.more-image-additionals').toggleClass('active');$(this).find('span').toggle();">
+												<div><span>+{{ images_other_total }}</span><span><i class="fa fa-arrow-left" aria-hidden="true"></i></span></div>
+											</div>
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+					{% if (description and show_description) %}
+						<div id="{{ _code }}-post-description">{{ description }}</div>
+					{% endif %}
+					{% if (tags and show_tags) %}
+						<div class="post-info-tags">
+							<div>{{ text_tags }}</div>
+							{% for tag in tags %}
+								<a href="{{ tag['href'] }}">{{ tag['tag'] }}</a>
+							{% endfor %}
+						</div>
+					{% endif %}
+					{% if (socials) %}
+						<div class="post-info-share">
+							<div>{{ text_share_post }}</div>
+							{% for social in socials %}
+								<a href="{{ social['href'] }}" class="{{ social['class'] }}" title="{{ social['name'] }}" target="_blank"><i class="{{ social['icon'] }}" aria-hidden="true"></i></a>
+							{% endfor %}
+						</div>
+					{% endif %}
+					{% if (show_post_vote) %}
+						<div class="post-info-vote">
+							<div>{{ text_rate_post }}</div>
+							<button type="button" onclick="{{ _code }}_vote('{{ post_id }}', 'down', 'post', this)"><i class="fa fa-thumbs-down" aria-hidden="true"></i><span>{{ post_vote_down }}</span></button>
+							<button type="button" onclick="{{ _code }}_vote('{{ post_id }}', 'up', 'post', this)"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span>{{ post_vote_up }}</span></button>
+						</div>
+					{% endif %}
+					<hr/>
+					{% if (show_comment) %}
+						{% if (comment_see_status) %}
+							<div id="{{ _code }}-comment">
+								{% if (comments) %}
+									<h3><i class="fa fa-comments" aria-hidden="true"></i> {{ tab_comment }}</h3>
+									<div class="{{ _code }}-post-comments-block">
+										{% for comment in comments %}
+											<div>
+												{% if (comment['thumb']) %}
+													<div class="comment-image">
+														<div>
+															<img src="{{ comment['thumb'] }}"/>
+															<button type="button" title="{{ button_respond_to_comment }}" onclick="{{ _code }}_respond('{{ comment['comment_id'] }}', this)"><i class="fa fa-reply" aria-hidden="true"></i></button>
+														</div>
+													</div>
+												{% endif %}
+												<div class="comment-inner">
+													<div>
+														<div class="comment-name">
+															{{ comment['firstname'] }}
+															<div class="comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ comment['date_added'] }}</div>
+														</div>
+														<div class="comment-description">{{ comment['description'] }}</div>
+													</div>
+													{% if (show_comment_vote) %}
+														<div class="comment-vote">
+															<div><span id="{{ _code }}-vote-down-{{ comment['comment_id'] }}">{{ comment['total_vote_down'] }}</span> / <span id="{{ _code }}-vote-up-{{ comment['comment_id'] }}">{{ comment['total_vote_up'] }}</span></div>
+															<div>
+																<button type="button" onclick="{{ _code }}_vote('{{ comment['comment_id'] }}', 'down', 'comment', this)"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+																<button type="button" onclick="{{ _code }}_vote('{{ comment['comment_id'] }}', 'up', 'comment', this)"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+															</div>
+														</div>
+													{% endif %}
+												</div>
+											</div>
+											{% if (comment['responds']) %}
+												{% for respond in comment['responds'] %}
+													<div class="comment-responds-block">
+														{% if (respond['thumb']) %}
+															<div class="comment-image">
+																<div>
+																	<img src="{{ respond['thumb'] }}"/>
+																</div>
+															</div>
+														{% endif %}
+														<div class="comment-inner">
+															<div>
+																<div class="comment-name">
+																	{{ respond['firstname'] }}
+																	<div class="comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ respond['date_added'] }}</div>
+																</div>
+																<div class="comment-description">{{ respond['description'] }}</div>
+															</div>
+														</div>
+													</div>
+												{% endfor %}
+											{% endif %}
+										{% endfor %}
+									</div>
+									<div class="text-center">{{ pagination }}</div>
+								{% else %}
+									<p>{{ text_no_comments }}</p>
+								{% endif %}
+							</div>
+						{% endif %}
+						{% if (comment_write_status) %}
+							<div id="{{ _code }}-comment-form">
+								<form class="form-horizontal" method="post" enctype="multipart/form-data">
+									<h3><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ text_write }}</h3>
+									<div>
+										<div id="{{ _code }}-comment-alerts"></div>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="form-group required">
+													<div class="col-sm-12" data-error-name="firstname">
+														<label class="control-label" for="input-firstname">{{ entry_firstname }}</label>
+														<input type="text" name="firstname" value="{{ firstname }}" id="input-firstname" class="form-control"/>
+													</div>
+												</div>
+												{% if (allow_notification_on_respond) %}
+													<div class="form-group">
+														<div class="col-sm-12">
+															<label class="control-label">
+																<input type="checkbox" name="notification_on_respond" value="1" onchange="$('#{{ _code }}-comment-email').toggle();"/>
+																{{ text_notification_on_respond }}
+															</label>
+														</div>
+													</div>
+													<div class="form-group required" id="{{ _code }}-comment-email">
+														<div class="col-sm-12" data-error-name="email">
+															<label class="control-label" for="input-email">{{ entry_email }}</label>
+															<input type="text" name="email" value="{{ email }}" id="input-email" class="form-control"/>
+														</div>
+													</div>
+												{% endif %}
+												{% if (captcha_status) %}
+													<div data-error-name="recaptcha">
+														<script src="https://www.google.com/recaptcha/api.js"></script>
+														<div class="g-recaptcha" data-sitekey="{{ captcha_site_key }}" id="comment-captcha"></div>
+													</div>
+												{% endif %}
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group required">
+													<div class="col-sm-12" data-error-name="description">
+														<label class="control-label" for="input-description">{{ entry_comment }}</label>
+														<textarea name="description" id="input-description" class="form-control"></textarea>
+													</div>
+												</div>
+												{% if (comment_require_informations) %}
+													<div data-error-name="comment_require_information">
+														{{ comment_require_informations }}
+														<input type="checkbox" name="comment_require_information" value="1"/>
+													</div>
+												{% endif %}
+												<div class="buttons">
+													<div class="pull-left">
+														<button type="button" id="{{ _code }}-button-comment" class="btn btn-primary">{{ button_submit_comment }}</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+			{% if (related_posts) %}
+				<h3 class="{{ _code }}-h3"><i class="fa fa-file-text-o"></i> {{ text_related_posts }}</h3>
+				<div class="row">
+					{% set i = 0 %}
+					{% for result in related_posts %}
+						{% if (column_left and column_right) %}
+							{% set class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12' %}
+						{% elseif (column_left or column_right) %}
+							{% set class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12' %}
+						{% else %}
+							{% set class = 'col-lg-3 col-md-3 col-sm-6 col-xs-12' %}
+						{% endif %}
+						<div class="{{ class }}">
+							<div class="product-thumb transition {{ _code }}-post-item">
+								{% if (post_show_post_image_on_post) %}
+									{% if (result['show_main_image'] == 1) %}
+										<div class="image">
+											<a href="{{ result['href'] }}"><img src="{{ result['image'] }}" alt="{{ result['name'] }}" title="{{ result['name'] }}" class="img-responsive"/></a>
+										</div>
+									{% endif %}
+									{% if (result['video'] and result['show_main_image'] == 2) %}
+										<div class="video">
+											<div class="video-inner {{ _code }}-youtube" onclick="show_youtube('{{ result['video'] }}', this);" style="background-image:url('https://img.youtube.com/vi/{{ result['video'] }}/0.jpg');">
+												<div>
+													<i class="fa fa-play"></i>
+													<span></span>
+													<span></span>
+												</div>
+											</div>
+										</div>
+									{% endif %}
+								{% endif %}
+								<div class="caption">
+									<a class="{{ _code }}-post-heading" href="{{ result['href'] }}">{{ result['name'] }}</a>
+									{% if (result['author'] and show_author_on_post) %}<b>{{ result['author'] }}</b> - {% endif %}{% if (show_date_added_on_post) %}{{ result['date_added'] }}<br/>{% endif %}
+									{% if (show_description_on_post and result['short_description']) %}
+										{{ result['short_description'] }}<br/>
+									{% endif %}
+									{% if (show_count_comments_on_post) %}
+										<i class="fa fa-comment-o" aria-hidden="true"></i> {{ result['comments'] }}&nbsp;&nbsp;
+									{% endif %}
+									{% if (show_count_viewed_on_post) %}
+										<i class="fa fa-eye" aria-hidden="true"></i> {{ result['viewed'] }}<br/>
+									{% endif %}
+								</div>
+								{% if (show_read_more_button_on_post) %}
+									<a href="{{ result['href'] }}">{{ text_button_readmore }} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+								{% endif %}
+							</div>
+						</div>
+						{% if ((column_left and column_right) and (i % 2 == 0)) %}
+							<div class="clearfix visible-md visible-sm"></div>
+						{% elseif ((column_left or column_right) and (i % 3 == 0)) %}
+							<div class="clearfix visible-md"></div>
+						{% elseif ((i + 1) % 4 == 0) %}
+							<div class="clearfix visible-md"></div>
+						{% endif %}
+						{% set i = i + 1 %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if (related_products) %}
+				<h3 class="{{ _code }}-h3"><i class="fa fa-list"></i> {{ text_related_products }}</h3>
+				<div class="row">
+					{% set i = 0 %}
+					{% for product in related_products %}
+						{% if (column_left and column_right) %}
+							{% set class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12' %}
+						{% elseif (column_left or column_right) %}
+							{% set class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12' %}
+						{% else %}
+							{% set class = 'col-lg-3 col-md-3 col-sm-6 col-xs-12' %}
+						{% endif %}
+						<div class="{{ class }}">
+							<div class="product-thumb transition">
+								{% if (product_show_product_image_on_post) %}
+									<div class="image"><a href="{{ product['href'] }}"><img src="{{ product['thumb'] }}" alt="{{ product['name'] }}" title="{{ product['name'] }}" class="img-responsive"/></a></div>
+								{% endif %}
+								<div class="caption">
+									{% if (product_show_product_name_on_post) %}
+										<h4><a href="{{ product['href'] }}">{{ product['name'] }}</a></h4>
+									{% endif %}
+									{% if (product_show_product_description_on_post) %}
+										<p>{{ product['description'] }}</p>
+									{% endif %}
+									{% if (product['rating'] and product_show_product_rating_on_post) %}
+										<div class="rating">
+											{% set i = 1 %}{% for i in i..5 %}
+												{% if (product['rating'] < i) %}
+													<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+												{% else %}
+													<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+												{% endif %}
+											{% endfor %}
+										</div>
+									{% endif %}
+									{% if (product['price'] and product_show_product_price_on_post) %}
+										<p class="price">
+											{% if (not product['special']) %}
+												{{ product['price'] }}
+											{% else %}
+												<span class="price-new">{{ product['special'] }}</span> <span class="price-old">{{ product['price'] }}</span>
+											{% endif %}
+											{% if (product['tax']) %}
+												<span class="price-tax">{{ text_tax }} {{ product['tax'] }}</span>
+											{% endif %}
+										</p>
+									{% endif %}
+								</div>
+								{% if (product_show_product_cart_button_on_post or product_show_product_wishlist_button_on_post or product_show_product_compare_button_on_post) %}
+									<div class="button-group">
+										{% if (product_show_product_cart_button_on_post) %}
+											<button type="button" onclick="cart.add('{{ product['product_id'] }}');"><span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span> <i class="fa fa-shopping-cart"></i></button>
+										{% endif %}
+										{% if (product_show_product_wishlist_button_on_post) %}
+											<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product['product_id'] }}');"><i class="fa fa-heart"></i></button>
+										{% endif %}
+										{% if (product_show_product_compare_button_on_post) %}
+											<button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product['product_id'] }}');"><i class="fa fa-exchange"></i></button>
+										{% endif %}
+									</div>
+								{% endif %}
+							</div>
+						</div>
+						{% if ((column_left and column_right) and (i % 2 == 0)) %}
+							<div class="clearfix visible-md visible-sm"></div>
+						{% elseif ((column_left or column_right) and (i % 3 == 0)) %}
+							<div class="clearfix visible-md"></div>
+						{% elseif ((i + 1) % 4 == 0) %}
+							<div class="clearfix visible-md"></div>
+						{% endif %}
+						{% set i = i + 1 %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{{ content_bottom }}
+		</div>
+		{{ column_right }}
+	</div>
+</div>
+{% if (comment_see_status) %} 
+<script>
+function show_more_comments(page, button) {
+  $.ajax({ 
+    url: 'index.php?route=extension/ocdevwizard/{{ _name }}/comments&post_id={{ post_id }}&page='+page,   
+    type: 'get',
+    dataType: 'html',
+    beforeSend: function() {
+      $(button).html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+    },
+    complete: function() {
+      $(button).remove();
+    },
+    success: function(html) {
+      $('#{{ _code }}-comment .{{ _code }}-post-comments-block').append(html);
+      $(button).next().show();
+    }
+  });
+}
+</script>
+{% endif %} 
+{% if (show_post_vote or show_comment_vote) %} 
+<script>
+function {{ _code }}_vote(comment_id, rating_type, content_type, block) {
+  if (content_type == 'post') {
+    var url = 'index.php?route=extension/ocdevwizard/{{ _name }}/vote&post_id={{ post_id }}&rating_type='+rating_type+'&content_type='+content_type;
+  } else {
+    var url = 'index.php?route=extension/ocdevwizard/{{ _name }}/vote&post_id={{ post_id }}&comment_id='+comment_id+'&rating_type='+rating_type+'&content_type='+content_type;
+  }
+  
+  $.ajax({
+    url: url,
+    type: 'get',
+    dataType: 'json',
+    success: function(json) {
+      $('#{{ _code }}-comment .comment-inner-aditional').parent().remove();
+      $('.{{ _code }}-post-vote-alert').remove();
+
+
+      if (json['error']) {
+        if (content_type == 'post') {
+          $(block).parent().after('<div class="alert alert-danger alert-dismissible {{ _code }}-post-vote-alert"><i class="fa fa-check-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }
+
+        if (content_type == 'comment') {
+          $(block).parent().parent().parent().parent().after('<div class="comment-alert-message"><div class="comment-inner-aditional"><div class="alert alert-danger alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div></div></div>');
+        }
+      } else {
+        if (content_type == 'post') {
+          if (json['post_vote_down']) {
+            $(block).find('span').html(json['post_vote_down']);
+          }
+          if (json['post_vote_up']) {
+            $(block).find('span').html(json['post_vote_up']);
+          }
+
+          $(block).parent().after('<div class="alert alert-success alert-dismissible" style="margin-top: 15px;"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }
+
+        if (content_type == 'comment') {
+          if (json['comment_vote_down']) {
+            $('#{{ _code }}-vote-down-'+comment_id).html(json['comment_vote_down']);
+            $('#{{ _code }}-vote-down-'+comment_id).parent().parent().parent().parent().after('<div class="comment-alert-message"><div class="comment-inner-aditional"><div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div></div></div>');
+          }
+          if (json['comment_vote_up']) {
+            $('#{{ _code }}-vote-up-'+comment_id).html(json['comment_vote_up']);
+            $('#{{ _code }}-vote-up-'+comment_id).parent().parent().parent().parent().after('<div class="comment-alert-message"><div class="comment-inner-aditional"><div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div></div></div>');
+          }
+        }
+      }
+    }
+  });
+}
+</script>
+{% endif %} 
+{% if (comment_write_status) %} 
+<script>
+function {{ _code }}_respond(comment_id, block) {
+  $('.{{ _code }}-comment-respond').remove();
+  $('script[src*="https://www.gstatic.com/recaptcha"]').remove();
+
+  html  = '<div class="{{ _code }}-comment-respond" id="{{ _code }}-comment-respond-'+comment_id+'">';
+  html += ' <div class="comment-image"></div>';
+  html += ' <div class="comment-inner-aditional">';
+  html += '   <form class="form-horizontal" method="post" enctype="multipart/form-data">';
+  html += '     <div id="{{ _code }}-comment-respond-alerts"></div>';
+  html += '     <div class="row">';
+  html += '       <div class="col-sm-6">';
+  html += '         <div class="form-group required">';
+  html += '           <div class="col-sm-12" data-error-name="firstname">';
+  html += '             <label class="control-label">{{ entry_firstname }}</label>';
+  html += '             <input type="text" name="firstname" value="{{ firstname }}" class="form-control" />';
+  html += '           </div>';
+  html += '         </div>';
+  {% if (captcha_status) %} 
+  html += '         <div data-error-name="recaptcha">';
+  html += '           <div class="g-recaptcha" data-sitekey="{{ captcha_site_key }}"></div>';
+  html += '         </div>';
+  {% endif %} 
+  html += '       </div>';
+  html += '       <div class="col-sm-6">';
+  html += '         <div class="form-group required">';
+  html += '           <div class="col-sm-12" data-error-name="description">';
+  html += '             <label class="control-label">{{ entry_respond }}</label>';
+  html += '             <textarea name="description" class="form-control"></textarea>';
+  html += '           </div>';
+  html += '         </div>';
+  {% if (comment_require_informations) %} 
+  html += '         <div data-error-name="comment_require_information">';
+  html += '           {{ comment_require_informations }}';
+  html += '           <input type="checkbox" name="comment_require_information" value="1" />';
+  html += '         </div>';
+  {% endif %} 
+  html += '         <div class="buttons">';
+  html += '           <div class="pull-left">';
+  html += '             <button type="button" onclick="{{ _code }}_send_respond('+comment_id+', this);" class="btn btn-primary">{{ button_submit_respond }}</button>';
+  html += '           </div>';
+  html += '         </div>';
+  html += '       </div>';
+  html += '     </div>';
+  html += '   </form>';
+  html += ' </div>';
+  html += '</div>';
+
+  $.ajax({
+    url: 'https://www.google.com/recaptcha/api.js',
+    dataType: "script"
+  });  
+
+  $(block).parent().parent().parent().after(html);
+}
+
+function {{ _code }}_send_respond(comment_id, block) {
+  $.ajax({
+    url: 'index.php?route=extension/ocdevwizard/{{ _name }}/write_comment&post_id={{ post_id }}&comment_id='+comment_id,
+    type: 'post',
+    dataType: 'json',
+    data: $('#{{ _code }}-comment-respond-'+comment_id+' form').serialize(),
+    beforeSend: function() {
+      $(block).html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+    },
+    complete: function() {
+      $(block).html('{{ button_submit_respond }}');
+    },
+    success: function(json) {
+      $('#{{ _code }}-comment-respond-'+comment_id+' .text-danger, {{ _code }}-comment-respond-'+comment_id+' .alert').remove();
+      
+      if (json['error']) {
+        if (json['error']['field']) {
+          for (i in json['error']['field']) {
+            var element = $('#{{ _code }}-comment-respond-'+comment_id+' [data-error-name='+i+']');
+            element.append('<div class="text-danger">'+json['error']['field'][i]+'</div>');
+          }
+        } else if (json['error']['warning']) {
+          for (i in json['error']['warning']) {
+            var element = $('#{{ _code }}-comment-respond-'+comment_id+' #{{ _code }}-comment-respond-alerts');
+            element.html('<div class="alert alert-danger">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+          }
+        }
+      } else {
+        if (json['success']) {
+          $('#{{ _code }}-comment-respond-'+comment_id+' #{{ _code }}-comment-respond-alerts').html('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+          $('#{{ _code }}-comment-respond-'+comment_id+' input[name=\'firstname\']').val('');
+          $('#{{ _code }}-comment-respond-'+comment_id+' textarea[name=\'description\']').val('');
+          {% if (allow_notification_on_respond) %} 
+          $('#{{ _code }}-comment-respond-'+comment_id+' input[name=\'email\']').val('');
+          $('#{{ _code }}-comment-respond-email').hide();
+          $('#{{ _code }}-comment-respond-'+comment_id+' input[name=\'notification_on_respond\']:checked').prop('checked', false);
+          {% endif %} 
+          {% if (comment_require_informations) %} 
+          $('#{{ _code }}-comment-respond-'+comment_id+' input[name=\'comment_require_information\']:checked').prop('checked', false);
+          {% endif %} 
+
+          setTimeout(function(){
+            $('.{{ _code }}-comment-respond').remove();
+          }, 3000);
+
+          if (json['comment']) {
+            html = '';
+            $.each(json['comment'], function(i,comment) {
+              html += '<div class="comment-responds-block">';
+              if (comment['thumb']) {
+              html += '  <div class="comment-image">';
+              html += '    <div><img src="'+comment['thumb']+'" /></div>';
+              html += '  </div>';
+              }
+              html += '  <div class="comment-inner">';
+              html += '    <div>';
+              html += '      <div class="comment-name">';
+              html += '        '+comment['firstname']+' <div class="comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i> '+comment['date_added']+'</div>';
+              html += '      </div>';
+              html += '      <div class="comment-description">'+comment['description']+'</div>';
+              html += '    </div>';
+              html += '  </div>';
+              html += '</div>';
+            });
+
+            $(block).parents('.smbpp-comment-respond').after(html);
+          }
+        }
+      }
+    }
+  });
+}
+
+$('#{{ _code }}-button-comment').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=extension/ocdevwizard/{{ _name }}/write_comment&post_id={{ post_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: $('#{{ _code }}-comment-form form').serialize(),
+		beforeSend: function() {
+			$('#{{ _code }}-button-comment').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+		},
+		complete: function() {
+			$('#{{ _code }}-button-comment').html('{{ button_submit_comment }}');
+		},
+		success: function(json) {
+			$('#{{ _code }}-comment-form .text-danger, #{{ _code }}-comment-form .alert').remove();
+			
+      if (json['error']) {
+        if (json['error']['field']) {
+          for (i in json['error']['field']) {
+            var element = $('#{{ _code }}-comment-form [data-error-name='+i+']');
+            element.append('<div class="text-danger">'+json['error']['field'][i]+'</div>');
+          }
+        } else if (json['error']['warning']) {
+          for (i in json['error']['warning']) {
+            var element = $('#{{ _code }}-comment-form #{{ _code }}-comment-alerts');
+            element.html('<div class="alert alert-danger">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+          }
+        }
+      } else {
+        if (json['success']) {
+          $('#{{ _code }}-comment-form #{{ _code }}-comment-alerts').html('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+          $('#{{ _code }}-comment-form input[name=\'firstname\']').val('');
+          $('#{{ _code }}-comment-form textarea[name=\'description\']').val('');
+          {% if (allow_notification_on_respond) %} 
+          $('#{{ _code }}-comment-form input[name=\'email\']').val('');
+          $('#{{ _code }}-comment-email').hide();
+          $('#{{ _code }}-comment-form input[name=\'notification_on_respond\']:checked').prop('checked', false);
+          {% endif %} 
+          {% if (comment_require_informations) %} 
+          $('#{{ _code }}-comment-form input[name=\'comment_require_information\']:checked').prop('checked', false);
+          {% endif %} 
+
+          if (json['comment']) {
+            html = '';
+            $.each(json['comment'], function(i,comment) {
+              html += '<div>';
+              if (comment['thumb']) {
+              html += '  <div class="comment-image">';
+              html += '    <div>';
+              html += '      <img src="'+comment['thumb']+'">';
+              html += '      <button type="button" title="{{ button_respond_to_comment }}" onclick="{{ _code }}_respond(\''+comment['comment_id']+'\', this)"><i class="fa fa-reply" aria-hidden="true"></i></button>';
+              html += '    </div>';
+              html += '  </div>';
+              }
+              html += '  <div class="comment-inner">';
+              html += '    <div>';
+              html += '      <div class="comment-name">';
+              html += '        '+comment['firstname']+' <div class="comment-date"><i class="fa fa-clock-o" aria-hidden="true"></i> '+comment['date_added']+'</div>';
+              html += '      </div>';
+              html += '      <div class="comment-description">'+comment['description']+'</div>';
+              html += '    </div>';
+              {% if (show_comment_vote) %} 
+              html += '    <div class="comment-vote">';
+              html += '      <div><span id="{{ _code }}-vote-down-'+comment['comment_id']+'">0</span> / <span id="{{ _code }}-vote-up-'+comment['comment_id']+'">0</span></div>';
+              html += '      <div>';
+              html += '        <button type="button" onclick="{{ _code }}_vote(\''+comment['comment_id']+'\', \'down\', \'comment\', this)"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>';
+              html += '        <button type="button" onclick="{{ _code }}_vote(\''+comment['comment_id']+'\', \'up\', \'comment\', this)"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>';
+              html += '      </div>';
+              html += '    </div>';
+              {% endif %} 
+              html += '  </div>';
+              html += '</div>';
+            });
+
+            if ($('.smbpp-post-comments-block').length) {
+              $('.smbpp-post-comments-block').prepend(html);
+            } else {
+              $('#smbpp-comment').html('<div class="smbpp-post-comments-block">'+html+'</div>');
+            }
+          }
+        }
+      }
+		}
+	});
+});
+</script>
+{% endif %} 
+{% if (show_post_vote or (thumb and show_main_image == 1) or (images and show_additional_image)) %} 
+<script>
+$(document).ready(function() {
+	$('.images-block').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled:true
+		}
+	});
+});
+</script>
+{% endif %} 
+{% if (socials) %} 
+<script>
+  $(".post-info-share > a").on("click", function() {
+  var social_url = $(this).prop('href');
+  window.open(social_url, "_blank", "width=400,height=700,top=200,left=200,toolbar=yes,scrollbars=yes,resizable=yes");
+});
+</script>
+{% endif %} 
+{% if (allow_schema_on_post) %}i
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [
+	  {% set b_i = 1 %}
+	  {% for breadcrumb in breadcrumbs %}
+	    {
+	      "@type": "ListItem",
+	      "position": {{ b_i }},
+	      "name": "{{ breadcrumb['text'] }}",
+	      "item": "{{ breadcrumb['href'] }}"
+	    }{% if (b_i < (breadcrumbs|length)) %},{% endif %}
+	    {% set b_i = b_i + 1 %}
+	  {% endfor %}
+	  ]
+	}
+	</script>
+	{% if (thumb and show_main_image == 1) %}
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "NewsArticle",
+	  "mainEntityOfPage": {
+	    "@type": "WebPage",
+	    "@id": "{{ canonical }}"
+	  },
+	  "headline": "{{ heading_title }}",
+	  "image": [
+	    "{{ thumb }}"
+	  ],
+	  "datePublished": "{{ real_date_added }}",
+	  "dateModified": "{{ real_date_modified }}",
+	  "author": {
+	    "@type": "Person",
+	    "name": "{{ author }}"
+	  },
+	  "publisher": {
+	    "@type": "Organization",
+	    "name": "{{ author }}",
+	    "logo": {
+	      "@type": "ImageObject",
+	      "url": "{{ author_logo }}"
+	    }
+	  },
+	  "description": "{{ description }}"
+	}
+	</script>
+	{% endif %}
+	{% if (video and show_main_image == 2) %}
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "VideoObject",
+	  "name": "{{ heading_title }}",
+	  "description": "{{ description }}",
+	  "thumbnailUrl": "https://img.youtube.com/vi/{{ video }}/0.jpg",
+	  "uploadDate": "{{ real_date_added }}",
+	  "publisher": {
+	    "@type": "Organization",
+	    "name": "{{ author }}",
+	    "logo": {
+	      "@type": "ImageObject",
+	      "url": "{{ author_logo }}",
+	      "width": 600,
+	      "height": 60
+	    }
+	  },
+	  "embedUrl": "https://www.youtube.com/embed/{{ video }}?controls=1&rel=0&showinfo=0&autoplay=1&enablejsapi=1&cc_load_policy=1"
+	}
+	</script>
+	{% endif %}
+{% endif %} 
+{{ footer }}

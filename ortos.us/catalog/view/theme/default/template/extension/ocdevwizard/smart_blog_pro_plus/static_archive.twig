@@ -1,0 +1,19 @@
+<div class="panel panel-default" id="{{ _code }}-archive-block-{{ module_id }}">
+  <!--
+  ##==================================================================##
+  ## @author    : OCdevWizard                                         ##
+  ## @contact   : ocdevwizard@gmail.com                               ##
+  ## @support   : http://help.ocdevwizard.com                         ##
+  ## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+  ## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+  ##==================================================================##
+  -->
+  <div class="panel-heading"><i class="fa fa-archive" aria-hidden="true"></i> {{ heading_title }}</div>
+  <div class="list-group">
+    {% if (results) %}
+      {% for result in results %}
+        <a href="{{ result['href'] }}" class="list-group-item">{{ result['name'] }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

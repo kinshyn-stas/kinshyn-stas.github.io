@@ -1,0 +1,300 @@
+/*
+ * YUMenu v1.0.5 Copyright © 2017, iDiY
+ */
+
+.cm
+{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.cm-list
+{
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.cm-list .cm-list
+{
+    left: 24px;
+    margin-right: 24px;
+}
+.cm-collapsed .cm-list,
+.cm-edit-box,
+.cm-item-blueprint
+{
+    position: relative;
+    display: none;
+}
+.item-wrapper
+{
+    margin: 5px 0;
+    padding-left: 36px;
+    transition: background-color .3s;
+    border: 1px solid #e7e7e7;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.group-item > .item-wrapper
+{
+background-color: #f5f5f5;
+}
+.item-wrapper:hover
+{
+    background-color: #f9f9f9;
+}
+.group-item > .item-wrapper:hover
+{
+    background-color: #f0f0f0;
+}
+.cm-item,
+.cm-empty,
+.cm-placeholder
+{
+    line-height: 20px;
+    position: relative;
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    text-shadow: 0 1px 0 #fff;
+}
+.cm-handle
+{
+    display: block;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 32px;
+    margin: 5px 0;
+    padding: 6px 10px;
+    cursor: move;
+    border-radius: 3px;
+}
+.cm3-handle
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 24px;
+    margin: 0;
+    transition: background-color .3s;
+    white-space: nowrap;
+    text-indent: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #979797;
+    text-shadow: 0 1px 0 #888;
+}
+.cm3-handle:before
+{
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    display: block;
+    width: 100%;
+    content: '\2263';
+    text-align: center;
+    text-indent: 0;
+    color: #fff;
+}
+.cm3-handle:hover,
+.cm-item:hover .cm3-handle
+{
+    background-color: #888;
+}
+.cm3-content
+{
+    font-weight: bold;
+    display: block;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 30px;
+    margin: 0;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #5e5e5e;
+}
+.cm3-content:hover
+{
+    color: #333;
+}
+.cm-item .item-name
+{
+    cursor: pointer;
+}
+.cm-item > button
+{
+    font-size: 11px;
+    line-height: 32px;
+    position: relative;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    width: 30px;
+    margin: 0 2px 0 28px;
+    padding: 0;
+    cursor: pointer;
+    transition: color .3s;
+    text-align: center;
+    white-space: nowrap;
+    color: #c7c7c7;
+    border: 0;
+    outline: none;
+    background: transparent;
+    text-shadow: 0 1px 0 #fff;
+}
+.cm-item > button:before
+{
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+}
+.cm-item > button:hover
+{
+    color: #888;
+}
+.cm-item .cm-button-container
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cm-item .cm-button-container button
+{
+    float: left;
+    width: 26px;
+    height: 32px;
+    cursor: pointer;
+    color: #555;
+    border: 1px solid transparent;
+    outline: none;
+    background: transparent;
+}
+.cm-item .cm-button-container button:hover,
+.cm-item .cm-button-container button.active
+{
+    transition: all .3s;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+.cm-item .item-name
+{
+    color: #5e5e5e;
+    transition: color .3s;
+}
+.cm-item.group-item > .item-wrapper .item-name
+{
+    color: #333;
+}
+.cm-item .item-name.disabled
+{
+    color: #b7b7b7;
+}
+.cm-item .cm-button-container .item-add,
+.cm-item .item-edit-active .item-name,
+.cm-item.group-item .item-edit-active .item-name
+{
+    color: #1e91cf;
+}
+.cm-item .cm-button-container .item-status.status-on
+{
+    color: #5cb85c;
+}
+.cm-item .cm-button-container .item-status.status-off
+{
+    color: #ccc;
+}
+.cm-item .cm-button-container .item-edit
+{
+    transition: color .3s;
+    color: #777;
+}
+.cm-item .cm-button-container .item-edit.active
+{
+    background: #1e91cf;
+    color: #fff;
+}
+.cm-item .cm-button-container .item-remove
+{
+    color: #d9534f;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.cm-item .cm-button-container .item-remove-confirm,
+.cm-item .cm-button-container .item-remove-confirm:hover
+{
+    transition: background-color .5s;
+    color: #fff;
+    background-color: #d9534f;
+}
+.cm-placeholder,
+.cm-empty
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    min-height: 30px;
+    margin: 5px 0;
+    padding: 0;
+    border: 1px dashed #6c9ab1;
+    background: #d6f2ff;
+}
+.cm-empty
+{
+    min-height: 100px;
+    border: 1px dashed #bbb;
+    background-color: #e5e5e5;
+    background-position: 0 0, 30px 30px;
+    background-size: 60px 60px;
+}
+.cm-dragel
+{
+    position: absolute;
+    z-index: 9999;
+    height: 60px;
+    pointer-events: none;
+}
+.cm-dragel > .cm-item .cm-handle
+{
+    margin-top: 0;
+}
+.cm-dragel .cm-handle
+{
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+            box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+}
+.cm-dragel > .cm3-item > .cm3-content
+{
+    margin: 0;
+}
+
+.options-panel
+{
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+.options-panel:before,
+.options-panel:after
+{
+    display: table;
+    content: ' ';
+}
+.options-panel:after
+{
+    clear: both;
+}

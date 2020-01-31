@@ -1,0 +1,372 @@
+/*
+ * YUMenu v1.07 Copyright © 2018, iDiY
+ */
+
+.pmenu,
+.pmenu li,
+.pmenu > div,
+.pmenu > div .nav-bars,
+.pmenu li > div,
+.pmenu li > div > span {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.pmenu > div,
+.pmenu li > div {
+    -ms-flex-direction: row;
+        flex-direction: row;
+
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+}
+
+.pmenu,
+.pmenu li {
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.pmenu {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    border: 1px solid #dfdfdf;
+    border-radius: .5rem;
+    background-color: transparent;
+    background-clip: border-box;
+}
+
+.pmenu > div {
+    font-size: 16px;
+    position: relative;
+    padding: .75em .75em .75em 1em;
+    border-radius: calc(.5rem - 1px) calc(.5rem - 1px) 0 0;
+    color: #575757;
+    background: #f9f9f9;
+    background: -moz-linear-gradient(top, #f9f9f9 0%, #f5f5f5 100%);
+    background: -webkit-linear-gradient(top, #f9f9f9 0%, #f5f5f5 100%);
+    background: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f5f5f5', GradientType=0);
+    box-shadow: 0 1px 0 #dfdfdf;
+}
+
+.pmenu > .minimized,
+.pmenu > .toggler {
+    cursor: pointer;
+}
+
+.pmenu > .minimized {
+    border-radius: .5rem;
+}
+
+.pmenu > .minimized + nav {
+    display: none;
+}
+
+.pmenu > div > i {
+    font-size: 1em;
+    margin-right:.5em;
+}
+
+.pmenu > div .nav-bars {
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    max-width: 1.5em;
+    margin-left: auto;
+    opacity: 0;
+    color: #bbb;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .95);
+    -ms-flex: 0 0 1.5em;
+    flex: 0 0 1.5em;
+}
+
+.pmenu .nav-bars::after {
+    font-family: FontAwesome;
+    font-size: 1.1em;
+    font-weight: normal;
+    content: '\f0c9';
+}
+
+.pmenu > .minimized .nav-bars {
+    overflow: visible;
+    opacity: 1;
+}
+
+.pmenu > .extended.minimized .nav-bars {
+    overflow: hidden;
+    opacity: 0;
+}
+
+.pmenu nav {
+    position: relative;
+    overflow: hidden;
+}
+
+.pmenu ul,
+.pmenu li {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.pmenu ul {
+    display: none;
+    zoom: 1;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    list-style: none;
+}
+
+.pmenu ul.list-active {
+    display: block;
+}
+
+.pmenu ul.list-invisible {
+    -webkit-transform: translate3d(-100%, 0, 0);
+       -moz-transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+         -o-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+}
+
+.pmenu ul.list-action {
+    -webkit-transition: all .4s;
+       -moz-transition: all .4s;
+        -ms-transition: all .4s;
+         -o-transition: all .4s;
+            transition: all .4s;
+}
+
+.pmenu > div,
+.pmenu > div .nav-bars,
+.pmenu li > div > span {
+    -ms-flex-align: center;
+        align-items: center;
+
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.pmenu nav > ul > li:first-child {
+    border-top-color: transparent;
+}
+
+.pmenu li > div {
+    cursor: pointer;
+    padding-left: .5em;
+
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.pmenu li > div > a {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: .75em;
+    text-decoration: none;
+    color: #555;
+    outline: none;
+    background: transparent;
+    flex-grow: 1;
+}
+
+.pmenu li:hover > div > a,
+.pmenu li.selected > div > a {
+    color: #333;
+}
+
+.pmenu .current {
+    font-weight: bold;
+}
+
+.pmenu .menu-more-btn > div {
+    padding-left: .5em;
+}
+
+.pmenu .more-wrapper {
+    display: none;
+}
+
+.pmenu .icon {
+    padding-left: .5em;
+}
+
+.pmenu .icon img {
+    max-width: 2.5em;
+    max-height: 2.5em;
+}
+
+.pmenu .icon i {
+    font-size: 1.25em;
+    padding: 0 .25em;
+}
+
+.pmenu .count {
+    font-size: .85em;
+    height: 1.85em;
+    margin-right: 3.75em;
+    padding: 0 .65em;
+    pointer-events: none;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: .925em;
+    background-color: rgba(255, 255, 255, .85);
+    -ms-flex: 0 0 1.85em;
+    flex: 0 0 1.85em;
+}
+
+.pmenu .count + span.toggle {
+    margin-left: -2.5em;
+}
+
+.pmenu span.toggle {
+    max-width: 2.5em;
+    border-left: 1px solid transparent;
+    background-color: transparent;
+    background-clip: border-box;
+    -ms-flex: 0 0 2.5em;
+    flex: 0 0 2.5em;
+
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+}
+
+.pmenu span.toggle:hover {
+    background-color: rgba(0, 0, 0, .015);
+}
+
+.pmenu span.toggle::before {
+    font-family: FontAwesome;
+    font-size: 1.25em;
+    font-weight: normal;
+    content: '\f105';
+    text-shadow: 0 1px 0 #fff;
+    opacity: .45;
+}
+
+.pmenu li.selected > div > span.toggle::before {
+    content: '\f107';
+}
+
+.pmenu ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+.pmenu *::before,
+.pmenu *::after {
+    display: block;
+}
+
+.pmenu > div,
+.pmenu li > div,
+.pmenu li > div > span,
+.pmenu li li > div > a::before,
+.pmenu .nav-bars,
+.pmenu span.toggle::before {
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+}
+
+@media (max-width: 767.98px) {
+    .pmenu {
+        border: none;
+    }
+    .pmenu > div {
+        font-size: 18px;
+        position: relative;
+        padding: .85em;
+        color: #fff;
+        border-radius: .5rem;
+        background: #23a1d1;
+        box-shadow: none;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .15);
+    }
+
+    .pmenu > .extended {
+        border-radius: calc(.5rem - 1px) calc(.5rem - 1px) 0 0;
+        background: #474747;
+    }
+
+    .pmenu > div .nav-bars,
+    .pmenu > .extended.minimized .nav-bars {
+        overflow: visible;
+        opacity: 1;
+        color: rgba(255, 255, 255, .9);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .1);
+    }
+
+    .pmenu > nav {
+        display: none;
+    }
+
+    .pmenu li,
+    .pmenu nav > ul > li:first-child {
+        border-top: 2px solid #fff;
+    }
+
+    .pmenu li > div {
+        background-color: rgba(0, 0, 0, .03);
+    }
+
+    .pmenu li:hover > div,
+    .pmenu li.selected > div {
+        background-color: rgba(0, 0, 0, .05);
+    }
+
+    .pmenu span.toggle {
+        border-left: 1px solid #fff;
+    }
+
+    .pmenu span.toggle::before {
+        opacity: .65;
+    }
+
+    .pmenu li:hover > div > span.toggle::before,
+    .pmenu li.selected > div > span.toggle::before {
+        opacity: .85;
+    }
+
+    .pmenu li > div > span.toggle:hover::before {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .pmenu > div.hidn {
+        display: none !important;
+    }
+
+    .pmenu li {
+        border-top: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .pmenu li:hover > div,
+    .pmenu li.selected > div {
+        background-color: rgba(0, 0, 0, .016);
+    }
+
+    .pmenu li:hover > div > span.toggle {
+        border-color: rgba(0, 0, 0, .06);
+        box-shadow: -1px 0 0 #fff;
+    }
+
+    .pmenu li:hover > div > span.toggle::before,
+    .pmenu li.selected > div > span.toggle::before {
+        opacity: .65;
+    }
+
+    .pmenu li > div > span.toggle:hover::before {
+        opacity: .85;
+    }
+}

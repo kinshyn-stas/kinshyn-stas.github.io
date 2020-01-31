@@ -1,0 +1,85 @@
+/** 
+ *
+ * @category  : OpenCart
+ * @module    : Smart Checkout
+ * @author    : OCdevWizard <ocdevwizard@gmail.com> 
+ * @copyright : Copyright (c) 2014, OCdevWizard
+ * @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf
+ *
+ */
+ 
+#module-add:hover a {
+  background-color: #75a74d !important;
+  border-color: #5c843d !important;
+}
+#module-add a {
+  text-align: left;
+}
+#module-add li a i:hover {
+  color: #fff !important;
+}
+.fix_bacground_opacity {
+  float: left;
+  width: 7%;
+  margin: 0 7px;
+  text-align: center;
+  height: 30px !important;
+}
+.fa-minus-circle {
+  cursor: pointer;
+}
+input + .background_for_label {
+  width: 55px;
+  height: 55px;
+  border: 1px solid #000;
+  margin: 0 7px 0 0;
+  opacity: 0.7;
+}
+.div_background_images input {
+  display: none;
+}
+input:checked + .background_for_label  {
+  border: 1px solid #F00;
+  opacity: 1;
+}
+.special_margin {
+  height: 7px;
+}
+.special_margin_lg {
+  height: 14px;
+}
+#promo-block .thumbnail {
+  cursor: pointer;
+}
+#smas_modal .panel-default {
+  border-top: 1px solid #E8E8E8;
+}
+.table-responsive table.table tr td p:last-child {
+  margin-bottom: 0;
+}
+#content .well {
+  margin-bottom: 7px;
+}
+.tab-placeholder {
+  border: 1px dotted #bbb;
+  margin: 4px 0;
+  background: #eee;
+  border-radius: 3px;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  border-color: #dddddd;
+}
+#setting-tabs li.active a {
+  cursor: pointer;
+}
+#history0 .dropdown-menu li > a {
+  cursor: pointer;
+}
+#history1 .dropdown-menu li > a {
+  cursor: pointer;
+}
+#content .form-group .alert-danger, 
+#content .form-group .alert-info {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}

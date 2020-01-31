@@ -1,0 +1,143 @@
+<div class="{{ _code }}-comments-block" id="{{ _code }}-comments-block-{{ module_id }}">
+  <!--
+  ##==================================================================##
+  ## @author    : OCdevWizard                                         ##
+  ## @contact   : ocdevwizard@gmail.com                               ##
+  ## @support   : http://help.ocdevwizard.com                         ##
+  ## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+  ## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+  ##==================================================================##
+  -->
+  {% if (display_type_inner == 1) %}
+    <div class="panel panel-default">
+      <div class="panel-heading"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ heading_title }}</div>
+      <div class="list-group">
+        {% if (results) %}
+          {% for result in results %}
+            <div class="list-group-item {{ _code }}-list-group-item">
+              <div class="media">
+                {% if (show_comment_icon) %}
+                  <div class="media-left">
+                    <img src="{{ result['user_icon'] }}"/>
+                  </div>
+                {% endif %}
+                <div class="media-body">
+                  <b>{{ result['firstname'] }}</b><br/>{{ result['date_added'] }}<br/>
+                  {{ result['description'] }}<br/>
+                  {{ text_read_on }}
+                  <a href="{{ result['post_href'] }}">{{ result['post_name'] }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  {% elseif (display_type_inner == 2) %}
+    {% if (results) %}
+      <h3 class="{{ _code }}-h3"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ heading_title }}</h3>
+      <div class="owl-carousel owl-theme">
+        {% for result in results %}
+          <div class="item">
+            <div class="product-thumb transition">
+              <div class="caption">
+                <div class="media">
+                  {% if (show_comment_icon) %}
+                    <div class="media-left">
+                      <img src="{{ result['user_icon'] }}"/>
+                    </div>
+                  {% endif %}
+                  <div class="media-body">
+                    <b>{{ result['firstname'] }}</b><br/>{{ result['date_added'] }}<br/>
+                    {{ result['description'] }}<br/>
+                    {{ text_read_on }}
+                    <a href="{{ result['post_href'] }}">{{ result['post_name'] }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <script>
+        $(function () {
+          $('#{{ _code }}-comments-block-{{ module_id }} .owl-carousel').owlCarousel({
+            dots: true,
+            items: 1,
+            loop: true
+          });
+        });
+      </script>
+    {% endif %}
+  {% elseif (display_type_inner == 3) %}
+    {% if (results) %}
+      <h3 class="{{ _code }}-h3"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ heading_title }}</h3>
+      <div class="row product-layout">
+        {% for result in results %}
+          <div class="col-xl-{{ adaptive_setting_4_bootstrap }} col-lg-{{ adaptive_setting_3_bootstrap }} col-md-{{ adaptive_setting_2_bootstrap }} col-sm-{{ adaptive_setting_1_bootstrap }} col-xs-{{ adaptive_setting_0_bootstrap }}">
+            <div class="product-thumb transition">
+              <div class="caption">
+                <div class="media">
+                  {% if (show_comment_icon) %}
+                    <div class="media-left">
+                      <img src="{{ result['user_icon'] }}"/>
+                    </div>
+                  {% endif %}
+                  <div class="media-body">
+                    <b>{{ result['firstname'] }}</b><br/>{{ result['date_added'] }}<br/>
+                    {{ result['description'] }}<br/>
+                    {{ text_read_on }}
+                    <a href="{{ result['post_href'] }}">{{ result['post_name'] }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% elseif (display_type_inner == 4) %}
+    {% if (results) %}
+      <h3 class="{{ _code }}-h3"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ heading_title }}</h3>
+      <div class="product-layout owl-carousel owl-theme">
+        {% for result in results %}
+          <div class="item">
+            <div class="product-thumb transition">
+              <div class="caption">
+                <div class="media">
+                  {% if (show_comment_icon) %}
+                    <div class="media-left">
+                      <img src="{{ result['user_icon'] }}"/>
+                    </div>
+                  {% endif %}
+                  <div class="media-body">
+                    <b>{{ result['firstname'] }}</b><br/>{{ result['date_added'] }}<br/>
+                    {{ result['description'] }}<br/>
+                    {{ text_read_on }}
+                    <a href="{{ result['post_href'] }}">{{ result['post_name'] }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <script>
+        $(function () {
+          $('#{{ _code }}-comments-block-{{ module_id }} .owl-carousel').owlCarousel({
+            dots: true,
+            loop: false,
+            margin: 28,
+            responsive: {
+              0: {items: {{ adaptive_setting_0 }}},
+              576: {items: {{ adaptive_setting_1 }}},
+              768: {items: {{ adaptive_setting_2 }}},
+              992: {items: {{ adaptive_setting_3 }}},
+              1200: {items: {{ adaptive_setting_4 }}}
+            }
+          });
+        });
+      </script>
+    {% endif %}
+  {% endif %}
+</div>

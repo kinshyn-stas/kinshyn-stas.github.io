@@ -1,0 +1,87 @@
+/*
+##==================================================================##
+## @author    : OCdevWizard                                         ##
+## @contact   : ocdevwizard@gmail.com                               ##
+## @support   : http://help.ocdevwizard.com                         ##
+## @license   : http://license.ocdevwizard.com/Licensing_Policy.pdf ##
+## @copyright : (c) OCdevWizard. Smart Blog Pro Plus, 2019          ##
+##==================================================================##
+*/
+
+.smbpp-comments-block,
+.smbpp-search-block,
+.smbpp-categories-block,
+.smbpp-posts-block,
+.smbpp-content,
+.smbpp-comments-block .owl-carousel .owl-item,
+.smbpp-posts-block .owl-carousel .owl-item {
+  direction: rtl;
+}
+
+.smbpp-comments-block div[class^="col-"],
+.smbpp-content .product-grid,
+.smbpp-content div[class^="col-"] {
+  float: right;
+}
+
+.smbpp-comments-block .owl-carousel,
+.smbpp-posts-block .owl-carousel,
+.smbpp-content .input-group {
+  direction: ltr;
+}
+
+.smbpp-list-group-item img {
+  float: right;
+  margin: 0 0 0 8px;
+}
+
+.smbpp-search-block .btn {
+  border-radius: 4px 0 0 4px !important;
+}
+
+.smbpp-search-block .form-control {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.product-list .smbpp-post-item .caption {
+  margin-right: 20px;
+}
+
+.post-info-tags > div,
+.post-info-vote > div,
+.post-info-share > div {
+  float: right;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.post-info-share + div {
+  margin-right: 20px;
+}
+
+#smbpp-comment h3 {
+  text-align: right;
+  direction: ltr;
+}
+
+.smbpp-post-comments-block > div .comment-inner {
+  margin-right: 15px;
+}
+
+.smbpp-content .checkbox input[type=checkbox],
+.smbpp-content .checkbox-inline input[type=checkbox],
+.smbpp-content .radio input[type=radio],
+.smbpp-content .radio-inline input[type=radio] {
+  margin-left: unset;
+  margin-right: -20px;
+}
+
+.smbpp-content .checkbox-inline,
+.smbpp-content .radio-inline {
+  padding-left: unset;
+  padding-right: 20px;
+
+}

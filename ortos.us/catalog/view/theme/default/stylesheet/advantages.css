@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
+
+ 
+ 
+.pos-center {
+	text-align: center;
+}
+
+.advantage_link, .advantage_link:active, .advantage_link:hover, .advantage_link:focus {
+	text-decoration: none;
+	outline: none;
+}
+.advantage h4 {
+	color: #68777D;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0px;
+	margin-top: 5px;
+}
+.advantage .image-left {
+	display: table-cell;
+	padding: 6px 15px 0px 0px;
+}
+.advantage p {
+	line-height: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+	color: #424242;
+	margin: 0px 0px 12px;
+}
+.advantage .caption { 
+	min-height: 0 !important;
+	padding: 0 !important;
+}
+.advantage .caption-right { 
+	display: table-cell;
+	vertical-align: top;
+}
+.advantage .readmore a { 
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	color: #7E7E7E;
+	font-size: 11px;
+	font-family: Arial, sans-serif;
+	text-transform: uppercase;
+	width: 50%;
+}
+.advantage .readmore a:hover { 
+	background: #5F98B0;
+	border: 1px solid #5F98B0;
+	color: #FFFFFF;
+}
+
+@media (max-width: 1100px) {
+	.advantages-block {
+		background-size: cover;
+	}
+}

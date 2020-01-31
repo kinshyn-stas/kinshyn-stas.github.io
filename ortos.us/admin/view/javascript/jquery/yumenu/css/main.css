@@ -1,0 +1,222 @@
+/*
+ * YUMenu v1.0.7 Copyright © 2018, iDiY
+ */
+
+html
+{
+    overflow-y: scroll;
+}
+#content,
+#content .form-control,
+#content .btn,
+#content .input-group-addon
+{
+    font-size: 11px;
+}
+#content .fa + span
+{
+    margin-left: 5px;
+}
+.form-group
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus
+{
+    outline: none;
+}
+.nav a
+{
+    outline: none;
+}
+input[type='radio'],
+input[type='checkbox']
+{
+    margin: 0 5px 3px 0;
+}
+.form-horizontal input
+{
+    vertical-align: middle;
+}
+.form-horizontal .checkbox,
+.form-horizontal .radio
+{
+    min-height: 18px;
+    padding: 0;
+}
+.form-horizontal textarea
+{
+    min-height: 65px;
+}
+.form-horizontal .well .checkbox,
+.form-horizontal .well .radio
+{
+    margin-top: 4px;
+}
+.form-horizontal .well
+{
+    overflow: auto;
+    min-height: 65px;
+    max-height: 240px;
+    margin-bottom: 0;
+    background-color: #fafafa;
+}
+.form-horizontal .well .fa
+{
+    margin-right: 5px;
+}
+.form-horizontal .checkbox-inline
+{
+    min-height: 18px;
+    margin-bottom: 9px;
+    padding-left: 24px;
+}
+.radio label,
+.checkbox label
+{
+    padding-left: 24px;
+}
+
+.input-group + .input-group
+{
+    margin-top: 15px;
+}
+.input-group .form-control
+{
+    height: 36px;
+}
+.input-group .input-group-addon input[type='checkbox']
+{
+    margin: 0;
+}
+label.btn-default.active,
+label.btn-default.active:hover
+{
+    color: #fff;
+    border-color: #1978ab;
+    background-color: #1e91cf;
+}
+label.btn-default:hover
+{
+    color: #555;
+    border-color: #ccc;
+    background-color: #f7f7f7;
+}
+label.btn-default:active,
+label.btn-default:active:hover
+{
+    color: #555;
+    border-color: #ccc;
+    background-color: #f7f7f7;
+}
+.dropdown-menu a
+{
+    cursor: pointer;
+    outline: none;
+}
+.dropdown-menu .fa
+{
+    font-size: 11px;
+    margin-right: .5em;
+    color: #c7c7c7;
+}
+.note-editor
+{
+    background: #fff;
+}
+.note-toolbar.panel-heading i {
+    font-size: inherit;
+}
+.invisible-block
+{
+    display: none;
+}
+label.arrow-bottom.active:after,
+label.arrow-bottom.active:before
+{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: ' ';
+    pointer-events: none;
+    border: solid transparent;
+}
+
+label.arrow-bottom.active:after
+{
+    margin-left: -5px;
+    border-width: 5px;
+    border-color: rgba(30, 145, 207, 0);
+    border-top-color: #1e91cf;
+}
+label.arrow-bottom.active:before
+{
+    margin-left: -6px;
+    border-width: 6px;
+    border-color: rgba(25, 120, 171, 0);
+    border-top-color: #1978ab;
+}
+@media (max-width: 991px)
+{
+    .form-horizontal .control-label
+    {
+        margin-bottom: 5px;
+        padding-top: 0;
+        text-align: right;
+    }
+    .nav-tabs
+    {
+        margin-bottom: 10px;
+    }
+}
+
+/* Sortable */
+body.dragging,
+body.dragging *
+{
+    cursor: move !important;
+}
+ul.sortable-list
+{
+    margin-bottom: 0;
+}
+ul.sortable-list li
+{
+    margin: 3px;
+}
+ul.sortable-list li.placeholder
+{
+    position: relative;
+}
+ul.sortable-list li.placeholder:before
+{
+    position: absolute;
+    top: -4px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    margin-top: -5px;
+    content: '';
+    border: 5px solid transparent;
+    border-right: none;
+    border-left-color: #1e91cf;
+}
+.dragged
+{
+    position: absolute;
+    z-index: 2000;
+    opacity: .5;
+}
+h4 {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
