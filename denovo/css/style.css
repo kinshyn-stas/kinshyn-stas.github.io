@@ -409,6 +409,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	overflow-x: hidden;
 }
 .main-container-full{
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 	padding-left: 0;
 }
 
@@ -768,6 +771,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .main{
+	flex-grow: 100;
 	width: 100%;
 }
 .main-block{
@@ -3164,11 +3168,21 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-main-block h1{
 	font-weight: 400;
 }
+.doc-main-block h2{
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 43px;
+	text-transform: uppercase;
+}
 
 @media screen and (max-width: 768px){
 	.doc-main-block h1{
 		font-size: 20px;
 		line-height: 24px;
+	}
+	.doc-main-block h2{
+		font-size: 24px;
+		line-height: 29px;
 	}
 }
 
@@ -3652,9 +3666,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .filling_content_header_panel_item:last-of-type{
 	margin-right: 0;
 }
-.filling_content_header_panel_item-view{}
-.filling_content_header_panel_item-date{}
-.filling_content_header_panel_item-like{}
 .filling_content_header_panel_item img{
 	display: block;
 	height: 24px;
@@ -4173,5 +4184,55 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.sel_item:nth-of-type(2n + 2){
 		justify-self: center;
+	}
+}
+
+
+.doc-login{
+	padding: 72px 0 32px;
+	text-align: center;
+}
+.doc-login_title{
+	margin-bottom: 16px;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 43px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.doc-login_form{
+	width: 100%;
+	max-width: 400px;
+	margin: 40px auto;
+	text-align: center;
+}
+.doc-login_form_item{
+	margin-bottom: 24px;
+}
+.doc-login_form_item:last-of-type{
+	margin-bottom: 24px;
+}
+.doc-login_form_item input{
+	width: 100%;
+}
+.doc-login_form_item button{
+	min-width: 171px;
+}
+.doc-login_form_item .form_validate_alert{
+	display: none;
+	margin-top: 10px;
+	width: 100%;
+	color: #ff0000;
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+}
+.doc-login_form_item.invalid .form_validate_alert{
+	display: block;
+}
+
+@media screen and (max-width: 768px){
+	.doc-login{
+		padding: 62px 0 22px;
 	}
 }
