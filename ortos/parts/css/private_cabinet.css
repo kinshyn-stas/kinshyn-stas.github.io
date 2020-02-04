@@ -1,0 +1,53 @@
+.pr_container{
+	width: 100%;
+	max-width: 1170px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.pr_row{
+	display: flex;
+	flex-wrap: wrap;
+}
+.pr_title{
+	margin-bottom: 50px;
+	width: 100%;
+	position: relative;
+	color: #212121;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.pr_aside{}
+.pr_aside_info{}
+.pr_aside_person{}
+.pr_aside_person_photo{}
+.pr_aside_person_photo img{}
+.pr_aside_person_photo_add{}
+.pr_aside_person_photo_add img{}
+.pr_aside_person_name{}
+
+.pr_aside_menu{}
+.pr_aside_menu_punkt{}
+
+
+.pr_content{}
+.pr_data{}
+.pr_data_row{}
+.pr_data_cl{}
+.pr_data_cl-1{}
+.pr_data_cl-2{}
+.pr_data_cl-3{}
+.pr_data_cl_title{}
+.pr_data_cl_link{}
+.pr_data_cl_item{}
+.pr_data_cl_item_left{}
+.pr_data_cl_item_right{}
+.pr_data_cl_item_right p{}
+.pr_data_cl_item_right p:lat-of-type{
+	margin-bottom: 0;
+}
+.pr_data_cl_item_link{}
+.pr_data_cl_button{}
