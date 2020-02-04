@@ -314,7 +314,7 @@
 	margin-top: 36px;
 	text-align: right;
 }
-.pr_testimonials_answer_button button{
+.pr_button{
 	display: inline-block;
 	padding: 14px 16px;
 	background-color: #7b589c;
@@ -330,7 +330,83 @@
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 }
-.pr_testimonials_answer_button button:hover{
+.pr_button:hover{
 	transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 }
+
+
+.pr_subs{
+	margin-bottom: 80px;
+}
+.pr_subs_title{
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.pr_subs_box{
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 0 50px;
+}
+.pr_subs_item{
+	width: calc(50% - 15px);
+	padding: 30px;
+	background-color: #f9f7f7;
+}
+.pr_subs_item-full{
+	width: 100%;
+}
+.pr_subs_item_title{
+	margin-bottom: 26px;
+	color: #7b589c;
+	font-weight: 500;
+}
+.pr_subs_item_list{}
+.pr_subs_item_list_item{
+	position: relative;
+	display: block;
+	padding-top: 2px;
+	padding-left: 37px;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+.pr_subs_item_list_item input{
+	display: none;
+}
+.pr_subs_item_list_item .input_emulate{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-color: #fdfdfd;
+	text-align: center;
+	border-radius: 2px;
+	border: 2px solid #e3e4eb;
+}
+.pr_subs_item_list_item .input_emulate:after{
+	content: "\f00c";
+	color: transparent;
+	font-family: "FontAwesome";
+	font-size: 14px;
+	line-height: 18px;
+}
+.pr_subs_item_list_item input:checked+.input_emulate:after{
+	color: #7b589c;	
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.pr_subs_item_form{}
+.pr_subs_item_form_title{}
+.pr_subs_item_form_field{}
+.pr_subs_item_form_field input{}
+.pr_subs_item_form_button{}
+.pr_subs_soc{}
+.pr_subs_soc_item{}
+.pr_subs_soc_item figure{}
+.pr_subs_soc_item figure img{}
+.pr_subs_soc_item figcaption{}
+.pr_subs_soc_item_name{}
+.pr_subs_soc_item_butt{}
