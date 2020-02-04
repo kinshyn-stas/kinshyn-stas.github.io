@@ -353,6 +353,7 @@
 .pr_subs_item{
 	width: calc(50% - 15px);
 	padding: 30px;
+	color: #757575;
 	background-color: #f9f7f7;
 }
 .pr_subs_item-full{
@@ -362,6 +363,7 @@
 	margin-bottom: 26px;
 	color: #7b589c;
 	font-weight: 500;
+	text-transform: uppercase;
 }
 .pr_subs_item_list{}
 .pr_subs_item_list_item{
@@ -399,10 +401,27 @@
 	-webkit-transition: all 0.2s ease-in-out;
 }
 .pr_subs_item_form{}
-.pr_subs_item_form_title{}
-.pr_subs_item_form_field{}
-.pr_subs_item_form_field input{}
-.pr_subs_item_form_button{}
+.pr_subs_item_form_title{
+	margin-bottom: 0;
+	color: #34373d;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.pr_subs_item_form_field{
+	margin: 40px 0;
+}
+.pr_subs_item_form_field input{
+	width: 100%;
+	padding: 15px 25px;
+	background-color: #ffffff;
+	line-height: 1;
+	border-radius: 2px;
+	border: 1px solid #e8e8e8;
+}
+.pr_subs_item_form_button{
+	margin: 30px auto 10px;
+	text-align: center;
+}
 .pr_subs_soc{}
 .pr_subs_soc_item{}
 .pr_subs_soc_item figure{}
