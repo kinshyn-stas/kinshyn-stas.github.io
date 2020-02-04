@@ -2964,8 +2964,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 30px;
     min-width: 30px;
     margin-right: 12px;
-    overflow: hidden;
-    border-radius: 50%;
+    border-radius: 1px;
     border: 1px solid;
 }
 .article_author_image img{
