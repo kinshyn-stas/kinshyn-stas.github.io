@@ -666,7 +666,6 @@
 	flex-grow: 100;
 	padding-right: 48px;
 }
-.pr_history_panel_item span{}
 .pr_history_box{
 	margin-top: 12px;
 }
@@ -702,7 +701,6 @@
 	flex-grow: 100;
 	padding-right: 60px;
 }
-.pr_history_item_head_cl span{}
 .pr_history_item_head_cl a{
 	color: #7b589c;
 	text-decoration: underline;
@@ -711,27 +709,80 @@
 .pr_history_item_head_cl a:hover{
 	color: #7b589c;
 }
-.pr_history_item_body{}
+.pr_history_butt_off{
+	display: none;
+}
+.pr_history_item_body{
+	display: none;
+}
 .pr_history_item_row{
+	display: flex;
 	border-bottom: 1px solid #ebebeb;
 }
 .pr_history_item_row:last-of-type{
 	border-bottom: none;
 }
-.pr_history_item_cl{}
-.pr_history_item_cl-img{}
-.pr_history_item_cl-img figure{}
-.pr_history_item_cl-img figure img{}
-.pr_history_item_cl-descr{}
-.pr_history_item_descr{}
-.pr_history_item_descr p{}
-.pr_history_item_descr_b{}
-.pr_history_item_descr_l{}
-.pr_history_item_cl-status{}
-.pr_history_item_status_content{}
-.pr_history_item_status_text{}
-.pr_history_item_status_text-succ{}
-.pr_history_item_cl-price{}
-.pr_history_item_cl-price_content{}
-.pr_history_item_cl-amount{}
-.pr_history_item_cl-amount_content{}
+.pr_history_item_cl{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 25px 0 20px;
+	text-align: center;	
+}
+.pr_history_item_cl-img{
+	width: 175px;
+	min-width: 175px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.pr_history_item_cl-img figure{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.pr_history_item_cl-img figure img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.pr_history_item_cl-descr{
+	width: 235px;
+	min-width: 235px;
+	text-align: left;
+}
+.pr_history_item_descr{
+	line-height: 24px;
+}
+.pr_history_item_descr p:last-of-type{
+	margin-bottom: 0;
+}
+.pr_history_item_descr_b{
+	font-weight: 500;
+}
+.pr_history_item_descr_l{
+	color: #7b589c;
+}
+.pr_history_item_cl-status{
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_item_status_text{
+	color: #757575;
+}
+.pr_history_item_status_text-succ{
+	color: #ffa700;
+}
+.pr_history_item_cl-price{
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_item_cl-amount{
+	flex-grow: 100;
+	padding-right: 60px;
+}
