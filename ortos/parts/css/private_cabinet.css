@@ -874,6 +874,10 @@
 	padding: 18px 30px 18px 50px;
 	border-bottom: 1px solid #e8e8e8;
 }
+.order_item:hover{
+	background-color: #f4f3f3;
+	transition: all 0.2s ease-in-out;
+}
 .order_item_close{
 	position: absolute;
 	top: 10px;
