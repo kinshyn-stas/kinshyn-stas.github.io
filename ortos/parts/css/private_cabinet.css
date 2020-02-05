@@ -512,6 +512,21 @@
 	left: 14px;
 	margin-top: 0;
 }
+.pr_elect_plash{
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 76px;
+	max-width: 50%;
+	padding: 6px 16px;
+	background-color: #7dc855;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: normal;
+	text-transform: uppercase;
+	border-radius: 0 0 0 10px;
+}
+.pr_elect_plash span{}
 .pr_elect_close{
 	position: absolute;
 	top: 4px;
