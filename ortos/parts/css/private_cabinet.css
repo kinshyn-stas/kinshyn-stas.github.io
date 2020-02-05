@@ -1183,3 +1183,6 @@
 	transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 }
+.order_slider .owl-pagination{
+	display: none;
+}
