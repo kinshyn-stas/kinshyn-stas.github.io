@@ -3346,6 +3346,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-size: 14px;
 	line-height: 17px;
 	text-align: center;
+	border-right: 1px solid #F2F4F8;
 }
 .doc-header_box_item{
 	display: flex;
@@ -3384,6 +3385,54 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-header_box_item_arrow img{
 	display: block;
 	width: 8px;
+}
+.doc-header_box_item_langs{
+	position: relative;
+	width: 20px;
+	height: 18px;
+}
+.doc-header_box_item_langs:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.doc-header_box_item_langs.active:after{
+	display: none;
+}
+.doc-header_box_item_langs_list{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	height: 18px;
+	background-color: #ffffff;
+	overflow: hidden;
+}
+.doc-header_box_item_langs.active .doc-header_box_item_langs_list{
+	height: auto;
+}
+.doc-header_box_item_lang{
+	order: 4;
+	display: inline-block;
+	width: 20px;
+	height: 18px;
+	line-height: 20px;
+	text-align: center;
+	opacity: 0;
+}
+.doc-header_box_item_lang.active{
+	order: 2;
+	color: #F56107;
+	opacity: 1;
+}
+.doc-header_box_item_langs.active .doc-header_box_item_lang{
+	opacity: 1;
 }
 
 @media screen and (max-width: 1100px){
