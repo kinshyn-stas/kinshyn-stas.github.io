@@ -1333,7 +1333,7 @@
 							<span>1578 грн</span>
 						</div>
 					</div>
-					
+
 					<div class="order_item">					
 						<a class="order_item_close">
 							<img src="img/popup-close.png" alt="" />
@@ -1368,6 +1368,25 @@
 					</div>
 
 				</div>
+
+				<div class="order_bottom">
+					<p class="order_bottom_price">
+						<span>Итого:</span><span class="order_bottom_price_number">4892грн</span>
+					</p>
+					<div class="order_bottom_buttons">
+						<a class="order_bottom_button">
+							<span>Продолжить покупки</span>
+						</a>
+						<a class="order_bottom_button order_bottom_button-fill">
+							<span>Оформить заказ</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="order_slider owl-carousel">
+					<div class="order_slide">1</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -1391,6 +1410,18 @@
 			$(this).prev('.pr_history_butt_on').show();
 			$(this).closest('.pr_history_item_head').next('.pr_history_item_body').hide('fast');
 		});
+
+		/*$(function(){
+			let owl = $('.order_slider');
+			owl.owlCarousel({
+				items: 1,
+				loop: true,
+				navigation: true,
+				//navigationText: ['<img src="/image/catalog/left.png">', '<img src="/image/catalog/right.png">'],
+				navigationText: '[&#x27;next&#x27;,&#x27;prev&#x27;]',
+			});
+		});*/
 	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 </body>
 </html>
