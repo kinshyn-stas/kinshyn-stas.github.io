@@ -669,14 +669,15 @@
 .pr_history_box{
 	margin-top: 12px;
 }
-.pr_history_item{
-	border: 1px solid #ebebeb;
-}
+.pr_history_item{}
 .pr_history_item_head{
 	display: flex;
 	align-items: center;
 	background-color: #ebebeb;
 	text-align: center;
+}
+.pr_history_item:nth-of-type(2n + 2) .pr_history_item_head{
+	background-color: #ffffff;
 }
 .pr_history_item_head_cl{
 	padding: 23px 0 18px;
@@ -709,11 +710,15 @@
 .pr_history_item_head_cl a:hover{
 	color: #7b589c;
 }
+.pr_history_item_head_cl-text-succ{
+	color: #ffa700;
+}
 .pr_history_butt_off{
 	display: none;
 }
 .pr_history_item_body{
 	display: none;
+	border: 1px solid #ebebeb;
 }
 .pr_history_item_row{
 	display: flex;
