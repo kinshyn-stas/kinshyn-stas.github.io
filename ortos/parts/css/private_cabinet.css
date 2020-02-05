@@ -622,3 +622,35 @@
 	transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 }
+
+
+.pr_history{}
+.pr_history_title{}
+.pr_history_panel{}
+.pr_history_panel_item{}
+.pr_history_panel_item span{}
+.pr_history_box{}
+.pr_history_item{}
+.pr_history_item_head{}
+.pr_history_item_head_cl{}
+.pr_history_item_head_cl span{}
+.pr_history_item_head_cl a{}
+.pr_history_item_body{}
+.pr_history_item_row{}
+.pr_history_item_cl{}
+.pr_history_item_cl-img{}
+.pr_history_item_cl-img figure{}
+.pr_history_item_cl-img figure img{}
+.pr_history_item_cl-descr{}
+.pr_history_item_descr{}
+.pr_history_item_descr p{}
+.pr_history_item_descr_b{}
+.pr_history_item_descr_l{}
+.pr_history_item_cl-status{}
+.pr_history_item_status_content{}
+.pr_history_item_status_text{}
+.pr_history_item_status_text-succ{}
+.pr_history_item_cl-price{}
+.pr_history_item_cl-price_content{}
+.pr_history_item_cl-amount{}
+.pr_history_item_cl-amount_content{}
