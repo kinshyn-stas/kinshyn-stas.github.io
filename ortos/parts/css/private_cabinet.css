@@ -238,23 +238,20 @@
 	display: inline-block;
 	color: #7b589c;
 }
-.pr_testimonials_stars{
+.pr_stars{
 	margin-top: 10px;
 }
-.pr_testimonial_star{
+.pr_star{
 	display: inline-block;
 	width: 17px;
 	height: 16px;
-	background-image: none;
+	background-image: url(../img/star-full.svg);
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
-.pr_testimonial_star-full{
-	background-image: url(../img/star-full.svg);
-}
-.pr_testimonial_star-half{
+.pr_star-half{
 	background-image: url(../img/star-half.svg);
 }
 .pr_testimonials_text{}
