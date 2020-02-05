@@ -564,8 +564,6 @@
 .pr_elect_descr_top{
 	flex-grow: 100;
 }
-.pr_elect_descr_top p{}
-.pr_elect_descr_top a{}
 .pr_elect_descr_bottom{
 	font-size: 18px;
 }
@@ -624,19 +622,102 @@
 }
 
 
-.pr_history{}
-.pr_history_title{}
-.pr_history_panel{}
-.pr_history_panel_item{}
+.pr_history{
+	margin-bottom: 170px;
+}
+.pr_history_title{
+	padding-left: 50px;
+	margin-bottom: 16px;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.pr_history_panel{
+	display: flex;
+	align-items: center;
+	margin: 16px 12px;
+	font-weight: 500;
+	text-align: center;
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+}
+.pr_history_panel_item{
+	padding: 14px 10px;
+}
+.pr_history_panel_item:nth-of-type(1){
+	width: 163px;
+	min-width: 163px;
+	padding-right: 22px;
+}
+.pr_history_panel_item:nth-of-type(2){
+	width: 235px;
+	min-width: 235px;
+}
+.pr_history_panel_item:nth-of-type(3){
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_panel_item:nth-of-type(4){
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_panel_item:nth-of-type(5){
+	flex-grow: 100;
+	padding-right: 48px;
+}
 .pr_history_panel_item span{}
-.pr_history_box{}
-.pr_history_item{}
-.pr_history_item_head{}
-.pr_history_item_head_cl{}
+.pr_history_box{
+	margin-top: 12px;
+}
+.pr_history_item{
+	border: 1px solid #ebebeb;
+}
+.pr_history_item_head{
+	display: flex;
+	align-items: center;
+	background-color: #ebebeb;
+	text-align: center;
+}
+.pr_history_item_head_cl{
+	padding: 23px 0 18px;
+}
+.pr_history_item_head_cl:nth-of-type(1){
+	width: 175px;
+	min-width: 175px;
+}
+.pr_history_item_head_cl:nth-of-type(2){
+	width: 235px;
+	min-width: 235px;
+}
+.pr_history_item_head_cl:nth-of-type(3){
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_item_head_cl:nth-of-type(4){
+	width: 15.6%;
+	min-width: 15.6%;
+}
+.pr_history_item_head_cl:nth-of-type(5){
+	flex-grow: 100;
+	padding-right: 60px;
+}
 .pr_history_item_head_cl span{}
-.pr_history_item_head_cl a{}
+.pr_history_item_head_cl a{
+	color: #7b589c;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.pr_history_item_head_cl a:hover{
+	color: #7b589c;
+}
 .pr_history_item_body{}
-.pr_history_item_row{}
+.pr_history_item_row{
+	border-bottom: 1px solid #ebebeb;
+}
+.pr_history_item_row:last-of-type{
+	border-bottom: none;
+}
 .pr_history_item_cl{}
 .pr_history_item_cl-img{}
 .pr_history_item_cl-img figure{}
