@@ -543,12 +543,26 @@
 	display: flex;
 	justify-content: space-between;
 }
-.pr_elect_price_full{}
+.pr_elect_price_full{
+	display: inline-block;
+	position: relative;
+}
+.pr_elect_price_full:after{
+	content: "";
+	position: absolute;
+	top: calc(50% + 2px);
+	left: -7px;
+	display: block;
+	width: calc(100% + 14px);
+	height: 1px;
+	background-color: #f26022;
+}
 .pr_elect_price_full b{
 	font-size: 23px;
 	font-weight: 900;
 }
 .pr_elect_price_now{
+	display: inline-block;
 	color: #f26022;
 }
 .pr_elect_price_now b{	
