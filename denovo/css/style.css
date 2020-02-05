@@ -3809,6 +3809,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	align-items: flex-start;
 }
 .filling_aside{
+	width: 44px;
+	min-width: 44px;
+	padding: 0;
+	transition: width 0.2s ease-in-out, min-width 0.2s ease-in-out;
+}
+.filling_aside.active{
 	width: 531px;
 	min-width: 531px;
 	padding: 0 32px 20px;
@@ -3817,25 +3823,65 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filling_switcher{
 	display: flex;
+	flex-direction: column-reverse;
+}
+.filling_aside.active .filling_switcher{
+	flex-direction: row;
 	justify-content: space-between;
-	padding: 40px 0 20px;
+	align-items: center;
+	padding: 30px 0 10px;
 }
 .filling_switcher_title{
+	margin-top: 6px;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+}
+.filling_aside.active .filling_switcher_title{
+	margin-top: 0;
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 24px;
+	text-align: left;
 	text-transform: uppercase;
 }
-.filling_switcher svg{
+.filling_switcher_button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	background-color: #358D44;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.filling_aside.active .filling_switcher_button{
+	background-color: transparent;
+}
+.filling_switcher_button svg{
 	display: block;
 	height: 20px;
+	--svg-color1: #ffffff;
+	transform: rotate(90deg);
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.filling_aside.active .filling_switcher svg{
+	--svg-color1: #808080;
+	transform: rotate(-90deg);	
 }
 .filling_nav{
+	width: 0;
 	height: 0;
 	font-size: 16px;
 	line-height: 19px;
 	opacity: 0;
 	overflow: hidden;
+}
+.filling_aside.active{
+	width: auto;
+	transition: width 0s;
+	transition-delay: 0.2s;
 }
 .filling_aside.active .filling_nav{
 	height: auto;
