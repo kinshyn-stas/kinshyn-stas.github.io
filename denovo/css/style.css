@@ -3119,10 +3119,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .rev_block .center-main-block{
 	max-width: 970px;
 }
-.doc-main-block.rev_block{
-	max-width: 1200px;
-	padding: 49px 36px;
-}
 .rev_box{
 	display: flex;
 	align-items: center;
@@ -3197,9 +3193,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
-	.doc-main-block.rev_block{
-		padding: 32px 0;
-	}
 	.rev_box{
 		flex-wrap: wrap;
 		text-align: center;
@@ -4031,7 +4024,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filling_articles{}
 .filling_articles_title{
-	font-weight: normal;
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 29px;
@@ -4056,6 +4048,67 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+.filling_question{
+	margin-top: 53px;
+	padding: 43px 0 50px;
+	border-top: 1px solid #EEEEEE;
+	border-bottom: 1px solid #EEEEEE;
+}
+.filling_question_title{
+	margin-bottom: 20px;
+	font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+.filling_question_buttons{
+	display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+.filling_question_button{
+	position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 112px;
+    padding: 11px 10px;
+    margin-right: 24px;
+    background-color: #5CB85C;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #5CB85C;
+    text-transform: uppercase;
+}
+.filling_question_button:last-of-type{
+	margin-right: 0;
+}
+.filling_question_button:after{
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    background-image: url(../images/hand.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+.filling_question_button:hover:after{
+	transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+.filling_question_button-red{
+	background-color: #D9534F;
+    border-color: #D9534F;
 }
 
 @media screen and (max-width: 1100px){
