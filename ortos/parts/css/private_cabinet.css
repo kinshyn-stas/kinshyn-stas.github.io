@@ -1054,6 +1054,7 @@
 }
 .order_slide_item_image{
 	width: 160px;
+	min-width: 160px;
 	margin-right: 24px;
 }
 .order_slide_item_image figure{
@@ -1081,6 +1082,7 @@
 }
 .order_slide_item_price{
 	margin-top: 20px;
+	margin-bottom: 0;
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -1166,12 +1168,14 @@
 }
 .order_slide_item_fbutton a{
 	display: inline-block;
-	padding: 12px 20px;
+	min-width: 170px;
+	padding: 12px 10px;
 	background-color: #ffa700;
 	color: #ffffff;
 	font-size: 14px;
 	line-height: 1;
 	text-transform: uppercase;
+	border-radius: 50px;
 	cursor: pointer;
 }
 .order_slide_item_fbutton a:hover{
