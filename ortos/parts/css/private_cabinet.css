@@ -1484,3 +1484,9 @@
 .popup_password .popup_content{
 	max-width: 580px;
 }
+.popup_password .popup_title{
+	margin-bottom: 75px;
+}
+.popup_password .popup_form_item_label{
+	font-size: 16px;
+}
