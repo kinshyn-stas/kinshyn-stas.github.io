@@ -63,7 +63,7 @@
 						<a class="pr_aside_menu_punkt"><span>История заказов</span></a>
 						<a class="pr_aside_menu_punkt"><span>Бонусная программа</span></a>
 						<a class="pr_aside_menu_punkt"><span>Избранное</span></a>
-						<a class="pr_aside_menu_punkt"><span>Корзина</span></a>
+						<a class="pr_aside_menu_punkt" onclick="$('#orders').addClass('active')"><span>Корзина</span></a>
 						<a class="pr_aside_menu_punkt"><span>Мои отзывы</span></a>
 						<a class="pr_aside_menu_punkt"><span>Подписка</span></a>
 						<a class="pr_aside_menu_punkt"><span>Выйти</span></a>
@@ -1258,11 +1258,11 @@
 	</div>
 
 
-	<div id="orders" class="popup_container active">
+	<div id="orders" class="popup_container">
 		<div class="popup_background"></div>
 		<div class="popup_content">
 			<div class="popup">
-				<a class="popup_close">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
 					<img src="img/popup-close.png" alt="" />
 				</a>
 				<h2 class="popup_title">Корзина</h2>
