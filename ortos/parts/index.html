@@ -139,7 +139,7 @@
 
 								<div class="pr_data_cl_item">
 									<div class="pr_data_cl_item_left">
-										<a class="pr_data_cl_item_link">Сменить пароль</a>
+										<a onclick="$('#my_password').addClass('active')" class="pr_data_cl_item_link">Сменить пароль</a>
 									</div>
 								</div>
 
@@ -1698,6 +1698,52 @@
 						<div class="popup_form_item_field popup_form_item_field-sms">
 							<input type="tel" placeholder="Код" />
 							<button>Отправить код</button>
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="my_password" class="popup_container popup_password">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title popup_title-g">Сменить пароль</h2>
+				<form class="popup_form password_form">
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Старый пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Новый пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Повторить пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
 						</div>
 					</div>
 

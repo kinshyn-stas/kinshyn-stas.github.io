@@ -1321,10 +1321,11 @@
 .data_form{
 	margin-top: 65px;
 	padding: 0 16px 0 20px;
-	color: #757575;
 	font-size: 16px;
 }
-.popup_form{}
+.popup_form{
+	color: #757575;
+}
 .popup_form_item{
 	display: flex;
 	justify-content: space-between;
@@ -1355,6 +1356,10 @@
 	outline: none;
 	border-radius: 2px;
 	border: 1px solid #ebebeb;
+	transition: all 0.2s ease-in-out;
+}
+.popup_form_item_field input:focus{
+	border-color: #ffa700;
 }
 .popup_form_item_field-birthd{}
 .popup_form_item_field-birthd input{
@@ -1473,4 +1478,9 @@
 }
 .popup_adress .popup_form_submit{
 	margin-top: 70px;
+}
+
+
+.popup_password .popup_content{
+	max-width: 580px;
 }
