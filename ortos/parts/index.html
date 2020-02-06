@@ -1615,6 +1615,101 @@
 		</div>
 	</div>
 
+	<div id="my_data" class="popup_container active">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title popup_title-g">Мои данные</h2>
+				<form class="popup_form data_form">
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Имя</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="text" placeholder="Введите  Имя" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Фамилия</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="text" placeholder="Введите  Фамилию" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>E-Mail</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="email" placeholder="Введите   почту" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Дата рождения</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-birthd">
+							<input type="tel" placeholder="Дата" />
+							<input type="tel" placeholder="Месяц" />
+							<input type="tel" placeholder="Год" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Пол</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-sex">
+							<label>
+								<input type="checkbox" name="t1" />
+								<span class="input_emulate"></span>
+								<span>Женский</span>
+							</label>
+							<label>
+								<input type="checkbox" name="t1" />
+								<span class="input_emulate"></span>
+								<span>Мужской</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Телефон</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-phone">
+							<input type="tel" value="+3" readonly />
+							<input type="tel" placeholder="Введите   номер телефона" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Код из СМС</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-sms">
+							<input type="tel" placeholder="Код" />
+							<button>Отправить код</button>
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
 
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script>
