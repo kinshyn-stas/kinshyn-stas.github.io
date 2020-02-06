@@ -3815,6 +3815,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filling_aside_container{
 	position: sticky;
+	position:-webkit-sticky;
 	top: 0;
 	padding: 0;
 	transition: width 0.4s ease-in-out, min-width 0.4s ease-in-out;
