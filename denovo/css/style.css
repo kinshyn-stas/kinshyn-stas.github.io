@@ -3629,12 +3629,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-right: 0;
 }
 .doc-category_item figure{
+	display: flex;
+	align-items: center;
 	margin-bottom: 12px;
 }
 .doc-category_item figure div{
 	position: relative;
-	height: 0;
-	padding-bottom: 37.5%;
+	width: 108px;
+	min-width: 108px;
+	height: 90px;
+	margin-right: 16px;
 }
 .doc-category_item figure img{
 	position: absolute;
@@ -3689,11 +3693,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.doc-category_item{
 		margin-right: 0;
 	}
+	.doc-category_item figure{
+		display: block;
+	}
 }
 
 @media screen and (max-width: 768px){
 	.doc-category{
 		padding: 64px 0;
+	}
+	.doc-category_item figure{
+		display: flex;
 	}
 }
 
