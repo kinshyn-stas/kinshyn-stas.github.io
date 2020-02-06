@@ -1028,6 +1028,7 @@
 }
 
 .order_slider_container{
+	position: relative;
 	width: calc(100% + 32px);
 	padding: 40px 30px 0;
 	margin-top: 60px;
@@ -1186,3 +1187,17 @@
 .order_slider .owl-pagination{
 	display: none;
 }
+.order_slider_arrow{
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 38px;
+	height: 100px;
+	background-color: #e8e8e8;
+}
+.order_slider_arrow:before,
+.order_slider_arrow:after{
+	content: "";
+}
+.order_slider_arrow:after{}
+.order_slider_arrow-right{}
