@@ -826,7 +826,7 @@
 	position: relative;
 	z-index: 20;
 	width: calc(100% - 40px);
-	height: calc(100% - 80px);
+	max-height: calc(100% - 80px);
 	max-width: 1180px;
 	margin: 40px auto;
 	background-color: #ffffff;
@@ -1310,4 +1310,142 @@
 }
 .chose_point_item_c{
 	color: #757575;
+}
+
+
+.popup_data .popup_content{
+	max-width: 612px;
+}
+.data_form{
+	margin-top: 65px;
+	padding: 0 16px 0 20px;
+	color: #757575;
+	font-size: 16px;
+}
+.popup_form{}
+.popup_form_item{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+.popup_form_item:last-of-type{
+	margin-bottom: 0;
+}
+.popup_form_item_label{
+	flex-grow: 100;
+	display: flex;
+	align-items: center;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+}
+.popup_form_item_label span{}
+.popup_form_item_field{
+	display: flex;
+	justify-content: space-between;
+	width: 62%;
+}
+.popup_form_item_field input{
+	width: 100%;
+	padding: 4px 10px 4px 26px;
+	font-size: 14px;
+	line-height: 30px;
+	outline: none;
+	border-radius: 2px;
+	border: 1px solid #ebebeb;
+}
+.popup_form_item_field-birthd{}
+.popup_form_item_field-birthd input{
+	width: calc((100% - 40px) /3);
+	padding: 4px 10px;
+	text-align: center;
+}
+.popup_form_item_field-sex{}
+.popup_form_item_field-sex label{
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 50%;
+	padding-left: 40px;
+	cursor: pointer;
+}
+.popup_form_item_field-sex label input{
+	display: none;
+}
+.popup_form_item_field-sex label .input_emulate{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-color: #fdfdfd;
+	text-align: center;
+	border-radius: 5px;
+	border: 2px solid #e3e4eb;
+}
+.popup_form_item_field-sex label .input_emulate:after{
+	content: "\f00c";
+	color: transparent;
+	font-family: "FontAwesome";
+	font-size: 14px;
+	line-height: 18px;
+}
+.popup_form_item_field-sex label input:checked+.input_emulate:after{
+	color: #7b589c;	
+	-webkit-transition: all 0.2s ease-in-out;
+}
+.popup_form_item_field-phone{}
+.popup_form_item_field-phone input:first-of-type{
+	width: 46px;
+	min-width: 46px;
+	padding: 4px;
+	margin-right: 14px;
+	color: #212121;
+	text-align: center;
+}
+.popup_form_item_field-sms{}
+.popup_form_item_field-sms input{
+	width: 110px;
+	min-width: 110px;
+	margin-right: 32px;
+}
+.popup_form_item_field-sms button{
+	width: 100%;
+	background-color: #acacac;
+	color: #ffffff;
+	padding: 4px;
+	font-size: 14px;
+	line-height: 30px;
+	outline: none;
+	border-radius: 2px;
+	border: none;
+	transition: all 0.2s ease-in-out;
+}
+.popup_form_item_field-sms button:hover{
+	transform: scale(1.1);
+}
+.popup_form_submit{
+	margin-top: 56px;
+	text-align: center;
+}
+.popup_form_submit button{
+	display: inline-block;
+	min-width: 294px;
+	max-width: 100%;
+	padding: 13px 10px;
+	background-color: #7b589c;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1;
+	text-transform: uppercase;
+	outline: none;
+	border-radius: 50px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.popup_form_submit button:hover{
+	transform: scale(1.1);
 }
