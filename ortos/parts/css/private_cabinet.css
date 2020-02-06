@@ -178,6 +178,7 @@
 	display: inline-block;
 	margin-top: 4px;
 	text-decoration: underline;
+	cursor: pointer;
 }
 .pr_data_cl_button{
 	display: inline-block;
@@ -859,6 +860,7 @@
 	width: 17px;
 }
 .popup_title{
+	margin-top: 0;
 	margin-bottom: 20px;
 	font-size: 24px;
 	line-height: 1;
@@ -1448,4 +1450,27 @@
 }
 .popup_form_submit button:hover{
 	transform: scale(1.1);
+}
+
+
+.popup_adress .popup_content{
+	max-width: 485px;
+}
+.popup_adress .popup_title{
+	margin-bottom: 50px;
+}
+.popup_adress .popup_title-a{
+	margin-top: 40px;
+}
+.popup_adress .popup_form_item_field input{
+	border-radius: 50px;
+}
+.popup_adress .popup_form_item_field-t1{
+	width: 76%;
+}
+.popup_adress .popup_form_item_field-t2{
+	width: 64%;
+}
+.popup_adress .popup_form_submit{
+	margin-top: 70px;
 }

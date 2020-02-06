@@ -154,7 +154,7 @@
 								<p>г. Киев, ул. Бульварно-Кудрявская, 31А (м. Золотые ворота)<br>пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
 							</div>
 							<div class="pr_data_cl pr_data_cl-3">
-								<a class="pr_data_cl_link">Изменить</a>
+								<a onclick="$('#my_adress').addClass('active')" class="pr_data_cl_link">Изменить</a>
 							</div>
 						</div>
 
@@ -1615,7 +1615,7 @@
 		</div>
 	</div>
 
-	<div id="my_data" class="popup_container popup_data active">
+	<div id="my_data" class="popup_container popup_data">
 		<div class="popup_background"></div>
 		<div class="popup_content">
 			<div class="popup">
@@ -1698,6 +1698,82 @@
 						<div class="popup_form_item_field popup_form_item_field-sms">
 							<input type="tel" placeholder="Код" />
 							<button>Отправить код</button>
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="my_adress" class="popup_container popup_adress">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<form class="popup_form adress_form">
+
+					<h2 class="popup_title popup_title-l">Адрес доставки</h2>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Город</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Введите   свой город" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Улица</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Введите   улицу" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Дом</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Ваш номер дома" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Квартира</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Ваш  номер квартиры" />
+						</div>
+					</div>
+
+					<h2 class="popup_title popup_title-l popup_title-a">Новая почта</h2>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Город</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t2">
+							<input type="text" placeholder="Введите   свой город" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Отделение <br>новой почты</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t2">
+							<input type="text" placeholder="Номер отделения" />
 						</div>
 					</div>
 
