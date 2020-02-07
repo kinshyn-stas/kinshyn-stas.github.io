@@ -661,7 +661,7 @@
 
 
 .pr_elect{
-	margin-bottom: 230px;
+	/*margin-bottom: 230px;*/
 }
 .pr_elect_title{
 	margin-bottom: 36px;
@@ -724,6 +724,9 @@
 	right: 0;
 	min-width: 76px;
 	max-width: 50%;
+	min-height: 40px;
+	display: flex;
+	align-items: center;
 	padding: 6px 16px;
 	background-color: #7dc855;
 	color: #ffffff;
@@ -732,7 +735,13 @@
 	text-transform: uppercase;
 	border-radius: 0 0 0 10px;
 }
-.pr_elect_plash span{}
+.pr_elect_plash-red{
+	background-color: #ff0000;
+	text-align: center;
+}
+.pr_elect_plash-orange{
+	background-color: #f26022;
+}
 .pr_elect_close{
 	position: absolute;
 	top: 4px;
