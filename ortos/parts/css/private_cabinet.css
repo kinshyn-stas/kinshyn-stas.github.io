@@ -896,6 +896,9 @@
 	.pr_elect_plash{
 		left: 0;
 		right: auto;
+		justify-content: center;
+		padding: 6px;
+		text-align: center;
 		border-radius: 0;
 	}
 	.pr_elect_descr_m{
