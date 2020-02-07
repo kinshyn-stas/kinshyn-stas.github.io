@@ -539,7 +539,7 @@
 
 
 .pr_subs{
-	margin-bottom: 80px;
+	/*margin-bottom: 80px;*/
 }
 .pr_subs_title{
 	font-size: 14px;
@@ -658,6 +658,35 @@
 	color: #7b589c;
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+@media screen and (max-width: 1100px){
+	.pr_subs_title{
+		margin: 30px 0;
+	}
+	.pr_subs_box{
+		margin: 2px 0 0;
+	}
+	.pr_subs_item{
+		width: 41%;
+		margin-right: 3px;
+	}
+	.pr_subs_item:nth-of-type(2n + 2){
+		width: calc(59% - 3px);
+		margin-right: 0;
+	}
+	.pr_subs_item-full{
+		width: 100%;
+		margin-right: 0;
+	}
+	.pr_subs_soc{
+		width: calc(100% + 40px);
+		padding: 10px 0;
+		margin-left: -20px;
+	}
+	.pr_subs_soc_item{
+		width: calc((100% - 24px) / 3);
+	}
 }
 
 
