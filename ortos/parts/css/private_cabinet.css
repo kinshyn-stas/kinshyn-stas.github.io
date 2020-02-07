@@ -996,6 +996,53 @@
 	padding-right: 60px;
 }
 
+@media screen and (max-width: 1100px){
+	.pr_history_panel{
+		margin: 0 0 12px;
+		border-top: 0;
+	}
+	.pr_history_panel .pr_history_panel_item{
+		padding: 14px 5px;
+	}
+	.pr_history_item_head .pr_history_item_head_cl{
+		padding: 23px 5px 18px;
+	}
+	.pr_history_item_body .pr_history_item_cl{
+		padding: 25px 5px 20px;
+	}
+	.pr_history_panel_item:nth-of-type(1),
+	.pr_history_item_head_cl:nth-of-type(1),
+	.pr_history_item_cl-img{
+		width: 20%;
+		min-width: 0;
+	}
+	.pr_history_panel_item:nth-of-type(2),
+	.pr_history_item_head_cl:nth-of-type(2),
+	.pr_history_item_cl-descr{
+		width: 24%;
+		min-width: 0;
+	}
+	.pr_history_panel_item:nth-of-type(3),
+	.pr_history_item_head_cl:nth-of-type(3),
+	.pr_history_item_cl-status{
+		width: 20%;
+		min-width: 0;
+	}
+	.pr_history_panel_item:nth-of-type(4),
+	.pr_history_item_head_cl:nth-of-type(4),
+	.pr_history_item_cl-price{
+		width: 18%;
+		min-width: 0;
+	}
+	.pr_history_panel_item:nth-of-type(5),
+	.pr_history_item_head_cl:nth-of-type(5),
+	.pr_history_item_cl-amount{
+		width: 18%;
+		min-width: 0;
+	}
+}
+@media screen and (max-width: 700px){}
+
 
 .popup_container{
 	position: fixed;

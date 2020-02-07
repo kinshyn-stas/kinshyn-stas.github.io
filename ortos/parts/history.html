@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ortos</title>
+	<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/am.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css">
+	<link rel="stylesheet" type="text/css" href="css/isearch.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup2.css">
+	<link rel="stylesheet" type="text/css" href="css/megamenu.css">
+	<link rel="stylesheet" type="text/css" href="css/megamenu2.css">
+	<link rel="stylesheet" type="text/css" href="css/ocmodpcart.css">
+	<link rel="stylesheet" type="text/css" href="css/opencart_gallery.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+	<link rel="stylesheet" type="text/css" href="css/progroman.city-manager.css">
+	<link rel="stylesheet" type="text/css" href="css/smart_blog_pro_plus_stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/smart_checkout_stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/supermenu.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/private_cabinet.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+
+	<div class="pr_container">
+
+		<ul class="breadcrumb">
+			<li><a>Главная</a></li>
+			<li>Личный кабинет</li>
+		</ul>
+
+		<div class="pr_row">
+
+			<h1 class="pr_title"><span>Личный кабинет</span></h1>
+			
+			<aside class="pr_aside">
+				
+				<div class="pr_aside_info">
+					
+					<div class="pr_aside_person">
+						<figure class="pr_aside_person_photo">
+							<img src="img/person.png" alt="" />
+							<a class="pr_aside_person_photo_add">
+								<img src="img/photo_add.png" alt="" />
+							</a>
+						</figure>
+						<figcaption class="pr_aside_person_name">
+							<span>Ирина</span>
+						</figcaption>
+					</div>
+
+					<div class="pr_aside_menu">
+						
+						<a href="data.html" class="pr_aside_menu_punkt"><span>Мои данные</span></a>
+						<a href="history.html" class="pr_aside_menu_punkt"><span>История заказов</span></a>
+						<a class="pr_aside_menu_punkt"><span>Бонусная программа</span></a>
+						<a href="elect.html" class="pr_aside_menu_punkt"><span>Избранное</span></a>
+						<a class="pr_aside_menu_punkt" onclick="$('#orders').addClass('active')"><span>Корзина</span></a>
+						<a href="testimonials.html" class="pr_aside_menu_punkt"><span>Мои отзывы</span></a>
+						<a href="subs.html" class="pr_aside_menu_punkt"><span>Подписка</span></a>
+						<a class="pr_aside_menu_punkt"><span>Выйти</span></a>
+
+					</div>
+
+				</div>
+
+			</aside>
+
+			<div class="pr_content">
+
+				<div class="pr_menu">
+					<a class="pr_menu_item active">
+						<span>История заказов</span>
+					</a>
+					<div class="pr_menu_list">
+						<a href="data.html" class="pr_menu_item">
+							<span>Мои данные</span>
+						</a>
+						<a class="pr_menu_item">
+							<span>Бонусная программа</span>
+						</a>
+						<a href="elect.html" class="pr_menu_item">
+							<span>Избранное</span>
+						</a>
+						<a onclick="$('#orders').addClass('active')" class="pr_menu_item">
+							<span>Корзина</span>
+						</a>
+						<a href="testimonials.html" class="pr_menu_item">
+							<span>Мои отзывы</span>
+						</a>
+						<a href="subs.html" class="pr_menu_item">
+							<span>Подписка</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="pr_history">
+					
+					<h2 class="pr_history_title hidden-p">История заказов</h2>
+					<div class="pr_history_panel">
+						<div class="pr_history_panel_item">
+							<span>№ заказа</span>
+						</div>
+						<div class="pr_history_panel_item">
+							<span>Дата заказа</span>
+						</div>
+						<div class="pr_history_panel_item">
+							<span>Статус заказа</span>
+						</div>
+						<div class="pr_history_panel_item">
+							<span>Сумма</span>
+						</div>
+						<div class="pr_history_panel_item">
+							<span>Детали заказа</span>
+						</div>
+					</div>
+					<div class="pr_history_box">
+						
+						<div class="pr_history_item">
+							<div class="pr_history_item_head">
+								<div class="pr_history_item_head_cl">
+									<span>187514795</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>12. 04. 2019</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>Обработка заказа</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>8 000 грн.</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span><a class="pr_history_butt_on">Посмотреть</a><a class="pr_history_butt_off">Свернуть</a></span>
+								</div>
+							</div>
+							<div class="pr_history_item_body">
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text pr_history_item_status_text-succ">Доставлен</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text">Обработка заказа</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pr_history_item">
+							<div class="pr_history_item_head">
+								<div class="pr_history_item_head_cl">
+									<span>187514795</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>12. 04. 2019</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span class="pr_history_item_head_cl-text-succ">Доставлен</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>8 000 грн.</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span><a class="pr_history_butt_on">Посмотреть</a><a class="pr_history_butt_off">Свернуть</a></span>
+								</div>
+							</div>
+							<div class="pr_history_item_body">
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text pr_history_item_status_text-succ">Доставлен</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text">Обработка заказа</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pr_history_item">
+							<div class="pr_history_item_head">
+								<div class="pr_history_item_head_cl">
+									<span>187514795</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>12. 04. 2019</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>Обработка заказа</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>8 000 грн.</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span><a class="pr_history_butt_on">Посмотреть</a><a class="pr_history_butt_off">Свернуть</a></span>
+								</div>
+							</div>
+							<div class="pr_history_item_body">
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text pr_history_item_status_text-succ">Доставлен</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text">Обработка заказа</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pr_history_item">
+							<div class="pr_history_item_head">
+								<div class="pr_history_item_head_cl">
+									<span>187514795</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>12. 04. 2019</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>Обработка заказа</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>8 000 грн.</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span><a class="pr_history_butt_on">Посмотреть</a><a class="pr_history_butt_off">Свернуть</a></span>
+								</div>
+							</div>
+							<div class="pr_history_item_body">
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text pr_history_item_status_text-succ">Доставлен</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text">Обработка заказа</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pr_history_item">
+							<div class="pr_history_item_head">
+								<div class="pr_history_item_head_cl">
+									<span>187514795</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>12. 04. 2019</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>Обработка заказа</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span>8 000 грн.</span>
+								</div>
+								<div class="pr_history_item_head_cl">
+									<span><a class="pr_history_butt_on">Посмотреть</a><a class="pr_history_butt_off">Свернуть</a></span>
+								</div>
+							</div>
+							<div class="pr_history_item_body">
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text pr_history_item_status_text-succ">Доставлен</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+								<div class="pr_history_item_row">
+									<div class="pr_history_item_cl pr_history_item_cl-img">
+										<figure>
+											<img src="img/elect-2.jpg" alt="" />
+										</figure>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-descr">
+										<div class="pr_history_item_descr">
+											<p><span class="pr_history_item_descr_b">Голеностопный ортез полужесткий</span><br>
+											<span class="pr_history_item_descr_l">Push med Ankle Brace Aequi Flex</span><br>
+											<span class="pr_history_item_descr_l">Артикул:</span>  1256 2457<br>
+											<span class="pr_history_item_descr_l">Производитель:</span> PUSH<br>
+											<span class="pr_history_item_descr_l">Страна:</span>  Нидерланды<br>
+											<span class="pr_history_item_descr_l">Тип:</span> На голеностопный сустав </p>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-status">
+										<div class="pr_history_item_status_content">
+											<span class="pr_history_item_status_text">Обработка заказа</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-price">
+										<div class="pr_history_item_cl-price_content">
+											<span>8 000 грн.</span>
+										</div>
+									</div>
+									<div class="pr_history_item_cl pr_history_item_cl-amount">
+										<div class="pr_history_item_cl-amount_content">
+											<span>1 шт</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="pr_logout">
+					<a class="pr_logout_link">Выйти</a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div id="orders" class="popup_container">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title">Корзина</h2>
+				<div class="order_box">
+					
+					<div class="order_item">					
+						<a class="order_item_close">
+							<img src="img/popup-close.png" alt="" />
+						</a>
+						<figure class="order_image">
+							<img src="img/elect-2.jpg" alt="" />
+						</figure>
+						<div class="order_descr">
+							<div class="order_descr_top">
+								<span>Голеностопный ортез полужесткий</span><br> 
+								<span class="order_descr_link">Push med Ankle Brace Aequi Flex</span>
+							</div>
+							<div class="order_descr_bottom">
+								<span class="order_descr_price">1578 грн</span>
+							</div>
+						</div>
+						<div class="order_code">
+							<span>Код товара:  7320778</span>
+						</div>
+						<div class="order_change">
+							<a class="order_change_butt order_change_butt-min">
+								<span></span>
+							</a>
+							<span class="order_change_number">1</span>
+							<a class="order_change_butt order_change_butt-plus">
+								<span></span>
+							</a>
+						</div>
+						<div class="order_price">
+							<span>1578 грн</span>
+						</div>
+					</div>
+
+					<div class="order_item">					
+						<a class="order_item_close">
+							<img src="img/popup-close.png" alt="" />
+						</a>
+						<figure class="order_image">
+							<img src="img/elect-2.jpg" alt="" />
+						</figure>
+						<div class="order_descr">
+							<div class="order_descr_top">
+								<span>Голеностопный ортез полужесткий</span><br> 
+								<span class="order_descr_link">Push med Ankle Brace Aequi Flex</span>
+							</div>
+							<div class="order_descr_bottom">
+								<span class="order_descr_price">1578 грн</span>
+							</div>
+						</div>
+						<div class="order_code">
+							<span>Код товара:  7320778</span>
+						</div>
+						<div class="order_change">
+							<a class="order_change_butt order_change_butt-min">
+								<span></span>
+							</a>
+							<span class="order_change_number">1</span>
+							<a class="order_change_butt order_change_butt-plus">
+								<span></span>
+							</a>
+						</div>
+						<div class="order_price">
+							<span>1578 грн</span>
+						</div>
+					</div>
+
+					<div class="order_item">					
+						<a class="order_item_close">
+							<img src="img/popup-close.png" alt="" />
+						</a>
+						<figure class="order_image">
+							<img src="img/elect-2.jpg" alt="" />
+						</figure>
+						<div class="order_descr">
+							<div class="order_descr_top">
+								<span>Голеностопный ортез полужесткий</span><br> 
+								<span class="order_descr_link">Push med Ankle Brace Aequi Flex</span>
+							</div>
+							<div class="order_descr_bottom">
+								<span class="order_descr_price">1578 грн</span>
+							</div>
+						</div>
+						<div class="order_code">
+							<span>Код товара:  7320778</span>
+						</div>
+						<div class="order_change">
+							<a class="order_change_butt order_change_butt-min">
+								<span></span>
+							</a>
+							<span class="order_change_number">1</span>
+							<a class="order_change_butt order_change_butt-plus">
+								<span></span>
+							</a>
+						</div>
+						<div class="order_price">
+							<span>1578 грн</span>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="order_bottom">
+					<p class="order_bottom_price">
+						<span>Итого:</span><span class="order_bottom_price_number">4892грн</span>
+					</p>
+					<div class="order_bottom_buttons">
+						<a class="order_bottom_button">
+							<span>Продолжить покупки</span>
+						</a>
+						<a class="order_bottom_button order_bottom_button-fill">
+							<span>Оформить заказ</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="order_slider_container">
+					<p class="order_slider_container_title">Вместе дешевле</p>
+
+					<div class="order_slider">
+
+						<div class="order_slide">
+							<div class="order_slide_item">
+								<div class="order_slide_item_image">
+									<figure>
+										<img src="img/elect-1.jpg" alt="" />
+									</figure>
+								</div>
+								<div class="order_slide_item_text">
+									<p>Колготы компрессионные лечебные I класс компрессии <br><span class="order_slide_item_link">Medi DUOMED v1 </span></p>
+									<p class="order_slide_item_price">
+										<span class="order_slide_item_price_second"><b>1 600</b> грн.</span>
+									</p>
+								</div>
+							</div>
+							<div class="order_slide_sign order_slide_sign-plus">
+								<span></span>
+							</div>
+							<div class="order_slide_item">
+								<div class="order_slide_item_image">
+									<figure>
+										<img src="img/elect-1.jpg" alt="" />
+									</figure>
+								</div>
+								<div class="order_slide_item_text">
+									<p>Колготы компрессионные лечебные I класс компрессии <br><span class="order_slide_item_link">Medi DUOMED v1 </span></p>
+									<p class="order_slide_item_price">
+										<span class="order_slide_item_price_first"><b>1 600</b> грн.</span>
+										<span class="order_slide_item_price_second"><b>1 400</b> грн.</span>
+									</p>
+								</div>
+							</div>
+							<div class="order_slide_sign order_slide_sign-equally">
+								<span></span>
+							</div>
+							<div class="order_slide_item order_slide_item-final">
+								<p class="order_slide_item_fprice"><b>1 600</b> грн.</p>
+								<div class="order_slide_item_fbutton">
+									<a>Купить комплект</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="order_slide">
+							<div class="order_slide_item">
+								<div class="order_slide_item_image">
+									<figure>
+										<img src="img/elect-1.jpg" alt="" />
+									</figure>
+								</div>
+								<div class="order_slide_item_text">
+									<p>Колготы компрессионные лечебные I класс компрессии <br><span class="order_slide_item_link">Medi DUOMED v1 </span></p>
+									<p class="order_slide_item_price">
+										<span class="order_slide_item_price_second"><b>1 600</b> грн.</span>
+									</p>
+								</div>
+							</div>
+							<div class="order_slide_sign order_slide_sign-plus">
+								<span></span>
+							</div>
+							<div class="order_slide_item">
+								<div class="order_slide_item_image">
+									<figure>
+										<img src="img/elect-1.jpg" alt="" />
+									</figure>
+								</div>
+								<div class="order_slide_item_text">
+									<p>Колготы компрессионные лечебные I класс компрессии <br><span class="order_slide_item_link">Medi DUOMED v1 </span></p>
+									<p class="order_slide_item_price">
+										<span class="order_slide_item_price_first"><b>1 600</b> грн.</span>
+										<span class="order_slide_item_price_second"><b>1 400</b> грн.</span>
+									</p>
+								</div>
+							</div>
+							<div class="order_slide_sign order_slide_sign-equally">
+								<span></span>
+							</div>
+							<div class="order_slide_item order_slide_item-final">
+								<p class="order_slide_item_fprice"><b>1 600</b> грн.</p>
+								<div class="order_slide_item_fbutton">
+									<a>Купить комплект</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="chose_point" class="popup_container">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title popup_title-l">Выбор магазина</h2>
+
+				<div class="chose_point_box">
+						
+					<div class="chose_point_column">
+						<p class="chose_point_title">Киев</p>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+					</div>		
+						
+					<div class="chose_point_column">
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+						
+					</div>		
+						
+					<div class="chose_point_column">
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_l">(м. Золотые ворота)</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+						
+					</div>					
+
+				</div>
+
+				<div class="chose_point_box">	
+						
+					<div class="chose_point_column">
+						<p class="chose_point_title">Киев</p>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+					</div>		
+						
+					<div class="chose_point_column">
+						<p class="chose_point_title">Киев</p>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+					</div>	
+						
+					<div class="chose_point_column">
+						<p class="chose_point_title">Киев</p>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+						<div class="chose_point_item">
+							<p class="chose_point_item_b">ул. Бульварно-Кудрявская, 31А</p>
+							<p class="chose_point_item_c">пн-пт: 8:00-20:00, сб-вс: 9:00-18:00</p>
+						</div>
+
+					</div>			
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="my_data" class="popup_container popup_data">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title popup_title-g">Мои данные</h2>
+				<form class="popup_form data_form">
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Имя</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="text" placeholder="Введите  Имя" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Фамилия</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="text" placeholder="Введите  Фамилию" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>E-Mail</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="email" placeholder="Введите   почту" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Дата рождения</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-birthd">
+							<input type="tel" placeholder="Дата" />
+							<input type="tel" placeholder="Месяц" />
+							<input type="tel" placeholder="Год" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Пол</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-sex">
+							<label>
+								<input type="checkbox" name="t1" />
+								<span class="input_emulate"></span>
+								<span>Женский</span>
+							</label>
+							<label>
+								<input type="checkbox" name="t1" />
+								<span class="input_emulate"></span>
+								<span>Мужской</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Телефон</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-phone">
+							<input type="tel" value="+3" readonly />
+							<input type="tel" placeholder="Введите   номер телефона" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Код из СМС</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-sms">
+							<input type="tel" placeholder="Код" />
+							<button>Отправить код</button>
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="my_password" class="popup_container popup_password">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<h2 class="popup_title popup_title-g">Сменить пароль</h2>
+				<form class="popup_form password_form">
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Старый пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Новый пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Повторить пароль</span>
+						</label>
+						<div class="popup_form_item_field">
+							<input type="password" placeholder="Введите  пароль" />
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="my_adress" class="popup_container popup_adress">
+		<div class="popup_background"></div>
+		<div class="popup_content">
+			<div class="popup">
+				<a class="popup_close" onclick="$(this).closest('.popup_container').removeClass('active')">
+					<img src="img/popup-close.png" alt="" />
+				</a>
+				<form class="popup_form adress_form">
+
+					<h2 class="popup_title popup_title-l">Адрес доставки</h2>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Город</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Введите   свой город" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Улица</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Введите   улицу" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Дом</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Ваш номер дома" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Квартира</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t1">
+							<input type="text" placeholder="Ваш  номер квартиры" />
+						</div>
+					</div>
+
+					<h2 class="popup_title popup_title-l popup_title-a">Новая почта</h2>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Город</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t2">
+							<input type="text" placeholder="Введите   свой город" />
+						</div>
+					</div>
+
+					<div class="popup_form_item">						
+						<label class="popup_form_item_label">
+							<span>Отделение <br>новой почты</span>
+						</label>
+						<div class="popup_form_item_field popup_form_item_field-t2">
+							<input type="text" placeholder="Номер отделения" />
+						</div>
+					</div>
+
+					<div class="popup_form_submit">
+						<button>Сохранить измениения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script>
+		$('.pr_menu_item.active').click(function(){
+			$('.pr_menu_list').toggle("fast");
+		});
+
+		$('.pr_testimonials_answer_link').click(function(){
+			$(this).hide();
+			$(this).next('.pr_testimonials_answer_box').show("fast");
+		});
+
+		$('.pr_history_butt_on').click(function(){
+			$(this).hide();
+			$(this).next('.pr_history_butt_off').show();
+			$(this).closest('.pr_history_item_head').next('.pr_history_item_body').show('fast');
+		});
+
+		$('.pr_history_butt_off').click(function(){
+			$(this).hide();
+			$(this).prev('.pr_history_butt_on').show();
+			$(this).closest('.pr_history_item_head').next('.pr_history_item_body').hide('fast');
+		});
+
+		$(function(){
+			let owl = $('.order_slider');
+			owl.owlCarousel({
+				items: 1,
+				loop: true,
+				navigation: true,
+				navigationText: ['<div class="order_slider_arrow order_slider_arrow-left"><span></span></div>','<div class="order_slider_arrow order_slider_arrow-right"><span></span></div>'],
+			});
+		});
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+</body>
+</html>
