@@ -1043,6 +1043,15 @@
 	font-weight: 500;
 }
 
+@media screen and (max-width: 700px){
+	.popup{
+		padding: 50px 20px;
+	}
+	.popup_content{
+		width: 100%;
+	}
+}
+
 
 .order_box{
 	margin-top: 45px; 
@@ -1432,7 +1441,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 	margin-bottom: 40px;
 }
 .chose_point_box:after{
@@ -1467,6 +1476,7 @@
 }
 .chose_point_item{
 	margin-top: 26px;
+	margin-bottom: 20px;
 	line-height: 30px;
 }
 .chose_point_item p{
@@ -1480,6 +1490,12 @@
 }
 .chose_point_item_c{
 	color: #757575;
+}
+
+@media screen and (max-width: 700px){
+	.chose_point_column{
+		width: 100%;
+	}
 }
 
 
@@ -1625,6 +1641,41 @@
 	transform: scale(1.1);
 }
 
+@media screen and (max-width: 700px){
+	.data_form{
+		margin-top: 30px;
+	}
+	.popup_form_item{
+		display: block;
+	}
+	.popup_form_item_label{
+		margin-bottom: 16px;
+	}
+	.popup_form_item_label span br{
+		display: none;
+	}
+	.popup_form_item_field{
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	.popup_form_item_field-phone{
+		flex-wrap: nowrap;
+	}
+	.popup_form_item_field-sms input{
+		width: 100%;
+		min-width: 0;
+		margin-right: 0;
+		margin-bottom: 12px;
+	}
+	.popup_form_submit{
+		margin-top: 30px;
+	}
+	.popup_form_submit button{
+		width: 100%;
+		min-width: 0;
+	}
+}
+
 
 .popup_adress .popup_content{
 	max-width: 485px;
@@ -1648,6 +1699,19 @@
 	margin-top: 70px;
 }
 
+@media screen and (max-width: 700px){
+	.popup_adress .popup_title{
+		margin-bottom: 30px;
+	}
+	.popup_adress .popup_form_item_field-t1,
+	.popup_adress .popup_form_item_field-t2{
+		width: 100%;
+	}
+	.popup_adress .popup_form_submit{
+		margin-top: 30px;
+	}
+}
+
 
 .popup_password .popup_content{
 	max-width: 580px;
@@ -1657,6 +1721,12 @@
 }
 .popup_password .popup_form_item_label{
 	font-size: 16px;
+}
+
+@media screen and (max-width: 700px){
+	.popup_password .popup_title{
+		margin-bottom: 30px;
+	}
 }
 
 
