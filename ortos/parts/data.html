@@ -76,11 +76,37 @@
 
 			<div class="pr_content">
 
+				<div class="pr_menu">
+					<a class="pr_menu_item active">
+						<span>Мои данные</span>
+					</a>
+					<div class="pr_menu_list">
+						<a href="history.html" class="pr_menu_item">
+							<span>История заказов</span>
+						</a>
+						<a class="pr_menu_item">
+							<span>Бонусная программа</span>
+						</a>
+						<a href="elect.html" class="pr_menu_item">
+							<span>Избранное</span>
+						</a>
+						<a onclick="$('#orders').addClass('active')" class="pr_menu_item">
+							<span>Корзина</span>
+						</a>
+						<a href="testimonials.html" class="pr_menu_item">
+							<span>Мои отзывы</span>
+						</a>
+						<a href="subs.html" class="pr_menu_item">
+							<span>Подписка</span>
+						</a>
+					</div>
+				</div>
+
 				<div class="pr_data">
 				
 					<div class="pr_data_item">
 						
-						<div class="pr_data_row">
+						<div class="pr_data_row hidden-p">
 							<div class="pr_data_cl pr_data_cl-1">
 								<p class="pr_data_cl_title">Мои данные</p>
 							</div>
@@ -144,6 +170,11 @@
 								</div>
 
 							</div>
+
+							<div class="pr_data_cl pr_data_cl-3 hidden-d visible-p">
+								<a onclick="$('#my_data').addClass('active')" class="pr_data_cl_link">Изменить</a>
+							</div>
+
 						</div>
 						
 						<div class="pr_data_row">
@@ -177,7 +208,7 @@
 									</div>
 								</div>
 							</div>						
-							<div class="pr_data_cl pr_data_cl-3">
+							<div class="pr_data_cl pr_data_cl-3 pr_data_cl-3-butt">
 								<a onclick="$('#chose_point').addClass('active')" class="pr_data_cl_button">Выбор магазина</a>
 							</div>
 						</div>
@@ -770,6 +801,10 @@
 
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script>
+		$('.pr_menu_item.active').click(function(){
+			$('.pr_menu_list').toggle("fast");
+		});
+
 		$('.pr_testimonials_answer_link').click(function(){
 			$(this).hide();
 			$(this).next('.pr_testimonials_answer_box').show("fast");
