@@ -57,10 +57,13 @@
 		background-color: transparent;
 	}
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 700px){
 	.pr_container{
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.pr_title{
+		margin-bottom: 24px;
 	}
 }
 
@@ -150,6 +153,18 @@
 		display: none;
 	}
 }
+@media screen and (max-width: 700px){
+	.pr_aside{
+		margin-bottom: 30px;
+	}
+	.pr_aside_person_photo{
+		width: 160px;
+		height: 160px;
+	}
+	.pr_aside_person_name{
+		margin-top: 20px;
+	}
+}
 
 
 .pr_content{
@@ -198,6 +213,7 @@
 		display: block;
 	}
 }
+@media screen and (max-width: 700px){}
 
 
 .pr_data{}
@@ -290,9 +306,9 @@
 
 @media screen and (max-width: 1100px){
 	.pr_data_item{
+		padding: 5px 30px;
 		margin-bottom: 2px;
 	}
-	.pr_data_row{}
 	.pr_data_cl-1{
 		width: 180px;
 		min-width: 180px;
@@ -307,6 +323,43 @@
 	}
 	.pr_data_cl_button{
 		min-width: 210px;
+	}
+}
+@media screen and (max-width: 700px){
+	.pr_data_row{
+		flex-wrap: wrap;
+		padding: 10px 0 20px;
+	}
+	.pr_data_item{
+		padding: 5px 15px;
+	}
+	.pr_data_cl-1{
+		width: 70%;
+		min-width: 0;
+		order: 4;
+		padding-right: 0;
+	}
+	.pr_data_cl-2{
+		order: 8;
+		width: 100%;
+		padding-right: 0;
+		margin-top: 20px;
+	}
+	.pr_data_cl-3{
+		width: 30%;
+		margin-left: auto;
+		order: 4;
+		text-align: right;
+	}
+	.pr_data_cl-3-butt{
+		order: 12;
+		width: 100%;
+		margin-top: 30px;
+		text-align: center;
+	}
+	.pr_data_cl_item_left{
+		width: 50%;
+		min-width: 50%;
 	}
 }
 
