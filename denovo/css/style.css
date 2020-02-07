@@ -3709,7 +3709,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .doc-footer{
-	padding: 20px 0;
+	padding: 32px 0;
 	background-color: #E7ECEF;
 	font-weight: 400;
 }
@@ -3718,7 +3718,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	justify-content: space-between;
 	align-items: center;
 }
-.doc-footer_langs{
+/*.doc-footer_langs{
 	font-weight: 300;
 	font-size: 14px;
 	line-height: 17px;
@@ -3732,8 +3732,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .doc-footer_lang.active{
 	color: #F56107;
+}*/
+.doc-footer_main-link{
+	text-transform: uppercase;
 }
-.doc-footer_main-link{}
 .doc-footer_contacts{}
 .doc-footer_contact{
 	display: flex;
@@ -4545,7 +4547,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin: 23px auto 27px;
 }
 .sel_image img{
-	height: 80px;
+	height: 90px;
 }
 .sel_link_box{
 	color: #F56107;
