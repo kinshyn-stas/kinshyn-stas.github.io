@@ -2348,10 +2348,27 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: 100%;
 	border-radius: 0;
 }
-.product_descriptions_box-2{}
-.product_descriptions_box-2_item{}
-.product_descriptions_box-2_title{}
-.product_descriptions_box-2_text{}
+.product_descriptions_box-2{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+}
+.product_descriptions_box-2_item{
+	width: calc(50% - 15px);
+	margin-bottom: 24px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #E1E1E2;
+}
+.product_descriptions_box-2_title{
+	margin-bottom: 2px;
+	color: #8D8D8D;
+	font-size: 10px;
+	line-height: 13px;
+	text-transform: uppercase;
+}
 .product_descriptions_box-3{}
 .product_descriptions_box-3_title{}
 .product_descriptions_box-3_item{}
