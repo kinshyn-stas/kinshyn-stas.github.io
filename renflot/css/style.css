@@ -2370,7 +2370,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	text-transform: uppercase;
 }
 .product_descriptions_box-3{}
-.product_descriptions_box-3_title{}
+.product_descriptions_box-3_title{
+	margin-bottom: 16px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 23px;
+}
 .product_descriptions_box-3_item{}
 .product_descriptions_box-4{}
 .product_descriptions_box-4 figure{}
