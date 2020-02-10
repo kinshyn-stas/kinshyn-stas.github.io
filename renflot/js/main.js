@@ -721,6 +721,20 @@ function clickItemHandler(event){
 			if(!document.getElementById('catalog_filter')) return;
 			document.getElementById('catalog_filter').classList.add('active');
 		},
+
+		'product-gallery':function(target){
+			let img = parent.querySelector('.product_gallery_item-main img');
+			img.src = target.querySelector('img').src;
+			img.style.opacity = '0';
+			img.style.animationName = '';
+			setTimeout(()=>{
+				img.style.animationName = 'product_gallery';
+			}, 0)
+			parent.querySelectorAll('.product_gallery_item').forEach(item => {
+				item.classList.remove('active');
+			});
+			target.classList.add('active');
+		},
 	}
 
 	if(item.dataset.action){
