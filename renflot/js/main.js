@@ -740,8 +740,15 @@ function clickItemHandler(event){
 			if(target.classList.contains('active')) return;
 			parent.querySelectorAll('.product_tab_label').forEach(item => item.classList.remove('active'));
 			target.classList.add('active');			
+
 			parent.querySelectorAll('.product_tab_content').forEach(item => item.classList.remove('active'));
-			parent.querySelector(target.dataset.label).classList.add('active');
+			let content = parent.querySelector(target.dataset.label);
+			content.classList.add('active');
+			content.style.opacity = '0';
+			content.style.animationName = '';
+			setTimeout(()=>{
+				content.style.animationName = 'product_tab_content';
+			}, 0)
 		},
 	}
 
