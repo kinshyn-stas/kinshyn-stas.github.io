@@ -722,7 +722,7 @@ function clickItemHandler(event){
 			document.getElementById('catalog_filter').classList.add('active');
 		},
 
-		'product-gallery':function(target){
+		'product-gallery': function(target){
 			let img = parent.querySelector('.product_gallery_item-main img');
 			img.src = target.querySelector('img').src;
 			img.style.opacity = '0';
@@ -734,6 +734,14 @@ function clickItemHandler(event){
 				item.classList.remove('active');
 			});
 			target.classList.add('active');
+		},
+
+		'tab-change': function(target){
+			if(target.classList.contains('active')) return;
+			parent.querySelectorAll('.product_tab_label').forEach(item => item.classList.remove('active'));
+			target.classList.add('active');			
+			parent.querySelectorAll('.product_tab_content').forEach(item => item.classList.remove('active'));
+			parent.querySelector(target.dataset.label).classList.add('active');
 		},
 	}
 
