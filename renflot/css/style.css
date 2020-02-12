@@ -638,24 +638,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .button_office:hover{
 	color: #668532; 
 }
-.button_office-separator{
-	display: block;
-	height: 100%;
-	width: 1px;
-	background-color: #E1E1E2;
-}
-.button_office_left,
-.button_office_right{
+.button_office-pdf,
+.button_office-excel{
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 50%;
-	min-width: 50%;
-	padding: 0 24px;
 }
-.button_office_right{}
-.button_office_left:before,
-.button_office_right:before{
+.button_office-pdf:before,
+.button_office-excel:before{
 	content: "";
 	display: block;
 	width: 19px;
@@ -666,7 +656,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.button_office_right:before{
+.button_office-excel:before{
 	background-image: url(../img/excel.svg);
 }
 
@@ -1664,6 +1654,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	border: 1px solid #E1E1E2;
 }
 .catalog_nav_item{
+	flex-grow: 100;
 	width: 25%;
 	padding: 0 10px;
 	border-right: 1px solid #E1E1E2;
@@ -2609,4 +2600,104 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.variants_block{
 		padding: 64px 0;
 	}
+}
+
+
+.kitchen_panel{}
+
+.kitchen_box{}
+.kitchen_item{
+	display: flex;
+	margin-bottom: 77px;
+}
+.kitchen_item:last-of-type{
+	margin-bottom: 0;
+}
+.kitchen_image{
+	width: 420px;
+	min-width: 420px;
+	margin-right: 30px;
+}
+.kitchen_image .catalog_image{
+	padding-bottom: 52%;
+}
+.kitchen_content{
+	flex-grow: 100;
+	padding-top: 12px;
+}
+.kitchen_text{
+	margin-bottom: 32px;
+	color: #51565A;
+	font-size: 16px;
+	line-height: 150%;
+}
+.kitchen_text_panel{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.kitchen_text_title{
+	color: #1C2833;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 20px;
+}
+.kitchen_description{
+	display: flex;
+	justify-content: space-between;
+	padding: 24px;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	border: 1px solid #E1E1E2;
+}
+.kitchen_description_part{
+	width: 50%;
+	border-right: 1px solid #E1E1E2;
+}
+.kitchen_description_part:last-of-type{
+	border-right: none;
+}
+.kitchen_description_part .kitchen_description_title{
+	margin-bottom: 14px;
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 18px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.kitchen_description .button_container{
+	display: flex;
+	align-items: center;
+}
+.kitchen_description .button_office{
+	width: auto;
+	min-width: 0;
+	padding-right: 24px;
+	margin-right: 24px;
+	border-right: 1px solid #E1E1E2;
+}
+.button_office:last-of-type{
+	padding-right: 0;
+	margin-right: 0;
+	border-right: none;
+}
+.kitchen_description_part-text{
+	display: flex;
+	align-items: center;
+}
+.kitchen_description_text{
+	padding-left: 37px;
+	color: #8D8D8D;
+	font-size: 14px;
+	line-height: 150%;
+}
+.kitchen_bottom{
+	margin-top: 12px;
+	color: #8D8D8D;
+	font-size: 14px;
+	line-height: 18px;
+}
+.kitchen_bottom b{
+	color: #1C2833;
+	font-size: 1.2em;
 }
