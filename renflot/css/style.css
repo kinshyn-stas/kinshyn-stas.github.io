@@ -3464,3 +3464,43 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		justify-content: center;
 	}
 }
+
+
+.gift_block{
+	padding: 120px 0 77px;
+	border-top: 1px solid #E1E1E2;
+}
+.gift_container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.gift_image{
+	display: flex;
+	width: calc(48% - 40px);
+	min-height: 482px;
+}
+.gift_image figure{
+	position: relative;
+	width: 100%;
+}
+.gift_image figure img{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: auto;
+	height: 100%;
+}
+.gift_content{
+	width: calc(52% - 40px);
+}
+.gift_title{
+	margin-bottom: 24px;
+}
+.gift_content .button_container{
+	margin-top: 32px;
+}
+
+@media screen and (max-width: 1100px){}
+@media screen and (max-width: 768px){}
