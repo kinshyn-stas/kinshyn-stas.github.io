@@ -1919,7 +1919,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: calc(100% - 300px);
 }
 .catalog_unit{
-	padding-bottom: 0;
+	padding-bottom: 64px;
 	margin-bottom: 64px;
 	border-bottom: 1px solid #E1E1E2;
 }
