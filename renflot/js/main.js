@@ -599,7 +599,7 @@ function clickItemHandler(event){
 		},
 
 		'open-lightbox': function(target){
-			if(document.body.clientWidth<769) return;
+			if(document.body.clientWidth<=768 && !target.dataset.param) return;
 			target.classList.add('lightbox_target')
 			let container = document.createElement('div');
 			container.classList = 'lightbox_container click-obj';
@@ -611,12 +611,12 @@ function clickItemHandler(event){
 											<path d="M24.4001 7.61363C24.2767 7.49003 24.1302 7.39196 23.9689 7.32505C23.8076 7.25815 23.6347 7.22371 23.4601 7.22371C23.2855 7.22371 23.1125 7.25815 22.9513 7.32505C22.79 7.39196 22.6434 7.49003 22.5201 7.61363L16.0001 14.1203L9.48008 7.6003C9.35664 7.47686 9.21009 7.37894 9.04881 7.31213C8.88752 7.24532 8.71466 7.21094 8.54008 7.21094C8.36551 7.21094 8.19265 7.24532 8.03136 7.31213C7.87007 7.37894 7.72353 7.47686 7.60008 7.6003C7.47664 7.72374 7.37872 7.87029 7.31192 8.03157C7.24511 8.19286 7.21072 8.36572 7.21072 8.5403C7.21072 8.71487 7.24511 8.88774 7.31192 9.04902C7.37872 9.21031 7.47664 9.35686 7.60008 9.4803L14.1201 16.0003L7.60008 22.5203C7.47664 22.6437 7.37872 22.7903 7.31192 22.9516C7.24511 23.1129 7.21072 23.2857 7.21072 23.4603C7.21072 23.6349 7.24511 23.8077 7.31192 23.969C7.37872 24.1303 7.47664 24.2768 7.60008 24.4003C7.72353 24.5237 7.87007 24.6217 8.03136 24.6885C8.19265 24.7553 8.36551 24.7897 8.54008 24.7897C8.71466 24.7897 8.88752 24.7553 9.04881 24.6885C9.21009 24.6217 9.35664 24.5237 9.48008 24.4003L16.0001 17.8803L22.5201 24.4003C22.6435 24.5237 22.7901 24.6217 22.9514 24.6885C23.1126 24.7553 23.2855 24.7897 23.4601 24.7897C23.6347 24.7897 23.8075 24.7553 23.9688 24.6885C24.1301 24.6217 24.2766 24.5237 24.4001 24.4003C24.5235 24.2768 24.6214 24.1303 24.6883 23.969C24.7551 23.8077 24.7894 23.6349 24.7894 23.4603C24.7894 23.2857 24.7551 23.1129 24.6883 22.9516C24.6214 22.7903 24.5235 22.6437 24.4001 22.5203L17.8801 16.0003L24.4001 9.4803C24.9067 8.97363 24.9067 8.1203 24.4001 7.61363Z" fill="#8D8D8D"/>
 										</svg>
 									</div>
-									<div class="lightbox_arrow lightbox_arrow-left click-item" data-action="switch_lightbox" data-direction="-1">
+									<div class="lightbox_arrow lightbox_arrow-left click-item" data-action="switch_lightbox" data-direction="-1" data-param="${target.dataset.param ? (target.dataset.param) : ''}">
 										<svg width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M23.9998 36L8.99976 21L23.9998 6L20.9998 0L-0.000240326 21L20.9998 42L23.9998 36Z" fill="#DCBC5A"/>
 										</svg>
 									</div>
-									<div class="lightbox_arrow lightbox_arrow-right click-item" data-action="switch_lightbox" data-direction="1">
+									<div class="lightbox_arrow lightbox_arrow-right click-item" data-action="switch_lightbox" data-direction="1" data-param="${target.dataset.param ? (target.dataset.param) : ''}">
 										<svg width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.000488281 36L15.0005 21L0.000488281 6L3.00049 0L24.0005 21L3.00049 42L0.000488281 36Z" fill="#DCBC5A"/>
 										</svg>
@@ -645,7 +645,7 @@ function clickItemHandler(event){
 		},
 
 		'switch_lightbox': function(target){
-			if(document.body.offsetWidth <= 768) return;
+			if(document.body.offsetWidth <= 768 && !target.dataset.param) return;
 			let lightbox = target.closest('.lightbox');
 			let title = lightbox.querySelector('h2');
 			let description = lightbox.querySelector('.lightbox_description');
@@ -749,6 +749,10 @@ function clickItemHandler(event){
 			setTimeout(()=>{
 				content.style.animationName = 'product_tab_content';
 			}, 0)
+		},
+
+		'click-recall-image': function(target){
+			target.closest('.recall_item').querySelector('.recall_image img').click();
 		},
 	}
 
