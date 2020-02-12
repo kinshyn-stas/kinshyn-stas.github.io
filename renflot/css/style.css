@@ -620,6 +620,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .button_video:hover:after{
 	opacity: 1;
 }
+.button_video-document:before{
+	width: 18px;
+	height: 18px;
+	background-image: url(../img/doc.svg);
+}
+.button_video-document:after{
+	width: 18px;
+	height: 18px;
+	background-image: url(../img/doc-white.svg);
+}
 
 .button_office{
 	display: inline-flex;
@@ -639,13 +649,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	color: #668532; 
 }
 .button_office-pdf,
-.button_office-excel{
+.button_office-excel,
+.button_office-jpg{
 	position: relative;
 	display: flex;
 	align-items: center;
 }
 .button_office-pdf:before,
-.button_office-excel:before{
+.button_office-excel:before,
+.button_office-jpg:before{
 	content: "";
 	display: block;
 	width: 19px;
@@ -658,6 +670,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .button_office-excel:before{
 	background-image: url(../img/excel.svg);
+}
+.button_office-jpg:before{
+	background-image: url(../img/jpg.svg);
 }
 
 
@@ -2606,20 +2621,44 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.kitchen_panel{}
-
+.catalog_block-kitchen{
+	margin-bottom: 80px;
+	border-bottom: 1px solid #E1E1E2;	
+}
+.catalog_block-kitchen-last{
+	margin-bottom: 40px;
+	border-bottom: none;
+}
+.kitchen_panel{
+	display: flex;
+	margin-bottom: 37px;
+}
+.kitchen_panel h2{
+	margin-bottom: 0;
+	margin-right: 16px;
+}
+.kitchen_panel .button_container{
+	display: flex;
+	align-items: center;
+	min-width: 300px;
+	margin-top: 8px;
+}
+.kitchen_panel .button_container a{
+	margin-right: 16px;
+}
+.kitchen_panel .button_container a:last-of-type{
+	margin-right: 0;
+}
 .kitchen_box{
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	padding-bottom: 27px;
 }
 .kitchen_item{
 	display: flex;
 	width: 100%;
-	margin-bottom: 77px;
-}
-.kitchen_item:last-of-type{
-	margin-bottom: 0;
+	margin-bottom: 53px;
 }
 .kitchen_image{
 	width: 420px;
@@ -2628,6 +2667,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .kitchen_image .catalog_image{
 	padding-bottom: 52%;
+}
+.kitchen_image-long .catalog_image{
+	padding-bottom: 68%;
 }
 .kitchen_content{
 	flex-grow: 100;
@@ -2664,6 +2706,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .kitchen_description_part:last-of-type{
 	border-right: none;
+}
+.kitchen_description-triple .kitchen_description_part{
+	width: 33.3%;
 }
 .kitchen_description_part .kitchen_description_title{
 	margin-bottom: 14px;
@@ -2727,6 +2772,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		display: none;
 		width: 100%;
 	}
+	.kitchen_description-triple .kitchen_description_part{
+		width: 50%;
+	}
 	.kitchen_description_part-text{
 		display: flex;
 	}
@@ -2735,11 +2783,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 }
 @media screen and (max-width: 768px){
+	.catalog_block-kitchen{
+		margin-bottom: 64px;
+	}
+	.catalog_block-kitchen-last{
+		margin-bottom: 0;
+	}
+	.kitchen_panel{
+		display: block;
+		margin-bottom: 24px;
+	}
+	.kitchen_panel h2{
+		margin-right: 0;
+		margin-bottom: 16px;
+	}
+	.kitchen_panel .button_container{
+		margin-top: 0;
+	}
 	.kitchen_content{
 		padding-top: 20px;
 	}
+	.kitchen_box{
+		padding-bottom: 11px;
+	}
 	.kitchen_item{
 		width: 100%;
+		margin-bottom: 48px;
 	}
 	.kitchen_text{
 		margin-bottom: 24px;
