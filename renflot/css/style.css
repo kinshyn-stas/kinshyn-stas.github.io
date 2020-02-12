@@ -3412,3 +3412,55 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		background-color: #D1E6AC;
 	}
 }
+
+
+.advantage_block{
+	padding-bottom: 70px;
+}
+.advantage_title{}
+.advantage_box{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.advantage_item{
+	width: calc((100% - 90px) / 4);
+	margin-bottom: 30px;
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 18px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.advantage_icon{
+	height: 46px;
+	margin-bottom: 12px;
+}
+.advantage_icon img{
+	display: block;
+	max-height: 100%;
+}
+
+@media screen and (max-width: 1100px){
+	.advantage_item{
+		width: calc(50% - 15px);
+	}
+}
+@media screen and (max-width: 768px){
+	.advantage_block{
+		padding-bottom: 40px;
+	}
+	.advantage_title{
+		margin-bottom: 16px;
+		text-align: center;
+	}
+	.advantage_item{
+		width: 100%;
+		margin-bottom: 24px;
+		text-align: center;
+	}
+	.advantage_icon{
+		display: flex;
+		justify-content: center;
+	}
+}
