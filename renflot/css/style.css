@@ -3138,3 +3138,50 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin: 0 auto 40px;
 	}
 }
+
+
+.client_block{
+	padding: 120px 0;
+	border-top: 1px solid #E1E1E2;
+}
+.client_title{
+	text-align: center;
+}
+.client_box{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.client_item{
+	width: 20%;
+	margin-bottom: 24px;
+}
+.client_item figure{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+.client_item img{
+	display: block;
+	max-width: 80%;
+}
+.client_block .button_container{
+	text-align: center;
+}
+
+@media screen and (max-width: 1100px){
+	.client_item{
+		width: 50%;
+		margin-bottom: 40px;
+	}
+}
+@media screen and (max-width: 768px){
+	.client_block{
+		padding: 64px 0;
+	}
+	.client_block .button_container a{
+		width: 100%;
+		max-width: 360px;
+	}
+}
