@@ -2944,18 +2944,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-size: 18px;
 	line-height: 200%;
 }
+.about_block-long .about_content{
+	width: calc(39% - 40px)
+}
 .about_image{
 	order: 4;
 	width: calc(50% - 15px);
+}
+.about_block-long .about_image{
+	width: calc(61% - 40px)
 }
 .about_item:nth-of-type(even) .about_image{
 	order: 1;
 }
 .about_image figure{
+	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	border-radius: 5px;
 }
 .about_image figure img{
+	position: absolute;
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -2967,11 +2977,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.about_content{
 		width: 100%;
 	}
+	.about_block-long .about_content{
+		width: 100%;
+	}
 	.about_image{
+		width: 100%;
+	}
+	.about_block-long .about_image{
 		width: 100%;
 	}
 	.about_item:nth-of-type(odd) .about_image{
 		order: 1;
+	}
+	.about_image figure img{
+		position: static;
 	}
 }
 @media screen and (max-width: 768px){
@@ -3314,5 +3333,82 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.pozitiv_container .button_container{
 		margin-top: 24px;
+	}
+}
+
+
+.how_block{
+	padding-bottom: 120px;
+}
+.how_box{
+	display: flex;
+}
+.how_item{
+	position: relative;
+	width: calc(25% + 20px);
+	padding: 32px 32px 32px 44px;
+	margin-left: -20px;
+	background-color: #EAF9D0;
+	color: #51565A;
+	font-size: 16px;
+	line-height: 160%;
+	border-radius: 15px;
+}
+.how_item:nth-of-type(1){
+	z-index: 8;
+	padding: 32px 32px 32px 24px;
+	margin-left: 0;
+}
+.how_item:nth-of-type(2){
+	z-index: 6;
+	background-color: #E4F5C7;
+}
+.how_item:nth-of-type(3){
+	z-index: 4;
+	background-color: #DCF0BA;
+}
+.how_item:nth-of-type(4){
+	z-index: 2;
+	background-color: #D1E6AC;
+}
+.how_item_title{
+	margin-bottom: 8px;
+	color: #1C2833;
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 18px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px){
+	.how_block{
+		padding-bottom: 64px;
+	}
+	.how_box{
+		display: block;
+	}
+	.how_item{
+		width: 100%;
+		padding: 44px 16px 44px;
+		margin-left: 0;
+		margin-top: -20px;
+	}
+	.how_item:nth-of-type(1){
+		z-index: 2;
+		padding: 24px 16px 44px;
+		margin-top: 0;
+	}
+	.how_item:nth-of-type(2){
+		z-index: 4;
+		background-color: #E4F5C7;
+	}
+	.how_item:nth-of-type(3){
+		z-index: 6;
+		background-color: #DCF0BA;
+	}
+	.how_item:nth-of-type(4){
+		z-index: 8;
+		background-color: #D1E6AC;
 	}
 }
