@@ -3268,3 +3268,48 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		display: block;
 	}
 }
+
+
+.pozitiv_block{
+	position: relative;
+	padding: 120px 0;
+	color: #ffffff;
+	background-image: url(../img/banners/banner-2.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.pozitiv_block:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(28, 40, 51, 0.7);
+}
+.pozitiv_container{
+	position: relative;
+	z-index: 1;
+	font-size: 18px;
+	line-height: 23px;
+	text-align: center;
+}
+.pozitiv_title{
+	margin-bottom: 16px;
+	color: #ffffff;
+}
+.pozitiv_container .button_container{
+	margin-top: 32px;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px){
+	.pozitiv_title{
+		margin-bottom: 12px;
+	}
+	.pozitiv_container .button_container{
+		margin-top: 24px;
+	}
+}
