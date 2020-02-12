@@ -2992,3 +2992,68 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin-bottom: 10px;
 	}
 }
+
+
+.surety_block{
+	padding: 120px 0 100px;
+	background-color: #EAF9D0;
+}
+.surety_block .surety_title{
+	margin-bottom: 32px;
+	color: #1C2833;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 23px;
+	text-align: center;
+}
+.surety_box{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.surety_item{
+	width: calc((100% - 90px) / 4);
+	text-align: center;
+	font-size: 14px;
+	font-weight: 900;
+	line-height: 18px;
+	text-align: center;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.surety_icon{
+	display: flex;
+	justify-content: center;
+}
+.surety_icon img{
+	display: block;
+	height: 40px;
+}
+.surety_description{
+	margin-top: 15px;
+}
+
+@media screen and (max-width: 1100px){
+	.surety_block{
+		padding: 120px 0 76px;
+	}
+	.surety_item{
+		width: calc(50% - 15px);
+		margin-bottom: 24px;
+	}
+}
+@media screen and (max-width: 768px){
+	.surety_block{
+		padding: 64px 0;
+	}
+	.surety_block .surety_title{
+		font-size: 24px;
+		line-height: 30px;
+	}
+	.surety_item{
+		width: 100%;
+	}
+	.surety_item:last-of-type{
+		margin-bottom: 0;
+	}
+}
