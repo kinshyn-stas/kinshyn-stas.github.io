@@ -854,6 +854,16 @@ function clickItemHandler(event){
 				box.nextElementSibling.classList.toggle('collapsed');
 			}
 		},
+
+		'search-open': function(target){
+			document.querySelector('.doc-header_box').classList.add('hidden');
+			document.querySelector('.doc-header_search').classList.add('active');
+		},
+
+		'search-close': function(target){
+			document.querySelector('.doc-header_box').classList.remove('hidden');
+			document.querySelector('.doc-header_search').classList.remove('active');
+		},
 	}
 
 	if(item.dataset.action){

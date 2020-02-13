@@ -17,53 +17,84 @@
 					<img src="images/logo.png" alt="" />
 				</a>
 
-				<div class="doc-header_box">
-					
-					<div class="doc-header_box_item">
-						<a class="doc-header_box_item_link">
-							<img src="images/person.svg" alt="" />
-							<span>Особистий кабінет</span>
-						</a>
-					</div>
+				<div class="doc-header_container">
 
-					<div class="doc-header_box_item">
-						<a class="doc-header_box_item_link">
-							<img src="images/question.svg" alt="" />
-							<span>Підтримка</span>
-						</a>
-					</div>
+					<div class="doc-header_box">
+						
+						<div class="doc-header_box_item">
+							<a class="doc-header_box_item_link">
+								<img src="images/person.svg" alt="" />
+								<span>Особистий кабінет</span>
+							</a>
+						</div>
 
-					<div class="doc-header_box_item">
-						<a class="doc-header_box_item_link doc-header_box_item_link-gray">
-							<img src="images/heart.svg" alt="" />
-							<span>Обране</span>
-						</a>
-					</div>
+						<div class="doc-header_box_item">
+							<a class="doc-header_box_item_link">
+								<img src="images/question.svg" alt="" />
+								<span>Підтримка</span>
+							</a>
+						</div>
 
-					<div class="doc-header_box_item">
-						<a class="doc-header_box_item_link doc-header_box_item_link-gray">
-							<img src="images/search_gray.svg" alt="" />
-							<span>Пошук</span>
-						</a>
-					</div>
+						<div class="doc-header_box_item">
+							<a class="doc-header_box_item_link doc-header_box_item_link-gray">
+								<img src="images/heart.svg" alt="" />
+								<span>Обране</span>
+							</a>
+						</div>
 
-					<div class="doc-header_box_item">
-						<a class="doc-header_box_item_link doc-breadcrumbs_box_item_link-gray">
-							<img src="images/ol.png" alt="" />
-						</a>
-						<a class="doc-header_box_item_arrow">
-							<img src="images/downarrow.svg" alt="" />
-						</a>
-					</div>
+						<div class="doc-header_box_item">
+							<a class="doc-header_box_item_link doc-header_box_item_link-gray click-item" data-action="search-open">
+								<img src="images/search_gray.svg" alt="" />
+								<span>Пошук</span>
+							</a>
+						</div>
 
-					<div class="doc-header_box_item">
-						<div class="doc-header_box_item_langs click-item click-obj">
-							<div class="doc-header_box_item_langs_list">
-								<a class="doc-header_box_item_lang active">Ua</a>
-								<a class="doc-header_box_item_lang">Ru</a>
-								<a class="doc-header_box_item_lang">En</a>
+						<div class="doc-header_box_item">
+							<a class="doc-header_box_item_link doc-breadcrumbs_box_item_link-gray">
+								<img src="images/ol.png" alt="" />
+							</a>
+							<a class="doc-header_box_item_arrow">
+								<img src="images/downarrow.svg" alt="" />
+							</a>
+						</div>
+
+						<div class="doc-header_box_item">
+							<div class="doc-header_box_item_langs click-item click-obj">
+								<div class="doc-header_box_item_langs_list">
+									<a class="doc-header_box_item_lang active">Ua</a>
+									<a class="doc-header_box_item_lang">Ru</a>
+									<a class="doc-header_box_item_lang">En</a>
+								</div>
 							</div>
 						</div>
+
+					</div>
+
+					<div class="doc-header_search">
+						<form class="face_form">
+							<div class="face_form_item face_form_item-search">
+								<input type="search" placeholder="Пошук" />
+								<a onclick="face_form_button.click()">
+									<img src="images/search.svg" alt="" />
+								</a>
+							</div>
+							<div class="face_form_item face_form_item-select">
+								<select class="select_emulator">
+									<option selected>Вся система</option>
+									<option>Вариант 1</option>
+									<option>Вариант 2</option>
+									<option>Вариант 3</option>
+								</select>
+							</div>
+							<div class="face_form_item face_form_item-button">
+								<button id="face_form_button" class="button_submit">
+									<span>Знайти</span>
+								</button>
+							</div>
+							<div class="face_form_item face_form_item-cancel">
+								<a class="face_form_item-cancel_button click-item" data-action="search-close">Скасувати</a>
+							</div>
+						</form>
 					</div>
 
 				</div>
