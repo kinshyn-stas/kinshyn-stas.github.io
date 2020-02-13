@@ -3719,6 +3719,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .map_container{
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 .map_column{}
 .map_column-left{
@@ -3731,7 +3732,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: calc((100% - 60px) / 4);
 }
 .map_column .map_column_title{
-	display: inline-block;
+	display: block;
 	margin-bottom: 32px;
 	color: #7FA244;
 	font-weight: 900;
@@ -3762,6 +3763,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .map_column_columns{
 	margin-top: -24px;
+	margin-bottom: 32px;
 	padding-left: 12px;
 	list-style: none;
 	columns: 2;
@@ -3771,4 +3773,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	color: #51565A;
 	font-size: 16px;
 	line-height: 20px;
+}
+
+@media screen and (max-width: 1100px){
+	.map_column{
+		width: 100%;
+	}
+}
+@media screen and (max-width: 768px){
+	.map_block{
+		padding-bottom: 64px;
+	}
+	.map_column_columns{
+		columns: 1;
+	}
 }
