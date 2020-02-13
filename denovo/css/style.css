@@ -3631,7 +3631,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-category_item figure{
 	display: flex;
 	align-items: center;
-	margin-bottom: 12px;
 }
 .doc-category_item figure div{
 	position: relative;
@@ -3661,7 +3660,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	line-height: 17px;
 }
 .div-category_item_text{
-	margin-top: 20px;
+	margin-top: 16px;
+	flex-grow: 100;
 }
 .div-category_item_links{
 	position: relative;
@@ -3734,8 +3734,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	color: #F56107;
 }*/
 .doc-footer_main-link{
-	text-transform: uppercase;
+	color: #F56107;
+	text-decoration-line: underline;
 }
+.doc-footer_main-link:hover{
+	color: #F56107;
+	text-decoration-line: none;
+}
+
 .doc-footer_contacts{}
 .doc-footer_contact{
 	display: flex;
