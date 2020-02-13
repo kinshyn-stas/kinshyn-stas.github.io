@@ -55,6 +55,9 @@ window.onload = function(){
 
 
 	//installVideoHeight();
+	
+
+	document.addEventListener('click', handlerClickLinks);
 };
 
 
@@ -1070,4 +1073,52 @@ function fakeForm(event, selector){
 	event.preventDefault();
 	event.target.closest('.popup_container').classList.remove('active');
 	document.querySelectorAll(selector).forEach(item => item.classList.add('active'));
-}
+};
+
+
+function handlerClickLinks(event){
+	if(!(event.target.closest('a') && event.target.closest('a').href.split('#')[1])) return;
+	let a = event.target.closest('a');
+	event.preventDefault();
+	let target = document.getElementById(`${a.href.split('#')[1]}`);
+	if(!target) return;
+
+
+	function calculateHeight(){
+		return Math.max(
+			document.body.scrollHeight, document.documentElement.scrollHeight,
+			document.body.offsetHeight, document.documentElement.offsetHeight,
+			document.body.clientHeight, document.documentElement.clientHeight
+		);
+	}
+
+	let p = pageYOffset;
+	let step = 10;
+	let direction = false;
+
+	if(pageYOffset > target.getBoundingClientRect().top + pageYOffset){
+		direction = true;
+	}
+
+	let int = setInterval(()=>{
+		if(direction){
+			if(p <= step) clearInterval(int);
+
+			if(p>target.getBoundingClientRect().top + pageYOffset){
+				p -= step;
+			} else {
+				clearInterval(int);
+			}
+		} else {
+			if(p >= calculateHeight() - step) clearInterval(int);
+
+			if(p<target.getBoundingClientRect().top + pageYOffset){
+				p += step;
+			} else {
+				clearInterval(int);
+			}
+		}
+
+		scrollTo(pageXOffset,p)
+	}, 1);
+};
