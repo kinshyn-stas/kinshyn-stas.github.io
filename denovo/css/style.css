@@ -4247,9 +4247,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	.filling_content_header_panel_item{
 		margin-right: 24px;
 	}
-	.filling_content_header_panel_item:last-of-type{
-		margin-right: 0;
-	}
 	.filling_content_text{
 		padding-top: 32px;
 		padding-bottom: 44px;
@@ -4736,6 +4733,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-login_form_item button{
 	min-width: 171px;
 }
+.doc-login_form_item button:before{
+	box-shadow: none;
+}
 .doc-login_form_item .form_validate_alert{
 	display: none;
 	margin-top: 10px;
@@ -4763,4 +4763,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .rewind_top img{
 	display: block;
+}
+
+
+.result-block{
+	padding-bottom: 180px;
+}
+.result_box{}
+.result_item{
+	margin-bottom: 24px;
+	color: #20262E;
+	font-size: 16px;
+	line-height: 160%;
+}
+.result_item:last-of-type{
+	margin-bottom: 0;
+}
+.result_item_title{
+	margin-bottom: 8px;
+	color: #F56107;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 19px;
+}
+
+@media screen and (max-width: 768px){
+	.result-block{
+		padding-bottom: 60px;
+	}
 }
