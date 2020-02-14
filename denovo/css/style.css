@@ -3664,7 +3664,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .doc-category{
-	padding: 72px 0 52px;	
+	padding: 40px 0;	
 }
 .doc-category_title{
 	margin-bottom: 24px;
@@ -3756,9 +3756,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
-	.doc-category{
-		padding: 64px 0;
-	}
 	.doc-category_item figure{
 		display: flex;
 	}
@@ -4108,7 +4105,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filling_content_text{
 	padding-top: 40px;
-	padding-bottom: 52px;
+	padding-bottom: 40px;
 	font-size: 16px;
 	line-height: 160%;
 }
@@ -4146,8 +4143,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-repeat: no-repeat;
 }
 .filling_question{
-	margin-top: 53px;
-	padding: 43px 0 50px;
+	margin-top: 40px;
+	padding: 40px 0 40px;
 	border-top: 1px solid #EEEEEE;
 	border-bottom: 1px solid #EEEEEE;
 }
@@ -4249,8 +4246,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin-right: 24px;
 	}
 	.filling_content_text{
-		padding-top: 32px;
-		padding-bottom: 44px;
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 190%;
@@ -4263,7 +4258,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .doc-comments{
-	padding: 40px 0;
+	padding: 40px 0 0;
 }
 .doc-comments_header{
 	display: flex;
@@ -4334,6 +4329,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .doc-comments_add span{
 	color: #F56107;	
+}
+.doc-comments_add.gray{
+	border-color: #808080;
+}
+.doc-comments_add.gray span{
+	color: #808080;
 }
 .doc-comments_body{
 	height: 0;
@@ -4434,6 +4435,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-right: 12px;
 	border-right: 1px solid #D9DADD;
 }
+.doc-comment_bottom_panel_item.gray{
+	color: #808080;
+}
 .doc-comment_bottom_panel_item-show{
 	display: flex;
 	align-items: center;
@@ -4459,9 +4463,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
-	.doc-comments{
-		padding: 64px 0;
-	}
 	.doc-comments_header{
 		justify-content: space-between;
 		flex-wrap: wrap;
@@ -4760,7 +4761,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .rewind_top{
 	position: fixed;
 	bottom: 30px;
-	left: 20px;
+	right: 20px;
 }
 .rewind_top img{
 	display: block;

@@ -851,13 +851,15 @@ function clickItemHandler(event){
 				target.closest('.doc-comments').querySelector('.doc-comments_header').after(comment);
 			}
 			comment.classList.remove('hidden');
-
+			target.classList.add('gray');
 		},
 
 		'close-comment': function(target){
 			let comment = target.closest('.doc-comment')
 			comment.classList.add('hidden');
 			comment.querySelector('textarea').value = '';
+			document.querySelectorAll('.doc-comment_bottom_panel_item').forEach(item => item.classList.remove('gray'));
+			document.querySelectorAll('.doc-comments_add').forEach(item => item.classList.remove('gray'));
 		},
 
 		'show-comments': function(target){
