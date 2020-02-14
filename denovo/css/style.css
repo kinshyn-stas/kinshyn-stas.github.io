@@ -4547,13 +4547,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
-	.doc-comment{
-		padding: 64px 0;
-	}
-	.doc-comment_title{
+	.doc-comment_form_item-buttons{
 		display: block;
-		font-size: 18px;
-		line-height: 22px;
+	}
+	.doc-comment_form_item_button-cancel{
+		width: 100%;
+		margin-top: 16px;
+		margin-left: 0;
 	}
 }
 
