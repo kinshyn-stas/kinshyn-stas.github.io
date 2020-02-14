@@ -611,115 +611,111 @@
 							</div>
 						</div>
 
-					</div>
-
-				</div>
-			</section>
-
-			<section class="doc-main-block doc-comments click-obj active">
-				<div class="doc-center-main-block">
-					
-					<div class="doc-comments_header">
-						<h3 class="doc-comments_header_title">коментарі до документа</h3>
-						<a class="doc-comments_switcher click-item">
-							<span class="doc-comments_switcher_on">Приховати коментарі</span>
-							<span class="doc-comments_switcher_off">Показати коментарі</span>
-						</a>
-						<a href="#doc-comment" class="doc-comments_add click-item" data-action="add-comment">
-							<span>Залишити коментар</span>
-						</a>
-					</div>
-
-					<div class="doc-comments_body">
-						
-						<div class="doc-comments_box">							
-							<div class="doc-comments_item">
-								<div class="doc-comment_header">
-									<figure>
-										<img src="images/ol2.png" alt="" />
-									</figure>
-									<figcaption>
-										<p class="doc-comment_name">Олексій Климюк</p>
-										<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
-									</figcaption>
-								</div>
-								<div class="doc-comment_body">
-									<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
-								</div>
-								<div class="doc-comment_bottom">
-									<div class="doc-comment_bottom_panel">
-										<a href="#doc-comment" class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
-										<a class="doc-comment_bottom_panel_item doc-comment_bottom_panel_item-show click-item" data-action="show-comments"><span>Коментарі <span>(1)</span></span></a>
-									</div>
+						<div class="doc-comments click-obj active">
+							
+							<div class="doc-comments_header">
+								<h3 class="doc-comments_header_title">коментарі до документа</h3>
+								<a class="doc-comments_switcher click-item">
+									<span class="doc-comments_switcher_on">Приховати коментарі</span>
+									<span class="doc-comments_switcher_off">Показати коментарі</span>
+								</a>
+								<div class="doc-comments_add_container">
+									<a class="doc-comments_add click-item" data-action="add-comment">
+										<span>Залишити коментар</span>
+									</a>
 								</div>
 							</div>
-							<div class="doc-comments_box">							
-								<div class="doc-comments_item">
-									<div class="doc-comment_header">
-										<figure>
-											<img src="images/ol2.png" alt="" />
-										</figure>
-										<figcaption>
-											<p class="doc-comment_name">Олексій Климюк</p>
-											<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
-										</figcaption>
+
+							<div id="doc-comment" class="doc-comment hidden">
+								<form class="doc-comment_form form_validate">
+									<div class="doc-comment_form_item form_validate_item">
+										<textarea data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" placeholder="Текст повідомлення" autocomplete="off" maxlength="2500" required=""></textarea>
 									</div>
-									<div class="doc-comment_body">
-										<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
+									<div class="doc-comment_form_item doc-comment_form_item-buttons">
+										<button class="button_submit form_validate_submit" disabled>
+											<span>Коментувати</span>
+										</button>
+										<a class="doc-comment_form_item_button-cancel click-item" data-action="close-comment">Скасувати</a>
 									</div>
-									<div class="doc-comment_bottom">
-										<div class="doc-comment_bottom_panel">
-											<a href="#doc-comment" class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
+								</form>
+							</div>
+
+							<div class="doc-comments_body">
+								
+								<div class="doc-comments_box">							
+									<div class="doc-comments_item">
+										<div class="doc-comment_header">
+											<figure>
+												<img src="images/ol2.png" alt="" />
+											</figure>
+											<figcaption>
+												<p class="doc-comment_name">Олексій Климюк</p>
+												<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
+											</figcaption>
+										</div>
+										<div class="doc-comment_body">
+											<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
+										</div>
+										<div class="doc-comment_bottom">
+											<div class="doc-comment_bottom_panel">
+												<a class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
+												<a class="doc-comment_bottom_panel_item doc-comment_bottom_panel_item-show click-item" data-action="show-comments"><span>Коментарі <span>(1)</span></span></a>
+											</div>
 										</div>
 									</div>
-								</div>								
-							</div>
-						</div>
-						
-						<div class="doc-comments_box">							
-							<div class="doc-comments_item">
-								<div class="doc-comment_header">
-									<figure>
-										<img src="images/ol2.png" alt="" />
-									</figure>
-									<figcaption>
-										<p class="doc-comment_name">Олексій Климюк</p>
-										<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
-									</figcaption>
-								</div>
-								<div class="doc-comment_body">
-									<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
-								</div>
-								<div class="doc-comment_bottom">
-									<div class="doc-comment_bottom_panel">
-										<a href="#doc-comment" class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
+									<div class="doc-comments_box">							
+										<div class="doc-comments_item">
+											<div class="doc-comment_header">
+												<figure>
+													<img src="images/ol2.png" alt="" />
+												</figure>
+												<figcaption>
+													<p class="doc-comment_name">Олексій Климюк</p>
+													<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
+												</figcaption>
+											</div>
+											<div class="doc-comment_body">
+												<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
+											</div>
+											<div class="doc-comment_bottom">
+												<div class="doc-comment_bottom_panel">
+													<a class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
+												</div>
+											</div>
+										</div>								
 									</div>
 								</div>
+								
+								<div class="doc-comments_box">							
+									<div class="doc-comments_item">
+										<div class="doc-comment_header">
+											<figure>
+												<img src="images/ol2.png" alt="" />
+											</figure>
+											<figcaption>
+												<p class="doc-comment_name">Олексій Климюк</p>
+												<p class="doc-comment_date"><span><span>19.09.2019</span>, <span>15:40</span></span></p>
+											</figcaption>
+										</div>
+										<div class="doc-comment_body">
+											<p>Мережа, яка використовується для взаємодії VM і vApp в межах Organization і / або для доступу до зовнішніх мереж. OrgNet створюється і конфігурується OrgAdmin. Organization може містити безліч OrgNet.</p>
+										</div>
+										<div class="doc-comment_bottom">
+											<div class="doc-comment_bottom_panel">
+												<a class="doc-comment_bottom_panel_item click-item" data-action="add-comment">Коментувати</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
 							</div>
+
 						</div>
 
 					</div>
 
 				</div>
-			</section>
-
-			<section id="doc-comment" class="doc-main-block doc-comment">
-				<div class="doc-center-main-block">
-					
-					<h3 class="doc-comment_title">залишити комментар</h3>
-					<form class="doc-comment_form form_validate">
-						<div class="doc-comment_form_item form_validate_item">
-							<textarea data-pattern="^[A-Za-zА-Яа-яІіЇїЪъЁё -]+$" placeholder="Комментар" autocomplete="off" maxlength="2500" required=""></textarea>
-						</div>
-						<div class="doc-comment_form_item">
-							<button class="button_submit form_validate_submit" disabled>
-								<span>Відправити</span>
-							</button>
-						</div>
-					</form>
-
-				</div>
-			</section>
+			</section>				
 
 		</main>
 

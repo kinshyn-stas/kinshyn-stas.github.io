@@ -844,7 +844,20 @@ function clickItemHandler(event){
 		},
 
 		'add-comment': function(target){
-			document.querySelector('.doc-comment').classList.remove('hidden');
+			let comment = document.getElementById('doc-comment');
+			if(target.closest('.doc-comments_item')){
+				target.closest('.doc-comments_item').append(comment);
+			} else {
+				target.closest('.doc-comments').querySelector('.doc-comments_header').after(comment);
+			}
+			comment.classList.remove('hidden');
+
+		},
+
+		'close-comment': function(target){
+			let comment = target.closest('.doc-comment')
+			comment.classList.add('hidden');
+			comment.querySelector('textarea').value = '';
 		},
 
 		'show-comments': function(target){

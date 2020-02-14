@@ -4263,11 +4263,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .doc-comments{
-	padding: 72px 0;
+	padding: 40px 0;
 }
 .doc-comments_header{
 	display: flex;
 	align-items: flex-end;
+	flex-wrap: wrap;
 	margin-bottom: 24px;
 	font-size: 14px;
 	font-weight: 400;
@@ -4283,6 +4284,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .doc-comments_switcher{
 	display: flex;
+	margin-top: 8px;
 	margin-bottom: 2px;
 	color: #808080;
 }
@@ -4320,10 +4322,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-comments.active .doc-comments_switcher_off{
 	display: none;
 }
+.doc-comments_add_container{
+	width: 100%;	
+	margin-top: 8px;
+}
 .doc-comments_add{
 	display: inline-block;
 	padding-bottom: 2px;
-	margin-left: auto;
 	margin-bottom: 2px;
 	border-bottom: 1px dashed #F56107;
 }
@@ -4489,23 +4494,23 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .doc-comment{
-	padding: 72px 0 48px;
-	background-color: #F6F6F6;
+	margin-top: 32px;
 }
-.doc-comment .doc-center-main-block{}
+.doc-comments_header+.doc-comment{
+	margin-bottom: 32px;
+}
 .doc-comment_title{
 	display: none;
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 29px;
-	text-align: center;
 	text-transform: uppercase;
 }
 .doc-comment_form{
 	text-align: center;
 }
 .doc-comment_form_item{
-	margin-bottom: 32px;
+	margin-bottom: 20px;
 }
 .doc-comment_form_item:last-of-type{
 	margin-bottom: 0;
@@ -4513,8 +4518,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-comment_form_item textarea{
 	width: 100%;
 	min-height: 160px;
+	padding: 20px;
 	background-color: #ffffff;
-	text-align: left;
+	font-size: 12px;
+	line-height: 14px;
+	border-radius: 7px;
+	border: 1px solid #EEEEEE;
+}
+.doc-comment_form_item-buttons{
+	display: flex;
+	align-items: center;
+}
+.doc-comment_form_item .button_submit{
+	text-transform: none;	
+}
+.doc-comment_form_item .button_submit:before{
+	box-shadow: none;
+}
+.doc-comment_form_item_button-cancel{
+	display: inline-block;
+	margin-left: 16px;
+	color: #F56107;
+	font-size: 14px;
+	line-height: 17px;
+}
+.doc-comment_form_item_button-cancel:hover{
+	color: #F56107;
 }
 
 @media screen and (max-width: 768px){
