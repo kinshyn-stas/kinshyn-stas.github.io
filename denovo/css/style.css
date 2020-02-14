@@ -4752,3 +4752,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding: 62px 0 22px;
 	}
 }
+
+
+.rewind_top{
+	position: fixed;
+	bottom: 30px;
+	left: 20px;
+}
+.rewind_top img{
+	display: block;
+}
