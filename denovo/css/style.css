@@ -679,6 +679,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding-left: 0;
 	}
 	.main-container-full{
+		display: flex;
 		padding-top: 95px;
 	}
 	.aside-main{
