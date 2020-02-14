@@ -3450,7 +3450,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	margin-left: 125px;
 	opacity: 1;
 	overflow: visible;
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.4s ease-in-out;
 }
 .doc-header_search .face_form{
 	flex-grow: 100;
@@ -3632,7 +3632,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .select.active .select_list_outer{
 	height: auto;
 	opacity: 1;
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.4s ease-in-out;
 }
 .face_form_item-button{}
 .face_form_item-button button{
