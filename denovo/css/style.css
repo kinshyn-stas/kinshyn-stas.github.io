@@ -3466,8 +3466,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .doc-header_search .face_form_item-search input{
 	border-color: #F5F5F5;
 }
+.doc-header_search .face_form_item-button button{
+	z-index: 0;
+}
 .doc-header_search .face_form_item-button button:before{
+	border-radius: 0 7px 7px 0;
 	box-shadow: none;
+	transform: translate(-50%,-50%);
 }
 .doc-header_search .face_form_item-cancel{
 	display: inline-block;
@@ -3508,6 +3513,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-weight: 400;
 	line-height: 43px;
 	text-transform: uppercase;
+}
+.doc-main-block .button_green:before{
+	box-shadow: none;
 }
 
 @media screen and (max-width: 768px){
@@ -3633,9 +3641,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	font-size: 14px;
 	line-height: 17px;
 	text-transform: none;
-	border-radius: 0 7px 7px 0;
-}
-.face_form_item-button button:before{
 	border-radius: 0 7px 7px 0;
 }
 
@@ -3819,7 +3824,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .doc-breadcrumbs{
 	padding: 12px 0;
-	margin-bottom: 22px;
+	margin-bottom: 40px;
 	background-color: #F9FAFB;
 }
 .doc-breadcrumbs_box{
@@ -3844,9 +3849,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 768px){
-	.doc-breadcrumbs{
-		padding: 16px 0 26px;
-	}
 	.doc-footer .doc-center-main-block{
 		flex-direction: column;
 		align-items: flex-start;
@@ -3871,7 +3873,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .filling-block{
-	padding: 18px 0 52px;
+	padding-bottom: 52px;
 }
 .filling-block .doc-center-main-block{
 	display: flex;
@@ -4608,7 +4610,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .sel_item_top{
 	position: relative;
-	padding: 18px 12px 16px;
+	padding: 22px 12px 24px;
 	background-color: #F3F6F9;
 	font-size: 14px;
 	line-height: 17px;
@@ -4642,7 +4644,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	background-repeat: no-repeat;
 }
 .sel_image{
-	margin: 23px auto 27px;
+	margin: 24px auto 0;
 }
 .sel_image img{
 	height: 90px;
