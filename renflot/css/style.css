@@ -2187,6 +2187,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	line-height: 20px;
 }
 
+.catalog_item-relax{
+	width: calc((100% - 90px) / 4);
+}
+.relax-image{
+	overflow: hidden;
+	border-radius: 3px;
+}
+.relax-image img{
+	display: block;
+	cursor: pointer;
+}
+
 @media screen and (max-width: 1100px){	
 	.catalog_box{
 		justify-content: center;
