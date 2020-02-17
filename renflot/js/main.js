@@ -1044,9 +1044,9 @@ class InputLine{
 	changePositions(event){
 		let coordinatX;
 		if(event.type == 'mousemove'){
-			coordinatX = event.screenX;
+			coordinatX = event.screenX - document.body.getBoundingClientRect().left;
 		} else if(event.type == 'touchmove'){
-			coordinatX = event.changedTouches[0].screenX;
+			coordinatX = event.changedTouches[0].screenX - document.body.getBoundingClientRect().left;
 		}
 
 		this.position = parseInt((coordinatX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
@@ -1077,7 +1077,7 @@ class InputLine{
 		}
 
 		this.direction = this.directionMove;
-		this.changePositionsWrite()
+		this.changePositionsWrite();
 	}
 };
 
