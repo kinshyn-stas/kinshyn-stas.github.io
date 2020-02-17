@@ -20,6 +20,12 @@ window.onload = function(){
 	});
 
 	new classMultiplyWrapper(Slider, {
+		selector: '.catalog_slider-relax',
+		navigationDotters: true,
+		navigationDottersCount: 2,
+	});
+
+	new classMultiplyWrapper(Slider, {
 		selector: '.testimonials_slider',
 		navigationDotters: true,
 		multiDisplay: {
