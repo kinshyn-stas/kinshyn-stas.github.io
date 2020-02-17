@@ -55,7 +55,7 @@ window.onload = function(){
 
 
 	//installVideoHeight();
-	
+
 
 	document.addEventListener('click', handlerClickLinks);
 };
@@ -84,7 +84,7 @@ class Slider{
 		this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
 		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
 
-		window.addEventListener('resize', this.prepare.bind(this));	
+		window.addEventListener('resize', this.prepare.bind(this));
 	}
 
 	checkSize(p){
@@ -93,11 +93,11 @@ class Slider{
 		if(p.desktop && w > 1100) trigger = true;
 		if(p.touch && (w > 768 && w <= 1100)) trigger = true;
 		if(p.mobile && w <= 768) trigger = true;
-		
+
 		if(trigger){
 			if(this.sizeFlag != 1){
 				this.sizeFlag = 1;
-				this.create();				
+				this.create();
 			}
 		} else {
 			this.sizeFlag = 2;
@@ -130,10 +130,10 @@ class Slider{
 		if(this.params.navigationArrows) this.createSliderNavigationArrows();
 		if(this.params.navigationCounter && !(this.params.multiDisplay && this.params.infinity)) this.createSliderNavigationCounter();
 		if(this.params.slideClickRewind) this.prepareSlidesOnclick();
-		if(this.params.autoShift) this.changeSlidesAutomaticaly();	
+		if(this.params.autoShift) this.changeSlidesAutomaticaly();
 	}
 
-	findSlideOnScreen(){		
+	findSlideOnScreen(){
 		this.slideOnScreen = 1;
 		if(this.params.multiDisplay){
 			let w = document.body.offsetWidth;
@@ -165,7 +165,7 @@ class Slider{
 		this.sliders.forEach((item,i,arr)=>{
 			item.classList.add('slider_slide');
 			this.box.append(item);
-		});			
+		});
 		this.block.append(this.box);
 		this.container.append(this.block);
 		this.block.style.width = '100%';
@@ -257,7 +257,7 @@ class Slider{
 
 		if(this.params.multiDisplay){
 			if(this.params.multiDisplay.marginRight){
-				let w = document.body.offsetWidth 
+				let w = document.body.offsetWidth
 				if(w>0 && w<=700){
 					marginRight = this.params.multiDisplay.marginRight.mobile;
 				} else if(w>700 && w<=1100){
@@ -267,10 +267,10 @@ class Slider{
 				}
 			}
 
-			d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;		
+			d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;
 		}
 
-		this.sliders.forEach((slide,i,arr)=>{	
+		this.sliders.forEach((slide,i,arr)=>{
 			slide.style.width = `${d}px`;
 			slide.style.minWidth = `${d}px`;
 			slide.dataset.number = i;
@@ -313,14 +313,14 @@ class Slider{
 			this.emulSlides.forEach((item,i)=>{
 				item.classList.remove('active');
 			})
-			this.emulSlides[n].classList.add('active');	
+			this.emulSlides[n].classList.add('active');
 		}
 
 		setTimeout(() => {
 			this.flagBlock = false;
 			if(callback) callback();
 			this.flagBlockSlide = false
-		}, this.moveTime * 1000);	
+		}, this.moveTime * 1000);
 	}
 
 	slideMove(params){
@@ -351,7 +351,7 @@ class Slider{
 			if(params.counter != undefined) this.activeSlider = params.counter;
 
 			if(this.params.infinity){
-				this.infinitySlideWork.call(this);		
+				this.infinitySlideWork.call(this);
 			} else {
 				if(this.activeSlider > this.sliders.length - 1) this.activeSlider = this.sliders.length - 1;
 				if(this.activeSlider < 0) this.activeSlider = 0;
@@ -368,17 +368,17 @@ class Slider{
 		this.sliders = [].slice.call(this.box.children);
 
 		if(n || n === 0){
-			this.sliders.forEach((slide,i,arr)=>{	
+			this.sliders.forEach((slide,i,arr)=>{
 				slide.classList.remove('active');
 			})
 
 			this.activeSlider = n;
 			this.sliders[n].classList.add('active');
 		} else {
-			this.sliders.forEach((slide,i,arr)=>{	
+			this.sliders.forEach((slide,i,arr)=>{
 				if(slide.classList.contains('active')) this.activeSlider = i;
 				slide.classList.remove('active');
-			})	
+			})
 		}
 	}
 
@@ -399,11 +399,11 @@ class Slider{
 			this.slideAll(func0.bind(this));
 
 			function func0(){
-				this.box.style.transition = ``;				
+				this.box.style.transition = ``;
 				for(let i=0; i<sr; i++){
 					this.sliders[0].remove();
 					this.sliders.shift();
-				}	
+				}
 				this.installActiveSlider(this.activeSlider - sr);
 				this.slideAll(func2.bind(this));
 
@@ -417,7 +417,7 @@ class Slider{
 		} else if(this.activeSlider < 0){
 			let sr = this.slideOnScreen;
 			if(!this.params.multiShift) sr = 1;
-			this.box.style.transition = ``;  
+			this.box.style.transition = ``;
 			for(let i=0; i<sr; i++){
 				let s = this.sliders[this.sliders.length - i - 1].cloneNode(true);
 				this.box.prepend(s);
@@ -435,7 +435,7 @@ class Slider{
 				function func2(){
 					for(let i=0; i<sr; i++){
 						let s = this.sliders[this.sliders.length - 1].remove();
-						this.sliders.pop();				
+						this.sliders.pop();
 					}
 					this.installActiveSlider(0);
 					this.flagBlockInfinity = false;
@@ -444,10 +444,10 @@ class Slider{
 		} else {
 			this.installActiveSlider(this.activeSlider);
 			this.slideAll(() => this.flagBlockInfinity = false);
-		}				
+		}
 	}
 
-	prepareSlidesOnclick(){		
+	prepareSlidesOnclick(){
 		this.container.addEventListener('click', func.bind(this));
 		function func(event){
 			if(!event.target.closest('.slider_slide')) return;
@@ -462,11 +462,11 @@ class Slider{
 						this.installActiveSlider(i);
 					}
 				});
-				
+
 				this.infinitySlideWork();
-			} else {			
+			} else {
 				this.installActiveSlider(slide.dataset.number)
-				this.slideAll();					
+				this.slideAll();
 			}
 		}
 	}
@@ -506,8 +506,8 @@ class Slider{
 	}
 
 	touchFlip(event){
-		let touchPointStart = event.changedTouches['0'].screenX;
-		let touchPointStartY = event.changedTouches['0'].screenY;
+		let touchPointStart = event.changedTouches['0'].pageX;
+		let touchPointStartY = event.changedTouches['0'].pageY;
 		let touchPointCurrent = 0;
 		let touchPointCurrentY = 0;
 		let m = 0;
@@ -519,8 +519,8 @@ class Slider{
 		this.touchTimeStart = +new Date();
 
 		function touchMove(event){
-	    	touchPointCurrent = event.changedTouches['0'].screenX;
-	    	touchPointCurrentY = event.changedTouches['0'].screenY;
+	    	touchPointCurrent = event.changedTouches['0'].pageX;
+	    	touchPointCurrentY = event.changedTouches['0'].pageY;
 	    	m = touchPointCurrent - touchPointStart;
 	    	n = touchPointCurrentY - touchPointStartY;
 
@@ -535,25 +535,25 @@ class Slider{
 				clearInterval(this.autoShift);
 				this.slideMove({direction: 'right'});
 				touchPointStart = touchPointCurrent;
-				touchEndBinded(event);		
+				touchEndBinded(event);
 			}
 
   		}
-  		
+
 
 		function touchEnd(event){
 			this.container.removeEventListener('touchmove', touchMoveBinded);
 			this.container.removeEventListener('touchend', touchEndBinded);
 			touchPointStart = 0;
 			touchPointStartY = 0;
-		    touchPointCurrent = 0;	    
-		    touchPointCurrentY = 0;	  
+		    touchPointCurrent = 0;
+		    touchPointCurrentY = 0;
 
 		    if((m <= 20 && m >= -20) && (n <= 20 && n >= -20)){
 		    	event.target.click();
-			} 
+			}
 
-	    	event.preventDefault();  
+	    	event.preventDefault();
 		}
 
 		this.container.addEventListener('touchmove', touchMoveBinded);
@@ -587,7 +587,7 @@ function clickItemHandler(event){
 					parent.classList.remove('active');
 				}
 			}
-			
+
 		},
 
 		'change-list': function(target){
@@ -617,7 +617,7 @@ function clickItemHandler(event){
 			container.innerHTML = `<div class="lightbox_background"></div>
 								<div class="lightbox">
 									${target.dataset.title ? ('<h2>' + target.dataset.title + '</h2>') : '<h2 class="hidden"></h2>'}
-									<div class="lightbox_close click-item" data-action="remove">		
+									<div class="lightbox_close click-item" data-action="remove">
 										<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M24.4001 7.61363C24.2767 7.49003 24.1302 7.39196 23.9689 7.32505C23.8076 7.25815 23.6347 7.22371 23.4601 7.22371C23.2855 7.22371 23.1125 7.25815 22.9513 7.32505C22.79 7.39196 22.6434 7.49003 22.5201 7.61363L16.0001 14.1203L9.48008 7.6003C9.35664 7.47686 9.21009 7.37894 9.04881 7.31213C8.88752 7.24532 8.71466 7.21094 8.54008 7.21094C8.36551 7.21094 8.19265 7.24532 8.03136 7.31213C7.87007 7.37894 7.72353 7.47686 7.60008 7.6003C7.47664 7.72374 7.37872 7.87029 7.31192 8.03157C7.24511 8.19286 7.21072 8.36572 7.21072 8.5403C7.21072 8.71487 7.24511 8.88774 7.31192 9.04902C7.37872 9.21031 7.47664 9.35686 7.60008 9.4803L14.1201 16.0003L7.60008 22.5203C7.47664 22.6437 7.37872 22.7903 7.31192 22.9516C7.24511 23.1129 7.21072 23.2857 7.21072 23.4603C7.21072 23.6349 7.24511 23.8077 7.31192 23.969C7.37872 24.1303 7.47664 24.2768 7.60008 24.4003C7.72353 24.5237 7.87007 24.6217 8.03136 24.6885C8.19265 24.7553 8.36551 24.7897 8.54008 24.7897C8.71466 24.7897 8.88752 24.7553 9.04881 24.6885C9.21009 24.6217 9.35664 24.5237 9.48008 24.4003L16.0001 17.8803L22.5201 24.4003C22.6435 24.5237 22.7901 24.6217 22.9514 24.6885C23.1126 24.7553 23.2855 24.7897 23.4601 24.7897C23.6347 24.7897 23.8075 24.7553 23.9688 24.6885C24.1301 24.6217 24.2766 24.5237 24.4001 24.4003C24.5235 24.2768 24.6214 24.1303 24.6883 23.969C24.7551 23.8077 24.7894 23.6349 24.7894 23.4603C24.7894 23.2857 24.7551 23.1129 24.6883 22.9516C24.6214 22.7903 24.5235 22.6437 24.4001 22.5203L17.8801 16.0003L24.4001 9.4803C24.9067 8.97363 24.9067 8.1203 24.4001 7.61363Z" fill="#8D8D8D"/>
 										</svg>
@@ -679,7 +679,7 @@ function clickItemHandler(event){
 					} else {
 						title.innerHTML = '';
 						title.classList.add('hidden');
-					}					
+					}
 
 					if(arr[n].dataset.description){
 						description.innerHTML = arr[n].dataset.description;
@@ -750,7 +750,7 @@ function clickItemHandler(event){
 		'tab-change': function(target){
 			if(target.classList.contains('active')) return;
 			parent.querySelectorAll('.product_tab_label').forEach(item => item.classList.remove('active'));
-			target.classList.add('active');			
+			target.classList.add('active');
 
 			parent.querySelectorAll('.product_tab_content').forEach(item => item.classList.remove('active'));
 			let content = parent.querySelector(target.dataset.label);
@@ -829,7 +829,7 @@ function clickItemHandler(event){
 						if(item.checked){
 							flag = true;
 							counter++;
-						} 
+						}
 					})
 
 					if(flag){
@@ -838,7 +838,7 @@ function clickItemHandler(event){
 						this.changeClassList(target,false);
 					}
 
-					
+
 					if(!target.closest('.order_select')) return;
 					if(!target.closest('.order_select').querySelector('.order_select_num')) return;
 					target.closest('.order_select').querySelector('.order_select_num').textContent = counter;
@@ -890,7 +890,7 @@ function clickItemHandler(event){
 
 	validatePhone(){
 		if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
-		
+
 		event.target.value = event.target.value.replace(/\D/g,"");
 		if(event.target.value.slice(0,3) != '380'){
 			event.target.value = `380${event.target.value.slice(3)}`;
@@ -952,8 +952,8 @@ class InputLine{
 
 		this.prepare();
 
-		this.parent.addEventListener('change', this.changeValue.bind(this));		
-		//this.parent.addEventListener('input', this.changeValue.bind(this));		
+		this.parent.addEventListener('change', this.changeValue.bind(this));
+		//this.parent.addEventListener('input', this.changeValue.bind(this));
 		this.parent.addEventListener('mousedown', this.controllStart.bind(this));
 		this.parent.addEventListener('touchstart', this.controllStart.bind(this), false);
 		this.parent.ondragstart = function(){
@@ -1032,7 +1032,7 @@ class InputLine{
 
 		controllMove = controllMove.bind(this);
 		controllEnd = controllEnd.bind(this);
-		
+
 		document.addEventListener('mousemove', controllMove);
 		document.addEventListener('mouseup', controllEnd);
 
@@ -1044,9 +1044,9 @@ class InputLine{
 	changePositions(event){
 		let coordinatX;
 		if(event.type == 'mousemove'){
-			coordinatX = event.screenX - document.body.getBoundingClientRect().left;
+			coordinatX = event.pageX;
 		} else if(event.type == 'touchmove'){
-			coordinatX = event.changedTouches[0].screenX - document.body.getBoundingClientRect().left;
+			coordinatX = event.changedTouches[0].pageX;
 		}
 
 		this.position = parseInt((coordinatX - this.line.getBoundingClientRect().left) * 100 / this.lineWidth) + 1;
@@ -1061,7 +1061,7 @@ class InputLine{
 			if(parseInt(getComputedStyle(this.controllMin).left) >= parseInt(getComputedStyle(this.controllMax).left) - 20) this.controllMin.style.left = `calc(${parseInt(getComputedStyle(this.controllMax).left) - 20}px)`;
 		}
 
-		this.changeValueMove();		
+		this.changeValueMove();
 	}
 
 	changeValueMove(){
@@ -1070,7 +1070,7 @@ class InputLine{
 
 		if(this.directionMove){
 			this.inputMax.value = parseInt(this.result);
-			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
+			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;
 		} else {
 			this.inputMin.value = parseInt(this.result);
 			if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
