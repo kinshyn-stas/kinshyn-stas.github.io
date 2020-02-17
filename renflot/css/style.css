@@ -2501,12 +2501,31 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	height: 100%;
 	object-fit: cover;
 }
-.product_descriptions_box-4_title{
+.product_descriptions_box .product_descriptions_box-4_title{
 	margin-bottom: 4px;
 	color: #1C2833;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 20px;
+}
+.product_descriptions_box-5{
+	color: #51565A;
+	font-size: 16px;
+	line-height: 150%;
+}
+.product_descriptions_box .product_descriptions_box-5_title{
+	margin-bottom: 8px;
+	color: #1C2833;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+}
+.product_descriptions_box-5 ul{}
+.product_descriptions_box-5 ul li{
+	margin-bottom: 10px;
+}
+.product_descriptions_box-5 ul li:last-of-type{
+	margin-bottom: 0;
 }
 
 .product_info{
