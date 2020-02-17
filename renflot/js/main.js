@@ -510,7 +510,8 @@ class Slider{
 		let touchPointStartY = event.changedTouches['0'].screenY;
 		let touchPointCurrent = 0;
 		let touchPointCurrentY = 0;
-		let isMove = false;
+		let m = 0;
+		let n = 0;
 
 		let touchMoveBinded = touchMove.bind(this);
 		let touchEndBinded = touchEnd.bind(this);
@@ -519,15 +520,9 @@ class Slider{
 
 		function touchMove(event){
 	    	touchPointCurrent = event.changedTouches['0'].screenX;
-	    	let m = touchPointCurrent - touchPointStart;
-	    	let n = touchPointCurrentY - touchPointStartY;
-	    	if(m >= 20 || m <= 20 || n >= 20 || n <= 20){
-	    		isMove = true;
-				touchPointStart = touchPointCurrent;
-				touchPointStartY = touchPointCurrentY;
-	    		touchEndBinded(event);
-	    		return;
-	    	}
+	    	touchPointCurrentY = event.changedTouches['0'].screenY;
+	    	m = touchPointCurrent - touchPointStart;
+	    	n = touchPointCurrentY - touchPointStartY;
 
 			if(m >= document.body.offsetWidth/4){
 				event.preventDefault();
@@ -547,17 +542,18 @@ class Slider{
   		
 
 		function touchEnd(event){
-			if(isMove) return;
-	    	event.preventDefault();
 			this.container.removeEventListener('touchmove', touchMoveBinded);
 			this.container.removeEventListener('touchend', touchEndBinded);
 			touchPointStart = 0;
-		    touchPointCurrent = 0;
+			touchPointStartY = 0;
+		    touchPointCurrent = 0;	    
+		    touchPointCurrentY = 0;	  
 
-			/*this.touchTimeEnd = +new Date();
-			if(this.touchTimeEnd - this.touchTimeStart > 10){
-				event.target.click();
-			}	*/			    
+		    if((m <= 20 && m >= -20) && (n <= 20 && n >= -20)){
+		    	event.target.click();
+			} 
+
+	    	event.preventDefault();  
 		}
 
 		this.container.addEventListener('touchmove', touchMoveBinded);
