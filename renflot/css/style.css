@@ -4261,7 +4261,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	text-transform: uppercase;
 }
 .calc_item_price{
-	margin-top: 16px;
+	margin-top: 32px;
 	color: #1C2833;
 	font-size: 14px;
 	font-weight: 600;
@@ -4270,4 +4270,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .calc_item_price b{
 	font-weight: 700;
 	font-size: 40px;
+}
+
+@media screen and (max-width: 768px){
+	.calc_block{
+		padding: 64px 0 32px;
+		margin-bottom: 64px;
+	}
+	.calc_title{
+		margin-bottom: 24px;
+	}
+	.calc_item{
+		width: 100%;
+	}
+	.calc_item-special{
+		padding: 24px 16px;
+	}
 }
