@@ -3901,3 +3901,64 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		margin-bottom: 64px;
 	}
 }
+
+
+.feedback_block{
+	padding-bottom: 120px;
+}
+.feedback_container{
+	display: flex;
+	justify-content: space-between;
+}
+.feedback_content{
+	width: 49%;
+	min-width: 49%;
+	padding: 50px 0;
+}
+.feedback_text{
+	color: #8D8D8D;
+	font-size: 18px;
+	line-height: 150%;
+}
+.feedback_text h2{
+	margin-bottom: 8px;
+}
+.feedback_form{
+	margin-top: 27px;
+}
+.feedback_form_item{
+	margin-bottom: 24px;
+}
+.feedback_form_item:last-of-type{
+	margin-bottom: 0;
+}
+.feedback_form_item-full{
+	margin-top: 32px;
+}
+.feedback_form_item input{
+	width: 100%;
+}
+.feedback_form_item button{
+	width: 100%;
+}
+.feedback_media{
+	width: 43%;
+	min-width: 43%;
+}
+.feedback_media figure{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.feedback_media figure img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
