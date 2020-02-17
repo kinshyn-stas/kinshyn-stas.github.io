@@ -986,10 +986,12 @@ class InputLine{
 
 		if(this.direction){
 			if(+this.inputMax.value > this.max) this.inputMax.value = this.max;
-			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
+			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;
+			this.inputMax.value = parseInt(this.inputMax.value);
 		} else {
 			if(+this.inputMin.value < this.min) this.inputMin.value = this.min;
 			if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
+			this.inputMin.value = parseInt(this.inputMin.value);
 		}
 
 		this.changePositionsWrite();
@@ -1067,12 +1069,15 @@ class InputLine{
 		this.result = this.position * this.max / 100;
 
 		if(this.directionMove){
-			this.inputMax.value = this.result;
+			this.inputMax.value = parseInt(this.result);
 			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;	
 		} else {
-			this.inputMin.value = this.result;
+			this.inputMin.value = parseInt(this.result);
 			if(+this.inputMin.value >= +this.inputMax.value) this.inputMin.value = +this.inputMax.value - 1;
 		}
+
+		this.direction = this.directionMove;
+		this.changePositionsWrite()
 	}
 };
 
