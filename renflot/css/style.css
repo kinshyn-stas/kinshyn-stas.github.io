@@ -3909,10 +3909,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .feedback_container{
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 .feedback_content{
 	width: 49%;
-	min-width: 49%;
 	padding: 50px 0;
 }
 .feedback_text{
@@ -3943,7 +3943,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .feedback_media{
 	width: 43%;
-	min-width: 43%;
 }
 .feedback_media figure{
 	position: relative;
@@ -3961,4 +3960,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+}
+
+@media screen and (max-width: 768px){
+	.feedback_block{
+		padding-bottom: 64px;
+	}
+	.feedback_content{
+		width: 100%;
+		padding: 0 0 32px;
+	}
+	.feedback_media{
+		width: 100%;
+	}
+	.feedback_media figure{
+		height: auto;
+	}
+	.feedback_media figure img{
+		position: static;
+		height: auto;
+	}
 }
