@@ -506,8 +506,8 @@ class Slider{
 	}
 
 	touchFlip(event){
-		let touchPointStart = event.changedTouches['0'].pageX;
-		let touchPointStartY = event.changedTouches['0'].pageY;
+		let touchPointStart = event.changedTouches['0'].screenX;
+		let touchPointStartY = event.changedTouches['0'].screenY;
 		let touchPointCurrent = 0;
 		let touchPointCurrentY = 0;
 		let m = 0;
@@ -519,8 +519,8 @@ class Slider{
 		this.touchTimeStart = +new Date();
 
 		function touchMove(event){
-	    	touchPointCurrent = event.changedTouches['0'].pageX;
-	    	touchPointCurrentY = event.changedTouches['0'].pageY;
+	    	touchPointCurrent = event.changedTouches['0'].screenX;
+	    	touchPointCurrentY = event.changedTouches['0'].screenY;
 	    	m = touchPointCurrent - touchPointStart;
 	    	n = touchPointCurrentY - touchPointStartY;
 
@@ -760,6 +760,13 @@ function clickItemHandler(event){
 			setTimeout(()=>{
 				content.style.animationName = 'product_tab_content';
 			}, 0)
+		},
+
+		'product_tab-switch': function(target){
+			let block = target.closest('.product_block');
+			block.querySelectorAll('.product_tab_label').forEach(item => {
+				if(item.dataset.label == target.dataset.label) item.click();
+			})
 		},
 
 		'click-recall-image': function(target){
