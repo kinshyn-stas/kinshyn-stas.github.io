@@ -1891,6 +1891,62 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	left: 100%;
 }
 
+.catalog_order{
+	position: relative;
+	padding: 48px 16px;
+	margin-bottom: 40px;
+	background-image: url(../img/catalog_order.jpg);
+	background-size: cover;
+	background-position: center;
+	color: #ffffff;
+	overflow: hidden;
+	border-radius: 5px;
+}
+.catalog_order:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(28, 40, 51, 0.7);
+}
+.catalog_order_form{
+	position: relative;
+	z-index: 2;
+	text-align: center;
+}
+.catalog_order_form .catalog_order_form_title{
+	margin-bottom: 12px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 23px;
+}
+.catalog_order_form_item{
+	margin-bottom: 12px;
+}
+.catalog_order_form_item:last-of-type{
+	margin-bottom: 0;
+}
+.catalog_order_form_item-full{
+	margin-top: 24px;
+}
+.catalog_order_form_item input{
+	width: 100%;
+	background-color: transparent;
+	border-color: #ffffff;
+	color: #ffffff;
+	text-align: center;
+}
+.catalog_order_form_item input::placeholder,
+.catalog_order_form_item textarea::placeholder{
+	color: #ffffff;
+}
+.catalog_order_form_item button{
+	width: 100%;
+}
+
 .catalog_advantages{
 	margin-top: 32px;
 	background-color: #EAF9D0;
@@ -2216,6 +2272,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	}
 	.catalog_form .button_container .button_order-borderless{
 		display: inline-block;
+	}
+	.catalog_order{
+		display: none;
 	}
 	.catalog_advantages{
 		display: none;
