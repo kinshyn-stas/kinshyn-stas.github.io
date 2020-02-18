@@ -1210,7 +1210,7 @@ class listHorizontal{
 				let limit = widthFull - widthContainer;
 				if(widthTemp >= limit){
 					widthTemp = limit;
-				}
+				} 
 
 				this.box.style.transform = `translateX(-${widthTemp}px)`;
 			} else {
