@@ -491,7 +491,7 @@ class Slider{
 
 			if(m < -document.body.offsetWidth/4){
 				this.slideMove({direction: 'right'});
-				mousePointStart = mousePointCurrent;
+				mousePointStart = mousePointCurrent; 
 				mouseUp.call(this,event);
 			} else if(m > document.body.offsetWidth/4){
 				this.slideMove({direction: 'left'});
@@ -996,7 +996,7 @@ class InputLine{
 		let target = event.target.closest('.input-line_field');
 		this.direction = 1;
 		if(target.dataset.role == 'min') this.direction = 0;
-
+ 
 		if(this.direction){
 			if(+this.inputMax.value > this.max) this.inputMax.value = this.max;
 			if(+this.inputMax.value <= +this.inputMin.value) this.inputMax.value = +this.inputMin.value + 1;
@@ -1148,3 +1148,85 @@ function handlerClickLinks(event){
 		scrollTo(pageXOffset,p)
 	}, 1);
 };
+
+
+
+class listHorizontal{
+	constructor(params){
+		this.container = params.item;
+		this.params = params;
+		this.box = this.container.querySelector('.list_box');
+		this.items = this.container.querySelectorAll('.list_item');
+		this.arrowLeft = this.container.querySelector('.list_arrow-left');
+		this.arrowRight = this.container.querySelector('.list_arrow-right');
+
+		this.prepare();
+	}
+
+	prepare(){
+		this.items.forEach((item,i) => {
+			item.dataset.number = i;
+			item.onclick = function(event){
+				this.installActiveItem(this.items[+item.dataset.number]);
+			}.bind(this);
+		});
+		this.installActiveItem();
+
+		this.arrowLeft.onclick = function(event){
+			if(this.activeItem <= 0) return;
+			this.installActiveItem(this.items[this.activeItem - 1]);
+		}.bind(this);
+
+		this.arrowRight.onclick = function(event){
+			if(this.activeItem >= this.items.length) return;
+			this.installActiveItem(this.items[this.activeItem + 1]);
+		}.bind(this);
+	}
+
+	installActiveItem(item){
+		this.items.forEach(item => item.classList.remove('active'));
+		if(item){
+			item.classList.add('active');
+			this.activeItem = +item.dataset.number;
+		} else {
+			this.items[0].classList.add('active');
+			this.activeItem = +this.items[0].dataset.number;
+		}
+
+		this.moveBox();
+	}
+
+	moveBox(){
+		let widthContainer = parseInt(getComputedStyle(this.container).width)
+		let widthFull = 0;
+		let widthTemp = 0;
+
+		this.items.forEach(item => {
+			widthFull += findWidth(item);
+		})
+
+		this.items.forEach(item => {
+			if(item.classList.contains('active')){
+				let limit = widthFull - widthContainer;
+				if(widthTemp >= limit){
+					widthTemp = limit;
+				}
+
+				this.box.style.transform = `translateX(-${widthTemp}px)`;
+			} else {
+				widthTemp += findWidth(item);
+			}
+		})
+
+		function findWidth(item){
+			let result = 0;
+			result += parseInt(getComputedStyle(item).width);
+			result += parseInt(getComputedStyle(item).marginRight);
+			return result;
+		}
+	}
+};
+
+new classMultiplyWrapper(listHorizontal, {
+	selector: '.list_container',
+});
