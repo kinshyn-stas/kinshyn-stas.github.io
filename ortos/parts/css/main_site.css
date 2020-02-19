@@ -57,7 +57,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 70px;
+	margin-bottom: 10px;
 }
 .ms-sentence_tab_panel_item{
 	padding: 12px 18px;
@@ -84,10 +84,13 @@
 }
 .ms-sentence_tab_content_item_controls{
 	display: flex;
+	justify-content: flex-end;
 	align-items: center;
+	margin-bottom: 50px;
 }
 .ms-sentence_tab_content_item_control_arrow{
 	display: inline-block;
+	cursor: pointer;
 }
 .ms-sentence_tab_content_item_control_arrow img{
 	display: block;
@@ -97,6 +100,18 @@
 .ms-sentence_tab_content_item_control_arrow-right img{
 	transform: scale(-1,1);
 }
+.ms-sentence_tab_content_item_control_number{
+	display: inline-block;
+	margin: 0 20px;
+	font-family: "Open Sans", "Roboto", sans-serif;
+	color: #bdbdbd;
+	font-size: 18px;
+	line-height: 1;
+}
+.ms-sentence_tab_content_item_control_number_first{
+	color: #212121;
+}
+.ms-sentence_tab_content_item_control_number_second{}
 .ms-sentence_tab_content_item_slider{}
 .ms-sentence_tab_content_item .pr_elect_item{
 	width: calc((100% - 90px) / 4)
