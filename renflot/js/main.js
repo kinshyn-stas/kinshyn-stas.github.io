@@ -54,7 +54,7 @@ window.onload = function(){
 		selector: '.form_validate',
 	});*/
 
-	//emulateSelector('.select_emulator');
+	emulateSelector('.select_emulator');
 
 
 	//new inputFileEmulator('.input_emulator-file');
@@ -64,6 +64,14 @@ window.onload = function(){
 
 
 	document.addEventListener('click', handlerClickLinks);
+
+
+	new classMultiplyWrapper(listHorizontal, {
+		selector: '.list_container',
+	});
+
+
+	document.addEventListener('input', searchSelectEmulator);
 };
 
 
@@ -1227,6 +1235,107 @@ class listHorizontal{
 	}
 };
 
-new classMultiplyWrapper(listHorizontal, {
-	selector: '.list_container',
-});
+
+function emulateSelector(select){
+	let selects = document.querySelectorAll(select);
+
+	selects.forEach((select) =>{
+		select.hidden = true;
+
+		let emul = document.createElement('div');
+		emul.classList = "select";
+		/*emul.setAttribute('tabindex','1');
+		emul.onblur = function(){
+			this.classList.remove('active');
+		};*/
+
+		let emulList = document.createElement('div');
+		emulList.classList = "select_list";
+		emul.append(emulList);
+
+		select.querySelectorAll('option').forEach((item)=>{
+			let option = document.createElement('div');
+			option.classList = "select_option";
+			option.innerHTML = item.innerHTML;
+			option.dataset.value = item.value;
+
+			option.onclick = ()=>{
+				emul.classList.toggle('active')
+				select.value=option.dataset.value;
+
+				let evt = document.createEvent('HTMLEvents');
+				evt.initEvent('change', true, true);
+				select.dispatchEvent(evt);
+
+				option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
+					option.classList.remove('selected')
+				});
+				option.classList.add('selected');
+			};
+
+			if(item.selected){
+				option.classList.add('selected');
+			} 
+			if(item.dataset.default == 'true') option.classList.add('default');
+			if(item.disabled) option.classList.add('disabled');
+			emulList.append(option);
+		});
+
+		if(select.dataset.search){
+			let searchBox = document.createElement('div');
+			searchBox.classList = 'select_option select_search';
+			searchBox.innerHTML = `<input class="select_search_input" type="text" placeholder="Поиск..." />`;
+			let search = searchBox.querySelector('input');
+			emulList.append(searchBox);
+
+			let searchResult = document.createElement('div');
+			searchResult.classList = 'select_option select_search_result hidden';
+			searchResult.textContent = 'Нет совпадений'
+			emulList.append(searchResult);
+		}
+
+		select.parentNode.append(emul);
+
+		/*let heightStart = emul.querySelector('.select_option').offsetHeight;
+		let heightEnd = 0;
+		emul.querySelectorAll('.select_option').forEach((option)=>{
+			heightEnd += option.offsetHeight;
+		});*/
+		//emul.style.height = heightStart + 'px';
+		//emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
+	})
+
+	let z = 1;
+	for(let i=selects.length - 1; i>=0; i--){
+		selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
+		z++;
+	}
+};
+
+
+function searchSelectEmulator(event){
+	if(!event.target.closest('.select_search_input')) return;
+	let input = event.target.closest('.select_search_input');
+	let list = input.closest('.select_list');
+	let value = input.value.toLowerCase();
+				
+	let optionCounter = 0;
+	list.querySelectorAll('.select_option').forEach(option => {
+		if(!option.classList.contains('selected') && !option.classList.contains('select_search')){
+			option.classList.add('hidden');
+			optionCounter++;
+		};
+		let text = option.innerText.toLowerCase();
+		if(text.indexOf(value) != -1 || value == ''){
+			option.classList.remove('hidden');
+			optionCounter--;
+		}
+	})
+
+	console.log(optionCounter,(list.querySelectorAll('.select_option').length - 2))
+	if(optionCounter >= (list.querySelectorAll('.select_option').length - 2)){
+		list.querySelector('.select_search_result').classList.remove('hidden');
+	} else {
+		list.querySelector('.select_search_result').classList.add('hidden');
+	}
+};
