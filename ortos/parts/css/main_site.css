@@ -85,13 +85,25 @@
 .ms-sentence_tab_content_item .pr_elect_item{
 	width: calc((100% - 90px) / 4)
 }
-.ms-sentence_tab_content .owl-buttons{
+.ms-sentence_tab_content .owl-buttons{}
+.ms-sentence_tab_content .order_slider_arrow{
+	height: auto;
+	background-color: transparent;
+	transform: none;
+}
+.ms-sentence_tab_content .order_slider_arrow img{
+	display: block;
+	width: 38px;
+	height: 17px;
+}
+.ms-sentence_tab_content .order_slider_arrow:before,
+.ms-sentence_tab_content .order_slider_arrow:after{
 	display: none;
 }
 .ms-sentence_tab_content .owl-pagination{
 	display: none;
 }
 .ms-sentence .ms-button_container{
-	margin-top: 50px;
+	margin-top: 20px;
 	text-align: center;
 }
