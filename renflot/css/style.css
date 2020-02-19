@@ -4501,7 +4501,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	flex-grow: 100;
 	padding-right: 30px;
 }
-.order_form{}
+.order_form_box{}
 .order_form_item{
 	margin-bottom: 36px;
 }
@@ -4604,13 +4604,80 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 	width: 570px;
 	min-width: 570px;
 }
+.order_final{
+	background-color: #EAF9D0;
+	border-radius: 5px;
+}
+.order_final_container{
+	padding: 40px 24px;
+	display: flex;
+}
+.order_final_left{
+	width: 48%;
+	min-width: 48%;
+	margin-right: 28px;
+}
+.order_final_left figure{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 5px;
+}
+.order_final_left figure img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.order_final_right{
+	color: #1C2833;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 18px;
+}
+.order_final_right .order_final_right_title{
+	margin-bottom: 13px;
+}
+.order_final_number{
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.order_final_number-right{}
+.order_final_number_input{
+	display: inline-block;
+	width: 60px;
+	padding: 4px;
+	margin: 0 16px;
+	background-color: transparent;
+	color: #1C2833;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #D6E6BA;
+}
+.order_final_text{
+	margin-bottom: 26px;
+}
+.order_final_text b{
+	font-size: 32px;
+	font-weight: 700;
+}
+.order_final_button{}
+.order_final_button button{
+	width: 100%;
+	border-radius: 0 0 5px 5px;
+}
 
 @media screen and (max-width: 1100px){
 	.order_container{
 		flex-wrap: wrap;
 	}
 	.order_left{
-		order: 4;
 		padding-bottom: 30px;
 		padding-right: 0;
 	}
@@ -4652,6 +4719,21 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .select_option.selected{
 	order: 2;
 	padding: 11px 30px 12px 16px;
+}
+.select_option.selected:after{
+	content: "";
+	position: absolute;
+	top: 19px;
+	right: 16px;
+	display: inline-block;
+	width: 8px;
+	height: 5px;
+	background-image: url(../img/arrow_select.svg);
+	background-size: cover;
+    transition: all 0.2s ease-in-out;
+}
+.select.active .select_option.selected:after{
+	transform: rotate(180deg);
 }
 .select_option.disabled{
 	color: #8D8D8D;
