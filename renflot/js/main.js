@@ -72,6 +72,9 @@ window.onload = function(){
 
 
 	document.addEventListener('input', searchSelectEmulator);
+
+	changeMainBlockPaddinTop();
+	window.addEventListener('resize',changeMainBlockPaddinTop);
 };
 
 
@@ -1338,4 +1341,11 @@ function searchSelectEmulator(event){
 	} else {
 		list.querySelector('.select_search_result').classList.add('hidden');
 	}
+};
+
+
+function changeMainBlockPaddinTop(){
+	let main = document.querySelector('.main-container');
+	let header = document.querySelector('.main-top');
+	main.style.paddingTop = `${getComputedStyle(header).height}`;
 };
