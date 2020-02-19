@@ -1372,11 +1372,11 @@ class ScrollMainTop{
 		this.yNow = window.pageYOffset;
 
 		if(document.body.clientWidth<768 && this.yNow > this.yBegin && this.yNow > parseInt(getComputedStyle(this.header).height)){
-			this.headerBlock1.classList.add('hidden');
-			this.headerBlock2.classList.add('hidden');
+			this.headerBlock1.classList.add('collapsed');
+			this.headerBlock2.classList.add('collapsed');
 		} else {
-			this.headerBlock1.classList.remove('hidden');
-			this.headerBlock2.classList.remove('hidden');
+			this.headerBlock1.classList.remove('collapsed');
+			this.headerBlock2.classList.remove('collapsed');
 		}
 		
 		this.yBegin = this.yNow;
