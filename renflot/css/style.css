@@ -4698,6 +4698,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 		padding: 0;
 		margin-bottom: 12px;
 	}
+	.order_final_container{
+		flex-wrap: wrap;
+		padding: 24px 16px;
+	}
+	.order_final_left{
+		width: 100%;
+		min-width: 0;
+		margin-right: 0;
+		margin-bottom: 24px;
+	}
 }
 
 
