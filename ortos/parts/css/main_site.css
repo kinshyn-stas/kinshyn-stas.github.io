@@ -82,6 +82,22 @@
 .ms-sentence_tab_content_item.active{
 	display: block;
 }
+.ms-sentence_tab_content_item_controls{
+	display: flex;
+	align-items: center;
+}
+.ms-sentence_tab_content_item_control_arrow{
+	display: inline-block;
+}
+.ms-sentence_tab_content_item_control_arrow img{
+	display: block;
+	width: 38px;
+	height: 17px;
+}
+.ms-sentence_tab_content_item_control_arrow-right img{
+	transform: scale(-1,1);
+}
+.ms-sentence_tab_content_item_slider{}
 .ms-sentence_tab_content_item .pr_elect_item{
 	width: calc((100% - 90px) / 4)
 }
@@ -90,11 +106,6 @@
 	height: auto;
 	background-color: transparent;
 	transform: none;
-}
-.ms-sentence_tab_content .order_slider_arrow img{
-	display: block;
-	width: 38px;
-	height: 17px;
 }
 .ms-sentence_tab_content .order_slider_arrow:before,
 .ms-sentence_tab_content .order_slider_arrow:after{
