@@ -1372,13 +1372,11 @@ class ScrollMainTop{
 		this.yNow = window.pageYOffset;
 
 		if(document.body.clientWidth<768 && this.yNow > this.yBegin && this.yNow > parseInt(getComputedStyle(this.header).height)){
-			console.log('t1');
 			this.headerBlock1.classList.add('hidden');
 			this.headerBlock2.classList.add('hidden');
 		} else {
 			this.headerBlock1.classList.remove('hidden');
 			this.headerBlock2.classList.remove('hidden');
-			console.log('t2');
 		}
 		
 		this.yBegin = this.yNow;
