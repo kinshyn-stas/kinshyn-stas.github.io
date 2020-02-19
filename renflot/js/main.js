@@ -73,8 +73,11 @@ window.onload = function(){
 
 	document.addEventListener('input', searchSelectEmulator);
 
+
 	changeMainBlockPaddinTop();
 	window.addEventListener('resize',changeMainBlockPaddinTop);
+
+	new ScrollMainTop();
 };
 
 
@@ -1345,7 +1348,39 @@ function searchSelectEmulator(event){
 
 
 function changeMainBlockPaddinTop(){
+	if(!document.querySelector('.main-container') || !document.querySelector('.main-top')) return;
 	let main = document.querySelector('.main-container');
 	let header = document.querySelector('.main-top');
 	main.style.paddingTop = `${getComputedStyle(header).height}`;
+	main.scrollIntoView(top);
 };
+
+
+class ScrollMainTop{
+	constructor(){
+		this.header = document.querySelector('.main-top');
+		this.headerBlock1 = this.header.querySelector('.header-main');
+		this.headerBlock2 = this.header.querySelector('.subhead_block');
+		this.yBegin = 0;
+		this.yNow = 0;
+
+		this.scroll = this.scroll.bind(this);
+		document.addEventListener('scroll',this.scroll);
+	}
+
+	scroll(event){
+		this.yNow = window.pageYOffset;
+
+		if(document.body.clientWidth<768 && this.yNow > this.yBegin && this.yNow > parseInt(getComputedStyle(this.header).height)){
+			console.log('t1');
+			this.headerBlock1.classList.add('hidden');
+			this.headerBlock2.classList.add('hidden');
+		} else {
+			this.headerBlock1.classList.remove('hidden');
+			this.headerBlock2.classList.remove('hidden');
+			console.log('t2');
+		}
+		
+		this.yBegin = this.yNow;
+	}
+}
