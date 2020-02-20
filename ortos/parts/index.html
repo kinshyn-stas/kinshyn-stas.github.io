@@ -46,7 +46,7 @@
 					</div>
 					<div class="ms-sentence_tab_content">
 						
-						<div class="ms-sentence_tab_content_item ms-sentence_tab_content_item-1 active">
+						<div class="ms-sentence_slider_container ms-sentence_tab_content_item ms-sentence_tab_content_item-1 active">
 							<div class="ms-sentence_tab_content_item_controls">
 								<a class="ms-sentence_tab_content_item_control_arrow ms-sentence_tab_content_item_control_arrow-left">
 									<img src="img/slider_arrow.png" alt="" />
@@ -432,7 +432,7 @@
 							</div>
 						</div>
 
-						<div class="ms-sentence_tab_content_item ms-sentence_tab_content_item-2">
+						<div class="ms-sentence_slider_container ms-sentence_tab_content_item ms-sentence_tab_content_item-2">
 							<div class="ms-sentence_tab_content_item_slider">
 
 								<div class="pr_elect_box">
@@ -806,7 +806,7 @@
 							</div>
 						</div>
 
-						<div class="ms-sentence_tab_content_item ms-sentence_tab_content_item-3">
+						<div class="ms-sentence_slider_container ms-sentence_tab_content_item ms-sentence_tab_content_item-3">
 							<div class="ms-sentence_tab_content_item_slider">
 
 								<div class="pr_elect_box">
@@ -1180,7 +1180,7 @@
 							</div>
 						</div>
 
-						<div class="ms-sentence_tab_content_item ms-sentence_tab_content_item-4">
+						<div class="ms-sentence_slider_container ms-sentence_tab_content_item ms-sentence_tab_content_item-4">
 							<div class="ms-sentence_tab_content_item_slider">
 
 								<div class="pr_elect_box">
@@ -1585,6 +1585,14 @@
 				navigationText: ['<a class="order_slider_arrow order_slider_arrow-left"></a>','<a class="order_slider_arrow order_slider_arrow-right"></a>'],
 			});
 		});
+
+		/*$('.ms-sentence_tab_content_item_control_arrow-left').click(function(event){
+			event.target.closest('.ms-sentence_slider_container').querySelector('.owl-prev').click();
+		});
+
+		$('.ms-sentence_tab_content_item_control_arrow-right').click(function(event){
+			event.target.closest('.ms-sentence_slider_container').querySelector('.owl-next').click();
+		});*/
 	</script>
 </body>
 </html>
