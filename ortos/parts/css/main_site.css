@@ -28,6 +28,12 @@
 	-webkit-transform: scale(1.1);
 }
 
+@media screen and (max-width: 768px){
+	.ms-main-block{
+		margin-bottom: 60px;
+	}
+}
+
 .ms-sentence{}
 .ms-title-line{
 	display: flex;
@@ -278,6 +284,9 @@ img.rekl_image_mobile{
 }
 
 @media screen and (max-width: 768px){
+	.rekl_block{
+		padding: 60px 0;
+	}
 	.rekl_container{
 		display: block;
 		padding-left: 0;
@@ -320,5 +329,37 @@ img.rekl_image_mobile{
 		min-width: 0;
 		width: 310px;
 		max-width: 100%;
+	}
+}
+
+
+.company_block{}
+.company_content{
+	margin-top: 80px;
+	margin-bottom: 110px;
+	color: #757575;
+	font-size: 14px;
+}
+.company_content a{
+	font-weight: 500;
+	text-decoration: underline;
+}
+.company_content a:hover{
+	text-decoration: none;
+}
+.company_signature{}
+.company_signature svg{
+	display: block;
+	max-width: 100%;
+	margin-left: auto;
+}
+
+@media screen and (max-width: 768px){
+	.company_content{
+		margin-top: 40px;
+		margin-bottom: 0;
+	}
+	.company_signature svg{
+		display: none;
 	}
 }
