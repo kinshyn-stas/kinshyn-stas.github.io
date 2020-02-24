@@ -133,3 +133,16 @@
 	margin-top: 20px;
 	text-align: center;
 }
+
+
+@media screen and (max-width: 992px){
+	.ms-sentence_tab_content_item .pr_elect_item{
+		width: 49%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.ms-sentence_tab_content_item .pr_elect_item{
+		width: 100%;
+	}
+}

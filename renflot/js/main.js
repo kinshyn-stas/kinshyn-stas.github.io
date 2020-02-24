@@ -994,14 +994,15 @@ class InputLine{
 		if(this.documentWidth != document.documentElement.clientWidth) callback.call(this);
 	}
 
-	prepare(event){
-		if(event) console.log(event)
+	prepare(){
 		this.min = +this.inputMin.dataset.val;
 		this.max = +this.inputMax.dataset.val;
-		this.inputMin.value = this.min;
-		this.inputMax.value = this.max;
+		if(!this.inputMin.value || +this.inputMin.value < this.min || +this.inputMin.value > this.max) this.inputMin.value = this.min;
+		if(!this.inputMax.value || +this.inputMax.value < this.min || +this.inputMax.value > this.max) this.inputMax.value = this.max;		
 		this.controllMin.style.left = '0';
 		this.controllMax.style.left = '100%';
+
+		this.changePositionsWrite();
 	}
 
 	changeValue(){
