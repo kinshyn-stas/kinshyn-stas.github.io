@@ -387,6 +387,8 @@ img.rekl_image_mobile{
 	color: #212121;
 	font-size: 14px;
 	border-top: 2px solid #dddddd;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 .nv_menu_item:before,
 .nv_menu_item:after{
