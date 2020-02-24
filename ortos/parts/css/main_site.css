@@ -65,6 +65,7 @@
 	color: #212121;
 	font-size: 16px;
 	line-height: 1;
+	text-align: center;
 	border-radius: 50px;
 	background-color: transparent;
 	cursor: pointer;
@@ -142,6 +143,29 @@
 }
 
 @media screen and (max-width: 768px){
+	.ms-title-line{
+		justify-content: center;
+		margin-bottom: 40px;
+	}
+	.ms-title-line:before,
+	.ms-title-line:after{
+		display: none;
+	}
+	.ms-title-line span{
+		min-width: 0;
+		padding: 0;
+	}
+	.ms-sentence_tab_panel{
+		margin-bottom: 20px;
+	}
+	.ms-sentence_tab_panel_item{
+		padding: 6px 6px;
+		margin: 0 2px;
+		font-size: 13px;
+	}
+	.ms-sentence_tab_content_item_controls{
+		display: none;
+	}
 	.ms-sentence_tab_content_item .pr_elect_item{
 		width: 100%;
 	}
