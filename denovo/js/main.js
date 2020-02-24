@@ -75,6 +75,9 @@ window.onload = function(){
 
 
 	document.addEventListener('click', handlerClickLinks);
+
+	changeSizeSertificatImages();
+	window.addEventListener('resize',() => changeSizeSertificatImages());
 };
 
 
@@ -98,10 +101,13 @@ class Slider{
 		}
 		if(!this.sizeFlag) this.create();
 
-		this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
-		this.container.addEventListener("touchstart", this.touchFlip.bind(this));
+		this.mouseFlip = this.mouseFlip.bind(this);
+		this.touchFlip = this.touchFlip.bind(this);
+		this.prepare = this.prepare.bind(this)
 
-		window.addEventListener('resize', this.prepare.bind(this));	
+		this.container.addEventListener('mousedown', this.mouseFlip);
+		this.container.addEventListener("touchstart", this.touchFlip);
+		window.addEventListener('resize', this.prepare);	
 	}
 
 	checkSize(p){
@@ -154,6 +160,7 @@ class Slider{
 		this.activeSlider = 0;
 		
 		this.slideOnScreen = 1;
+		this.sliderBlockWidth = 100;
 		if(this.params.multiDisplay){
 			let w = document.body.offsetWidth;
 			if(w>0 && w<=768){
@@ -163,6 +170,14 @@ class Slider{
 			} else {
 				this.slideOnScreen = this.params.multiDisplay.desktop;
 			}
+
+			if(this.sliders.length < this.slideOnScreen){
+				this.sliderBlockWidth = parseInt(this.sliders.length / this.slideOnScreen);
+				this.slideOnScreen = this.sliders.length;
+			} 
+
+			console.log(this.sliderBlockWidth);
+			this.block.style.width = `${this.sliderBlockWidth}%`;
 		}
 
 		this.extendSlides();
@@ -176,13 +191,15 @@ class Slider{
 		this.box.classList = ('slider_box');
 
 		this.sliders = [].slice.call(this.container.children);
+
 		this.sliders.forEach((item,i,arr)=>{
 			item.classList.add('slider_slide');
 			this.box.append(item);
 		});			
 		this.block.append(this.box);
 		this.container.append(this.block);
-		this.block.style.width = '100%';
+
+		//this.block.style.width = '100%';
 		this.block.style.maxWidth = '100vw';
 		this.block.style.overflow = 'hidden';
 		this.box.style.display = 'flex';
@@ -567,11 +584,13 @@ class SliderTalk extends Slider{
 	}
 
 	prepare(){
+		if(this.sizeFlag == 2) return;
 		this.activeSlider = 0;
 		this.rightPart = this.container.closest('.talk_box').querySelector('.talk_right');
 		this.mainImage = this.container.closest('.talk_box').querySelector('.talk_image-main img');
 		
 		this.slideOnScreen = 1;
+		this.sliderBlockWidth = 100;
 		if(this.params.multiDisplay){
 			let w = document.body.offsetWidth;
 			if(w>0 && w<=768){
@@ -581,6 +600,13 @@ class SliderTalk extends Slider{
 			} else {
 				this.slideOnScreen = this.params.multiDisplay.desktop;
 			}
+
+			if(this.sliders.length < this.slideOnScreen){
+				this.sliderBlockWidth = parseInt((this.sliders.length / this.slideOnScreen) * 100);
+				this.slideOnScreen = this.sliders.length;
+			} 
+
+			this.block.style.width = `${this.sliderBlockWidth}%`;
 		}
 
 		this.extendSlides();
@@ -977,6 +1003,7 @@ class FormValidate{
 		this.form.addEventListener('input',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('change',this.checkInputsPattern.bind(this));
 		this.form.addEventListener('input',this.validatePhone.bind(this));
+		this.submit.addEventListener('click',this.submitClickHandler.bind(this));
 	}
 
 	checkInputsPattern(event){
@@ -1069,6 +1096,12 @@ class FormValidate{
 		if(event.target.value.slice(0,3) != '380'){
 			event.target.value = `380${event.target.value.slice(3)}`;
 		}
+	}
+
+	submitClickHandler(event){
+		if(this.submit.disabled) return;
+		this.submit.disabled = true;
+		this.submit.querySelector('span').textContent = '...';
 	}
 };
 
@@ -1298,4 +1331,21 @@ function handlerClickLinks(event){
 
 		scrollTo(pageXOffset,p)
 	}, 1);
+};
+
+
+function changeSizeSertificatImages(){
+	document.querySelectorAll('.sertificat_box').forEach(box => {
+		let h = 0;
+
+		box.querySelectorAll('.sertificat_image').forEach(item => {
+			item.style.height = 'auto';
+			let n = parseInt(getComputedStyle(item).height);
+			if(n > h) h = n;
+		});
+
+		box.querySelectorAll('.sertificat_image').forEach(item => {
+			item.style.height = `${h}px`;
+		});
+	})
 };
