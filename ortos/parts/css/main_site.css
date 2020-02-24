@@ -215,3 +215,47 @@
 		width: 100%;
 	}
 }
+
+
+.rekl_block{
+	padding: 100px 0;
+	background-color: #eff2f2;
+}
+.rekl_container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.rekl_left{
+	width: 49%;
+}
+.rekl_logotype{
+	width: 100%;
+	max-width: 220px;
+}
+.rekl_logotype img{
+	display: block;
+	max-width: 100%;
+}
+.rekl_text{
+	margin-top: 50px;
+	color: #7b589c;
+	font-size: 24px;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+.rekl_button{
+	margin-top: 80px;
+}
+.rekl_button .ms-button_order{
+	min-width: 310px;
+	text-transform: uppercase;
+}
+.rekl_right{
+	width: 49%;
+}
+.rekl_image{}
+.rekl_image img{
+	max-width: 100%;
+}
