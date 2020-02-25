@@ -1986,6 +1986,57 @@
 			</div>
 		</section>
 
+
+
+		<section class="ms-main-block ms-sentence ms-video_block">
+			<div class="ms-center-main-block">
+				
+				<h2 class="ms-title-line"><span>Полезная информация</span></h2>
+						
+				<div class="ms-sentence_slider_container">
+					<div class="ms-sentence_tab_content_item_controls">
+						<a class="ms-sentence_tab_content_item_control_arrow ms-sentence_tab_content_item_control_arrow-left">
+							<img src="img/slider_arrow.png" alt="" />
+						</a>
+						<span class="ms-sentence_tab_content_item_control_number">
+							<span class="ms-sentence_tab_content_item_control_number_first">1</span>
+							<span class="ms-sentence_tab_content_item_control_number_second"> / 1</span>
+						</span>
+						<a class="ms-sentence_tab_content_item_control_arrow ms-sentence_tab_content_item_control_arrow-right">
+							<img src="img/slider_arrow.png" alt="" />
+						</a>
+					</div>
+					<div class="ms-sentence_tab_content_item_slider ms-video_slider" data-items="1">
+						
+						<div class="ms-video_item">
+							<div class="ms-video_item_box">
+								<figure>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/o1YA_6tXs5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</figure>
+							</div>
+						</div>
+
+						<div class="ms-video_item">
+							<div class="ms-video_item_box">
+								<figure>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/o1YA_6tXs5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</figure>
+							</div>
+						</div>
+
+						<div class="ms-video_item">
+							<div class="ms-video_item_box">
+								<figure>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/o1YA_6tXs5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</figure>
+							</div>
+						</div>
+
+					</div>
+
+			</div>
+		</section>
+
 		<section class="ms-main-block company_block">
 			<div class="ms-center-main-block">
 				
@@ -2045,7 +2096,7 @@
 				let counter = 0;
 				let blockCounter = 1;
 				let arr = [];
-				let itemOnSlide = 4;
+				let itemOnSlide = 1;
 				if(block.dataset.items) itemOnSlide = +block.dataset.items;
 				if(document.body.offsetWidth <= 768){
 					itemOnSlide = 1;
@@ -2075,7 +2126,7 @@
 				createCounter();
 
 				function createCounter(){
-					let m = ` / ${block.querySelectorAll('.pr_elect_box').length}`
+					let m = ` / ${block.querySelectorAll('.pr_elect_box').length}`;
 
 					container.querySelector('.ms-sentence_tab_content_item_control_number_first').textContent = 1;
 					container.querySelector('.ms-sentence_tab_content_item_control_number_second').textContent = m;
@@ -2093,22 +2144,35 @@
 				    afterMove: changeSliderNumber.bind($(block)),
 				});
 
-				function changeSliderNumber(owl){
-					let container = this.closest('.ms-sentence_slider_container')[0];
-					let containerWidth = container.clientWidth;
-					let str = owl[0].querySelector('.owl-wrapper').style.transform;
+				let wrapper = container.querySelector('.owl-wrapper-outer');
+				findActiveSlideNumber();
+
+				function findActiveSlideNumber(){
+					let wrapperWidth = wrapper.clientWidth;
+					if(wrapperWidth == 0) wrapperWidth = 1;
+					let str = container.querySelector('.owl-wrapper').style.transform;
 					let boxShift = parseInt(str.slice(str.indexOf('(') + 1,str.indexOf('px,')));
-					let number = (parseInt(boxShift / containerWidth) - 1) * -1;
+					if(!boxShift) boxShift = 1;
+					let number = (parseInt(boxShift / wrapperWidth) - 1) * -1;
+					wrapper.querySelectorAll('.owl-item').forEach((item,i) => {
+						item.classList.remove('active');
+						if(i == (number-1)) item.classList.add('active');
+					});
+					return number;
+				}
+
+				function changeSliderNumber(){
+					let number = findActiveSlideNumber();
 					container.querySelector('.ms-sentence_tab_content_item_control_number_first').textContent = number;
 				}
 
-				$('.ms-sentence_tab_content_item_control_arrow-left').click(function(event){
+				container.querySelector('.ms-sentence_tab_content_item_control_arrow-left').onclick = function(){
 					$(block).trigger('owl.prev');
-				});
+				};
 
-				$('.ms-sentence_tab_content_item_control_arrow-right').click(function(event){
+				container.querySelector('.ms-sentence_tab_content_item_control_arrow-right').onclick = function(){
 					$(block).trigger('owl.next');
-				});
+				};
 			});
 		});
 	</script>

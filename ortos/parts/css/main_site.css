@@ -713,3 +713,46 @@ img.rekl_image_mobile{
 		top: 10px;
 	}
 }
+
+
+.ms-video_block{
+    max-width: 100vw;
+	overflow: hidden;
+}
+.ms-video_slider{
+	width: 100%;
+	max-width: 810px;
+	margin: 0 auto!important;
+}
+.ms-video_slider.owl-carousel .owl-wrapper-outer{
+	overflow: visible;
+}
+.ms-video_slider .owl-item{
+	opacity: 0.6;
+	transform: scale(0.73);
+}
+.owl-item.active{
+	opacity: 1;
+	transform: none;
+}
+.ms-video_item{
+	width: 100%;
+	padding: 0 1.5vw;
+}
+.ms-video_item_box{
+	width: 100%;
+}
+.ms-video_item_box figure{
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+.ms-video_item_box figure iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+    height: 100%;
+}
