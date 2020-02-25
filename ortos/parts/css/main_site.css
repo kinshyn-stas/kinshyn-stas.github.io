@@ -755,11 +755,26 @@ img.rekl_image_mobile{
 	margin-bottom: 150px;
 }
 .ms-video_slider{
+	position: relative;
 	width: 100%;
 	max-width: 810px;
 	margin: 150px auto 110px!important;
 }
+.ms-video_slider:before{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	display: block;
+	width: 100vw;
+	height: calc(100% + 140px);
+	background-color: #7b589c;
+	border-radius: 250px;
+	transform: translate(88%,-50%);
+}
 .ms-video_slider.owl-carousel .owl-wrapper-outer{
+	position: relative;
+	z-index: 10;
 	overflow: visible;
 }
 .ms-video_slider .owl-item{
