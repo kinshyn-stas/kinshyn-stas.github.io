@@ -25,7 +25,7 @@
             var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
     })(window,document,'https://cdn.bitrix24.ua/b11009669/crm/site_button/loader_1_swiear.js');
   </script>
-  <script type="application/ld+json">
+  <!--<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -59,6 +59,6 @@
     ],
     "priceRange": "UAH"
   }
-  </script>
+  </script>-->
 </body>
 </html>
