@@ -2011,7 +2011,7 @@
 							<img src="img/slider_arrow.png" alt="" />
 						</a>
 					</div>
-					<div class="ms-sentence_tab_content_item_slider ms-video_slider" data-items="1">
+					<div class="ms-sentence_tab_content_item_slider ms-video_slider" data-items="1" data-itemsplanshet="1">
 						
 						<div class="ms-video_item">
 							<div class="ms-video_item_box">
@@ -2110,8 +2110,11 @@
 				if(block.dataset.items) itemOnSlide = +block.dataset.items;
 				if(document.body.offsetWidth <= 768){
 					itemOnSlide = 1;
+					if(block.dataset.itemsmobile) itemOnSlide = +block.dataset.itemspobile;
 				} else if(document.body.offsetWidth <= 992){
 					itemOnSlide = 2;
+					console.log(block);
+					if(block.dataset.itemsplanshet) itemOnSlide = +block.dataset.itemsplanshet;
 				}
 
 				[].slice.call(block.children).forEach((item,i,childs) => {

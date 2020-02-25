@@ -213,6 +213,9 @@
 	}
 	.ms-sentence_tab_content_item_controls{
 		display: none;
+	}	
+	.ms-sentence_slider_container .owl-pagination{
+		display: block;
 	}
 	.ms-sentence_tab_content_item .pr_elect_item{
 		width: 100%;
@@ -829,3 +832,22 @@ img.rekl_image_mobile{
 	text-decoration: none;
 	transform: scale(1.1);
 }
+
+@media screen and (max-width: 992px){
+	.ms-video_panel{
+		padding-bottom: 0;
+	}
+	.ms-video_yb{
+		display: none;
+	}
+	.ms-video_block .ms-sentence_tab_content_item_controls{
+		display: none;
+	}
+	.ms-video_slider:before{
+		display: none;
+	}
+	.ms-video_slider{
+		margin: 30px auto!important;
+	}
+}
+@media screen and (max-width: 768px){}
