@@ -40,6 +40,16 @@
 					
 					<div class="nv_left">
 						
+						<div class="nv_logo">
+							<img src="img/logotype.png" alt="" />
+						</div>
+
+						<div class="nv_menu_switch">
+							<a class="nv_menu_switcher">
+								<span>Каталог товаров</span>
+							</a>
+						</div>
+
 						<div class="nv_menu">
 							<div class="nv_menu_box">
 
@@ -279,19 +289,19 @@
 
 							<div class="nv_right_item">
 								<a class="nv_right_item_banner">
-									<img src="img/banner-2.jpg" alt="" />
+									<img src="img/banner-1.jpg" alt="" />
 								</a>
 							</div>
 
 							<div class="nv_right_item">
 								<a class="nv_right_item_banner">
-									<img src="img/banner-3.jpg" alt="" />
+									<img src="img/banner-1.jpg" alt="" />
 								</a>
 							</div>
 
 							<div class="nv_right_item">
 								<a class="nv_right_item_banner">
-									<img src="img/banner-4.jpg" alt="" />
+									<img src="img/banner-1.jpg" alt="" />
 								</a>
 							</div>
 
@@ -2007,9 +2017,14 @@
 			itemsMobile:false, 
 		});
 
+		$('.nv_menu_switcher').click(function(event){
+			$(this).toggleClass('active');
+			$(this).parent('.nv_menu_switch').next('.nv_menu').toggle('fast');
+		});
+
 		$('.nv_menu_item').click(function(event){
 			$(this).toggleClass('active');
-			$(this).children('.nv_menu_list').toggle('slow');
+			$(this).children('.nv_menu_list').toggle('fast');
 		});
 
 
