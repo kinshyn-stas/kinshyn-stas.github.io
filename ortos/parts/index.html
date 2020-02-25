@@ -1991,7 +1991,12 @@
 		<section class="ms-main-block ms-sentence ms-video_block">
 			<div class="ms-center-main-block">
 				
-				<h2 class="ms-title-line"><span>Полезная информация</span></h2>
+				<div class="ms-video_panel">
+					<h2 class="ms-video_title"><span>Видео компании</span></h2>
+					<a class="ms-video_yb">
+						<img src="img/youtube_button.png" alt="" />
+					</a>
+				</div>
 						
 				<div class="ms-sentence_slider_container">
 					<div class="ms-sentence_tab_content_item_controls">
@@ -2033,6 +2038,11 @@
 						</div>
 
 					</div>
+				</div>
+
+				<div class="ms-video_button_box">
+					<a class="ms-video_button">Смотреть Все видео</a>
+				</div>
 
 			</div>
 		</section>
@@ -2114,23 +2124,7 @@
 					}					
 				});
 
-				function createBox(arr){
-					let box = document.createElement('div');
-					box.classList = 'pr_elect_box';
-					box.dataset.number = blockCounter;
-					blockCounter++;
-					arr.forEach(item => box.append(item));
-					block.append(box);
-				};
-
 				createCounter();
-
-				function createCounter(){
-					let m = ` / ${block.querySelectorAll('.pr_elect_box').length}`;
-
-					container.querySelector('.ms-sentence_tab_content_item_control_number_first').textContent = 1;
-					container.querySelector('.ms-sentence_tab_content_item_control_number_second').textContent = m;
-				};
 
 				$(block).owlCarousel({
 					items: 1,
@@ -2146,6 +2140,14 @@
 
 				let wrapper = container.querySelector('.owl-wrapper-outer');
 				findActiveSlideNumber();
+
+				container.querySelector('.ms-sentence_tab_content_item_control_arrow-left').onclick = function(){
+					$(block).trigger('owl.prev');
+				};
+
+				container.querySelector('.ms-sentence_tab_content_item_control_arrow-right').onclick = function(){
+					$(block).trigger('owl.next');
+				};
 
 				function findActiveSlideNumber(){
 					let wrapperWidth = wrapper.clientWidth;
@@ -2166,12 +2168,20 @@
 					container.querySelector('.ms-sentence_tab_content_item_control_number_first').textContent = number;
 				}
 
-				container.querySelector('.ms-sentence_tab_content_item_control_arrow-left').onclick = function(){
-					$(block).trigger('owl.prev');
+				function createBox(arr){
+					let box = document.createElement('div');
+					box.classList = 'pr_elect_box';
+					box.dataset.number = blockCounter;
+					blockCounter++;
+					arr.forEach(item => box.append(item));
+					block.append(box);
 				};
 
-				container.querySelector('.ms-sentence_tab_content_item_control_arrow-right').onclick = function(){
-					$(block).trigger('owl.next');
+				function createCounter(){
+					let m = ` / ${block.querySelectorAll('.pr_elect_box').length}`;
+
+					container.querySelector('.ms-sentence_tab_content_item_control_number_first').textContent = 1;
+					container.querySelector('.ms-sentence_tab_content_item_control_number_second').textContent = m;
 				};
 			});
 		});
