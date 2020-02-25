@@ -230,7 +230,46 @@
 
 					</div>
 
-					<div class="nv_right"></div>
+					<div class="nv_right">
+						
+						<div class="nv_slider">
+							
+							<div class="nv_slide" style="background-image: url(img/slide-1.jpg);">
+								<div class="nv_slide_content">
+									<h2 class="nv_slide_title">Бандаж на коленный сустав</h2>
+									<p class="nv_slide_undertitle">Push care Knee Brace</p>
+								</div>
+								<div class="nv_slide_price">
+									<p class="nv_slide_price_old"><b>2 838</b> грн</p>
+									<p class="nv_slide_price_new"><b>2 271</b> грн</p>
+								</div>
+							</div>
+
+							<div class="nv_slide" style="background-image: url(img/slide-1.jpg);">
+								<div class="nv_slide_content">
+									<h2 class="nv_slide_title">Бандаж на коленный сустав 2</h2>
+									<p class="nv_slide_undertitle">Push care Knee Brace</p>
+								</div>
+								<div class="nv_slide_price">
+									<p class="nv_slide_price_old"><b>2 838</b> грн</p>
+									<p class="nv_slide_price_new"><b>2 271</b> грн</p>
+								</div>
+							</div>
+
+							<div class="nv_slide" style="background-image: url(img/slide-1.jpg);">
+								<div class="nv_slide_content">
+									<h2 class="nv_slide_title">Бандаж на коленный сустав 3</h2>
+									<p class="nv_slide_undertitle">Push care Knee Brace</p>
+								</div>
+								<div class="nv_slide_price">
+									<p class="nv_slide_price_old"><b>2 838</b> грн</p>
+									<p class="nv_slide_price_new"><b>2 271</b> грн</p>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 
@@ -1929,6 +1968,17 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<script>
+		$('.nv_slider').owlCarousel({
+			items: 1,
+			loop: true,
+			navigation: true,
+			navigationText: ['<a class="order_slider_arrow order_slider_arrow-left"></a>','<a class="order_slider_arrow order_slider_arrow-right"></a>'],
+			itemsDesktop:false,
+			itemsDesktopSmall:false,
+			itemsTablet:false, 
+			itemsMobile:false, 
+		});
+
 		$('.nv_menu_item').click(function(event){
 			$(this).toggleClass('active');
 			$(this).children('.nv_menu_list').toggle('slow');
