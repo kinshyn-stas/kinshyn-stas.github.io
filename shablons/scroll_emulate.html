@@ -1,0 +1,97 @@
+  <style type="text/css">
+    .scroll-emul_block{
+      overflow-y: auto;
+    }
+    .scroll-emul_container{
+        position: relative;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+    .scroll-emul_content{
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scroll-emul_content::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+    .scroll-emul_line{
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        z-index: 10;
+        width: 3px;
+        height: calc(100% - 2px);
+        background-color: rgba(220, 220, 220, 0.5);
+        border-radius: 2px;
+    }
+    .scroll-emul_line_item{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: red;
+        border-radius: 2px;
+    }
+  </style>
+
+  <script>
+    hiddenScrollAside('.test');
+    window.addEventListener('resize',() => hiddenScrollAside('.test'));
+
+
+    function hiddenScrollAside(selector){
+        document.querySelectorAll(selector).forEach(box =>{            
+          box.classList.add('scroll-emul_block');
+          box.style.height = `${(parseInt(getComputedStyle(box).height))}px`;
+          let cont = box.querySelector('.scroll-emul_container');
+
+          if(!box.children[0].classList.contains('scroll-emul_container')){
+              cont = document.createElement('div');
+              cont.classList = 'scroll-emul_container';
+
+              let content = document.createElement('div');
+              content.classList = 'scroll-emul_content';
+
+              while(box.children.length){
+                  content.append(box.children[0])
+              }
+
+              let line = document.createElement('div');
+              line.classList = 'scroll-emul_line';
+
+              let line_item = document.createElement('div');
+              line_item.classList = 'scroll-emul_line_item';
+
+              cont.append(content);
+              line.append(line_item);
+              cont.append(line);
+              box.append(cont);
+
+              let n = content.offsetWidth - content.clientWidth - content.clientLeft;
+              if(n<=0) n = 20;
+              content.style.width = `calc(100% + ${n}px)`;
+
+              let contentFullHeight = 0;
+              for(let i = 0; i<content.children.length; i++){
+                  contentFullHeight += parseFloat(content.children[i].offsetHeight);
+              };
+              let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
+              line.hidden = (line_itemHeight >= 100)
+              line_item.style.height = `${line_itemHeight}%`;
+
+              content.addEventListener('scroll', scrollContent);
+
+              function scrollContent(e){
+                  line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
+              }
+          }
+        })
+    };
+  </script>
