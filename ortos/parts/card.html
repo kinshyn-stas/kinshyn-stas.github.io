@@ -33,6 +33,60 @@
 
 	<div class="ms-container">
 
+		<section class="ms-main-block ms-info">
+			<div class="ms-center-main-block">
+				
+				<div class="ms-info_tabs">
+					
+					<label class="ms-info_tab" data-label=".ms-info_content-1">
+						<span>Описание</span>
+					</label>
+					<label class="ms-info_tab active" data-label=".ms-info_content-2">
+						<span>Характеристики</span>
+					</label>
+					<label class="ms-info_tab" data-label=".ms-info_content-3">
+						<span>Отзывы</span>
+					</label>
+					<label class="ms-info_tab" data-label=".ms-info_content-4">
+						<span>Вопрос ответ</span>
+					</label>					
+
+				</div>
+
+				<div class="ms-info_contents">
+					
+					<div class="ms-info_content ms-info_content-1">
+						<p>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
+					</div>
+
+					<div class="ms-info_content ms-info_content-2 active">
+						<div class="ms-info_har_box">
+							<p class="ms-info_har"><span class="ms-info_har_title">Производитель</span><span class="ms-info_har_text">Push</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Артикул</span><span class="ms-info_har_text">8090</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Тип</span><span class="ms-info_har_text">На голеностопный сустав</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Страна</span><span class="ms-info_har_text">Нидерланды</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Классификация</span><span class="ms-info_har_text">Корсет-шины</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Материал</span><span class="ms-info_har_text">полиамид - 51%, полиэстер - 21%, полиэтилен - 9%,  силикон - 7%, другие - 12%, содержит латекс</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Цвет</span><span class="ms-info_har_text">Серый</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Размер</span><span class="ms-info_har_text">1,2,3</span></p>
+							<p class="ms-info_har"><span class="ms-info_har_title">Ребра жесткости</span><span class="ms-info_har_text">Нет</span></p>
+						</div>
+						<div class="ms-button_container">
+							<a class="ms-button_order">Посмотреть размерную сетку</a>
+						</div>
+					</div>
+
+					<div class="ms-info_content ms-info_content-3">
+						<h2></h2>
+					</div>
+
+					<div class="ms-info_content ms-info_content-4"></div>
+
+				</div>
+
+			</div>
+		</section>
+
 		<section class="ms-main-block ms-discount_block">
 			<div class="ms-center-main-block">
 				
@@ -543,6 +597,13 @@
 			itemsDesktopSmall:false,
 			itemsTablet:false, 
 			itemsMobile:false, 
+		});
+
+		$('.ms-info_tab').click(function(event){
+			$('.ms-info_tab').removeClass('active');
+			$('.ms-info_content').removeClass('active');
+			$(this.dataset.label).addClass('active');
+			$(this).addClass('active');
 		});
 
 		$('.nv_menu_switcher').click(function(event){

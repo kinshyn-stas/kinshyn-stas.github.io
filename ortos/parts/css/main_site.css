@@ -1151,3 +1151,50 @@ img.rekl_image_mobile{
 		margin-bottom: 14px;
 	}
 }
+
+
+.ms-info{}
+.ms-info_tabs{
+	display: flex;
+	border-bottom: 1px solid #e8e8e8;
+}
+.ms-info_tab{
+	display: block;
+	padding: 12px 24px;
+	margin: 0 20px;
+	color: #212121;
+	font-size: 16px;
+	line-height: 1;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.ms-info_tab:hover,
+.ms-info_tab.active{
+	background-color: #ebebeb;
+}
+.ms-info_contents{}
+.ms-info_content{
+	display: none;
+	padding-top: 30px;
+}
+.ms-info_content.active{
+	display: block;
+}
+.ms-info_har_box{
+	margin-bottom: 30px;
+}
+.ms-info_har{
+	color: #727272;
+	font-size: 14px;
+}
+.ms-info_har_title{
+	display: inline-block;
+	width: 250px;
+}
+.ms-info_har_text{
+	color: #7b589c;
+}
+.ms-info_content .ms-button_container{
+	text-align: center;
+}
