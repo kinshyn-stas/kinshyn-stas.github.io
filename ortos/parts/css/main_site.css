@@ -226,6 +226,9 @@
 	.ms-info_item{
 		width: 100%;
 	}
+	.ms-sentence .ms-button_container{
+		margin-top: 40px;
+	}
 }
 
 
@@ -901,4 +904,250 @@ img.rekl_image_mobile{
 .ms-recently_price b{
 	font-size: 16px;
 	font-weight: 600;
+}
+
+@media screen and (max-width: 768px){
+	.ms-recently{
+		display: none;
+	}
+}
+
+
+.ms-discount_block{}
+.ms-discount_panel{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 22px;
+}
+.ms-discount_title{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 40px;
+	color: #7b589c;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1;
+}
+.ms-discount_code{
+	margin-bottom: 0;
+	color: #757575;
+	font-size: 14px;
+}
+.ms-discount_panel_number{
+	display: none;
+	color: #bababa;
+	font-size: 20px;
+	line-height: 1;
+}
+.ms-discount{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 18px 0;
+	color: #212121;
+}
+.ms-discount_item{
+	display: flex;
+	align-items: center;
+}
+.ms-discount_item_image{
+	width: 160px;
+	min-width: 160px;
+	margin-right: 24px;
+}
+.ms-discount_item_image figure{
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+	border: 1px solid #e8e8e8;
+}
+.ms-discount_item_image figure img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.ms-discount_item_text{
+	font-weight: 500;
+}
+.ms-discount_item_link{
+	color: #7b589c;
+}
+.ms-discount_item_price{
+	margin-top: 20px;
+	margin-bottom: 0;
+	font-size: 18px;
+	font-weight: 500;
+}
+.ms-discount_item_price_first{
+	position: relative;
+	display: inline-block;
+	color: #757575;
+}
+.ms-discount_item_price_first:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -5px;
+	display: inline-block;
+	width: calc(100% + 10px);
+	height: 1px;
+	background-color: #ffa700;
+}
+.ms-discount_item_price_first b{
+	font-weight: 500;
+}
+.ms-discount_item_price_second{
+	display: block;
+	color: #f26022;
+}
+.ms-discount_item_price_second b{
+	font-size: 23px;
+	font-weight: 900;
+}
+.ms-discount_sign{
+	margin: 0 15px;
+}
+.ms-discount_sign-plus{
+	position: relative;
+	width: 18px;
+	height: 18px;
+}
+.ms-discount_sign-plus:before,
+.ms-discount_sign-plus:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 18px;
+	display: block;
+	width: 18px;
+	height: 4px;
+	background-color: #ffa700;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+.ms-discount_sign-plus:after{
+	width: 4px;
+	height: 18px;
+}
+.ms-discount_sign-equally{}
+.ms-discount_sign-equally:before,
+.ms-discount_sign-equally:after{
+	content: "";
+	display: block;
+	width: 16px;
+	height: 3px;
+	margin-bottom: 4px;
+	background-color: #ffa700;
+}
+.ms-discount_sign-plus:after{
+	margin-bottom: 0;
+}
+.ms-discount_item-final{
+	flex-direction: column;
+	align-items: center;
+}
+.ms-discount_item_fprice{
+	margin-bottom: 24px;
+	font-size: 18px;
+}
+.ms-discount_item_fprice b{
+	font-size: 23px;
+	font-weight: 900;
+}
+.ms-discount_item_redact{
+	display: none;
+	padding: 10px 20px;
+	margin: 0 auto 20px;
+	background-color: #ffffff;
+	text-align: center;
+}
+.ms-discount_item_redact a{
+	color: #212121;
+	font-size: 14px;
+}
+.ms-discount_item_fbutton{
+	text-align: center;
+}
+.ms-discount_item_fbutton a{
+	display: inline-block;
+	min-width: 170px;
+	padding: 12px 10px;
+	background-color: #ffa700;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 1;
+	text-transform: uppercase;
+	border-radius: 50px;
+	cursor: pointer;
+}
+.ms-discount_item_fbutton a:hover{
+	color: #ffffff;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+}
+
+@media screen and (max-width: 1100px){
+	.ms-discount_block{
+		padding-top: 18px;
+		background-color: #f3f3f3;
+	}
+	.ms-discount_panel{
+		margin-bottom: 10px;
+	}
+	.ms-discount_title{
+		padding-left: 0;
+	}
+	.ms-discount_code{
+		display: none;
+	}
+	.ms-discount_panel_number{
+		display: block;
+	}
+	.ms-discount{
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+	.ms-discount_item{
+		margin-bottom: 20px;
+		width: calc(50% - 20px);
+	}
+	.ms-discount_item-final{
+		width: 100%;
+		margin-bottom: 0;
+	}
+	.ms-discount_sign{
+		margin: auto 10px;
+	}
+	.ms-discount_sign-equally{
+		display: none;
+	}
+	.ms-discount_item_redact{
+		display: block;
+	}
+	.ms-discount_item_fprice{
+		margin-bottom: 15px;
+	}
+}
+@media screen and (max-width: 768px){
+	.ms-discount_item{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.ms-discount_item-final{
+		align-items: center;
+	}
+	.ms-discount_item_image{
+		max-width: 100%;
+		min-width: 0;
+		margin-right: 0;
+		margin-bottom: 14px;
+	}
 }
