@@ -37,7 +37,6 @@
 .ms-sentence{}
 .ms-title-line{
 	display: flex;
-	align-items: center;
 	margin-bottom: 50px;
 	color: #212121;
 	font-size: 18px;
@@ -51,12 +50,16 @@
 	flex-grow: 100;
 	display: block;
 	height: 1px;
+	margin-top: 15px;
 	background-color: #ebebeb;
 }
 .ms-title-line span{
 	padding: 0 30px;
 	min-width: 350px;
 	max-width: 100%;
+}
+.ms-title-line-short{
+	margin-bottom: 30px;
 }
 .ms-sentence_tab{}
 .ms-sentence_tab_panel{
@@ -850,4 +853,52 @@ img.rekl_image_mobile{
 		margin: 30px auto!important;
 	}
 }
-@media screen and (max-width: 768px){}
+
+
+.ms-recently{}
+.ms-recently_box{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.ms-recently_item{
+	display: flex;
+	width: calc((100% - 60px) / 3);
+	margin-bottom: 30px;
+	border: 1px solid #e8e8e8;
+}
+.ms-recently_image{
+	flex-basis: 150px;
+}
+.ms-recently_image figure{
+	position: relative;
+	height: 100%;
+}
+.ms-recently_image figure img{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	max-height: 100%;
+	max-width: 100%;
+	transform: translate(-50%,-50%);
+}
+.ms-recently_content{
+	padding: 20px;
+	font-weight: 500;
+}
+.ms-recently_content_title{
+	margin-bottom: 20px;
+	color: #7b589c;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.ms-recently_price{
+	margin-bottom: 4px;
+	color: #f24841;
+	font-size: 14px;
+}
+.ms-recently_price b{
+	font-size: 16px;
+	font-weight: 600;
+}
