@@ -81,46 +81,91 @@
 					</div>
 
 					<div class="ms-info_content ms-info_content-4 active">
-						<div class="ms-info_q_box">
-							<div class="ms-info_q_item">
-								<figure class="ms-info_q_image">
-									<img src="img/face.jpg" alt="">
-								</figure>
-								<div class="ms-info_q_content">
-									<div class="ms-info_q_header">
-										<p class="ms-info_q_tense">
-											<span class="ms-info_q_name">Максим</span>
-											<span class="ms-info_q_date">07.03.2019</span>
-											<span class="ms-info_q_plash">Вопрос</span>
-										</p>
-									</div>
-									<div class="ms-info_q_text">Есть возможность получения доп. скидки?</div>
-									<div class="ms-info_q_bottom">
-										<div class="ms-info_q_rating">
-											<div class="ms-info_q_rating_text">Оценка отзыва:</div>
-											<div class="ms-info_q_rating_buttons">
-												<div class="ms-info_q_rating_button">
-													<img src="img/hand_on.png" alt=""><span>( 14 )</span>
-												</div>
-												<div class="ms-info_q_rating_button">
-													<img src="img/hand_off.png" alt=""><span>( 0 )</span>
-												</div>
-											</div>
-											<a class="ms-button_order ms-info_q_answer_link">Ответить</a>
+						<div class="ms-info_q_container">
+							<div class="ms-info_q_button_container ms-info_q_answer_parent">
+								<div class="ms-info_q_button_box tac">
+									<a class="ms-button_order open-ms-info_q_answer">Задать вопрос</a>
+								</div>								
+								<div class="ms-info_q_answer">
+									<div class="ms-info_q_answer_box">
+										<div class="ms-info_q_answer_field">
+											<textarea placeholder="Тескт сообщения"></textarea>
 										</div>
-										<div class="ms-info_q_answer">
-											<div class="ms-info_q_answer_box">
-												<div class="ms-info_q_answer_field">
-													<textarea placeholder="Тескт сообщения"></textarea>
-												</div>
-												<div class="ms-info_q_answer_button">
-													<button class="ms-button_order ms-info_q_answer_link">Оставить коментарий</button>
-												</div>
-											</div>
+										<div class="ms-info_q_answer_button">
+											<button class="ms-button_order ms-info_q_answer_link">Задать вопрос</button>
 										</div>
 									</div>
 								</div>
-							</div>								
+							</div>
+
+							<div class="ms-info_q_box">
+								<div class="ms-info_q_item ms-info_q_answer_parent">
+									<figure class="ms-info_q_image">
+										<img src="img/face.jpg" alt="">
+									</figure>
+									<div class="ms-info_q_content">
+										<div class="ms-info_q_header">
+											<p class="ms-info_q_tense">
+												<span class="ms-info_q_name">Максим</span>
+												<span class="ms-info_q_date">07.03.2019</span>
+												<span class="ms-info_q_plash">Вопрос</span>
+											</p>
+										</div>
+										<div class="ms-info_q_text">Есть возможность получения доп. скидки?</div>
+										<div class="ms-info_q_bottom">
+											<div class="ms-info_q_rating">
+												<div class="ms-info_q_rating_text">Оценка отзыва:</div>
+												<div class="ms-info_q_rating_buttons">
+													<div class="ms-info_q_rating_button">
+														<img src="img/hand_on.png" alt=""><span>( 14 )</span>
+													</div>
+													<div class="ms-info_q_rating_button">
+														<img src="img/hand_off.png" alt=""><span>( 0 )</span>
+													</div>
+												</div>
+												<a class="ms-button_order ms-info_q_answer_link open-ms-info_q_answer">Ответить</a>
+											</div>
+											<div class="ms-info_q_answer">
+												<div class="ms-info_q_answer_box">
+													<div class="ms-info_q_answer_field">
+														<textarea placeholder="Тескт сообщения"></textarea>
+													</div>
+													<div class="ms-info_q_answer_button">
+														<button class="ms-button_order ms-info_q_answer_link">Ответить</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>		
+								<div class="ms-info_q_item ms-info_q_answer_parent">
+									<figure class="ms-info_q_image">
+									</figure>
+									<div class="ms-info_q_content">
+										<div class="ms-info_q_header">
+											<p class="ms-info_q_tense">
+												<span class="ms-info_q_name">Менеджер</span>
+												<span class="ms-info_q_date">07.03.2019</span>
+												<span class="ms-info_q_plash ms-info_q_plash-a">Ответ</span>
+											</p>
+										</div>
+										<div class="ms-info_q_text">Здравствуйте! По данному вопросу рекомендуем Вам обратиться в отдел продаж</div>
+										<div class="ms-info_q_bottom">
+											<div class="ms-info_q_rating">
+												<div class="ms-info_q_rating_text">Оценка отзыва:</div>
+												<div class="ms-info_q_rating_buttons">
+													<div class="ms-info_q_rating_button">
+														<img src="img/hand_on.png" alt=""><span>( 14 )</span>
+													</div>
+													<div class="ms-info_q_rating_button">
+														<img src="img/hand_off.png" alt=""><span>( 0 )</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</div>
 						</div>
 					</div>
 
@@ -630,9 +675,9 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<script>
-		$('.ms-info_q_answer_link').click(function(event){
+		$('.open-ms-info_q_answer').click(function(event){
 			$(this).hide();
-			let box = event.target.closest('.ms-info_q_item').querySelector('.ms-info_q_answer_box');
+			let box = event.target.closest('.ms-info_q_answer_parent').querySelector('.ms-info_q_answer_box');
 			$(box).show("fast");
 		});
 

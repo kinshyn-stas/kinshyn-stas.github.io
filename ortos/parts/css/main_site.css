@@ -1204,17 +1204,34 @@ img.rekl_image_mobile{
 
 
 
+.ms-info_q_container{
+	padding-top: 30px;
+}
+.ms-info_q_button_container{
+	margin-bottom: 34px;
+}
+.ms-info_q_button_box{
+	text-align: center;
+}
+.ms-info_q_button_box .ms-button_order{
+	text-transform: uppercase;
+}
+.ms-info_q_box{}
 .ms-info_q_item{
 	display: flex;
 	padding: 46px 12px 40px;
 	color: #757575;
 	border-bottom: 1px solid #ebebeb;
 }
+.ms-info_q_item:nth-of-type(n + 2){
+	padding-left: 100px;
+}
 .ms-info_q_image{
 	width: 68px;
 	height: 68px;
 	min-width: 68px;
 	margin-right: 30px;
+	background-color: #ebebeb;
 }
 .ms-info_q_image img{
 	display: block;
