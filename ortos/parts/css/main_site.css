@@ -1187,18 +1187,31 @@ img.rekl_image_mobile{
 	margin-bottom: 30px;
 }
 .ms-info_har{
+	display: flex;
 	color: #727272;
 	font-size: 14px;
 }
 .ms-info_har_title{
-	display: inline-block;
+	display: block;
 	width: 250px;
+	min-width: 250px;
 }
 .ms-info_har_text{
+	display: block;
 	color: #7b589c;
 }
 .ms-info_content .ms-button_container{
 	text-align: center;
+}
+
+@media screen and (max-width: 768px){
+	.ms-info_tabs{
+		display: none;
+	}
+	.ms-info_har_title{
+		width: 130px;
+		min-width: 130px;
+	}
 }
 
 
@@ -1423,16 +1436,21 @@ img.rekl_image_mobile{
 	text-transform: uppercase;
 }
 
-@media screen and (max-width: 1100px){}
 @media screen and (max-width: 786px){
 	.ms-info_q_item{
 		padding: 24px 12px;
+	}
+	.ms-info_q_plash{
+		margin: 10px auto 0 0;
 	}
 	.ms-info_q_rating{
 		justify-content: space-between;
 		width: calc(100% + 98px);
 		margin-left: -98px;
 		margin-top: 20px;
+	}
+	.ms-info_q_rating_buttons{
+		margin-right: 0;
 	}
 	.ms-info_q_rating_button{
 		margin-left: 20px;
@@ -1441,8 +1459,10 @@ img.rekl_image_mobile{
 		margin-top: 18px;
 		text-align: right;
 	}
-	.ms-info_q_answer_field{
-		width: calc(100% + 98px);
-		margin-left: -98px;		
+	.ms-info_o_title{
+		padding-left: 0;
+	}
+	.ms-info_o_form_item{
+		width: 100%;
 	}
 }
