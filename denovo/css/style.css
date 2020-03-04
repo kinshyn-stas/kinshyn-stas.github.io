@@ -1733,13 +1733,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     grid-row: 1/30;
 }
 .text_info{}
+.video_container + .text_info{
+    margin-top: 30px;
+}
 .text_content p{
     margin-bottom: 30px;
 }
 .text_content p:last-of-type{
     margin-bottom: 0;
 }
-.text_content-image{
+.text_content-image,
+.text_content-video{
     width: 40%;
     min-width: 40%;
 }
@@ -1770,6 +1774,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .text_content-image{
         width: 75%;
+        min-width: 0;
+        margin: 20px auto;
+    }
+    .text_content-video{
+        width: 100%;
         min-width: 0;
         margin: 20px auto;
     }
