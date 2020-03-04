@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selector emulate</title>
+</head>
+<body>
+
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: inherit;
+      word-break: break-word;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      outline: none;
+    }
+    body{
+      padding: 30px;
+    }
+
+    input,
+    textarea{
+      padding: 8px 0;
+      color: inherit;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 13px;
+      outline: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid #E1E1E2;
+      transition: all 0.2s ease-in-out;
+    }
+    input:focus,
+    textarea:focus{
+      outline: none;
+      border-bottom: 1px solid #7FA244;
+    }
+    input:hover,
+    textarea:hover{
+      border-bottom: 1px solid #CACACA; 
+    }
+    textarea{
+      min-height: 100px;
+      padding: 10px 20px;
+      resize: none;
+    }
+    input::placeholder,
+    textarea::placeholder{
+      color: #8D8D8D;
+    }
+
+    .hidden{
+      display: none!important;
+    }
+    .select{
+      width: 100%;
+      position: relative;
+      color: #1C2833;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .select_option{
+      order: 6;
+      width: 100%;
+      padding: 11px 16px 12px;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+    .select_option.selected{
+      order: 2;
+      padding: 11px 30px 12px 16px;
+    }
+    .select_option.disabled{
+      color: #8D8D8D;
+    }
+    .select_option.disabled:not(.selected){
+      display: none;
+    }
+    .select_list{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border: 1px solid #E1E1E2;
+      border-radius: 3px;
+      overflow: hidden;
+      transition: all 0.2s ease-in-out;
+    }
+    .select.active .select_list{
+      height: auto!important;
+    }
+    .select_search{
+      order: 4;
+      padding: 8px;
+    }
+    .select_search input{
+      width: 100%;
+      padding: 11px 8px;
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      text-transform: none;
+      border-radius: 2px;
+      border: 1px solid #E1E1E2;
+    }
+    .select_search_result{
+      order: 8;
+      color: #8D8D8D;
+    }
+  </style>
+
+  <div style="max-width: 400px; margin-bottom: 30px;">
+    <select class="select_emulator">
+      <option disabled selected>Сделайте выбор</option>
+      <option>Вариант 1</option>
+      <option>Вариант 2</option>
+      <option>Вариант 3</option>
+      <option>Вариант 4</option>
+      <option>Вариант 5</option>
+      <option>Вариант 6</option>
+      <option>Вариант 7</option>
+      <option>Вариант 8</option>
+    </select>
+  </div>
+
+  <div style="max-width: 400px; margin-bottom: 30px;">
+    <select class="select_emulator" data-search="true">
+      <option disabled selected>Сделайте выбор</option>
+      <option>Вариант 1</option>
+      <option>Вариант 2</option>
+      <option>Вариант 3</option>
+      <option>Вариант 4</option>
+      <option>Вариант 5</option>
+      <option>Вариант 6</option>
+      <option>Вариант 7</option>
+      <option>Вариант 8</option>
+    </select>
+  </div>
+
+  <script>
+    emulateSelector('.select_emulator');
+
+    function emulateSelector(select){
+      let selects = document.querySelectorAll(select);
+
+      selects.forEach((select) =>{
+        select.hidden = true;
+
+        let emul = document.createElement('div');
+        emul.classList = "select";
+        /*emul.setAttribute('tabindex','1');
+        emul.onblur = function(){
+          this.classList.remove('active');
+        };*/
+
+        let emulList = document.createElement('div');
+        emulList.classList = "select_list";
+        emul.append(emulList);
+
+        select.querySelectorAll('option').forEach((item)=>{
+          let option = document.createElement('div');
+          option.classList = "select_option";
+          option.innerHTML = item.innerHTML;
+          option.dataset.value = item.value;
+
+          option.onclick = ()=>{
+            emul.classList.toggle('active')
+            select.value=option.dataset.value;
+
+            let evt = document.createEvent('HTMLEvents');
+            evt.initEvent('change', true, true);
+            select.dispatchEvent(evt);
+
+            option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
+              option.classList.remove('selected')
+            });
+            option.classList.add('selected');
+          };
+
+          if(item.selected){
+            option.classList.add('selected');
+          } 
+          if(item.disabled) option.classList.add('disabled');
+          emulList.append(option);
+        });
+
+        if(select.dataset.search){
+          let searchBox = document.createElement('div');
+          searchBox.classList = 'select_option select_search';
+          searchBox.innerHTML = `<input class="select_search_input" type="text" placeholder="Поиск..." />`;
+          let search = searchBox.querySelector('input');
+          emulList.append(searchBox);
+
+          let searchResult = document.createElement('div');
+          searchResult.classList = 'select_option select_search_result hidden';
+          searchResult.textContent = 'Нет совпадений'
+          emulList.append(searchResult);
+        }
+
+        select.parentNode.append(emul);
+
+        let selectHeight = 0;
+        if(emul.querySelector('.select_option.selected')){
+          selectHeight = getComputedStyle(emul.querySelector('.select_option.selected')).height;
+        } else {
+          selectHeight = getComputedStyle(emul.querySelector('.select_option')).height;
+        }
+        emul.style.height = selectHeight;
+        emulList.style.height = selectHeight;
+        
+
+        /*let heightStart = emul.querySelector('.select_option').offsetHeight;
+        let heightEnd = 0;
+        emul.querySelectorAll('.select_option').forEach((option)=>{
+          heightEnd += option.offsetHeight;
+        });*/
+        //emul.style.height = heightStart + 'px';
+        //emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
+      })
+
+      let z = 1;
+      for(let i=selects.length - 1; i>=0; i--){
+        selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
+        z++;
+      }
+    };
+
+    document.addEventListener('input', searchSelectEmulator);
+
+    function searchSelectEmulator(event){
+      if(!event.target.closest('.select_search_input')) return;
+      let input = event.target.closest('.select_search_input');
+      let list = input.closest('.select_list');
+      let value = input.value.toLowerCase();
+            
+      let optionCounter = 0;
+      list.querySelectorAll('.select_option').forEach(option => {
+        if(!option.classList.contains('selected') && !option.classList.contains('select_search')){
+          option.classList.add('hidden');
+          optionCounter++;
+        };
+        let text = option.innerText.toLowerCase();
+        if(text.indexOf(value) != -1 || value == ''){
+          option.classList.remove('hidden');
+          optionCounter--;
+        }
+      })
+
+      if(optionCounter >= (list.querySelectorAll('.select_option').length - 2)){
+        list.querySelector('.select_search_result').classList.remove('hidden');
+      } else {
+        list.querySelector('.select_search_result').classList.add('hidden');
+      }
+    };
+  </script>
+</body>
+</html>
