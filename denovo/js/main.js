@@ -75,6 +75,9 @@ window.onload = function(){
 
 
     document.addEventListener('click', handlerClickLinks);
+
+
+    installTableMinWidth();
 };
 
 
@@ -1166,7 +1169,10 @@ function hiddenScrollAside(selector){
                 cont.append(line);
                 box.append(cont);
 
-                content.style.width = `calc(100% + ${content.offsetWidth - content.clientWidth - content.clientLeft}px)`;
+                /*let x = content.offsetWidth - content.clientWidth - content.clientLeft;
+                if(x == 0) x = 50;
+                content.style.width = `calc(100% + ${x}px)`;
+                content.style.paddingRight = `${x}px`;*/
 
                 let contentFullHeight = 0;
                 for(let i = 0; i<content.children.length; i++){
@@ -1203,6 +1209,7 @@ function hiddenScrollAside(selector){
 function menuListHandler(event){
     if(!event.target.closest('.aside_item.click-obj')) return;
     let item = event.target.closest('.aside_item');
+    if(!item.querySelector('.aside_item_list')) return;
     let p = item.querySelector('.aside_item_list');
     p.style.top = `${item.getBoundingClientRect().top}px`;
 };
@@ -1329,4 +1336,21 @@ function handlerClickLinks(event){
 
         scrollTo(pageXOffset,p)
     }, 1);
+};
+
+
+function installTableMinWidth(){
+    document.querySelectorAll('.table table').forEach(table => {
+        table.querySelectorAll('tr').forEach(tr => {
+            let trWidth = tr.clientWidth;
+            tr.querySelectorAll('th').forEach(th => installWidth(th,trWidth));
+            tr.querySelectorAll('td').forEach(td => installWidth(td,trWidth));
+        })
+    })
+
+    function installWidth(item,parentWidth){
+        if(parseInt(getComputedStyle(item).width) < parentWidth / 5){
+            item.style.width = `${parentWidth / 5}px`;
+        }
+    }
 };

@@ -3135,7 +3135,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     overflow-y: visible;
 }
 .scroll-emul_content{
+    width: calc(100% + 50px);
     height: 100%;
+    padding-right: 50px;
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -3168,7 +3170,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .rev_block{
     max-width: 1020px;
     padding: 49px 0;
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: #F3F6F9;
     border-radius: 5px;
 }
