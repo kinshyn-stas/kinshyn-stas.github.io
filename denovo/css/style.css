@@ -2794,6 +2794,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .order_item-agree{
     margin-bottom: 30px;
 }
+.order_item-agree-double{
+    display: flex;
+    justify-content: space-between;
+}
 .order_item-agree label{
     position: relative;
     padding-left: 25px;
@@ -2801,7 +2805,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     line-height: 20px;
     cursor: pointer;
 }
-.order_item-agree label input[type=checkbox]{
+.order_item-agree label input[type=checkbox],
+.order_item-agree label input[type=radio]{
     display: none;
 }
 .order_item-agree label .input_emul{
@@ -2820,6 +2825,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: block;
 }
 .order_item-agree label input[type=checkbox]:checked+.input_emul .input_emul_not-agree{
+    display: none;
+}
+.order_item-agree label input[type=radio]:checked+.input_emul .input_emul_agree{
+    display: block;
+}
+.order_item-agree label input[type=radio]:checked+.input_emul .input_emul_not-agree{
     display: none;
 }
 .order_item-agree label a{
