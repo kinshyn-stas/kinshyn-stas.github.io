@@ -505,7 +505,6 @@ class Slider{
             clearInterval(this.autoShift);
             mousePointCurrent = event.clientX;
             let m = (mousePointCurrent - mousePointStart);
-            console.log(m,this.container.clientWidth/4);
 
             if(m < -this.container.clientWidth/4){
                 this.slideMove({direction: 'right'});
@@ -999,6 +998,7 @@ class FormValidate{
         this.status = false;
         this.items = this.form.querySelectorAll('.form_validate_item');
         this.submit = this.form.querySelector('.form_validate_submit');
+        if(!this.submit) return;
         this.submit.disabled = true;
 
         this.form.addEventListener('input',this.checkInputsPattern.bind(this));
