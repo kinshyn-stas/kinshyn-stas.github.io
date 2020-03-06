@@ -78,6 +78,9 @@ window.onload = function(){
 
 
     installTableMinWidth();
+
+
+    loadYoutubeVideo();
 };
 
 
@@ -1353,4 +1356,16 @@ function installTableMinWidth(){
             item.style.width = `${parentWidth / 5}px`;
         }
     }
+};
+
+
+function loadYoutubeVideo(){
+    let images = document.querySelectorAll('.video_emulate_image');
+
+    for (let i = 0; i < images.length; i++){
+      images[i].onclick = function(event) {
+        let idImg = this.src.replace(/http...img.youtube.com.vi.(.*?).hqdefault.jpg/gi, '$1');
+        event.target.closest('.video_box').innerHTML = `<iframe src="https://www.youtube.com/embed/${idImg}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      }
+    };
 };
