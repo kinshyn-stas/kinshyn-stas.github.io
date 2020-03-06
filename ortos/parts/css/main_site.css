@@ -1797,6 +1797,7 @@ img.rekl_image_mobile{
 .ms-basis_content_middle{
 	display: grid;
 	grid-template-columns: 49% 49%;
+	grid-row-gap: 40px;
 	border-bottom: 1px solid #e8e8e8;
 }
 .ms-basis_content_middle_part-1{
@@ -1815,6 +1816,7 @@ img.rekl_image_mobile{
 .ms-basis_content_middle_size_item{
 	display: inline-block;
 	margin-right: 6px;
+	margin-bottom: 0;
 }
 .ms-basis_content_middle_size_item:last-of-type{
 	margin-right: 0;
@@ -1833,7 +1835,7 @@ img.rekl_image_mobile{
 	line-height: 1;
 	text-align: center;
 	border-radius: 2px;
-	border: 2px solid transparent;
+	border: 2px solid #ffffff;
 	transition: all 0.2s ease-in-out;
 }
 .ms-basis_content_middle_size_item input:checked+span{
@@ -1842,6 +1844,7 @@ img.rekl_image_mobile{
 .ms-basis_content_middle_link{
 	display: flex;
 	align-items: center;
+	margin-bottom: 20px;
 	color: #7b589c;
 	font-size: 12px;
 	line-height: 14px;
@@ -1857,13 +1860,43 @@ img.rekl_image_mobile{
 .ms-basis_content_middle_link span{
 	display: inline-block;
 }
-.ms-basis_content_middle_color{}
-.ms-basis_content_middle_color_title{}
-.ms-basis_content_middle_color_box{}
-.ms-basis_content_middle_color_item{}
-.ms-basis_content_middle_color_item input{}
-.ms-basis_content_middle_color_item span{}
-.ms-basis_content_middle_color_item input:checked+span{}
+.ms-basis_content_middle_color{
+	display: flex;
+	align-items: center;
+}
+.ms-basis_content_middle_color_title{
+	margin-bottom: 0;
+	margin-right: 18px;
+	color: #212121;
+	font-weight: 500;
+}
+.ms-basis_content_middle_color_box{
+	display: flex;
+	align-items: center;
+}
+.ms-basis_content_middle_color_item{
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
+.ms-basis_content_middle_color_item:last-of-type{
+	margin-right: 0;
+}
+.ms-basis_content_middle_color_item input{
+	display: none;
+}
+.ms-basis_content_middle_color_item span{
+	display: block;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.ms-basis_content_middle_color_item input:checked+span{
+	border-color: #ffa700;
+}
 .ms-basis_content_middle_part-2{
 	grid-column: 2/3;
 	grid-row: 1/2;
