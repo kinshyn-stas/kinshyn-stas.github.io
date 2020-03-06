@@ -1180,6 +1180,7 @@ img.rekl_image_mobile{
 	display: none;
 	padding-top: 30px;
 }
+.ms-info_content_head{}
 .ms-info_content.active{
 	display: block;
 }
@@ -1206,6 +1207,15 @@ img.rekl_image_mobile{
 
 @media screen and (max-width: 768px){
 	.ms-info_tabs{
+		display: none;
+	}
+	.ms-info_content{
+		display: block
+	}
+	.ms-info_content_head{
+		display: block;
+	}
+	.ms-info_content_body{
 		display: none;
 	}
 	.ms-info_har_title{
