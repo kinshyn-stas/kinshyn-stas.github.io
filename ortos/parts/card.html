@@ -870,6 +870,16 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 	<script>
+		$('.ms-info_content_head').click(function(event){
+			if($(this).parent('.ms-info_content').hasClass('active')){
+				$('.ms-info_content').removeClass('active');
+				$(this).parent('.ms-info_content').removeClass('active');
+			} else {
+				$('.ms-info_content').removeClass('active');
+				$(this).parent('.ms-info_content').addClass('active');				
+			}
+		});
+
 		document.addEventListener('change', paintStarsLabel);
 
 		function paintStarsLabel(event){
