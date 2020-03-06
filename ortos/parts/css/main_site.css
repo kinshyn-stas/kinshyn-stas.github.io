@@ -1798,6 +1798,7 @@ img.rekl_image_mobile{
 	display: grid;
 	grid-template-columns: 49% 49%;
 	grid-row-gap: 40px;
+	padding: 28px 0 40px 40px;
 	border-bottom: 1px solid #e8e8e8;
 }
 .ms-basis_content_middle_part-1{
@@ -1901,8 +1902,16 @@ img.rekl_image_mobile{
 	grid-column: 2/3;
 	grid-row: 1/2;
 }
-.ms-basis_content_middle_part-2_p{}
-.ms-basis_content_middle_part-2_p_t{}
-.ms-basis_content_middle_part-3{}
+.ms-basis_content_middle_part-2_p{
+	margin-bottom: 7px;
+	color: #7b589c;
+}
+.ms-basis_content_middle_part-2_p_t{
+	color: #757575;
+}
+.ms-basis_content_middle_part-3{
+	grid-column: 1/3;
+	grid-row: 2/3;
+}
 
 .ms-basis_content_bottom{}
