@@ -1944,7 +1944,6 @@ img.rekl_image_mobile{
 	font-weight: 500;
 	text-transform: uppercase;
 }
-.ms-basis_content_bottom_item_content p{}
 .ms-basis_content_bottom_item_content b{
 	color: #212121;
 	font-weight: 500;
@@ -1956,4 +1955,36 @@ img.rekl_image_mobile{
 .ms-basis_content_bottom_item_link a{
 	color: #7b589c;
 	text-decoration: underline;
+}
+
+@media screen and (max-width: 1100px){
+	.ms-basis_images{
+		width: 100%;
+	}
+	.ms-basis_content{
+		width: 100%;
+		padding-top: 20px;
+	}
+}
+@media screen and (max-width: 768px){
+	.ms-basis_container{
+		padding: 0;
+		border: none;
+	}
+	.ms-basis_content_top_info{
+		padding: 0;
+	}
+	.ms-basis_content_middle{
+		display: block;
+		padding: 28px 0 30px;
+	}
+	.ms-basis_content_middle_part-1{
+		margin-bottom: 20px;
+	}
+	.ms-basis_content_middle_part-2{
+		margin-bottom: 20px;
+	}
+	.ms-basis_content_bottom_item{
+		width: 100%;
+	}
 }
