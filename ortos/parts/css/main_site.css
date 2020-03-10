@@ -2175,15 +2175,30 @@ img.rekl_image_mobile{
 	margin-right: 16px;
 }
 .ms-footer_columns{
+	display: flex;
+	justify-content: center;
 	margin-top: 70px;
 }
 .ms-footer_column{
 	margin-bottom: 20px;
 }
-.ms-footer_column_title{}
+.ms-footer_column:not(:last-of-type){
+	margin-right: 70px;
+	padding-right: 70px;
+	border-right: 1px solid #ffffff;
+}
+.ms-footer_column_title{
+	margin-bottom: 24px;
+	color: #7b589c;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 20px;
+	text-transform: uppercase;
+}
 .ms-footer_column_list{
-	list-style: none;
 	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
 }
 .ms-footer_column_list li{}
 .ms-footer_column_list li a{
@@ -2194,8 +2209,15 @@ img.rekl_image_mobile{
 	color: #faa61a;
 	text-decoration: underline;
 }
-.ms-footer_column_text{}
-.ms-footer_column_text a{}
+.ms-footer_column_text{
+	margin-top: 40px;
+	color: #212121;
+	font-weight: 500;
+}
+.ms-footer_column_text a{
+	color: #6858a1;
+	text-decoration: underline;
+}
 .ms-footer_column_item{}
 .ms-footer_column_item_title{}
 .ms-footer_column_item_city{}
