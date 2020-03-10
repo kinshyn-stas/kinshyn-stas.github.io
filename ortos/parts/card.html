@@ -325,6 +325,52 @@
 								</div>
 							</div>
 
+							<div class="ms-basis_content_top_slider">
+								
+								<div class="ms-basis_content_top_slide">
+									<figure>
+										<img src="img/elect-1.jpg" alt="" />
+										<div class="ms-basis_images_main_plash">
+											<div class="ms-basis_images_main_plash_first">
+												<span>Скидка</span>
+											</div>
+											<div class="ms-basis_images_main_plash_second">
+												<span>- 10%</span>
+											</div>
+										</div>
+									</figure>
+								</div>
+
+								<div class="ms-basis_content_top_slide">
+									<figure>
+										<img src="img/elect-2.jpg" alt="" />										
+										<div class="ms-basis_images_main_plash">
+											<div class="ms-basis_images_main_plash_first">
+												<span>Скидка</span>
+											</div>
+											<div class="ms-basis_images_main_plash_second">
+												<span>- 10%</span>
+											</div>
+										</div>
+									</figure>
+								</div>
+
+								<div class="ms-basis_content_top_slide">
+									<figure>
+										<img src="img/elect-3.jpg" alt="" />										
+										<div class="ms-basis_images_main_plash">
+											<div class="ms-basis_images_main_plash_first">
+												<span>Скидка</span>
+											</div>
+											<div class="ms-basis_images_main_plash_second">
+												<span>- 10%</span>
+											</div>
+										</div>
+									</figure>
+								</div>
+
+							</div>
+
 							<div class="ms-basis_content_top_info">
 								<div class="ms-basis_content_top_info_limited">
 									<span>Заканчивается</span>
@@ -1372,6 +1418,17 @@
 			$(this).hide();
 			let box = event.target.closest('.ms-info_q_answer_parent').querySelector('.ms-info_q_answer_box');
 			$(box).show("fast");
+		});
+
+		$('.ms-basis_content_top_slider').owlCarousel({
+			items: 1,
+			loop: true,
+			navigation: true,
+			navigationText: ['',''],
+			itemsDesktop:false,
+			itemsDesktopSmall:false,
+			itemsTablet:false, 
+			itemsMobile:false, 
 		});
 
 		$('.nv_slider').owlCarousel({
