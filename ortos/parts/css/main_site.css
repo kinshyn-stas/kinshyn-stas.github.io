@@ -639,6 +639,16 @@ img.rekl_image_mobile{
 }
 
 @media screen and (max-width: 992px){
+	.nv_block{
+		padding-top: 60px;
+	}
+	.nv_block-hidden{
+		display: block;
+		margin-bottom: 30px;
+		background-color: #fcfcfc;
+		background-image: linear-gradient(to bottom, #fcfcfc, #fdfdfd);
+		box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1);
+	}
 	.nv_container{
 		display: block;
 	}
