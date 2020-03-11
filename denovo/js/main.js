@@ -783,7 +783,7 @@ class SliderBanner extends Slider{
 function clickItemHandler(event){
     if(!event.target.closest('.click-item')) return;
     let item = event.target.closest('.click-item');
-    if(item.href && item.href == '#') event.preventDefault();
+    if(item.getAttribute('href') && item.getAttribute('href') == '#') event.preventDefault();
 
     let obj = {
         'toggle': function(target){
@@ -1364,9 +1364,24 @@ function loadYoutubeVideo(){
     let images = document.querySelectorAll('.video_emulate');
 
     for (let i = 0; i < images.length; i++){
-      images[i].onclick = function(event) {
+    images[i].onclick = function(event) {
+        document.querySelectorAll('#videoPlayer').forEach(item => item.id = null);
+        let item = images[i];
+        item.id = 'videoPlayer';
+
         let idImg = this.querySelector('img').src.replace(/http...img.youtube.com.vi.(.*?).hqdefault.jpg/gi, '$1');
-        event.target.closest('.video_box').innerHTML = `<iframe src="https://www.youtube.com/embed/${idImg}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      }
+        start(idImg);
+
+        function start(idImg) {
+        new YT.Player('videoPlayer', {
+            videoId: idImg,
+            events: {
+              'onReady': function(event){
+                event.target.playVideo();
+              },
+            }
+          });
+        };
+      };
     };
 };
