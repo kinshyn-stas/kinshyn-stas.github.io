@@ -32,7 +32,7 @@
 
 @media screen and (max-width: 768px){
 	.ms-main-block{
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -2097,13 +2097,17 @@ img.rekl_image_mobile{
     }
 	.ms-basis_content_middle{
 		display: block;
-		padding: 28px 0 30px;
+		padding: 28px 0 0;
+		border-bottom: none;
 	}
 	.ms-basis_content_middle_part-1{
 		margin-bottom: 20px;
 	}
 	.ms-basis_content_middle_part-2{
 		margin-bottom: 20px;
+	}
+	.ms-basis_content_bottom{
+		display: none;
 	}
 	.ms-basis_content_bottom_item{
 		width: 100%;
