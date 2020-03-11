@@ -2310,3 +2310,18 @@ img.rekl_image_mobile{
 		justify-content: center;
 	}
 }
+
+
+.breadcrumb_block{
+	margin-bottom: 0;
+	padding-bottom: 1px;
+}
+.breadcrumb_block .breadcrumb{
+	margin: 30px 0;
+}
+
+@media screen and (max-width: 992px){
+	.breadcrumb_block{
+		display: none;
+	}
+}
