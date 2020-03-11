@@ -78,6 +78,10 @@ window.onload = function(){
 	window.addEventListener('resize',changeMainBlockPaddinTop);
 
 	new ScrollMainTop();
+
+
+	rightMenuCheckDisplay();
+	document.addEventListener('scroll',rightMenuCheckDisplay);
 };
 
 
@@ -1398,6 +1402,3 @@ function rightMenuCheckDisplay(){
 		nav.classList.add('sheer');
 	}
 };
-
-rightMenuCheckDisplay();
-document.addEventListener('scroll',rightMenuCheckDisplay);
