@@ -433,7 +433,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-decoration: none;
 }
 
-.main .button_submit{
+.button_submit{
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -447,7 +447,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-transform: uppercase;
     cursor: pointer;
 }
-.main .button_submit span{
+.button_submit span{
     z-index: 4;
 }
 .button_submit:before{
@@ -1111,7 +1111,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .face-block{
     padding: 112px 0;
     background-color: #f4f4f4;
-    background-image: url(../images/bg_face.jpg);
+    background-image: url(../images/ad_bg.jpg);
     background-size: cover;
 }
 .face_content{
@@ -1219,7 +1219,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-size: 14px;
     line-height: 17px;
     text-transform: none;
-    border-radius: 0 7px 7px 0;
+}
+.face_form_item-button button:before{
+    border-radius: 0 7px 7px 0;    
 }
 
 @media screen and (max-width: 768px){
