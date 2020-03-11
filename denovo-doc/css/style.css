@@ -673,6 +673,33 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.slider_nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+}
+.slider_nav_butt{
+    width: 12px;
+    height: 12px;
+    margin-right: 12px;
+    background-color: #DFE5EB;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.slider_nav_butt:last-of-type{
+    margin-right: 0;
+}
+.slider_nav_butt:hover{
+    background-color: #F56107;
+}
+.slider_nav_butt.active{
+    background-color: #F56107;
+}
+
+
 .lightbox_container{
     position: fixed;
     top: 0;
