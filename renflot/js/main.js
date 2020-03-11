@@ -1382,4 +1382,22 @@ class ScrollMainTop{
 		
 		this.yBegin = this.yNow;
 	}
-}
+};
+
+
+function rightMenuCheckDisplay(){
+	let box = document.querySelector('.banner_box');
+	if(!box) return;
+	let boxBottom = box.getBoundingClientRect().bottom;
+	let header = document.querySelector('.main-top');
+	let headerBottom = header.getBoundingClientRect().bottom;
+	let nav = document.querySelector('.mr_container');
+	if(headerBottom > boxBottom){
+		nav.classList.remove('sheer');
+	} else {
+		nav.classList.add('sheer');
+	}
+};
+
+rightMenuCheckDisplay();
+document.addEventListener('scroll',rightMenuCheckDisplay);

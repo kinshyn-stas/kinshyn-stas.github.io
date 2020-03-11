@@ -782,7 +782,8 @@ class SliderBanner extends Slider{
 
 function clickItemHandler(event){
     if(!event.target.closest('.click-item')) return;
-    let item = event.target.closest('.click-item'); 
+    let item = event.target.closest('.click-item');
+    if(item.href && item.href == '#') event.preventDefault();
 
     let obj = {
         'toggle': function(target){
@@ -912,7 +913,7 @@ function clickItemHandler(event){
 
     if(item.dataset.action){
         let actions = item.dataset.action.split(' ');
-        actions.forEach(action => obj[action](item))
+        actions.forEach(action => obj[action](item));
     } else {
         obj['toggle'](item);
     }
