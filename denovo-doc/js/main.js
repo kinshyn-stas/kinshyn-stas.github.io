@@ -1,18 +1,6 @@
 "use strict";
 
 window.onload = function(){
-
-    new classMultiplyWrapper(Slider, {
-        selector: '.sertificat_box',
-        infinity: true,
-        navigationDotters: true,
-        sizeWork: {
-            desktop: false,
-            touch: false,
-            mobile: true,
-        }
-    });
-
     new classMultiplyWrapper(Slider, {
         selector: '.doc-category_box',
         infinity: true,
@@ -24,30 +12,8 @@ window.onload = function(){
         }
     });
 
-    new classMultiplyWrapper(SliderTalk, {
-        selector: '.talk_slider',
-        infinity: true,
-        navigationArrows: true,
-        slideClickRewind: true,
-        multiDisplay: {
-            mobile: 5,
-            touch: 5,
-            desktop: 5,
-            //multiShift: true,
-        },
-    });
-
-    new classMultiplyWrapper(SliderBanner, {
-        selector: '.banner_slider',
-        infinity: true,
-        navigationDotters: true,
-        //autoShift: true,
-    });
 
     document.addEventListener('click', clickItemHandler);
-
-
-    document.addEventListener('mouseover', menuListHandler);
 
 
     new classMultiplyWrapper(FormValidate, {
@@ -58,29 +24,7 @@ window.onload = function(){
     emulateSelector('.select_emulator');
 
 
-    new inputFileEmulator('.input_emulator-file');
-
-
-    changeModelInfo();
-
-
-    installVideoHeight();
-
-
-    aboutTimerCountdown();
-
-
-    hiddenScrollAside('.aside_body');
-    window.addEventListener('resize',() => hiddenScrollAside('.aside_body'));
-
-
     document.addEventListener('click', handlerClickLinks);
-
-
-    installTableMinWidth();
-
-
-    loadYoutubeVideo();
 };
 
 
@@ -581,205 +525,6 @@ class Slider{
 };
 
 
-class SliderTalk extends Slider{
-    constructor(params){
-        super(params);
-    }
-
-    prepare(){
-        if(this.sizeFlag == 2) return;
-        this.activeSlider = 0;
-        this.rightPart = this.container.closest('.talk_box').querySelector('.talk_right');
-        this.mainImage = this.container.closest('.talk_box').querySelector('.talk_image-main img');
-        
-        this.slideOnScreen = 1;
-        this.sliderBlockWidth = 100;
-        if(this.params.multiDisplay){
-            let w = document.body.offsetWidth;
-            if(w>0 && w<=768){
-                this.slideOnScreen = this.params.multiDisplay.mobile;
-            } else if(w>768 && w<=1100){
-                this.slideOnScreen = this.params.multiDisplay.touch;
-            } else {
-                this.slideOnScreen = this.params.multiDisplay.desktop;
-            }
-
-            if(this.sliders.length < this.slideOnScreen){
-                this.sliderBlockWidth = parseInt((this.sliders.length / this.slideOnScreen) * 100);
-                this.slideOnScreen = this.sliders.length;
-            } 
-
-            this.block.style.width = `${this.sliderBlockWidth}%`;
-        }
-
-        this.extendSlides();
-        this.slideAll();
-    }
-
-    slideAll(callback){
-        if(this.flagBlock) return;
-        this.flagBlock = true;
-        let n = 0;
-
-        this.sliders.forEach((slide,i,arr)=>{
-            if(slide.classList.contains('active')){
-                this.boxShift = -(i * this.boxWidth);
-                this.box.style.transform = `translateX(${this.boxShift}px)`;
-                this.box.style.webkiteTransform = `translateX(${this.boxShift}px)`;
-                n = slide.dataset.number;
-            }
-        });
-
-        if(n == 0) this.sliders[0].classList.add('active');
-        if(n >= this.sliders.length) n = this.sliders.length - 1;
-
-        if(this.params.navigationDotters){
-            this.butts.forEach((butt,i,arr)=>{
-                butt.classList.remove('active');
-                if(i==n) butt.classList.add('active');
-            });
-        };
-
-        if(this.params.emulateDotters){
-            this.emulSlides = [].slice.call(document.querySelector(this.params.emulateDotters).children);
-            this.emulSlides.forEach((item,i)=>{
-                item.classList.remove('active');
-            })
-            this.emulSlides[n].classList.add('active'); 
-        }
-
-        setTimeout(() => {
-            this.flagBlock = false;
-            if(callback) callback();
-            this.changeSlideContent();
-            this.flagBlockSlide = false;
-        }, this.moveTime * 1000);   
-    }
-
-    changeSlideContent(){
-        this.rightPart.innerHTML = this.sliders[this.activeSlider].querySelector('.talk_text').innerHTML;
-        this.mainImage.src = this.sliders[this.activeSlider].querySelector('img').src;
-    }
-};
-
-
-class SliderBanner extends Slider{
-    constructor(params){
-        super(params);
-    }   
-
-    prepare(){
-        this.activeSlider = 0;
-        
-        this.slideOnScreen = 1;
-        if(this.params.multiDisplay){
-            let w = document.body.offsetWidth;
-            if(w>0 && w<=768){
-                this.slideOnScreen = this.params.multiDisplay.mobile;
-            } else if(w>768 && w<=1100){
-                this.slideOnScreen = this.params.multiDisplay.touch;
-            } else {
-                this.slideOnScreen = this.params.multiDisplay.desktop;
-            }
-        }
-
-        this.extendSlides();
-        this.extendNavs();
-        this.slideAll();
-    }
-
-    createSliderBox(){
-        this.block = document.createElement('div');
-        this.block.classList = ('slider_block');
-        this.box = document.createElement('div');
-        this.box.classList = ('slider_box');
-
-        this.sliders = [].slice.call(this.container.children);
-        this.sliders.forEach((item,i,arr)=>{
-            item.classList.add('slider_slide');
-            this.box.append(item);
-        });         
-        this.block.append(this.box);
-        this.container.append(this.block);
-        this.block.style.width = '100%';
-        this.block.style.maxWidth = '100vw';
-        this.block.style.overflow = 'hidden';
-        this.box.style.display = 'flex';
-        this.box.style.transition = `transform ${this.moveTime}s ease-in-out`;
-        this.box.style.webkitTransition = `-webkit-transform ${this.moveTime}s ease-in-out`;
-        this.box.style.transform = `translateX(0)`;
-        this.box.style.webkitTransform = `translateX(0)`;
-
-        this.parent = this.container.closest('.main-block');
-        this.nav = this.parent.querySelector('.banner_nav');
-        this.navList = [].slice.call(this.nav.children);
-        this.navList.forEach(item => {
-            item.onclick = (event) => {
-                this.sliders.forEach((slide,i) => {
-                    if(slide.dataset.number == item.dataset.number) this.installActiveSlider(i);
-                })              
-                this.slideAll();
-            }
-        })
-    }
-
-    extendNavs(){
-        let d = (this.box.offsetWidth / this.navList.length);
-
-        this.navList.forEach(nav =>{    
-            nav.style.width = `${d}px`;
-            nav.style.minWidth = `${d}px`;
-        });
-    }
-
-    slideAll(callback){
-        if(this.flagBlock) return;
-        this.flagBlock = true;
-        let n = 0;
-
-        this.sliders.forEach((slide,i,arr)=>{
-            if(slide.classList.contains('active')){
-                this.boxShift = -(i * this.boxWidth);
-                this.box.style.transform = `translateX(${this.boxShift}px)`;
-                this.box.style.webkiteTransform = `translateX(${this.boxShift}px)`;
-                n = slide.dataset.number;
-            }
-        });
-
-        if(n == 0) this.sliders[0].classList.add('active');
-        if(n >= this.sliders.length) n = this.sliders.length - 1;
-
-        if(this.params.navigationDotters){
-            this.butts.forEach((butt,i,arr)=>{
-                butt.classList.remove('active');
-                if(i==n) butt.classList.add('active');
-            });
-        };
-
-        if(this.params.emulateDotters){
-            this.emulSlides = [].slice.call(document.querySelector(this.params.emulateDotters).children);
-            this.emulSlides.forEach((item,i)=>{
-                item.classList.remove('active');
-            })
-            this.emulSlides[n].classList.add('active'); 
-        }
-
-        this.navList.forEach(item => {
-                item.classList.remove('active');
-                if(item.dataset.number == this.sliders[this.activeSlider].dataset.number) item.classList.add('active');
-            }
-        )
-
-        setTimeout(() => {
-            this.flagBlock = false;
-            if(callback) callback();
-            this.flagBlockSlide = false;
-        }, this.moveTime * 1000);   
-    }
-
-};
-
-
 function clickItemHandler(event){
     if(!event.target.closest('.click-item')) return;
     let item = event.target.closest('.click-item');
@@ -917,82 +662,6 @@ function clickItemHandler(event){
     } else {
         obj['toggle'](item);
     }
-};
-
-
-function changeModelInfo(){
-    document.querySelectorAll('.model').forEach((container) => {
-        let box = container.querySelectorAll('.model_list');
-        let list = container.querySelectorAll('.model_item');
-        let high = container.querySelector('.model_highlight');
-        let text = container.querySelector('.model_description_content');
-        list[0].classList.add('active');
-
-        list.forEach(item => {
-            item.onclick = event =>{
-                let target = event.target.closest('.model_item');
-                if(target.classList.contains('active')) return;
-                list.forEach(item => item.classList.remove('active'));
-                target.classList.add('active');
-                func1();
-            }
-        });
-
-        function func1(){
-            let target = container.querySelector('.model_item.active');
-            text.innerHTML = target.querySelector('.model_text').innerHTML;
-            text.classList.remove('active');
-            setTimeout(()=>text.classList.add('active'));
-
-            let boxPosition = container.getBoundingClientRect();
-            high.style.top = `${target.getBoundingClientRect().top - boxPosition.top}px`;
-            high.style.height = `${getComputedStyle(target).height}`;
-        };
-
-        func1();
-    });
-};
-
-function installVideoHeight(){
-    document.querySelectorAll('.video_box').forEach(item => {
-        let video;
-        if(item.querySelector('video')){
-            video = item.querySelector('video');
-        } else if(item.querySelector('iframe')){
-            video = item.querySelector('iframe');
-        };
-
-        let p = 56.25;
-        if(video){
-            p = (video.height / video.width) * 100;
-        }
-        item.style.paddingBottom = `${p}%`;
-    })
-};
-
-
-function aboutTimerCountdown(){
-    if(!document.getElementById('about_timer')) return;
-    let timer = document.getElementById('about_timer');
-    timer.style.hidden = false;
-    let days = timer.querySelector('#about_days .about_timer_number');
-    let hours = timer.querySelector('#about_hours .about_timer_number');
-    let minutes = timer.querySelector('#about_minutes .about_timer_number');
-    let seconds = timer.querySelector('#about_seconds .about_timer_number');
-    let begin = new Date();
-    begin.setFullYear(2011,1,1);
-    begin.setHours(2,0,0);
-
-    function calc(){
-        let n = new Date();
-        days.textContent = parseInt(((n - begin) / 24) / 3600000);
-        hours.textContent = n.getHours() - begin.getHours();
-        minutes.textContent = n.getMinutes() - begin.getMinutes();
-        seconds.textContent = n.getSeconds() - begin.getSeconds();
-    }
-
-    calc();
-    setInterval(calc,1000);
 };
 
 
@@ -1145,80 +814,6 @@ class inputFileEmulator{
 };
 
 
-function hiddenScrollAside(selector){
-    document.querySelectorAll(selector).forEach(box =>{
-        if(document.body.clientWidth > 1100){
-            box.classList.add('scroll-emul_block');
-            let cont = box.querySelector('.scroll-emul_container');
-
-            if(!box.children[0].classList.contains('scroll-emul_container')){
-                cont = document.createElement('div');
-                cont.classList = 'scroll-emul_container';
-
-                let content = document.createElement('div');
-                content.classList = 'scroll-emul_content';
-
-                while(box.children.length){
-                    content.append(box.children[0])
-                }
-
-                let line = document.createElement('div');
-                line.classList = 'scroll-emul_line';
-
-                let line_item = document.createElement('div');
-                line_item.classList = 'scroll-emul_line_item';
-
-                cont.append(content);
-                line.append(line_item);
-                cont.append(line);
-                box.append(cont);
-
-                /*let x = content.offsetWidth - content.clientWidth - content.clientLeft;
-                if(x == 0) x = 50;
-                content.style.width = `calc(100% + ${x}px)`;
-                content.style.paddingRight = `${x}px`;*/
-
-                let contentFullHeight = 0;
-                for(let i = 0; i<content.children.length; i++){
-                    contentFullHeight += parseFloat(content.children[i].offsetHeight);
-                };
-                let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
-                line.hidden = (line_itemHeight >= 100)
-                line_item.style.height = `${line_itemHeight}%`;
-
-                content.addEventListener('scroll', scrollContent);
-
-                function scrollContent(e){
-                    line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
-                }
-            } else {
-                
-            }
-        } else {
-            if(!box.children[0].classList.contains('scroll-emul_container')) return;
-
-            box.classList.remove('scroll-emul_block');
-
-            let content = box.querySelector('.scroll-emul_content');
-            while(content.children.length){
-                box.append(content.children[0])
-            }
-
-            box.querySelector('.scroll-emul_container').remove();
-        }
-    })
-};
-
-
-function menuListHandler(event){
-    if(!event.target.closest('.aside_item.click-obj')) return;
-    let item = event.target.closest('.aside_item');
-    if(!item.querySelector('.aside_item_list')) return;
-    let p = item.querySelector('.aside_item_list');
-    p.style.top = `${item.getBoundingClientRect().top}px`;
-};
-
-
 function emulateSelector(select){
     let selects = document.querySelectorAll(select);
 
@@ -1340,48 +935,4 @@ function handlerClickLinks(event){
 
         scrollTo(pageXOffset,p)
     }, 1);
-};
-
-
-function installTableMinWidth(){
-    document.querySelectorAll('.table table').forEach(table => {
-        table.querySelectorAll('tr').forEach(tr => {
-            let trWidth = tr.clientWidth;
-            tr.querySelectorAll('th').forEach(th => installWidth(th,trWidth));
-            tr.querySelectorAll('td').forEach(td => installWidth(td,trWidth));
-        })
-    })
-
-    function installWidth(item,parentWidth){
-        if(parseInt(getComputedStyle(item).width) < parentWidth / 5){
-            item.style.width = `${parentWidth / 5}px`;
-        }
-    }
-};
-
-
-function loadYoutubeVideo(){
-    let images = document.querySelectorAll('.video_emulate');
-
-    for (let i = 0; i < images.length; i++){
-    images[i].onclick = function(event) {
-        document.querySelectorAll('#videoPlayer').forEach(item => item.id = null);
-        let item = images[i];
-        item.id = 'videoPlayer';
-
-        let idImg = this.querySelector('img').src.replace(/http...img.youtube.com.vi.(.*?).hqdefault.jpg/gi, '$1');
-        start(idImg);
-
-        function start(idImg) {
-        new YT.Player('videoPlayer', {
-            videoId: idImg,
-            events: {
-              'onReady': function(event){
-                event.target.playVideo();
-              },
-            }
-          });
-        };
-      };
-    };
 };
