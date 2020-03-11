@@ -1688,7 +1688,7 @@ img.rekl_image_mobile{
 	margin-left: 10px;
 }
 .ms-basis_content_top_slider{
-	display: none;
+	display: none!important;
 	padding-bottom: 30px;
 }
 .ms-basis_content_top_slide{}
@@ -2037,7 +2037,7 @@ img.rekl_image_mobile{
 		font-size: 14px;
 	}
 	.ms-basis_content_top_slider{
-		display: block;
+		display: block!important;
 	}
 	.ms-basis_content_top_panel .ms_stars{
 		display: none;
