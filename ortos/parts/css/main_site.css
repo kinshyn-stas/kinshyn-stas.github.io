@@ -639,9 +639,6 @@ img.rekl_image_mobile{
 }
 
 @media screen and (max-width: 992px){
-	.nv_block{
-		padding-top: 60px;
-	}
 	.nv_block-hidden{
 		display: block;
 		margin-bottom: 30px;
@@ -2325,6 +2322,9 @@ img.rekl_image_mobile{
 	max-width: 100%;
 	transform: translateY(-14%);
 }
+.hamburger{
+	display: none;
+}
 .ms-header_panel{
 	flex-grow: 100;
 	display: flex;
@@ -2519,10 +2519,19 @@ img.rekl_image_mobile{
 		width: 100%;
 		padding: 16px 0;
 		background-color: #fcfcfc;
-		box-shadow: 3px 0 3px 0 rgba(0,0,0,0.1)
+		box-shadow: 3px 0 3px 3px rgba(0,0,0,0.1);
 	}
 	.logotype{
 		display: none;
+	}
+	.hamburger{
+		display: block;
+		width: 30px;
+		margin-right: 20px;
+	}
+	.hamburger img{
+		display: block;
+		max-width: 100%;
 	}
 	.ms-header_panel{
 		margin-left: 0;
