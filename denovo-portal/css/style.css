@@ -658,6 +658,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.table{}
+.table_header{}
+.table_header_item{}
+.table_box{}
+.table_row{}
+.table_item{}
+
+
 .lightbox_container{
     position: fixed;
     top: 0;
