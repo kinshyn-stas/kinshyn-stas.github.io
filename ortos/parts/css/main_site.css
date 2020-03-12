@@ -2637,12 +2637,16 @@ img.rekl_image_mobile{
     min-width: 100vw;
     min-height: 100vh;
     opacity: 0;
-    padding-bottom: 30px;
+    overflow-y: auto;
 }
 .m-menu.active{
 	top: 0;
 	opacity: 1;
 	transition: top 0.1s linear, opacity 0.2s ease-in-out;
+}
+.m-menu_container{
+	position: relative;
+    padding-bottom: 60px;
 }
 .m-menu_background{
 	position: absolute;
@@ -2722,17 +2726,77 @@ img.rekl_image_mobile{
 	background-color: #ffffff;
 	transform: translateY(-50%);
 }
-.m-menu_middle{}
-.m-menu_salons{}
+.m-menu_middle{
+	padding: 24px;
+}
+.m-menu_salons{
+	font-family: "Open Sans", "Roboto", sans-serif;
+}
 .m-menu_salons span{}
-.m-menu_salons a{}
-.m-menu_catalog{}
-.m-menu_catalog a{}
+.m-menu_salons a{
+	margin-left: 0.2em;
+	display: inline-block;
+	color: #f26022;
+	text-decoration: underline;
+}
+.m-menu_catalog{
+	margin: 24px auto 10px;
+	text-align: center;
+}
+.m-menu_catalog a{
+	position: relative;
+	display: inline-block;
+	padding: 14px 50px;
+	background-color: #ffa700;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: 50px;
+}
+.m-menu_catalog a:hover{
+	color: #ffffff;
+}
+.m-menu_catalog a:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	display: inline-block;
+	border-left: 8px solid #ffffff;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transition: all 0.2s ease-in-out;
+}
 .m-menu_list{}
 .m-menu_box{}
-.m-menu_item{}
-.m-menu_bottom{}
-.m-menu_contact-client{}
-.m-menu_contact-client a{}
-.m-menu_contact-time{}
-.m-menu_contact-time b{}
+.m-menu_item{
+	display: block;
+	padding: 22px 24px;
+	color: #7b589c;
+	font-size: 16px;
+	font-weight: 500;
+	border-top: 1px solid #e8e8e8;
+}
+.m-menu_bottom{
+	padding: 24px;
+	background-color: #e8e8e8;
+	color: #757575;
+}
+.m-menu_contact-client{
+	margin-bottom: 20px;
+}
+.m-menu_contact-client a{
+	color: inherit;
+	font-size: 18px;
+}
+.m-menu_contact-time{
+	font-family: "Open Sans", "Roboto", sans-serif;
+}
+.m-menu_contact-time b{
+	font-weight: 600;
+}
