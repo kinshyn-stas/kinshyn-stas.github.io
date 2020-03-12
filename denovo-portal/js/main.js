@@ -295,7 +295,7 @@ function tableCellAlign(){
             });
         });
     });
-    
+
     document.querySelectorAll('.table').forEach(table => {
         table.querySelectorAll('.table_row').forEach(row => {
             row.querySelectorAll('.table_item').forEach((item,i,arr) => {
@@ -304,3 +304,57 @@ function tableCellAlign(){
         });
     });
 };
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.filter_item-date_input').forEach(input => {
+      var myDatepicker = input;
+
+      var daysArr = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'St', 'Su'];
+      var monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var monthLongArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      var textToday = 'Today';
+      var textClear = 'Clear';
+
+      /*if(siteLocalization){
+        if(siteLocalization == 'uk'){
+            daysArr = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            monthArr = ['Січ', 'Лют', 'Бер', 'Квіт', 'Трав', 'Черв', 'Лип', 'Серп', 'Вер', 'Жовт', 'Лист', 'Груд'];
+            monthLongArr = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+            textToday = 'Сьогодні';
+            textClear = 'Очистити';
+        } else if(siteLocalization == 'ru'){
+            daysArr = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            monthArr = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+            monthLongArr = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+            textToday = 'Сегодня';
+            textClear = 'Очистить';
+        }
+      }*/
+
+      myDatepicker.DatePickerX.init({
+        mondayFirst      : true,
+        format           : 'dd.mm.yyyy',
+        minDate          : new Date(0, 0),
+        maxDate          : new Date(9999, 11, 31),
+        weekDayLabels    : daysArr,
+        shortMonthLabels : monthArr,
+        singleMonthLabels: monthLongArr,
+        todayButton      : true,
+        todayButtonLabel : textToday,
+        clearButton      : true,
+        clearButtonLabel : textClear,
+      });
+    });
+
+    document.addEventListener('change', function(event){
+        if(!event.target.closest('.filter_item-date_input')) return;
+
+        let input = event.target.closest('.filter_item-date_input');
+        let span = input.closest('.filter_item-date_content').querySelector('.filter_item-date_value');
+        span.textContent = input.value;
+    })
+});

@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Denovo</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/DatePickerX.css">
 	<link rel="stylesheet" type="text/css" href="fonts/FontAwesome/css/all.css">
-	<script src="js/lazysizes.min.js" async=""></script>
 </head>
 <body>
 	<div class="main-container">
@@ -128,24 +128,24 @@
 								</select>
 							</div>
 							<div class="filter_item filter_item-date">
-								<input type="text">
-								<a class="filter_item-date_content">
+								<label class="filter_item-date_content">
+									<input type="text" class="filter_item-date_input">
 									<span>з</span>
 									<span class="filter_item-date_value">10.01.2020</span>
 									<figure>
 										<img src="images/calendar.svg" alt="" />
 									</figure>
-								</a>
+								</label>
 							</div>
 							<div class="filter_item filter_item-date">
-								<input type="text">
-								<a class="filter_item-date_content">
+								<label class="filter_item-date_content">
+									<input type="text" class="filter_item-date_input">
 									<span>по</span>
 									<span class="filter_item-date_value">25.01.2020</span>
 									<figure>
 										<img src="images/calendar.svg" alt="" />
 									</figure>
-								</a>
+								</label>
 							</div>
 							<div class="filter_item filter_item-button">
 								<a>Застосувати</a>
@@ -212,6 +212,7 @@
 	</div>
 
 
+	<script src="js/DatePickerX.js"></script>	
 	<script src="js/main.js"></script>	
 </body>
 </html>
