@@ -9,6 +9,9 @@ window.onload = function(){
 
 
     document.addEventListener('click', handlerClickLinks);
+
+
+    tableCellAlign();
 };
 
 
@@ -281,4 +284,23 @@ function handlerClickLinks(event){
 
         scrollTo(pageXOffset,p)
     }, 1);
+};
+
+
+function tableCellAlign(){
+    document.querySelectorAll('.table').forEach(table => {
+        table.querySelectorAll('.table_header').forEach(row => {
+            row.querySelectorAll('.table_header_item').forEach((item,i,arr) => {
+                item.style.width = `calc(100% / ${arr.length})`;
+            });
+        });
+    });
+    
+    document.querySelectorAll('.table').forEach(table => {
+        table.querySelectorAll('.table_row').forEach(row => {
+            row.querySelectorAll('.table_item').forEach((item,i,arr) => {
+                item.style.width = `calc(100% / ${arr.length})`;
+            });
+        });
+    });
 };

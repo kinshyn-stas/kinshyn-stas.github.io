@@ -659,11 +659,33 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .table{}
-.table_header{}
-.table_header_item{}
+.table_header{
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    background: #FFFFFF;
+    color: #98999B;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 7px;
+    border: 1px solid #EEEEEE;
+}
+.table_header_item{
+    flex-grow: 100;
+}
 .table_box{}
-.table_row{}
-.table_item{}
+.table_row{
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    border-bottom: 1px dashed #D9DADD;
+}
+.table_item{
+    flex-grow: 100;
+}
 
 
 .lightbox_container{
