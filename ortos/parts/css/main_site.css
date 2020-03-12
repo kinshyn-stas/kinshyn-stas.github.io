@@ -2306,3 +2306,30 @@ img.rekl_image_mobile{
 		justify-content: center;
 	}
 }
+
+
+.ms-header{}
+.logotype{}
+.logotype img{}
+.ms-header_panel{}
+.ms-header_search{}
+.ms-header_search input{}
+.ms-header_search img{}
+.ms-header_contacts{}
+.ms-header_contacts_top{}
+.ms-header_contacts_middle{}
+.ms-header_contacts_middle a{}
+.ms-header_contacts_bottom{}
+.ms-header_contacts_sh{}
+.ms-header_contacts_sh_label{}
+.ms-header_contacts_sh_label img{}
+.ms-header_contacts_sh_label span{}
+.ms-header_panel_item{}
+.ms-header_panel_item figure{}
+.ms-header_panel_item figure svg,
+.ms-header_panel_item figure img{}
+.ms-header_panel_item figure span{}
+.ms-header_panel_item-big{}
+.ms-header_langs{}
+.ms-header_langs_list{}
+.ms-header_langs_list_item{}
