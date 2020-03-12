@@ -32,7 +32,7 @@
 
 @media screen and (max-width: 768px){
 	.ms-main-block{
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -1685,7 +1685,7 @@ img.rekl_image_mobile{
 	margin-left: 10px;
 }
 .ms-basis_content_top_slider{
-	display: none;
+	display: none!important;
 	padding-bottom: 30px;
 }
 .ms-basis_content_top_slide{}
@@ -2034,7 +2034,7 @@ img.rekl_image_mobile{
 		font-size: 14px;
 	}
 	.ms-basis_content_top_slider{
-		display: block;
+		display: block!important;
 	}
 	.ms-basis_content_top_panel .ms_stars{
 		display: none;
@@ -2094,13 +2094,17 @@ img.rekl_image_mobile{
     }
 	.ms-basis_content_middle{
 		display: block;
-		padding: 28px 0 30px;
+		padding: 28px 0 0;
+		border-bottom: none;
 	}
 	.ms-basis_content_middle_part-1{
 		margin-bottom: 20px;
 	}
 	.ms-basis_content_middle_part-2{
 		margin-bottom: 20px;
+	}
+	.ms-basis_content_bottom{
+		display: none;
 	}
 	.ms-basis_content_bottom_item{
 		width: 100%;
@@ -2303,6 +2307,7 @@ img.rekl_image_mobile{
 		justify-content: center;
 	}
 }
+
 
 
 .ms-header{
@@ -2799,4 +2804,19 @@ img.rekl_image_mobile{
 }
 .m-menu_contact-time b{
 	font-weight: 600;
+}
+
+
+.breadcrumb_block{
+	margin-bottom: 0;
+	padding-bottom: 1px;
+}
+.breadcrumb_block .breadcrumb{
+	margin: 30px 0;
+}
+
+@media screen and (max-width: 992px){
+	.breadcrumb_block{
+		display: none;
+	}
 }
