@@ -710,6 +710,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     border-radius: 7px;
 }
 .filter_item{
+    flex-grow: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -720,13 +721,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     border-left: none;
 }
 .filter_item-select{
-    flex-grow: 100;
     padding: 0;
 }
 .filter_item-select .select{
     width: 100%;
     background-color: #F5F5F5;
     text-align: left;
+    border-radius: 7px 0 0 7px;
 }
 .filter_item-select .select_option{
     padding: 16px 24px;
@@ -770,6 +771,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100%;
     padding: 14px 24px;
     background-color: #FFFFFF;
