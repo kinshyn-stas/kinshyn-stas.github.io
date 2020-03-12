@@ -695,6 +695,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .table_item{
     flex-grow: 100;
 }
+.table_item_link{
+    color: #F56107;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+}
 
 
 .filter{
