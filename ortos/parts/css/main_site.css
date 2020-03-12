@@ -2323,6 +2323,7 @@ img.rekl_image_mobile{
 .logotype img{
 	display: block;
 	max-width: 100%;
+	transform: translateY(-14%);
 }
 .ms-header_panel{
 	flex-grow: 100;
@@ -2333,7 +2334,7 @@ img.rekl_image_mobile{
 }
 .ms-header_search{
 	position: relative;
-	margin-right: 20px;
+	margin-right: 6%;
 }
 .ms-header_search input{
 	width: 290px;
@@ -2357,7 +2358,7 @@ img.rekl_image_mobile{
 	transform: translateY(-50%);
 }
 .ms-header_contacts{
-	margin-right: 20px;
+	margin-right: 6%;
 }
 .ms-header_contacts_top{
 	margin-bottom: 0;
@@ -2395,6 +2396,9 @@ img.rekl_image_mobile{
 }
 .ms-header_panel_item{
 	margin-right: 18px;
+}
+.ms-header_panel_item-search{
+	display: none;
 }
 .ms-header_panel_item figure{
 	position: relative;
@@ -2490,4 +2494,79 @@ img.rekl_image_mobile{
 }
 .ms-header_langs_list_item.active{
 	order: 4;
+}
+
+@media screen and (max-width: 1200px){
+	.ms-header_search{
+		margin-right: 4%;
+	}
+	.ms-header_search input{
+		width: 240px;
+	}
+	.ms-header_contacts{
+		margin-right: 4%;
+	}
+}
+@media screen and (max-width: 1100px){
+	.ms-container{
+		padding-top: 60px;
+	}
+	.ms-header{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		width: 100%;
+		padding: 16px 0;
+		background-color: #fcfcfc;
+		box-shadow: 3px 0 3px 0 rgba(0,0,0,0.1)
+	}
+	.logotype{
+		display: none;
+	}
+	.ms-header_panel{
+		margin-left: 0;
+	}
+	.ms-header_search{
+		display: none;
+	}
+	.ms-header_contacts{
+		display: none;
+	}
+	.ms-header_panel_item{
+		margin-left: 16px;
+		margin-right: 0;
+	}
+	.ms-header_panel_item-search{
+		display: block;
+	}
+	.ms-header_panel_item figure{
+		width: 30px;
+		height: 30px;
+	}
+	.ms-header_panel_item figure svg,
+	.ms-header_panel_item figure img{
+		width: 16px;
+	}
+	.ms-header_panel_item figure span{
+		top: -6px;
+    	right: -6px;
+		bottom: auto;
+		width: 16px;
+		height: 16px;
+		font-size: 10px;
+	}
+	.ms-header_panel_item-big{
+		margin-right: 0;
+	}
+	.ms-header_panel_item-big figure{
+		width: 30px;
+		height: 30px;
+	}
+	.ms-header_panel_item-big figure img{
+		width: 16px;
+	}
+	.ms-header_langs{
+		display: none;
+	}
 }
