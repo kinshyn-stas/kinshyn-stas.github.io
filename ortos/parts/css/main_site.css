@@ -2619,3 +2619,120 @@ img.rekl_image_mobile{
 	color: #ffffff;
 	background-color: #ffa700;
 }
+
+@media screen and (max-width: 1100px){
+	.ms-menu{
+		display: none;
+	}
+}
+
+
+.m-menu{
+	position: fixed;
+    top: -200%;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    opacity: 0;
+    padding-bottom: 30px;
+}
+.m-menu.active{
+	top: 0;
+	opacity: 1;
+	transition: top 0.1s linear, opacity 0.2s ease-in-out;
+}
+.m-menu_background{
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+.m-menu_popup{
+	position: relative;
+    z-index: 20;
+    background-color: #ffffff;
+}
+.m-menu_top{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 30px 24px 24px;
+	background-color: #7b599d;
+	color: #ffffff;
+}
+.m-menu_top .logotype{
+	display: block;
+	width: 140px;
+	min-width: 140px;
+	margin-bottom: 26px;
+}
+.m-menu_top .logotype img{
+	transform: none;
+}
+.m-menu_langs{
+	display: flex;
+	align-items: center;
+}
+.m-menu_lang{
+	position: relative;
+	display: block;
+	color: #ffffff;
+}
+.m-menu_lang:not(:last-of-type){
+	padding-right: 15px;
+	margin-right: 15px;
+}
+.m-menu_lang:not(:last-of-type):after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 1px;
+	height: 10px;
+	background-color: #ffffff;
+	transform: translateY(-50%);
+}
+.m-menu_enter{
+	width: 100%;
+}
+.m-menu_enter_item{
+	position: relative;
+	color: #ffffff;
+}
+.m-menu_enter_item:not(:last-of-type){
+	padding-right: 15px;
+	margin-right: 15px;
+}
+.m-menu_enter_item:not(:last-of-type):after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 1px;
+	height: 12px;
+	background-color: #ffffff;
+	transform: translateY(-50%);
+}
+.m-menu_middle{}
+.m-menu_salons{}
+.m-menu_salons span{}
+.m-menu_salons a{}
+.m-menu_catalog{}
+.m-menu_catalog a{}
+.m-menu_list{}
+.m-menu_box{}
+.m-menu_item{}
+.m-menu_bottom{}
+.m-menu_contact-client{}
+.m-menu_contact-client a{}
+.m-menu_contact-time{}
+.m-menu_contact-time b{}
