@@ -754,6 +754,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 1100px){
+    .return_button{
+        margin-bottom: 20px;
+    }
+}
+
 
 .title_panel{
     display: flex;
