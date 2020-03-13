@@ -130,11 +130,11 @@
 						</div>
 
 						<div class="tabl filter_container click-obj">
-							<div class="filter_background click-item"></div>
+							<div class="filter_background click-item" data-action="popup-close" data-label=".filter_container"></div>
 							<div class="filter_content">
 								<div class="filter_content_panel">
-									<h2 class="filter_content_title click-item">Фільтр</h2>
-									<a class="filter_content_close">
+									<h2 class="filter_content_title">Фільтр</h2>
+									<a class="filter_content_close click-item" data-action="popup-close" data-label=".filter_container">
 										<img src="images/close_filter.svg" alt="" />
 									</a>
 								</div>
@@ -268,7 +268,7 @@
 					</div>
 
 					<div class="header_mobile_filter">
-						<a>
+						<a class="click-item" data-action="popup-open" data-label=".filter_container">
 							<img src="images/mobile_filter.svg" alt="" />
 						</a>
 					</div>
