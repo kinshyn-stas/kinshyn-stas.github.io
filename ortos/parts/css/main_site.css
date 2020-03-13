@@ -2659,6 +2659,7 @@ img.rekl_image_mobile{
 	display: flex;
 	align-items: center;
 	width: 24%;
+	padding-right: 10px;
 	margin-bottom: 20px;
 	color: #212121;
     font-size: 14px;
