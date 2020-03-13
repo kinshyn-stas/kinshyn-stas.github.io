@@ -764,7 +764,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .title_panel{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 .title_panel_left{
     flex-grow: 100;
@@ -772,11 +772,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     align-items: center;
     flex-wrap: wrap;
 }
-.title_panel_title{}
+.title_panel_title{
+    margin-bottom: 8px;
+}
+.title_panel_left *:last-child{
+    margin-bottom: 0;
+}
 .title_panel_undertitle{
     width: 100%;
     max-width: 710px;
-    margin-top: -12px;
     font-weight: 300;
 }
 .title_panel_right{
