@@ -12,6 +12,10 @@ window.onload = function(){
 
 
     tableCellAlign();
+
+
+    resizeXWrapper();
+    window.addEventListener('resize', (event) => resizeXWrapper(tableCellAlign,event))
 };
 
 
@@ -288,31 +292,60 @@ function handlerClickLinks(event){
 
 
 function tableCellAlign(){
-    document.querySelectorAll('.table').forEach(table => {
-        table.querySelectorAll('.table_header').forEach(row => {
-            row.querySelectorAll('.table_header_item').forEach((item,i,arr) => {
-                item.style.width = `calc(100% / ${arr.length})`;
+    function f(table,row,item){
+        document.querySelectorAll(table).forEach(table => {
+            table.querySelectorAll(row).forEach(row => {
+                let counter = 0;
+                row.querySelectorAll(item).forEach(item => {
+                    counter++;
+
+                    if(item.classList.contains('mobile') && window.innerWidth > 1100){
+                        item.setAttribute('hidden','true');
+                        counter--;
+                        return;
+                    }
+
+                    if(item.classList.contains('desktop') && window.innerWidth <= 1100){
+                        item.setAttribute('hidden','true');
+                        counter--;
+                        return;
+                    }
+
+                    item.removeAttribute('hidden');
+                });
+
+                row.querySelectorAll(item).forEach(item => {                
+                    item.style.width = `calc(100% / ${counter})`;
+                });
             });
         });
-    });
+    };
+
+    f('.table','.table_header','.table_header_item');
+    f('.table','.table_row','.table_item');
 
     document.querySelectorAll('.filter').forEach(row => {
         row.querySelectorAll('.filter_item').forEach((item,i,arr) => {
             item.style.width = `calc(100% / ${arr.length})`;
         });
     });
-
-    document.querySelectorAll('.table').forEach(table => {
-        table.querySelectorAll('.table_row').forEach(row => {
-            row.querySelectorAll('.table_item').forEach((item,i,arr) => {
-                item.style.width = `calc(100% / ${arr.length})`;
-            });
-        });
-    });
 };
 
 
-
+function resizeXWrapper(func,event){
+    if(!event){
+        window.widthStart = window.innerWidth;
+    } else {
+        if(window.widthStart){
+            if(window.widthStart != window.innerWidth){
+                window.widthStart = window.innerWidth;
+                func();
+            }
+        } else {
+            window.widthStart = window.innerWidth;
+        }
+    }
+};
 
 
 window.addEventListener('DOMContentLoaded', function(){
