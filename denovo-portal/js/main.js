@@ -296,6 +296,12 @@ function tableCellAlign(){
         });
     });
 
+    document.querySelectorAll('.filter').forEach(row => {
+        row.querySelectorAll('.filter_item').forEach((item,i,arr) => {
+            item.style.width = `calc(100% / ${arr.length})`;
+        });
+    });
+
     document.querySelectorAll('.table').forEach(table => {
         table.querySelectorAll('.table_row').forEach(row => {
             row.querySelectorAll('.table_item').forEach((item,i,arr) => {
