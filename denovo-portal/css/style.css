@@ -754,9 +754,90 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     margin-bottom: 20px;
 }
 
+.w-10{
+    width: 10%;
+    min-width: 10%;
+}
+.w-20{
+    width: 20%;
+    min-width: 20%;
+}
+.w-30{
+    width: 30%;
+    min-width: 30%;
+}
+.w-40{
+    width: 40%;
+    min-width: 40%;
+}
+.w-50{
+    width: 50%;
+    min-width: 50%;
+}
+.w-60{
+    width: 60%;
+    min-width: 60%;
+}
+.w-70{
+    width: 70%;
+    min-width: 70%;
+}
+.w-80{
+    width: 80%;
+    min-width: 80%;
+}
+.w-90{
+    width: 90%;
+    min-width: 90%;
+}
+.w-100{
+    width: 100%;
+    min-width: 100%;
+}
+
 @media screen and (max-width: 1100px){
     .return_button{
         margin-bottom: 20px;
+    }
+    .wm-10{
+        width: 10%;
+        min-width: 10%;
+    }
+    .wm-20{
+        width: 20%;
+        min-width: 20%;
+    }
+    .wm-30{
+        width: 30%;
+        min-width: 30%;
+    }
+    .wm-40{
+        width: 40%;
+        min-width: 40%;
+    }
+    .wm-50{
+        width: 50%;
+        min-width: 50%;
+    }
+    .wm-60{
+        width: 60%;
+        min-width: 60%;
+    }
+    .wm-70{
+        width: 70%;
+        min-width: 70%;
+    }
+    .wm-80{
+        width: 80%;
+        min-width: 80%;
+    }
+    .wm-90{
+        width: 90%;
+        min-width: 90%;
+    }
+    .wm-100{
+        width: 100%;
+        min-width: 100%;
     }
 }
 
@@ -1030,6 +1111,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-align: left;
     border-radius: 7px 0 0 7px;
 }
+.filter_item:last-of-type.filter_item-select .select{
+    border-radius: 0 7px 7px 0;    
+}
 .filter_item-select .select_option{
     padding: 16px 24px;
     background-color: #F5F5F5;
@@ -1043,6 +1127,25 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     justify-content:flex-start;
     border-radius: 7px 0 0 7px;
     padding-right: 34px;
+}
+.filter_item:last-of-type.filter_item-select .select_tit{
+    border-radius: 0 7px 7px 0;
+}
+.filter_item-select-doc .select_tit:before,
+.filter_item-select-date .select_tit:before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-right: 4px;
+    background-image: url(../images/document_select.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.filter_item-select-date .select_tit:before{
+    background-image: url(../images/date_select.svg);
 }
 .filter_item-date{}
 .filter_item-date input{
@@ -1130,6 +1233,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         background: #F5F5F5;
         border-radius: 7px;
         border-left: none;
+    }
+    .filter_item.wm-100{
+        margin-bottom: 12px;
+    }
+    .filter_item.wm-100:last-of-type{
+        margin-bottom: 0;
     }
     .filter_item-date_content{
         width: 100%;

@@ -299,28 +299,28 @@ function tableCellAlign(){
     function f(table,row,item){
         document.querySelectorAll(table).forEach(table => {
             table.querySelectorAll(row).forEach(row => {
-                let counter = 0;
+                //let counter = 0;
                 row.querySelectorAll(item).forEach(item => {
-                    counter++;
+                    //counter++;
 
                     if(item.classList.contains('mobile') && window.innerWidth > 1100){
                         item.setAttribute('hidden','true');
-                        counter--;
+                        //counter--;
                         return;
                     }
 
                     if(item.classList.contains('desktop') && window.innerWidth <= 1100){
                         item.setAttribute('hidden','true');
-                        counter--;
+                        //counter--;
                         return;
                     }
 
                     item.removeAttribute('hidden');
                 });
 
-                row.querySelectorAll(item).forEach(item => {                
+                /*row.querySelectorAll(item).forEach(item => {                
                     item.style.width = `calc(100% / ${counter})`;
-                });
+                });*/
             });
         });
     };
@@ -328,11 +328,11 @@ function tableCellAlign(){
     f('.table','.table_header','.table_header_item');
     f('.table','.table_row','.table_item');
 
-    document.querySelectorAll('.filter').forEach(row => {
+    /*document.querySelectorAll('.filter').forEach(row => {
         row.querySelectorAll('.filter_item').forEach((item,i,arr) => {
             item.style.width = `calc(100% / ${arr.length})`;
         });
-    });
+    });*/
 };
 
 
