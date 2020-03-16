@@ -156,6 +156,10 @@ function clickItemHandler(event){
             document.querySelector('.doc-header_box').classList.remove('hidden');
             document.querySelector('.doc-header_search').classList.remove('active');
         },
+
+        'table-row_toggle': function(target){
+            target.closest('.table_row').classList.toggle('active');
+        },
     }
 
     if(item.dataset.action){
