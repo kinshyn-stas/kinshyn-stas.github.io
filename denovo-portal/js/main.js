@@ -304,18 +304,18 @@ function tableCellAlign(){
                     //counter++;
 
                     if(item.classList.contains('mobile') && window.innerWidth > 1100){
-                        item.setAttribute('hidden','true');
+                        item.classList.add('hidden');
                         //counter--;
                         return;
                     }
 
                     if(item.classList.contains('desktop') && window.innerWidth <= 1100){
-                        item.setAttribute('hidden','true');
+                        item.classList.add('hidden');
                         //counter--;
                         return;
                     }
 
-                    item.removeAttribute('hidden');
+                    item.classList.remove('hidden');
                 });
 
                 /*row.querySelectorAll(item).forEach(item => {                
@@ -326,6 +326,7 @@ function tableCellAlign(){
     };
 
     f('.table','.table_header','.table_header_item');
+    f('.table','.table_label','.table_label_item');
     f('.table','.table_row','.table_item');
 
     /*document.querySelectorAll('.filter').forEach(row => {
