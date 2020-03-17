@@ -981,6 +981,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     width: 100%;
     padding: 17px;
 }
+.title_panel_progress{
+    width: 100%;
+}
+.title_panel_progress_title{
+    margin-bottom: 6px;
+}
+.title_panel_progress_line{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #F3F6F9;
+    border-radius: 5px;
+}
+.title_panel_progress_line_item{
+    background-color: #F57C1D;
+    border-radius: 5px;
+}
+.title_panel_progress_percent{
+    margin-top: 6px;
+    color: #F57C1D;
+}
 
 @media screen and (max-width: 1100px){
     .title_panel{
