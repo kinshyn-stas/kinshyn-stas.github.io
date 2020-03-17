@@ -862,9 +862,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     width: 20%;
     min-width: 20%;
 }
+.w-25{
+    width: 25%;
+    min-width: 25%;
+}
 .w-30{
     width: 30%;
     min-width: 30%;
+}
+.w-33{
+    width: 33%;
+    min-width: 33%;
 }
 .w-40{
     width: 40%;
@@ -907,9 +915,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         width: 20%;
         min-width: 20%;
     }
+    .wm-25{
+        width: 25%;
+        min-width: 25%;
+    }
     .wm-30{
         width: 30%;
         min-width: 30%;
+    }
+    .wm-33{
+        width: 33%;
+        min-width: 33%;
     }
     .wm-40{
         width: 40%;
