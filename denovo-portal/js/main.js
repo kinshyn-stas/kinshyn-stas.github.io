@@ -11,11 +11,7 @@ window.onload = function(){
     document.addEventListener('click', handlerClickLinks);
 
 
-    tableCellAlign();
-
-
     resizeXWrapper();
-    window.addEventListener('resize', (event) => resizeXWrapper(tableCellAlign,event))
 };
 
 
@@ -292,48 +288,6 @@ function handlerClickLinks(event){
 
         scrollTo(pageXOffset,p)
     }, 1);
-};
-
-
-function tableCellAlign(){
-    function f(table,row,item){
-        document.querySelectorAll(table).forEach(table => {
-            table.querySelectorAll(row).forEach(row => {
-                //let counter = 0;
-                row.querySelectorAll(item).forEach(item => {
-                    //counter++;
-
-                    if(item.classList.contains('mobile') && window.innerWidth > 1100){
-                        item.classList.add('hidden');
-                        //counter--;
-                        return;
-                    }
-
-                    if(item.classList.contains('desktop') && window.innerWidth <= 1100){
-                        item.classList.add('hidden');
-                        //counter--;
-                        return;
-                    }
-
-                    item.classList.remove('hidden');
-                });
-
-                /*row.querySelectorAll(item).forEach(item => {                
-                    item.style.width = `calc(100% / ${counter})`;
-                });*/
-            });
-        });
-    };
-
-    f('.table','.table_header','.table_header_item');
-    f('.table','.table_label','.table_label_item');
-    f('.table','.table_row','.table_item');
-
-    /*document.querySelectorAll('.filter').forEach(row => {
-        row.querySelectorAll('.filter_item').forEach((item,i,arr) => {
-            item.style.width = `calc(100% / ${arr.length})`;
-        });
-    });*/
 };
 
 
