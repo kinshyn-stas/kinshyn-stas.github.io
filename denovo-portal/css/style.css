@@ -643,7 +643,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 1000;
     width: 100%;
     padding: 56px 0 28px;
     background-color: #ffffff;
