@@ -660,16 +660,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .header_mobile_menu img{
     display: block;
 }
-.header_mobile_menu .header_mobile_menu-closed{}
-.header_mobile_menu .header_mobile_menu-open{
-    display: none;
-}
-.header_mobile_menu.active .header_mobile_menu-closed{
-    display: none;
-}
-.header_mobile_menu.active .header_mobile_menu-open{
-    display: block;
-}
 .header_mobile_title{
     flex-grow: 100;
     position: relative;
@@ -699,6 +689,162 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .header_mobile{
         display: block;
     }
+}
+
+
+.menu_mobile{
+    position: fixed;
+    top: -200%;
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #ffffff;
+    opacity: 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.2;
+}
+.menu_mobile.active{
+    top: 0%;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+.menu_mobile_header{
+    padding: 57px 20px 15px;
+}
+.menu_mobile_header_button{
+    display: block;
+    width: 40px;
+}
+.menu_mobile_header_button img{
+    display: block;
+}
+.menu_mobile_body{
+    height: calc(100% - 112px);
+    overflow-y: auto;
+}
+.menu_mobile_list{}
+.menu_mobile_list_item{
+    border-bottom: 1px solid #F2F4F8;
+}
+.menu_mobile_list_label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+.menu_mobile_list_item-accordion .menu_mobile_list_label{
+    padding: 20px 26px 20px 20px;
+}
+.menu_mobile_list_label-gray{
+    background-color: #F5F5F5;
+}
+.menu_mobile_list_item-accordion .menu_mobile_list_label:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    display: block;
+    width: 12px;
+    height: 6px;
+    background-image: url(../images/arrow_aside.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(-180deg) translate(-50%);
+    transition: all 0.2s ease-in-out;
+}
+.menu_mobile_list_item-accordion.active .menu_mobile_list_label:after{
+    transform: rotate(0) translate(-50%);
+}
+.menu_mobile_list_label img{
+    display: block;
+    width: 24px;
+    min-width: 24px;
+    margin-right: 4px;
+}
+.menu_mobile_list_links{
+    max-height: 0;
+    opacity: 0;
+    padding-left: 46px;
+    font-size: 0.9em;
+    list-style: none;
+    overflow: hidden;
+}
+.menu_mobile_list_item-accordion.active .menu_mobile_list_links{
+    max-height: 100vh;
+    margin-bottom: 20px;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.menu_mobile_list_links li{
+    margin-bottom: 12px;
+}
+.menu_mobile_list_links li:last-of-type{
+    margin-bottom: 0;
+}
+.menu_mobile_box{}
+.menu_mobile_item{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #F2F4F8;
+}
+.menu_mobile_item img{
+    display: block;
+    width: 24px;
+    min-width: 24px;
+    margin-right: 4px;
+}
+.menu_mobile_profile{}
+.menu_mobile_profile_label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px 26px 20px 20px;
+    border-bottom: 1px solid #F2F4F8;
+}
+.menu_mobile_profile_label:after{    
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    display: block;
+    width: 12px;
+    height: 6px;
+    background-image: url(../images/arrow_aside.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(-180deg) translate(-50%);
+    transition: all 0.2s ease-in-out;
+}
+.menu_mobile_profile.active .menu_mobile_profile_label:after{
+    transform: rotate(0) translate(-50%);
+}
+.menu_mobile_profile_label img{
+    display: block;
+    width: 40px;
+    min-width: 40px;
+}
+.menu_mobile_langs{
+    display: flex;
+    padding: 20px;
+}
+.menu_mobile_lang{
+    display: inline-block;
+    padding-right: 20px;
+}
+.menu_mobile_lang:last-of-type{
+    padding-right: 0;
+}
+.menu_mobile_lang.active{
+    color: #F56107;
 }
 
 
