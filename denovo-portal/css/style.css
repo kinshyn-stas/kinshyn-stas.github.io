@@ -463,6 +463,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         max-width: 1153px;
         padding-left: 33px;
         padding-right: 33px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .center-main-block-full{
         max-width: 100%;
@@ -579,6 +581,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: block;
 }
 
+@media screen and (min-width: 1441px){
+    .header-main .center-main-block{
+        max-width: 100%;
+    }
+}
 @media screen and (max-width: 1100px){
     .header-main{
         display: none;
