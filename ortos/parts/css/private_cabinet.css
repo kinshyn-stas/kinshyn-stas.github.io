@@ -806,7 +806,8 @@
 	object-fit: cover;
 	object-position: center;
 }
-.pr_elect_image .pr_stars{
+.pr_elect_image .pr_stars,
+.pr_elect_image .ms_stars{
 	position: absolute;
 	top: 14px;
 	left: 14px;
