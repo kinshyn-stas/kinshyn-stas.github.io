@@ -464,16 +464,12 @@ h2{
     line-height: 1.2;
 }
 h3{
-    margin-top: 20px;
     font-size: 20px;
-    line-height: 1.2; 
     text-transform: uppercase;   
 }
 h4{
     margin-bottom: 12px;
     font-size: 17px;
-    font-weight: 500;
-    line-height: 19px;
 }
 img{
     max-width: 100%;
@@ -609,6 +605,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding-left: 0;
     padding-right: 0;
 }
+
+
+
 
 
 /*.scroll-emul_block{
