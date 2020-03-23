@@ -307,15 +307,15 @@ iframe{
 }
 input,
 textarea{
-    padding: 6px;
+    padding: 16px 12px;
     background-color: #ffffff;
     color: inherit;
     font-size: 14px;
-    line-height: 18px;
+    font-weight: 300;
+    line-height: 16px;
     outline: none;
-    text-align: center;
-    border-radius: 7px;
-    border: 1px solid #EEEEEE;
+    border-radius: 3px;
+    border: 1px solid #EEEDF3;
     transition: all 0.2s ease-in-out;
 }
 textarea{
@@ -330,19 +330,13 @@ textarea.invalid{
 input:focus,
 textarea:focus{
     outline: none;
-    border-color: #31beff;
+    border-color: #2B3293;
 }
 input::placeholder,
 textarea::placeholder{
-    color: #757575;
+    color: #404040;
     font-weight: 300;
 }
-input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
-input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
 input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
 input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
 input[type="search"]::-webkit-search-decoration,
@@ -996,6 +990,34 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 100%;
     background-color: #ffffff;
     border-radius: 3px;
+}
+
+
+.record_block{
+    padding: 116px 0;
+}
+.record_title{
+    color: #404040;
+    text-align: center;
+}
+.record_form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 810px;
+    margin: 56px auto 0;
+}
+.record_item{
+    width: 35%;
+}
+.record_item-button{
+    width: 23%;
+}
+.record_item input{
+    width: 100%;
+}
+.record_item-button button{
+    width: 100%;
 }
 
 
