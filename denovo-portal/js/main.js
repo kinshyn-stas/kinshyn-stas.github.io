@@ -325,6 +325,7 @@ function resizeXWrapper(func,event){
 window.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.filter_item-date_input').forEach(input => {
       var myDatepicker = input;
+      var siteLocalization = 'uk';
 
       var daysArr = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'St', 'Su'];
       var monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -332,7 +333,7 @@ window.addEventListener('DOMContentLoaded', function(){
       var textToday = 'Today';
       var textClear = 'Clear';
 
-      /*if(siteLocalization){
+      if(siteLocalization){
         if(siteLocalization == 'uk'){
             daysArr = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
             monthArr = ['Січ', 'Лют', 'Бер', 'Квіт', 'Трав', 'Черв', 'Лип', 'Серп', 'Вер', 'Жовт', 'Лист', 'Груд'];
@@ -346,7 +347,7 @@ window.addEventListener('DOMContentLoaded', function(){
             textToday = 'Сегодня';
             textClear = 'Очистить';
         }
-      }*/
+      }
 
       myDatepicker.DatePickerX.init({
         mondayFirst      : true,
