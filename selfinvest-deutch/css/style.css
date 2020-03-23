@@ -923,6 +923,37 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: block;
 }
 
+@media screen and (max-width: 1100px){
+    .seo_block .center-main-block{
+        flex-wrap: wrap;
+    }
+    .seo_content{
+        order: 4;
+        width: 100%;
+        margin-right: 0;
+        margin-top: 40px;
+    }
+    .seo_image{
+        order: 2;
+        width: 100%;
+    }
+    .seo_image figure{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 768px){
+    .seo_block{
+        padding: 56px 0 72px;
+    }
+    .seo_content{
+        padding: 16px 14px 16px 12px;
+    }
+    .seo_text{
+        padding-right: 10px;
+    }
+}
+
 
 
 .scroll-emul_block{
