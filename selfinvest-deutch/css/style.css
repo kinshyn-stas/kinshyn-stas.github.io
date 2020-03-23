@@ -675,7 +675,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .about_image{
     width: calc(50% - 52px);
 }
-.about_image figure{}
+.about_image figure{
+    overflow: hidden;
+    border-radius: 3px;
+}
 .about_image figure img{
     display: block;
 }
@@ -870,9 +873,46 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.seo_block{
+    padding: 80px 0;
+    background-color: #EEEDF3;
+    background-image: linear-gradient(135deg, transparent 44%, rgba(255, 255, 255, 0.23) 44%, rgba(255, 255, 255, 0.23) 77%, rgba(238, 237, 243, 0) 100%);
+}
+.seo_block .center-main-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.seo_content{
+    width: 600px;
+    min-width: 600px;
+    max-height: 440px;
+    padding: 24px 8px 24px 24px;
+    margin-right: 104px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 3px;
+    border: 2px solid #FFFFFF;
+}
+.seo_text{
+    padding-right: 20px;
+}
+.seo_content h2{}
+.seo_image{
+    flex-grow: 100;
+}
+.seo_image figure{
+    overflow: hidden;
+    border-radius: 3px;
+}
+.seo_image figure img{
+    display: block;
+}
 
-/*.scroll-emul_block{
-    overflow-y: hidden;
+
+
+.scroll-emul_block{
+  overflow-y: auto;
 }
 .scroll-emul_container{
     position: relative;
@@ -881,12 +921,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     overflow-y: visible;
 }
 .scroll-emul_content{
-    width: calc(100% + 50px);
     height: 100%;
-    padding-right: 50px;
+    padding-right: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .scroll-emul_content::-webkit-scrollbar {
     width: 0px;
@@ -897,20 +938,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     top: 1px;
     right: 1px;
     z-index: 10;
-    width: 3px;
+    width: 7px;
     height: calc(100% - 2px);
-    background-color: rgba(220, 220, 220, 0.5);
-    border-radius: 2px;
+    background-color: transparent;
+    border-radius: 3px;
 }
 .scroll-emul_line_item{
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 7px;
     height: 100%;
-    background-color: rgba(220, 220, 220, 0.8);
-    border-radius: 2px;
-}*/
+    background-color: #ffffff;
+    border-radius: 3px;
+}
 
 
 /*.popup_container{

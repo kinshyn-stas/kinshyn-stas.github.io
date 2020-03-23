@@ -12,6 +12,10 @@ window.onload = function(){
 
 
     resizeXWrapper();
+
+
+    hiddenScrollAside('.seo_content');
+    resizeXWrapper(() => hiddenScrollAside('.seo_content'),'resize');
 };
 
 
@@ -207,6 +211,56 @@ function resizeXWrapper(func,event){
             window.widthStart = window.innerWidth;
         }
     }
+};
+
+
+function hiddenScrollAside(selector){
+    document.querySelectorAll(selector).forEach(box =>{            
+      box.classList.add('scroll-emul_block');
+      box.style.height = `${(parseInt(getComputedStyle(box).height))}px`;
+      let cont = box.querySelector('.scroll-emul_container');
+
+      if(!box.children[0].classList.contains('scroll-emul_container')){
+          cont = document.createElement('div');
+          cont.classList = 'scroll-emul_container';
+
+          let content = document.createElement('div');
+          content.classList = 'scroll-emul_content';
+
+          while(box.children.length){
+              content.append(box.children[0])
+          }
+
+          let line = document.createElement('div');
+          line.classList = 'scroll-emul_line';
+
+          let line_item = document.createElement('div');
+          line_item.classList = 'scroll-emul_line_item';
+
+          cont.append(content);
+          line.append(line_item);
+          cont.append(line);
+          box.append(cont);
+
+          let n = content.offsetWidth - content.clientWidth - content.clientLeft;
+          if(n<=0) n = 20;
+          content.style.width = `calc(100% + ${n}px)`;
+
+          let contentFullHeight = 0;
+          for(let i = 0; i<content.children.length; i++){
+              contentFullHeight += parseFloat(content.children[i].offsetHeight);
+          };
+          let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
+          line.hidden = (line_itemHeight >= 100)
+          line_item.style.height = `${line_itemHeight}%`;
+
+          content.addEventListener('scroll', scrollContent);
+
+          function scrollContent(e){
+              line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
+          }
+      }
+    })
 };
 
 
