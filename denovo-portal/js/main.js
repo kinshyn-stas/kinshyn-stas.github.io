@@ -47,6 +47,21 @@ function clickItemHandler(event){
             target.closest('.click-obj').remove();
         },
 
+        'number_control': function(target){
+            let parent = target.closest('.click-obj');
+            let input = parent.querySelector('input');
+            let value = parseInt(input.value);
+            let label = +target.dataset.label
+            if(isNaN(value) || value === undefined) value = 0;
+            if(label){
+                value++;
+            } else {
+                value--;
+            }
+            if(value < 0) value = 0;
+            input.value = value;
+        },
+
         'popup-open': function(target){
             if(!document.querySelector(target.dataset.label)) return;
             document.querySelector(target.dataset.label).classList.add('active');
