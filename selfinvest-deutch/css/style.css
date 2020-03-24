@@ -346,7 +346,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 @media screen and (max-width: 1100px){
     h1{
-        font-size: 21px;
+        font-size: 24px;
     }
     h2{
         font-size: 24px;
@@ -999,14 +999,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding: 116px 0;
 }
 .record_title{
-    color: #404040;
     text-align: center;
 }
 .record_form{
     display: flex;
     justify-content: space-between;
     align-items: center;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     max-width: 810px;
     margin: 56px auto 0;
 }
@@ -1036,6 +1035,68 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .record_item:last-of-type{
         margin-bottom: 0;
+    }
+}
+
+
+.rubric_block{
+    padding: 80px 0 140px;
+    background-image: linear-gradient(180deg, #F3F4F9 16.41%, #E1E1EB 100%);
+}
+.rubric_title{
+    margin-bottom: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+    .rubric_block{
+        padding: 80px 0 107px;
+    }
+}
+
+
+.currency_block{
+    padding: 80px 0 90px;
+    background-color: #EEEDF3;
+    background-image: linear-gradient(135deg, transparent 44%, rgba(255, 255, 255, 0.23) 44%, rgba(255, 255, 255, 0.23) 77%, rgba(238, 237, 243, 0) 100%);
+}
+.currency_title{
+    text-align: center;
+}
+.currency_box{
+    max-width: 600px;
+    margin: 40px auto 0;
+}
+.currency_item{
+    display: flex;
+    align-items: center;
+    padding: 18px 16px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(40px);
+    font-weight: 500;
+    border-radius: 3px;
+}
+.currency_item:last-of-type{
+    margin-bottom: 0;
+}
+.currency_item_number{
+    display: block;
+    min-width: 68px;
+    padding-right: 10px;
+    color: #EEEDF3;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+}
+.currency_item_content{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px){
+    .currency_block{
+        padding: 40px 0 72px;
     }
 }
 
