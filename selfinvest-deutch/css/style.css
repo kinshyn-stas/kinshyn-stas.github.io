@@ -1671,6 +1671,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
 }
 @media screen and (max-width: 768px){
+    .blog_block{
+        padding: 32px 0 72px;
+    }
     .blog_mosaic_title{
         text-align: center;
     }
@@ -1684,6 +1687,16 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .blog_mosaic_text_title{
         font-size: inherit;
         line-height: inherit;
+    }
+    .blog_post_navigation{
+        flex-direction: column;
+        align-items: center;
+    }
+    .blog_post_navigation_link{
+        margin-bottom: 34px;
+    }
+    .blog_post_navigation_link:last-of-type{
+        margin-bottom: 0;
     }
 }
 
