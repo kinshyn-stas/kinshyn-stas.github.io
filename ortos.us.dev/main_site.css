@@ -940,6 +940,7 @@ img.rekl_image_mobile{
 	font-weight: 500;
 }
 .ms-recently_content_title{
+	display: block;
 	margin-bottom: 20px;
 	color: #7b589c;
 	font-size: 16px;

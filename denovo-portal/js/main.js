@@ -322,6 +322,53 @@ function resizeXWrapper(func,event){
 };
 
 
+function tableItemLimitedTextSize(){
+    document.querySelectorAll('.table_item-stroke').forEach(item => {
+        let h = 0;
+        let l = 0;
+        let text = [];
+        findHeight(item);
+
+        if(h>l){
+            text = item.textContent.split(''); 
+                      
+            for(let i = text.length; i>0; i--){
+                text = item.textContent.split('');
+                text.pop();
+                item.textContent = text.join('');
+
+                findHeight(item);
+                if(h<=l){
+                    t();
+
+                    item.textContent = text.join('');
+
+                    function t(){
+                        let last = text[text.length - 4];
+                        if(!last) return;
+                        if(last == ' '){
+                            text.pop();
+                            t();
+                        } else {
+                            text.splice(-4,4,'...');
+                        }                        
+                    };
+
+                    break;
+                };
+            }            
+        };
+
+        function findHeight(item){
+            h = parseFloat(getComputedStyle(item).height);
+            l = parseFloat(getComputedStyle(item).lineHeight) * 2;  
+            
+        };
+    });
+};
+tableItemLimitedTextSize();
+
+
 window.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.filter_item-date_input').forEach(input => {
       var myDatepicker = input;
