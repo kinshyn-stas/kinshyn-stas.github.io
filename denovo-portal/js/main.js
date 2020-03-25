@@ -339,12 +339,13 @@ function tableItemLimitedTextSize(){
 
                 findHeight(item);
                 if(h<=l){
+                    let last;
                     t();
 
                     item.textContent = text.join('');
 
                     function t(){
-                        let last = text[text.length - 4];
+                        last = text[text.length - 4];
                         if(!last) return;
                         if(last == ' '){
                             text.pop();
