@@ -12,6 +12,10 @@ window.onload = function(){
 
 
     resizeXWrapper();
+
+    classMultiplyWrapper(calendarInputEmulate, {
+        selector: '.filter_item-date_content',
+    })
 };
 
 
@@ -21,6 +25,326 @@ function classMultiplyWrapper(Cls,parametrs){
         new Cls(parametrs);
     })
 };
+
+
+class calendarInputEmulate{
+    constructor(params){
+        this.params = params;
+        this.parent = params.item;
+        this.container = this.parent.closest('.filter_item-date');
+        this.filter = this.container.closest('.filter');
+        this.input = this.parent.querySelector('.filter_item-date_input');
+        this.text = this.parent.querySelector('.filter_item-date_value');
+        this.date = new Date();
+
+        this.handlerClick = this.handlerClick.bind(this);
+        this.container.addEventListener('click', this.handlerClick);
+    }
+
+    handlerClick(event){
+        if(event.target.classList.contains('filter_item-date_input')){
+            this.createCalendar();
+        }
+
+        if(event.target.closest('.calendar_header_close')){
+            this.calendar.remove();
+        }
+
+        if(event.target.closest('.calendar_header_item')){
+            let item = event.target.closest('.calendar_header_item');
+            let list = item.closest('.calendar_header_list');
+            let value;
+
+             if(list.classList.contains('active')){
+                 if(event.target.closest('.calendar_header_month')){
+                    value = +item.dataset.value;
+                    if(value == this.date.getMonth()) return;
+                    this.date = new Date(this.date.getFullYear(),value,1);
+                } else if(event.target.closest('.calendar_header_year')){
+                    value = +item.textContent;
+                    if(value == this.date.getFullYear()) return;
+                    this.date = new Date(value,this.date.getMonth(),1);
+                }      
+                    
+                this.calendarBody.remove();
+                this.calendarFooter.remove();
+                this.createCalendarBody();
+                this.createCalendarFooter();
+                item.classList.add('active');
+                list.classList.remove('active');
+            } else {
+                item.classList.remove('active');
+                list.classList.add('active');
+            }
+        }
+
+        if(event.target.closest('.calendar_header_arrow')){
+            let target = event.target.closest('.calendar_header_arrow');
+            if(target.classList.contains('calendar_header_arrow-left')){
+                this.date = new Date(this.date.getFullYear(),this.date.getMonth() - 1,1);
+            } else if(target.classList.contains('calendar_header_arrow-right')){
+                this.date = new Date(this.date.getFullYear(),this.date.getMonth() + 1,1);
+            }
+
+            this.calendarHead.querySelector('.calendar_header_month').querySelector('.calendar_header_item.active').classList.remove('active');
+            this.calendarHead.querySelector('.calendar_header_month').querySelectorAll('.calendar_header_item')[this.date.getMonth()].classList.add('active');
+            this.calendarBody.remove();
+            this.calendarFooter.remove();
+            this.createCalendarBody();
+            this.createCalendarFooter();
+        }
+
+        if(event.target.closest('.calendar_body_day-full')){
+            let target = event.target.closest('.calendar_body_day-full').querySelector('span');
+            this.calendar.querySelectorAll('.calendar_body_day.active').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            this.date.setDate(+target.dataset.value);
+
+            let month = this.date.getMonth();
+            if(month<10) month = `0${month}`;
+            let date = this.date.getDate();
+            if(date<10) date = `0${date}`;
+            let value = `${date}.${month}.${this.date.getFullYear()}`;
+            this.input.value = value;
+            this.text.textContent = value;
+            this.calendar.remove();
+        }
+
+        if(event.target.closest('.calendar_footer_item')){
+            let target = event.target.closest('.calendar_footer_item').querySelector('span');
+            let diff = +target.dataset.value;
+
+            let date2 = new Date();
+            let date1 = new Date(date2.getFullYear(),date2.getMonth() - diff,date2.getDate());
+
+            let month1 = date1.getMonth();
+            if(month1<10) month1 = `0${month1}`;
+            let day1 = date1.getDate();
+            if(day1<10) day1 = `0${day1}`;
+            let value1 = `${day1}.${month1}.${date1.getFullYear()}`;
+
+            let month2 = date2.getMonth();
+            if(month2<10) month2 = `0${month2}`;
+            let day2 = date2.getDate();
+            if(day2<10) day2 = `0${day2}`;
+            let value2 = `${day2}.${month2}.${date2.getFullYear()}`;
+
+            let item1 = this.filter.querySelectorAll('.filter_item-date')[0];
+            item1.querySelector('.filter_item-date_input').value = value1;
+            item1.querySelector('.filter_item-date_value').textContent = value1;
+
+            let item2 = this.filter.querySelectorAll('.filter_item-date')[1];
+            item2.querySelector('.filter_item-date_input').value = value2;
+            item2.querySelector('.filter_item-date_value').textContent = value2;
+            this.calendar.remove();
+        }
+    }
+
+    createCalendar(){
+        this.calendar = document.createElement('div');
+        this.calendar.classList = 'calendar';
+        this.calendar.setAttribute('tabindex','1');
+
+        this.createCalendarHeader();
+        this.createCalendarBody();
+        this.createCalendarFooter();
+
+        this.container.append(this.calendar);
+
+        let blurFlag = false;
+        calendarBlurHandler = calendarBlurHandler.bind(this);
+        document.addEventListener('click', calendarBlurHandler);
+        
+        function calendarBlurHandler(event){
+            if(event.target.closest('.calendar')) return;
+            if(blurFlag){
+                this.calendar.remove();
+                document.removeEventListener('click', calendarBlurHandler);
+            } 
+            blurFlag = true;            
+        }
+    }
+
+    createElement(params){
+        let tag = 'div';
+        if(params.tag) tag = params.tag;
+        this[params.name] = document.createElement(tag);
+        this[params.name].classList = params.class;
+        if(params.html) this[params.name].innerHTML = params.html;
+        params.parent.append(this[params.name]);
+    }
+
+    createCalendarHeader(){
+        this.createElement({
+            name: 'calendarHead',
+            class: 'calendar_header',
+            parent: this.calendar,
+        });
+
+        this.createElement({
+            name: 'calendarHeadPanel',
+            class: 'calendar_header_panel',
+            parent: this.calendarHead,
+        });
+
+        this.createElement({
+            name: 'calendarHeadArrowLeft',
+            class: 'calendar_header_arrow calendar_header_arrow-left',
+            tag: 'a',
+            html: `<svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 4.5H1M1 4.5L4.5 1M1 4.5L4.5 8" stroke="#F56107"/></svg>`,
+            parent: this.calendarHeadPanel,
+        });
+
+        this.createElement({
+            name: 'calendarHeadMonth',
+            class: 'calendar_header_month',
+            html: `<div class="calendar_header_list">
+                <a class="calendar_header_item" data-value='0'>Січ</a>
+                <a class="calendar_header_item" data-value='1'>Лют</a>
+                <a class="calendar_header_item" data-value='2'>Бер</a>
+                <a class="calendar_header_item" data-value='3'>Кві</a>
+                <a class="calendar_header_item" data-value='4'>Тра</a>
+                <a class="calendar_header_item" data-value='5'>Чер</a>
+                <a class="calendar_header_item" data-value='6'>Лип</a>
+                <a class="calendar_header_item" data-value='7'>Сер</a>
+                <a class="calendar_header_item" data-value='8'>Вер</a>
+                <a class="calendar_header_item" data-value='9'>Жов</a>
+                <a class="calendar_header_item" data-value='10'>Лис</a>
+                <a class="calendar_header_item" data-value='11'>Гру</a>
+            </div>`,
+            parent: this.calendarHeadPanel,
+        });
+
+        this.calendarHeadMonth.querySelectorAll('.calendar_header_item')[this.date.getMonth()].classList.add('active');
+
+        this.createElement({
+            name: 'calendarHeadYear',
+            class: 'calendar_header_year',
+            html: `<div class="calendar_header_list">
+                <a class="calendar_header_item">${new Date().getFullYear()}</a>
+                <a class="calendar_header_item">${new Date().getFullYear() - 1}</a>
+                <a class="calendar_header_item">${new Date().getFullYear() - 2}</a>
+                <a class="calendar_header_item">${new Date().getFullYear() - 3}</a>
+                <a class="calendar_header_item">${new Date().getFullYear() - 4}</a>
+                <a class="calendar_header_item">${new Date().getFullYear() - 5}</a>
+            </div>`,
+            parent: this.calendarHeadPanel,
+        });
+
+        this.createElement({
+            name: 'calendarHeadArrowRight',
+            class: 'calendar_header_arrow calendar_header_arrow-right',
+            tag: 'a',
+            html: `<svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4.5H16M16 4.5L12.5 1M16 4.5L12.5 8" stroke="#F56107"/></svg>`,
+            parent: this.calendarHeadPanel,
+        });
+
+        this.createElement({
+            name: 'calendarHeadClose',
+            class: 'calendar_header_close',
+            html: `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 11L1 1" stroke="#20262E" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            parent: this.calendarHead,
+        });
+    }
+
+    createCalendarBody(){
+        this.createElement({
+            name: 'calendarBody',
+            class: 'calendar_body',
+            parent: this.calendar,
+        });
+
+        this.createElement({
+            name: 'calendarBodyPanel',
+            class: 'calendar_body_panel',
+            html: `<div class="calendar_body_panel_box">
+                <div class="calendar_body_panel_item">Пн</div>  
+                <div class="calendar_body_panel_item">Вт</div>  
+                <div class="calendar_body_panel_item">Ср</div>  
+                <div class="calendar_body_panel_item">Чт</div>  
+                <div class="calendar_body_panel_item">Пт</div>  
+                <div class="calendar_body_panel_item">Сб</div>  
+                <div class="calendar_body_panel_item">Нд</div>  
+            </div>`,
+            parent: this.calendarBody,
+        });
+
+        this.createElement({
+            name: 'calendarBodyDays',
+            class: 'calendar_body_days',
+            parent: this.calendarBody,
+        });
+
+        let date = this.date;
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let firstDay = new Date(year,month,1).getDay();
+        if(!firstDay) firstDay = 7;
+        let lastDay = new Date(year,month + 1,-1).getDate();
+
+        for(let i=0; i<firstDay - 1; i++){
+            this.createElement({
+                name: 'calendarBodyDay',
+                class: 'calendar_body_day calendar_body_day-empty',
+                parent: this.calendarBodyDays,
+            })
+        }
+
+        for(let i=1; i<=lastDay+1; i++){            
+            this.createElement({
+                name: 'calendarBodyDay',
+                class: 'calendar_body_day calendar_body_day-full',
+                html: `<span data-value="${i}">${i}</span>`,
+                parent: this.calendarBodyDays,
+            })
+        }
+    }
+
+    createCalendarFooter(){
+        this.createElement({
+            name: 'calendarFooter',
+            class: 'calendar_footer',
+            parent: this.calendar,
+        });
+
+        this.createElement({
+            name: 'calendarFooterText',
+            class: 'calendar_footer_text',
+            html: 'Показати за період',
+            parent: this.calendarFooter,
+        });
+
+        this.createElement({
+            name: 'calendarFooterBox',
+            class: 'calendar_footer_box',
+            parent: this.calendarFooter,
+        });
+
+        this.createElement({
+            name: 'calendarFooterItem',
+            class: 'calendar_footer_item',
+            tag: 'a',
+            html: `<span data-value='3'>3 місяці</span>`,
+            parent: this.calendarFooterBox,
+        });
+
+        this.createElement({
+            name: 'calendarFooterItem',
+            class: 'calendar_footer_item',
+            tag: 'a',
+            html: `<span data-value='6'>6 місяців</span>`,
+            parent: this.calendarFooterBox,
+        });
+
+        this.createElement({
+            name: 'calendarFooterItem',
+            class: 'calendar_footer_item',
+            tag: 'a',
+            html: `<span data-value='12'>12 місяців</span>`,
+            parent: this.calendarFooterBox,
+        });
+    }
+}
 
 
 function clickItemHandler(event){
@@ -370,7 +694,7 @@ function tableItemLimitedTextSize(){
 tableItemLimitedTextSize();
 
 
-window.addEventListener('DOMContentLoaded', function(){
+/*window.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.filter_item-date_input').forEach(input => {
       var myDatepicker = input;
       var siteLocalization = 'uk';
@@ -419,4 +743,4 @@ window.addEventListener('DOMContentLoaded', function(){
         let span = input.closest('.filter_item-date_content').querySelector('.filter_item-date_value');
         span.textContent = input.value;
     })
-});
+});*/
