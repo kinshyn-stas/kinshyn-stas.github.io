@@ -63,6 +63,16 @@ function clickItemHandler(event){
                 target.closest('.popup_container').classList.remove('active');
             }
         },
+
+        'partners-tab': function(target){
+            if(target.classList.contains('active')) return;
+            let container = target.closest('.partners_container');
+            let label = target.dataset.label;
+            container.querySelectorAll('.partners_panel_item').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            container.querySelectorAll('.partners_tab').forEach(item => item.classList.remove('active'));
+            container.querySelector(label).classList.add('active');
+        },
     }
 
     if(item.dataset.action){
