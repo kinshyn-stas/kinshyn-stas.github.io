@@ -100,7 +100,7 @@ class calendarInputEmulate{
             target.classList.add('active');
             this.date.setDate(+target.dataset.value);
 
-            let month = this.date.getMonth();
+            let month = this.date.getMonth() + 1;
             if(month<10) month = `0${month}`;
             let date = this.date.getDate();
             if(date<10) date = `0${date}`;
@@ -117,13 +117,13 @@ class calendarInputEmulate{
             let date2 = new Date();
             let date1 = new Date(date2.getFullYear(),date2.getMonth() - diff,date2.getDate());
 
-            let month1 = date1.getMonth();
+            let month1 = date1.getMonth() + 1;
             if(month1<10) month1 = `0${month1}`;
             let day1 = date1.getDate();
             if(day1<10) day1 = `0${day1}`;
             let value1 = `${day1}.${month1}.${date1.getFullYear()}`;
 
-            let month2 = date2.getMonth();
+            let month2 = date2.getMonth() + 1;
             if(month2<10) month2 = `0${month2}`;
             let day2 = date2.getDate();
             if(day2<10) day2 = `0${day2}`;
