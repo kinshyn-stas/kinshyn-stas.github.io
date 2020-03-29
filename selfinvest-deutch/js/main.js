@@ -275,7 +275,7 @@ function hiddenScrollAside(selector){
 
 
 window.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.filter_item-date_input').forEach(input => {
+    document.querySelectorAll('.datepicker_input').forEach(input => {
       var myDatepicker = input;
 
       var daysArr = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'St', 'Su'];
@@ -316,10 +316,10 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 
     document.addEventListener('change', function(event){
-        if(!event.target.closest('.filter_item-date_input')) return;
+        if(!event.target.closest('.datepicker_input')) return;
 
-        let input = event.target.closest('.filter_item-date_input');
-        let span = input.closest('.filter_item-date_content').querySelector('.filter_item-date_value');
+        let input = event.target.closest('.datepicker_input');
+        let span = input.closest('.datepicker').querySelector('.datepicker_text');
         span.textContent = input.value;
     })
 });
