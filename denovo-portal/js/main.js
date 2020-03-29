@@ -344,7 +344,7 @@ class calendarInputEmulate{
             parent: this.calendarFooterBox,
         });
     }
-}
+};
 
 
 function clickItemHandler(event){
