@@ -2904,3 +2904,112 @@ img.rekl_image_mobile{
 		display: none;
 	}
 }
+
+
+
+.ms-header_contacts_sh_label{
+	cursor: pointer;
+}
+.ms-header_contacts_sh_info{
+	position: relative;
+	display: none;
+}
+.ms-header_contacts_sh.active .ms-header_contacts_sh_info{
+	display: block;
+}
+.ms-header_contacts_sh_bg{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	cursor: pointer;
+}
+.ms-header_contacts_sh_popup{
+	position: absolute;
+	bottom: -26px;
+	left: 50%;
+	z-index: 200;
+	color: #757575;
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	transform: translate(-50%, 100%);
+}
+.ms-header_contacts_sh_popup:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	display: block;
+	width: 0;
+	height: 0;
+	border-bottom: 15px solid #ffffff;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	transform: translate(-50%,-100%);
+}
+.ms-header_contacts_sh_popup-t{
+	min-width: 340px;
+	max-width: 100vw;
+	font-size: 16px;
+}
+.ms-header_contacts_sh_popup-c{
+	width: 100vw;
+	max-width: 1145px;
+	padding-top: 0;
+}
+.ms-header_contacts_sh_time_title{
+	margin-bottom: 20px;
+	color: #7b589c;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.ms-header_contacts_sh_time_text{}
+.ms-header_contacts_sh_box{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+}
+.ms-header_contacts_sh_box:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: #e8e8e8;
+}
+.ms-header_contacts_sh_box:last-of-type:after{
+	display: none;
+}
+.ms-header_contacts_sh_column{
+	width: 32%;
+}
+.ms-header_contacts_sh_item{
+	margin-bottom: 30px;
+}
+.ms-header_contacts_sh_popup p{
+	margin-bottom: 12px;
+}
+.ms-header_contacts_sh_popup p:last-of-type{
+	margin-bottom: 0;
+}
+.ms-header_contacts_sh_popup b{
+	color: #212121;
+	font-weight: 500;
+}
+.ms-header_contacts_sh_popup p.ms-header_contacts_sh_title{
+	margin-bottom: 30px;
+	min-height: 1.43em;
+	color: #7b589c;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
