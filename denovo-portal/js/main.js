@@ -14,7 +14,7 @@ window.onload = function(){
     resizeXWrapper();
 
     classMultiplyWrapper(calendarInputEmulate, {
-        selector: '.filter_item-date_content',
+        selector: '.datepicker_label',
     })
 };
 
@@ -31,10 +31,10 @@ class calendarInputEmulate{
     constructor(params){
         this.params = params;
         this.parent = params.item;
-        this.container = this.parent.closest('.filter_item-date');
-        this.filter = this.container.closest('.filter');
-        this.input = this.parent.querySelector('.filter_item-date_input');
-        this.text = this.parent.querySelector('.filter_item-date_value');
+        this.container = this.parent.closest('.datepicker_box');
+        if(this.container.closest('.datepicker_filter')) this.filter = this.container.closest('.datepicker_filter');
+        this.input = this.parent.querySelector('.datepicker_input');
+        this.text = this.parent.querySelector('.datepicker_text');
         this.date = new Date();
 
         this.handlerClick = this.handlerClick.bind(this);
@@ -42,7 +42,7 @@ class calendarInputEmulate{
     }
 
     handlerClick(event){
-        if(event.target.classList.contains('filter_item-date_input')){
+        if(event.target.classList.contains('datepicker_input')){
             this.createCalendar();
         }
 
@@ -67,9 +67,9 @@ class calendarInputEmulate{
                 }      
                     
                 this.calendarBody.remove();
-                this.calendarFooter.remove();
+                if(this.filter) this.calendarFooter.remove();
                 this.createCalendarBody();
-                this.createCalendarFooter();
+                if(this.filter) this.createCalendarFooter();
                 item.classList.add('active');
                 list.classList.remove('active');
             } else {
@@ -89,9 +89,9 @@ class calendarInputEmulate{
             this.calendarHead.querySelector('.calendar_header_month').querySelector('.calendar_header_item.active').classList.remove('active');
             this.calendarHead.querySelector('.calendar_header_month').querySelectorAll('.calendar_header_item')[this.date.getMonth()].classList.add('active');
             this.calendarBody.remove();
-            this.calendarFooter.remove();
+            if(this.filter) this.calendarFooter.remove();
             this.createCalendarBody();
-            this.createCalendarFooter();
+            if(this.filter) this.createCalendarFooter();
         }
 
         if(event.target.closest('.calendar_body_day-full')){
@@ -111,6 +111,7 @@ class calendarInputEmulate{
         }
 
         if(event.target.closest('.calendar_footer_item')){
+            if(!this.filter) return;
             let target = event.target.closest('.calendar_footer_item').querySelector('span');
             let diff = +target.dataset.value;
 
@@ -147,7 +148,7 @@ class calendarInputEmulate{
 
         this.createCalendarHeader();
         this.createCalendarBody();
-        this.createCalendarFooter();
+        if(this.filter) this.createCalendarFooter();
 
         this.container.append(this.calendar);
 

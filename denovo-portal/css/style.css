@@ -1676,8 +1676,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .filter_item:last-of-type.filter_item-select .select_tit{
     border-radius: 0 7px 7px 0;
 }
-.filter_item-select-doc .select_tit:before,
-.filter_item-select-date .select_tit:before{
+.filter_item-select-doc .select_tit:before{
     content: "";
     display: block;
     width: 20px;
@@ -1691,6 +1690,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .filter_item-select-date .select_tit:before{
     background-image: url(../images/date_select.svg);
+}
+.filter_item-select-date{
+    position: relative;
+}
+.filter_item-select-date label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px 24px;
+}
+.filter_item-select-date input{
+    display: none;
+}
+.filter_item-select-date figure{
+    width: 20px;
+    min-width: 20px;
+    margin-right: 4px;
+}
+.filter_item-select-date figure img{
+    display: block;
+}
+.filter_item-select-date span{
+    display: block;
 }
 .filter_item-date{
     position: relative;
