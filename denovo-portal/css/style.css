@@ -1360,6 +1360,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-size: 12px;
     line-height: 14px;
     border-bottom: 1px dashed #D9DADD;
+    transition: all 0.2s ease-in-out;
+}
+.table_row:hover{
+    background-color: #F3F6F9;
 }
 .table_row.active{
     border-bottom: none;
