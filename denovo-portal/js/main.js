@@ -199,18 +199,18 @@ class calendarInputEmulate{
             name: 'calendarHeadMonth',
             class: 'calendar_header_month',
             html: `<div class="calendar_header_list">
-                <a class="calendar_header_item" data-value='0'>Січ</a>
-                <a class="calendar_header_item" data-value='1'>Лют</a>
-                <a class="calendar_header_item" data-value='2'>Бер</a>
-                <a class="calendar_header_item" data-value='3'>Кві</a>
-                <a class="calendar_header_item" data-value='4'>Тра</a>
-                <a class="calendar_header_item" data-value='5'>Чер</a>
-                <a class="calendar_header_item" data-value='6'>Лип</a>
-                <a class="calendar_header_item" data-value='7'>Сер</a>
-                <a class="calendar_header_item" data-value='8'>Вер</a>
-                <a class="calendar_header_item" data-value='9'>Жов</a>
-                <a class="calendar_header_item" data-value='10'>Лис</a>
-                <a class="calendar_header_item" data-value='11'>Гру</a>
+                <a class="calendar_header_item" data-value='0'>Січень</a>
+                <a class="calendar_header_item" data-value='1'>Лютий</a>
+                <a class="calendar_header_item" data-value='2'>Березень</a>
+                <a class="calendar_header_item" data-value='3'>Квітень</a>
+                <a class="calendar_header_item" data-value='4'>Травень</a>
+                <a class="calendar_header_item" data-value='5'>Червень</a>
+                <a class="calendar_header_item" data-value='6'>Липень</a>
+                <a class="calendar_header_item" data-value='7'>Серпень</a>
+                <a class="calendar_header_item" data-value='8'>Вересень</a>
+                <a class="calendar_header_item" data-value='9'>Жовтий</a>
+                <a class="calendar_header_item" data-value='10'>Листопад</a>
+                <a class="calendar_header_item" data-value='11'>Грудень</a>
             </div>`,
             parent: this.calendarHeadPanel,
         });
