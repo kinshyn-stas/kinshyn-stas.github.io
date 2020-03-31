@@ -1533,10 +1533,10 @@
 						</div>
 
 						<div class="table_button table_button-double">
-							<a class="button_trans">
+							<a class="button_trans click-item" data-action="popup-open" data-label=".request-popup">
 								<span>Зберегти</span>
 							</a>
-							<a class="button_green">
+							<a class="button_green click-item" data-action="popup-open" data-label=".request-popup">
 								<span>В роботу</span>
 							</a>
 						</div>
@@ -1664,6 +1664,27 @@
 
 		</main>
 
+	</div>
+
+	<div class="popup_container request-popup">
+		<div class="popup_background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<a class="popup_close click-item" data-action="popup-close">
+				<svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 8L8 1M8 8L1 1" stroke="#20262E" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+			<h2 class="popup_title">Заявка створена</h2>
+			<p class="popup_undertitle">Будь ласка, підтвердіть або скасуйте її обробку</p>
+			<div class="popup_buttons">
+				<a class="button_green click-item" data-action="popup-close">
+					<span>Скасувати обробку</span>
+				</a>
+				<a class="button_trans click-item" data-action="popup-close">
+					<span>Підтвердити обробку</span>
+				</a>
+			</div>
+		</div>
 	</div>
 
 
