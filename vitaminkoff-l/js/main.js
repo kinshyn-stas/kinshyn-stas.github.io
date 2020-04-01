@@ -324,9 +324,7 @@ class Curier{
 
         this.mouseX = 1;
         this.mouseY = 1;
-        //this.mouseEnter = this.mouseEnter.bind(this);
         this.mouseMove = this.mouseMove.bind(this);
-        //this.mouseLeave = this.mouseLeave.bind(this);
         document.addEventListener('mousemove', this.mouseMove);
     }
 
@@ -336,8 +334,8 @@ class Curier{
         let diffX = event.screenX;
         let diffY = event.screenY;
 
-        if(diffX != this.mouseX){
-            let perX = parseInt((diffX / this.screenWidth) * 56);
+        if(diffY != this.mouseX){
+            let perX = parseInt((diffY / this.screenHeight) * 56);
             if(perX < 0) perX = 0;
             if(perX > 56) perX = 56;
             let perY = 17;
@@ -349,24 +347,15 @@ class Curier{
             this.man.style.left = `${perX}%`;
             this.man.style.top = `${perY}%`;
 
-            let perC = parseInt((diffX / this.screenWidth) * 60) - 30;
+            let perC = parseInt((diffY / this.screenHeight) * 60) - 30;
             if(perC < -30) perC = -30;
             if(perC > 30) perC = 30;
 
             this.cloud.style.left = `${-perC}%`;
         }
 
-        /*if(diffY != this.mouseX){
-            let perY = parseInt((diffY / this.screenHeight) * 50) - 40;
-            if(perY < -40) perY = -40;
-            if(perY > 10) perY = 10;
-
-            this.bushes.style.left = `${perY}%`;
-        }*/
-
         this.mouseX = event.screenX;
         this.mouseY = event.screenY;
-        //console.log(event.screenX);
     }
 };
 
@@ -384,6 +373,7 @@ function changeOpacity(selector){
     document.addEventListener('scroll',func);
 
     function func(event){
+        if(window.innerWidth <= 768) return;
         document.querySelectorAll('.anim-opacity_trigger').forEach((item,i) => {
             let screenHeight = window.innerHeight;
             let itemY1 = item.getBoundingClientRect().top - (2 * screenHeight / 3);
