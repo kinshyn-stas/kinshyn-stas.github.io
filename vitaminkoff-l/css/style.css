@@ -813,12 +813,45 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .face_block{
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
+    padding: 50px 0 120px;
 }
-.face_content{}
+.face_content{
+    display: flex;
+}
+.face_anim{
+    position: relative;
+    z-index: 10;
+    width: calc(100% - 648px);
+}
+.face_anim img{
+    display: block;
+    max-width: 100vw;
+}
+#faceCloud{
+    position: relative;
+    left: 0;
+    width: 100%;
+    margin-bottom: 7%;
+}
+#faceBushes{
+    position: relative;
+    left: 0;
+    width: 96%;
+}
+#faceGround{
+    width: 136%;
+    margin-top: 2%;
+    margin-left: -36%;
+}
+#faceMan{
+    position: absolute;
+    top: 13%;
+    left: 18%;
+    width: 43%;
+}
 .face_text{
+    position: relative;
+    z-index: 20;
     max-width: 728px;
     padding: 50px 0 50px 80px;
     margin-left: -80px;
