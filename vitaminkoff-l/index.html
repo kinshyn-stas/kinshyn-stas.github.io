@@ -25,7 +25,7 @@
 								</span>
 							</h1>
 							<div class="face_button">
-								<a class="button_green">
+								<a class="button_green click-item" data-action="popup-open" data-label=".popup_order">
 									<span>Заказать</span>
 								</a>
 							</div>
@@ -67,7 +67,7 @@
 										</p>
 									</div>
 									<div class="hot_text_button">
-										<a class="button_green">
+										<a class="button_green click-item" data-action="popup-open" data-label=".popup_order">
 											<span>Заказать</span>
 										</a>
 									</div>
@@ -89,7 +89,7 @@
 										</p>
 									</div>
 									<div class="hot_text_button">
-										<a class="button_green">
+										<a class="button_green click-item" data-action="popup-open" data-label=".popup_order">
 											<span>Заказать</span>
 										</a>
 									</div>
@@ -111,7 +111,7 @@
 										</p>
 									</div>
 									<div class="hot_text_button">
-										<a class="button_green">
+										<a class="button_green click-item" data-action="popup-open" data-label=".popup_order">
 											<span>Заказать</span>
 										</a>
 									</div>
@@ -414,7 +414,7 @@
 							</a>
 						</div>
 						<div class="header_button">
-							<a class="button_trans">
+							<a class="button_trans click-item" data-action="popup-open" data-label=".popup_order">
 								<span>Заказать</span>
 							</a>
 						</div>
@@ -424,6 +424,35 @@
 			</div>
 		</header>
 
+	</div>
+
+	<div class="popup_container popup_order">
+		<div class="popup_background click-item" data-action="popup-close"></div>
+		<div class="popup">
+			<a class="popup_close click-item" data-action="popup-close">
+				<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M14 1.4L12.6 0L7 5.6L1.4 0L0 1.4L5.6 7L0 12.6L1.4 14L7 8.4L12.6 14L14 12.6L8.4 7L14 1.4Z" fill="#BBBBBB"/>
+				</svg>
+			</a>
+			<h2 class="popup_title">Заказать</h2>
+			<p class="popup_undertitle">Мы свяжемся с вами в тичение часа</p>
+			<form class="popup_form">
+				<div class="popup_form_item">
+					<input type="text" placeholder="Имя" />
+				</div>
+				<div class="popup_form_item">
+					<input type="text" placeholder="Фамилия" />
+				</div>
+				<div class="popup_form_item">
+					<input type="tel" placeholder="Телефон" />
+				</div>
+				<div class="popup_form_item popup_form_item-button">
+					<button class="button_green">
+						<span>Заказать</span>
+					</button>
+				</div>
+			</form>
+		</div>
 	</div>
 
 	<script src="js/main.js"></script>	
