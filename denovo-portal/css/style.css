@@ -2027,6 +2027,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         max-height: 100%;
         overflow-y: auto;
     }
+    .popup_buttons{
+        flex-wrap: wrap;
+    }
+    .popup_buttons a,
+    .popup_buttons button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .popup_buttons a:last-of-type,
+    .popup_buttons button:last-of-type{
+        margin-bottom: 0;
+    }
 }
 
 
