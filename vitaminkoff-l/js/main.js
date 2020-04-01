@@ -17,6 +17,8 @@ window.onload = function(){
     classMultiplyWrapper(Curier,{
         selector: '#faceAnim',
     });
+
+    changeOpacity('.anim-opacity');
 };
 
 
@@ -350,22 +352,42 @@ class Curier{
             let perC = parseInt((diffX / this.screenWidth) * 60) - 30;
             if(perC < -30) perC = -30;
             if(perC > 30) perC = 30;
-            console.log(perC)
 
             this.cloud.style.left = `${-perC}%`;
         }
 
-        if(diffY != this.mouseX){
+        /*if(diffY != this.mouseX){
             let perY = parseInt((diffY / this.screenHeight) * 50) - 40;
             if(perY < -40) perY = -40;
             if(perY > 10) perY = 10;
 
             this.bushes.style.left = `${perY}%`;
-            //this.cloud.style.top = `${perY}%`;
-        }
+        }*/
 
         this.mouseX = event.screenX;
         this.mouseY = event.screenY;
         //console.log(event.screenX);
+    }
+};
+
+
+function changeOpacity(selector){
+    document.querySelectorAll(selector).forEach(item => {
+        item.classList.add('anim-opacity_trigger');
+    });
+
+    func();
+    document.addEventListener('scroll',func);
+
+    function func(event){
+        document.querySelectorAll('.anim-opacity_trigger').forEach((item,i) => {
+            let screenHeight = window.innerHeight;
+            let itemY1 = item.getBoundingClientRect().top - (2 * screenHeight / 3);
+            let itemY2 = item.getBoundingClientRect().bottom - (1 *screenHeight / 5);
+
+            if(itemY1 < 0 && itemY2 > 0){
+                item.classList.add('active');
+            }
+        });      
     }
 };
