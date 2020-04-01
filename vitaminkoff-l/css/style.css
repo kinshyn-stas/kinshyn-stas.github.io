@@ -310,8 +310,8 @@ textarea{
     padding: 12px;
     background-color: #ffffff;
     color: inherit;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 19px;
     outline: none;
     border-radius: 10px;
     border: 1px solid #EEEEEE;
@@ -618,10 +618,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin-bottom: 0;
     }
     .hot_image{
-        width: 43%;
+        width: 130px;
         min-width: 43%;
     }
     .hot_text{
+        padding-top: 8px;
         margin-left: 16px;
     }
     .hot_text_title{
@@ -1130,7 +1131,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     width: 100%;
     min-width: 100vw;
     padding: 12px 0;
-    background: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(15px);
 }
 .header_content{
@@ -1271,7 +1272,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 100%;
     min-width: 100vw;
     min-height: 100vh;
-    padding: 10px;
+    padding: 10px 16px;
     opacity: 0;
 }
 .popup_container.active{
@@ -1298,7 +1299,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding: 40px 16px 24px;
     margin: auto;
     background-color: #FFFFFF;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 .popup_close{
     position: absolute;
@@ -1345,7 +1346,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (max-width: 768px){
     .popup_container{
         max-height: 100vh;
-        padding: 0;
         overflow: hidden;
     }
     .popup{

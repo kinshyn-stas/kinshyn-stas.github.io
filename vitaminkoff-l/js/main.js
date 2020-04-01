@@ -337,7 +337,7 @@ class Curier{
         if(diffY != this.mouseX){
             let perX = parseInt((diffY / this.screenHeight) * 56);
             if(perX < 0) perX = 0;
-            if(perX > 56) perX = 56;
+            if(perX > 36) perX = 36;
             let perY = 17;
             if(perX <= 8){
                 perY = (4 / (perX + 1)) + 13;
