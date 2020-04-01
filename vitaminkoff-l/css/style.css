@@ -255,7 +255,7 @@ h1,h2,h3,h4,h5,h6{
     line-height: 1.16;
 }
 h1{
-    font-size: 24px;
+    font-size: 48px;
 }
 h2{
     margin-bottom: 16px;
@@ -810,6 +810,26 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-weight: 500;
 }
 .footer_creator{}
+
+
+.face_block{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+.face_content{}
+.face_text{
+    max-width: 728px;
+    padding: 50px 0 50px 80px;
+    margin-left: -80px;
+    background-image: url(../img/face_clouds.svg);
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+.face_text_title{}
+.face_button{
+    margin-top: 76px;
+}
 
 
 /*.scroll-emul_block{
