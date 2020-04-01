@@ -1436,7 +1436,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     width: 0;
     max-width: 367px;
     padding: 0;
-    background-color: #000000;
+    background-color: rgba(0,0,0,0.8);
     opacity: 0;
     color: #ffffff;
     font-weight: 300;
