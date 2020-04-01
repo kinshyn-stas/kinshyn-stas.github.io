@@ -796,6 +796,22 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.footer_main{
+    padding: 32px 0;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    padding: 0 105px;
+}
+.footer_copyright{
+    margin-right: 16px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+.footer_creator{}
+
+
 /*.scroll-emul_block{
     overflow-y: hidden;
 }
