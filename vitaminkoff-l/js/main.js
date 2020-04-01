@@ -373,7 +373,11 @@ class Curier{
 
 function changeOpacity(selector){
     document.querySelectorAll(selector).forEach(item => {
-        item.classList.add('anim-opacity_trigger');
+        if(window.innerWidth > 768){
+            item.classList.add('anim-opacity_trigger');
+        } else {
+            item.classList.remove('anim-opacity_trigger');
+        }        
     });
 
     func();
