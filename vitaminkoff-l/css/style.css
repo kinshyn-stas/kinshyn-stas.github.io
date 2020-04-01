@@ -740,8 +740,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .contact_item-full{
     width: 100%;
 }
+.contact_item-cont{
+    width: calc(100% - 152px);
+}
 .contact_item-soc{
-    margin-left: auto;
+    width: 142px;
+    min-width: 142px;
 }
 .contact_item_part{
     width: 50%;
