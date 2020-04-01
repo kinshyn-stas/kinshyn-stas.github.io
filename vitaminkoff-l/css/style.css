@@ -798,9 +798,17 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .course_left_title{
         text-align: center;
     }
+    .course_left_item{
+        padding: 22px;
+    }
     .course_left_text{
+        flex-grow: 100;
         font-size: 14px;
         line-height: 17px;
+    }
+    .course_left_button a{
+        width: 100%;
+        min-width: 0;
     }
     .course_right{
         display: none;
