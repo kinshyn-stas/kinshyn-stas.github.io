@@ -321,9 +321,7 @@ class Curier{
         this.bushes = this.container.querySelector('#faceBushes');
         this.ground = this.container.querySelector('#faceGround');
         this.man = this.container.querySelector('#faceMan');
-
-        this.mouseX = 1;
-        this.mouseY = 1;
+        
         this.mouseMove = this.mouseMove.bind(this);
         document.addEventListener('mousemove', this.mouseMove);
     }
@@ -349,35 +347,6 @@ class Curier{
             if(dY > (0 + (maxH/2))) dY = maxH/2;
             item.style.transform = `translate(${dX}%,${dY}%)`;
         }
-        
-        /*
-        this.screenWidth = window.innerWidth;
-        this.screenHeight = window.innerHeight;
-
-        let diffX = event.screenX;
-        let diffY = event.screenY;
-        if(diffY != this.mouseX){
-            let perX = parseInt((diffY / this.screenHeight) * 56);
-            if(perX < 0) perX = 0;
-            if(perX > 36) perX = 36;
-            let perY = 17;
-            if(perX <= 8){
-                perY = (4 / (perX + 1)) + 13;
-            } else {
-                perY = (((perX - 8) / 50) * 6) + 13;
-            }
-            this.man.style.left = `${perX}%`;
-            this.man.style.top = `${perY}%`;
-
-            let perC = parseInt((diffY / this.screenHeight) * 60) - 30;
-            if(perC < -30) perC = -30;
-            if(perC > 30) perC = 30;
-
-            this.cloud.style.left = `${-perC}%`;
-        }
-
-        this.mouseX = event.screenX;
-        this.mouseY = event.screenY;*/
     }
 };
 
