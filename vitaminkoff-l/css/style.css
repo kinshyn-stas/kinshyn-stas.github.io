@@ -1174,7 +1174,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-weight: 500;
     line-height: 16px;
 }
-.header_menu_link:last-tof-type{
+.header_menu_link:last-of-type{
     margin-right: 0;
 }
 .header_soc{
@@ -1203,7 +1203,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     max-height: 100%;
 }
 .header_button{
-    margin-left: 16px;
+    margin-left: 32px;
 }
 .header_button a{
     min-width: 164px;
