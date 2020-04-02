@@ -278,7 +278,7 @@ function handlerClickLinks(event){
         if(direction){
             if(p <= step) clearInterval(int);
 
-            if(p>target.getBoundingClientRect().top + pageYOffset){
+            if(p>target.getBoundingClientRect().top + pageYOffset - 88){
                 p -= step;
             } else {
                 clearInterval(int);
@@ -286,7 +286,7 @@ function handlerClickLinks(event){
         } else {
             if(p >= calculateHeight() - step) clearInterval(int);
 
-            if(p<target.getBoundingClientRect().top + pageYOffset){
+            if(p<target.getBoundingClientRect().top + pageYOffset - 88){
                 p += step;
             } else {
                 clearInterval(int);
@@ -321,7 +321,7 @@ class Curier{
         this.bushes = this.container.querySelector('#faceBushes');
         this.ground = this.container.querySelector('#faceGround');
         this.man = this.container.querySelector('#faceMan');
-        
+
         this.mouseMove = this.mouseMove.bind(this);
         document.addEventListener('mousemove', this.mouseMove);
     }

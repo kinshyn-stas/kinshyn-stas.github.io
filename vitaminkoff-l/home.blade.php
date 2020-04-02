@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vitaminkoff</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P35DHJS');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P35DHJS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="main-container">
+
+    <main class="main">
+
+        <section class="main-block face_block">
+            <div class="center-main-block">
+
+                <div class="face_content">
+                    <div class="face_text">
+                        <h1 class="face_text_title">
+                            <span>Бесплатная доставка  овощей и фруктов для вас</span>
+                            <span class="face_text_title_star">
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.7" d="M10.5245 0.463526C10.6741 0.00287056 11.3259 0.00287008 11.4755 0.463525L13.5819 6.9463C13.6488 7.15232 13.8408 7.2918 14.0574 7.2918H20.8738C21.3582 7.2918 21.5596 7.9116 21.1677 8.1963L15.6531 12.2029C15.4779 12.3302 15.4046 12.5559 15.4715 12.7619L17.5779 19.2447C17.7276 19.7053 17.2003 20.0884 16.8085 19.8037L11.2939 15.7971C11.1186 15.6698 10.8814 15.6698 10.7061 15.7971L5.19153 19.8037C4.79967 20.0884 4.27243 19.7053 4.42211 19.2447L6.52849 12.7619C6.59543 12.5559 6.5221 12.3302 6.34685 12.2029L0.832272 8.1963C0.440415 7.9116 0.641802 7.2918 1.12616 7.2918H7.94256C8.15917 7.2918 8.35115 7.15232 8.41809 6.9463L10.5245 0.463526Z" fill="#EB9F2D"/>
+                                </svg>
+                            </span>
+                        </h1>
+                        <div class="face_button">
+                            <a class="button_green click-item" data-action="popup-open" data-label=".popup_order">
+                                <span>Заказать</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="faceAnim" class="face_anim">
+                        <img id="faceCloud" src="/img/face_anim_cloud.svg" alt="" />
+                        <img id="faceBushes" src="/img/face_anim_bushes.svg" alt="" />
+                        <img id="faceGround" src="/img/face_anim_ground.svg" alt="" />
+                        <img id="faceMan" src="/img/face_anim_man.svg" alt="" />
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="hot_block" class="main-block hot_block">
+            <div class="center-main-block">
+
+                <div class="hot_content anim-opacity">
+                    <h2 class="hot_title">
+                        <span>Горячее предложения</span>
+                        <img src="/img/hot.png" alt="" />
+                    </h2>
+                    <p class="hot_undertitle">Мы делаем все для вашего удобства, и у нас есть всегда хорошие предложение для вас</p>
+                    <div class="hot_box">
+
+                        <div class="hot_item">
+                            <div class="hot_image">
+                                <figure>
+                                    <img src="/img/p_1.jpeg" alt="" />
+                                </figure>
+                            </div>
+                            <div class="hot_text">
+                                <div class="hot-text_top">
+                                    <p class="hot_text_title">{{ $setting->product_one_name }}</p>
+                                    <p class="hot_text_price">{{ $setting->product_one_price }} грн/кг</p>
+                                    @if(! empty($setting->product_one_old_price))
+                                    <p class="hot_text_price_old">
+                                        <span>{{ $setting->product_one_old_price }} грн/кг</span>
+                                    </p>
+                                    @endif
+                                </div>
+                                <div class="hot_text_button">
+                                    <a class="button_green click-item" data-product="one" data-action="popup-open" data-label=".popup_order">
+                                        <span>Заказать</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hot_item">
+                            <div class="hot_image">
+                                <figure>
+                                    <img src="/img/p_2.jpeg" alt="" />
+                                </figure>
+                            </div>
+                            <div class="hot_text">
+                                <div class="hot-text_top">
+                                    <p class="hot_text_title">{{ $setting->product_two_name }}</p>
+                                    <p class="hot_text_price">{{ $setting->product_two_price }} грн/кг</p>
+                                    @if(! empty($setting->product_two_old_price))
+                                        <p class="hot_text_price_old">
+                                            <span>{{ $setting->product_two_old_price }} грн/кг</span>
+                                        </p>
+                                    @endif
+                                </div>
+                                <div class="hot_text_button">
+                                    <a class="button_green click-item" data-product="two" data-action="popup-open" data-label=".popup_order">
+                                        <span>Заказать</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hot_item">
+                            <div class="hot_image">
+                                <figure>
+                                    <img src="/img/p_3.jpeg" alt="" />
+                                </figure>
+                            </div>
+                            <div class="hot_text">
+                                <div class="hot-text_top">
+                                    <p class="hot_text_title">{{ $setting->product_three_name }}</p>
+                                    <p class="hot_text_price">{{ $setting->product_three_price }} грн/кг</p>
+                                    @if(! empty($setting->product_three_old_price))
+                                        <p class="hot_text_price_old">
+                                            <span>{{ $setting->product_one_three_price }} грн/кг</span>
+                                        </p>
+                                    @endif
+                                </div>
+                                <div class="hot_text_button">
+                                    <a class="button_green click-item" data-product="three" data-action="popup-open" data-label=".popup_order">
+                                        <span>Заказать</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="main-block delivery_block">
+            <div class="center-main-block">
+
+                <div class="delivery_content anim-opacity">
+                    <h2 class="delivery_title">Доставка и оплата</h2>
+                    <p class="delivery_undertitle">Мы сделали удобную и быстурую доставку для вас</p>
+                    <div class="delivery_box">
+
+                        <div class="delivery_item">
+                            <figure class="delivery_image">
+                                <img src="/img/delivery_1.svg" alt="" />
+                            </figure>
+                            <div class="delivery_text">
+                                <p>Любая форма <br />оплаты</p>
+                            </div>
+                        </div>
+
+                        <div class="delivery_item">
+                            <figure class="delivery_image">
+                                <img src="/img/delivery_2.svg" alt="" />
+                            </figure>
+                            <div class="delivery_text">
+                                <p>Широкий ассортимент</p>
+                            </div>
+                        </div>
+
+                        <div class="delivery_item">
+                            <figure class="delivery_image">
+                                <img src="/img/delivery_3.svg" alt="" />
+                            </figure>
+                            <div class="delivery_text">
+                                <p>Удобная доставка</p>
+                            </div>
+                        </div>
+
+                        <div class="delivery_item">
+                            <figure class="delivery_image">
+                                <img src="/img/delivery_4.svg" alt="" />
+                            </figure>
+                            <div class="delivery_text">
+                                <p>Частным лицам и для бизнеса</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="delivery_underbox">
+                        <span class="delivery_underbox_star">
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#EB9F2D"/>
+                            </svg>
+                        </span>
+                    <span>Бесплатная доставка по Киеву осуществляется при стоимости заказа от {{ $setting->delivery_free }} грн. <br />Стоимость доставки по Киеву {{ $setting->delivery_price }} грн, при стоимости заказа до {{ $setting->delivery_to }} грн. Детали уточнять у менеджера.</span></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="course_block" class="main-block course_block">
+            <div class="center-main-block">
+
+                <div class="course_content anim-opacity">
+                    <div class="course_left">
+                        <h2 class="course_left_title">Будь всегда в курсе</h2>
+                        <div class="course_left_box">
+
+                            <div class="course_left_item">
+                                <div class="course_left_image">
+                                    <figure>
+                                        <img src="/img/course_1.svg" alt="" />
+                                    </figure>
+                                </div>
+                                <div class="course_left_text">
+                                    <div class="course_left_text_top">
+                                        <p>Цена на овощи та фрукты</p>
+                                    </div>
+                                    <div class="course_left_button">
+                                        <a href="/doc/price.pdf" target="_blank" class="button_white">
+                                            <span>Смотреть</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="course_left_item">
+                                <div class="course_left_image">
+                                    <figure>
+                                        <img src="/img/course_2.svg" alt="" />
+                                    </figure>
+                                </div>
+                                <div class="course_left_text">
+                                    <div class="course_left_text_top">
+                                        <p>Наш канал в Viber</p>
+                                    </div>
+                                    <div class="course_left_button">
+                                        <a href="{{ $setting->viber_url }}" target="_blank" class="button_white">
+                                            <span>Перейти</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="course_left_item">
+                                <div class="course_left_image">
+                                    <figure>
+                                        <img src="/img/course_3.svg" alt="" />
+                                    </figure>
+                                </div>
+                                <div class="course_left_text">
+                                    <div class="course_left_text_top">
+                                        <p>Наш канал в Telegram</p>
+                                    </div>
+                                    <div class="course_left_button">
+                                        <a href="{{ $setting->telegram_url }}" target="_blank" class="button_white">
+                                            <span>Перейти</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="course_right">
+                        <figure>
+                            <img src="/img/course_right.png" alt="" />
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="main-block privileges_block">
+            <div class="center-main-block anim-opacity">
+
+                <div class="privileges_content">
+                    <h2 class="privileges_title">Льготы</h2>
+                    <p class="privileges_undertitle">Скидка {{ $setting->discount }}% от суммы заказа</p>
+                    <div class="privileges_box">
+
+                        <div class="privileges_item">
+                            <p>01. {{ $setting->discount_category_one }}</p>
+                        </div>
+
+                        <div class="privileges_item">
+                            <p>02. {{ $setting->discount_category_two }}</p>
+                        </div>
+
+                        <div class="privileges_item">
+                            <p>03. {{ $setting->discount_category_three }}</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact_block" class="main-block contact_block">
+            <div class="center-main-block anim-opacityanim-opacity">
+
+                <div class="contact_content anim-opacity">
+                    <h2 class="contact_title">Контакты</h2>
+                    <div class="contact_box">
+
+                        <div class="contact_item">
+                            <div class="contact_item_part contact_item-cont">
+                                <p class="contact_item_part_title">Наш телефон</p>
+                                <p><a class="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></p>
+                            </div>
+                            <div class="contact_item_part">
+                                <p class="contact_item_part_title">Наша почта</p>
+                                <p><a class="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact_item contact_item-soc">
+                            <div class="contact_item_part contact_item_part-full">
+                                <p class="contact_item_part_title">Мы находимся</p>
+                                <div class="contact_soc">
+                                    <a href="https://www.facebook.com/Vitaminkoff/" target="_blank" class="contact_soc_item">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                            <path d="M26 19V15C26 13.896 26.896 13 28 13H30V8H26C22.686 8 20 10.686 20 14V19H16V24H20V40H26V24H30L32 19H26Z" fill="white"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://invite.viber.com/?g2=AQABsoDP4%2FVHuEsAM9Yfy4STSzxxSONcK%2BvmjpeNiBUtXdm6Osh7A6Wd8mHHxyTP" target="_blank" class="contact_soc_item">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M19.6619 9.15799C19.8594 9 19.9779 9 20.6098 9C20.9258 9 21.3997 9.03951 21.6762 9.07901C22.9796 9.237 23.809 9.43449 24.9544 9.98742C26.0998 10.5404 26.8108 11.0538 27.7982 11.9623C28.7066 12.8312 29.1806 13.5026 29.7335 14.569C30.4839 16.0304 30.8789 17.7288 30.9579 19.6246C30.9974 20.2565 30.9579 20.4145 30.7999 20.612C30.5235 20.9675 29.8915 20.928 29.6545 20.4935C29.5755 20.3751 29.5755 20.2565 29.5361 19.7431C29.4966 18.9532 29.457 18.4397 29.3386 17.8078C28.9041 15.3985 27.7192 13.4632 25.8234 12.0808C24.2435 10.9354 22.8611 10.5009 20.7283 10.3429C19.9779 10.3429 19.8594 10.3429 19.7014 10.185C19.3854 9.98742 19.3854 9.43445 19.6619 9.15799Z" fill="white"/>
+                                                <path d="M23.5723 14.0951C22.8219 13.6607 21.6765 13.3052 20.6496 13.2262C20.2941 13.1867 20.0572 13.1077 19.9386 12.9497C19.7016 12.7523 19.7016 12.3968 19.8596 12.1598C20.0571 11.8438 20.3731 11.8043 21.2815 11.9623C23.5723 12.2783 25.3496 13.3447 26.5345 15.0431C27.206 15.991 27.6009 17.1364 27.7194 18.3213C27.7589 18.7557 27.7589 19.5457 27.7194 19.7037C27.6799 19.8222 27.5219 20.0197 27.364 20.0592C27.206 20.1382 26.89 20.1382 26.732 20.0197C26.4556 19.8617 26.337 19.6642 26.337 19.0322C26.337 18.0843 26.1 17.0574 25.6261 16.2675C25.1522 15.359 24.4413 14.6086 23.5723 14.0951Z" fill="white"/>
+                                                <path d="M24.5597 19.3086C24.3227 19.506 23.9278 19.506 23.6908 19.3086C23.4933 19.1901 23.4538 19.0321 23.4143 18.6371C23.3748 18.1236 23.2563 17.7682 23.1378 17.4522C22.8219 16.7412 22.2294 16.3858 21.242 16.2673C20.7681 16.2278 20.6496 16.1488 20.4916 15.9908C20.2152 15.6749 20.3336 15.1614 20.6891 14.9639C20.8471 14.8849 20.8866 14.8849 21.2026 14.9244C21.4001 14.9244 21.6765 14.9639 21.8345 15.0034C22.5849 15.1614 23.1379 15.4379 23.6514 15.8723C24.2833 16.4648 24.6388 17.1362 24.7572 18.1631C24.8362 18.8346 24.7967 19.1111 24.5597 19.3086Z" fill="white"/>
+                                                <path d="M30.9185 27.7214C30.9185 27.3659 30.8001 27.0894 30.5631 26.813C30.3261 26.5365 28.7067 25.2331 27.9168 24.7197C27.3244 24.3247 26.4159 23.7717 26.021 23.5742C25.468 23.2978 24.9151 23.2583 24.4016 23.4163C24.2831 23.4558 24.2041 23.4953 24.1252 23.5347C23.8882 23.6532 23.6907 23.8902 23.2167 24.4431C22.9008 24.8381 22.6243 25.1936 22.5848 25.1936C22.5848 25.1936 22.5453 25.1936 22.5453 25.2331C22.5058 25.2726 22.3873 25.3121 22.3083 25.3515C21.7948 25.5885 21.1234 25.4306 20.0175 24.9171C19.1486 24.4827 18.3981 23.9692 17.5292 23.1793C16.7788 22.5078 16.0283 21.6784 15.6334 21.0069C15.0804 20.138 14.6855 19.0321 14.6855 18.4002C14.6855 18.1237 14.804 17.7682 14.9225 17.5707L14.962 17.5312C14.962 17.5312 14.962 17.5312 15.0015 17.4917C15.041 17.4522 15.0805 17.4127 15.12 17.4127C15.278 17.2942 15.4754 17.0967 15.6729 16.9387C16.5813 16.2278 16.7788 15.9908 16.8974 15.5958C17.0158 15.2009 16.8974 14.6874 16.5024 13.9765C15.7913 12.6731 13.8165 10.1848 13.1056 9.71089C12.9871 9.63187 12.7896 9.5529 12.6711 9.47389C12.3552 9.39487 11.9207 9.35541 11.6837 9.39487C11.3282 9.47389 10.8938 9.75035 9.90638 10.4613C9.31394 10.8957 8.52397 11.6462 8.32653 11.9621C7.89208 12.7126 7.93154 13.305 8.445 14.7664C8.91896 16.0698 9.5509 17.3732 10.2619 18.6371L10.3014 18.6766C10.4593 18.9136 10.6173 19.19 10.7753 19.427C10.7753 19.4665 10.8148 19.4665 10.8148 19.506C10.9728 19.743 11.1308 20.0195 11.2888 20.2564C11.3678 20.3354 11.4073 20.4539 11.4863 20.5329C11.6047 20.7304 11.7233 20.8884 11.8813 21.0859C12.0787 21.3623 12.2762 21.6388 12.5132 21.9153C14.7645 24.838 17.3713 27.2079 20.452 29.1432C20.4915 29.1827 20.531 29.1827 20.5705 29.2222C21.0444 29.4987 21.5184 29.7752 21.9923 30.0516C22.0713 30.0911 22.1108 30.1307 22.1898 30.1701C22.6638 30.4466 23.1772 30.6836 23.6907 30.9205C23.7302 30.96 23.8092 30.96 23.8487 30.9995C24.3622 31.2365 24.9151 31.4735 25.468 31.7105C26.1395 31.987 26.3764 32.0265 26.8899 31.987C27.1269 31.987 27.3639 31.9475 27.5614 31.8685C27.8773 31.7895 28.1538 31.6315 28.5093 31.3945C28.5883 31.355 28.6277 31.3155 28.7068 31.2761C28.7858 31.2365 28.8647 31.1576 28.9438 31.0786C29.3782 30.7231 29.8522 30.1702 30.2471 29.6567C30.5236 29.3012 30.7211 28.9457 30.8396 28.6693C30.879 28.2743 30.9185 27.9978 30.9185 27.7214Z" fill="white"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect x="8" y="9" width="23" height="23" fill="white"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                    <a href="http://t.me/vitaminkoff" target="_blank" class="contact_soc_item">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                            <path d="M17.4101 27.7584L17.7367 22.8234L26.6967 14.75C27.0934 14.3884 26.6151 14.2134 26.0901 14.5284L15.0301 21.5167L10.2467 20C9.22006 19.7084 9.20839 18.9967 10.4801 18.4834L29.1117 11.2967C29.9634 10.9117 30.7801 11.5067 30.4534 12.8134L27.2801 27.7584C27.0584 28.82 26.4167 29.0767 25.5301 28.5867L20.7001 25.0167L18.3784 27.2684C18.1101 27.5367 17.8884 27.7584 17.4101 27.7584Z" fill="white"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.instagram.com/vitaminkoff/" target="_blank" class="contact_soc_item">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                            <path d="M13.7 5H26.3C31.1 5 35 8.9 35 13.7V26.3C35 28.6074 34.0834 30.8203 32.4518 32.4518C30.8203 34.0834 28.6074 35 26.3 35H13.7C8.9 35 5 31.1 5 26.3V13.7C5 11.3926 5.9166 9.17974 7.54817 7.54817C9.17974 5.9166 11.3926 5 13.7 5V5ZM13.4 8C11.9678 8 10.5943 8.56893 9.58162 9.58162C8.56893 10.5943 8 11.9678 8 13.4V26.6C8 29.585 10.415 32 13.4 32H26.6C28.0322 32 29.4057 31.4311 30.4184 30.4184C31.4311 29.4057 32 28.0322 32 26.6V13.4C32 10.415 29.585 8 26.6 8H13.4ZM27.875 10.25C28.3723 10.25 28.8492 10.4475 29.2008 10.7992C29.5525 11.1508 29.75 11.6277 29.75 12.125C29.75 12.6223 29.5525 13.0992 29.2008 13.4508C28.8492 13.8025 28.3723 14 27.875 14C27.3777 14 26.9008 13.8025 26.5492 13.4508C26.1975 13.0992 26 12.6223 26 12.125C26 11.6277 26.1975 11.1508 26.5492 10.7992C26.9008 10.4475 27.3777 10.25 27.875 10.25ZM20 12.5C21.9891 12.5 23.8968 13.2902 25.3033 14.6967C26.7098 16.1032 27.5 18.0109 27.5 20C27.5 21.9891 26.7098 23.8968 25.3033 25.3033C23.8968 26.7098 21.9891 27.5 20 27.5C18.0109 27.5 16.1032 26.7098 14.6967 25.3033C13.2902 23.8968 12.5 21.9891 12.5 20C12.5 18.0109 13.2902 16.1032 14.6967 14.6967C16.1032 13.2902 18.0109 12.5 20 12.5V12.5ZM20 15.5C18.8065 15.5 17.6619 15.9741 16.818 16.818C15.9741 17.6619 15.5 18.8065 15.5 20C15.5 21.1935 15.9741 22.3381 16.818 23.182C17.6619 24.0259 18.8065 24.5 20 24.5C21.1935 24.5 22.3381 24.0259 23.182 23.182C24.0259 22.3381 24.5 21.1935 24.5 20C24.5 18.8065 24.0259 17.6619 23.182 16.818C22.3381 15.9741 21.1935 15.5 20 15.5Z" fill="white"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact_item contact_item-full">
+                            <div class="contact_item_part contact_item_part-full">
+                                <p class="contact_item_part_title">Мы находимся</p>
+                                <p>{{ $setting->address }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="contact_map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.2018320473408!2d30.438598116025165!3d50.381435979465934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c905cc24e625%3A0x41fc4db9aad2a498!2z0JrQvtC70YzRhtC10LLQsNGPINC00L7RgC4sIDExMCwg0JrQuNC10LIsINCa0LjQtdCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDAyMDAw!5e0!3m2!1sru!2sua!4v1585829037183!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer_main">
+        <div class="center-main-block">
+
+            <div class="footer_content">
+                <p class="footer_copyright">Vitaminkoff © {{ date('Y') }}</p>
+                <p class="footer_creator">Site developed by <a href="https://easy-agency.com/" target="_blank"><b>EasyAgency</b></a></p>
+            </div>
+
+        </div>
+    </footer>
+
+    <header class="header_main">
+        <div class="center-main-block">
+
+            <div class="header_content">
+                <figure class="logotype">
+                    <img src="/img/logotype.svg" alt="" />
+                </figure>
+                <div class="header_panel">
+                    <nav class="header_menu">
+                        <a href="#hot_block" class="header_menu_link">Горячие предложения</a>
+                        <a href="#course_block" class="header_menu_link">Цены</a>
+                        <a href="#contact_block" class="header_menu_link">Контакты</a>
+                    </nav>
+                    <div class="header_soc">
+                        <a href="{{ $setting->facebook_url }}" target="_blank" class="header_soc_item">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                <path d="M26 19V15C26 13.896 26.896 13 28 13H30V8H26C22.686 8 20 10.686 20 14V19H16V24H20V40H26V24H30L32 19H26Z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="{{ $setting->viber_url }}" target="_blank" class="header_soc_item">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                <g clip-path="url(#clip0)">
+                                    <path d="M19.6619 9.15799C19.8594 9 19.9779 9 20.6098 9C20.9258 9 21.3997 9.03951 21.6762 9.07901C22.9796 9.237 23.809 9.43449 24.9544 9.98742C26.0998 10.5404 26.8108 11.0538 27.7982 11.9623C28.7066 12.8312 29.1806 13.5026 29.7335 14.569C30.4839 16.0304 30.8789 17.7288 30.9579 19.6246C30.9974 20.2565 30.9579 20.4145 30.7999 20.612C30.5235 20.9675 29.8915 20.928 29.6545 20.4935C29.5755 20.3751 29.5755 20.2565 29.5361 19.7431C29.4966 18.9532 29.457 18.4397 29.3386 17.8078C28.9041 15.3985 27.7192 13.4632 25.8234 12.0808C24.2435 10.9354 22.8611 10.5009 20.7283 10.3429C19.9779 10.3429 19.8594 10.3429 19.7014 10.185C19.3854 9.98742 19.3854 9.43445 19.6619 9.15799Z" fill="white"/>
+                                    <path d="M23.5723 14.0951C22.8219 13.6606 21.6765 13.3051 20.6496 13.2261C20.2941 13.1866 20.0572 13.1076 19.9386 12.9497C19.7016 12.7522 19.7016 12.3967 19.8596 12.1597C20.0571 11.8438 20.3731 11.8043 21.2815 11.9622C23.5723 12.2782 25.3496 13.3446 26.5345 15.043C27.206 15.9909 27.6009 17.1363 27.7194 18.3212C27.7589 18.7556 27.7589 19.5456 27.7194 19.7036C27.6799 19.8221 27.5219 20.0196 27.364 20.0591C27.206 20.1381 26.89 20.1381 26.732 20.0196C26.4556 19.8616 26.337 19.6641 26.337 19.0321C26.337 18.0842 26.1 17.0573 25.6261 16.2674C25.1522 15.3589 24.4413 14.6085 23.5723 14.0951Z" fill="white"/>
+                                    <path d="M24.5597 19.3086C24.3227 19.5061 23.9278 19.5061 23.6908 19.3086C23.4933 19.1901 23.4538 19.0321 23.4143 18.6372C23.3748 18.1237 23.2563 17.7682 23.1378 17.4523C22.8219 16.7413 22.2294 16.3859 21.242 16.2673C20.7681 16.2278 20.6496 16.1489 20.4916 15.9909C20.2152 15.6749 20.3336 15.1614 20.6891 14.964C20.8471 14.8849 20.8866 14.8849 21.2026 14.9244C21.4001 14.9244 21.6765 14.964 21.8345 15.0035C22.5849 15.1614 23.1379 15.4379 23.6514 15.8724C24.2833 16.4648 24.6388 17.1363 24.7572 18.1632C24.8362 18.8347 24.7967 19.1111 24.5597 19.3086Z" fill="white"/>
+                                    <path d="M30.9185 27.7214C30.9185 27.366 30.8001 27.0895 30.5631 26.813C30.3261 26.5366 28.7067 25.2332 27.9168 24.7197C27.3244 24.3247 26.4159 23.7718 26.021 23.5743C25.468 23.2978 24.9151 23.2583 24.4016 23.4163C24.2831 23.4558 24.2041 23.4953 24.1252 23.5348C23.8882 23.6533 23.6907 23.8903 23.2167 24.4432C22.9008 24.8382 22.6243 25.1936 22.5848 25.1936C22.5848 25.1936 22.5453 25.1936 22.5453 25.2331C22.5058 25.2726 22.3873 25.3121 22.3083 25.3516C21.7948 25.5886 21.1234 25.4306 20.0175 24.9172C19.1486 24.4827 18.3981 23.9693 17.5292 23.1793C16.7788 22.5079 16.0283 21.6784 15.6334 21.007C15.0804 20.1381 14.6855 19.0322 14.6855 18.4002C14.6855 18.1238 14.804 17.7683 14.9225 17.5708L14.962 17.5313C14.962 17.5313 14.962 17.5313 15.0015 17.4918C15.041 17.4523 15.0805 17.4128 15.12 17.4128C15.278 17.2943 15.4754 17.0968 15.6729 16.9388C16.5813 16.2278 16.7788 15.9909 16.8974 15.5959C17.0158 15.2009 16.8974 14.6875 16.5024 13.9765C15.7913 12.6732 13.8165 10.1849 13.1056 9.71095C12.9871 9.63194 12.7896 9.55297 12.6711 9.47395C12.3552 9.39494 11.9207 9.35547 11.6837 9.39494C11.3282 9.47395 10.8938 9.75041 9.90638 10.4613C9.31394 10.8958 8.52397 11.6462 8.32653 11.9622C7.89208 12.7126 7.93154 13.3051 8.445 14.7665C8.91896 16.0699 9.5509 17.3733 10.2619 18.6371L10.3014 18.6766C10.4593 18.9136 10.6173 19.1901 10.7753 19.4271C10.7753 19.4666 10.8148 19.4666 10.8148 19.5061C10.9728 19.7431 11.1308 20.0195 11.2888 20.2565C11.3678 20.3355 11.4073 20.454 11.4863 20.533C11.6047 20.7304 11.7233 20.8884 11.8813 21.0859C12.0787 21.3624 12.2762 21.6389 12.5132 21.9154C14.7645 24.8381 17.3713 27.2079 20.452 29.1433C20.4915 29.1828 20.531 29.1828 20.5705 29.2223C21.0444 29.4987 21.5184 29.7752 21.9923 30.0517C22.0713 30.0912 22.1108 30.1307 22.1898 30.1702C22.6638 30.4466 23.1772 30.6836 23.6907 30.9206C23.7302 30.9601 23.8092 30.9601 23.8487 30.9996C24.3622 31.2366 24.9151 31.4736 25.468 31.7106C26.1395 31.987 26.3764 32.0265 26.8899 31.987C27.1269 31.987 27.3639 31.9475 27.5614 31.8685C27.8773 31.7895 28.1538 31.6315 28.5093 31.3946C28.5883 31.3551 28.6277 31.3156 28.7068 31.2761C28.7858 31.2366 28.8647 31.1576 28.9438 31.0786C29.3782 30.7231 29.8522 30.1702 30.2471 29.6568C30.5236 29.3013 30.7211 28.9458 30.8396 28.6693C30.879 28.2744 30.9185 27.9979 30.9185 27.7214Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect x="8" y="9" width="23" height="23" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a href="{{ $setting->telegram_url }}" target="_blank" class="header_soc_item">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="10" fill="#EB9F2D"/>
+                                <path d="M17.4101 27.7583L17.7367 22.8233L26.6967 14.75C27.0934 14.3883 26.6151 14.2133 26.0901 14.5283L15.0301 21.5167L10.2467 20C9.22006 19.7083 9.20839 18.9967 10.4801 18.4833L29.1117 11.2967C29.9634 10.9117 30.7801 11.5067 30.4534 12.8133L27.2801 27.7583C27.0584 28.82 26.4167 29.0767 25.5301 28.5867L20.7001 25.0167L18.3784 27.2683C18.1101 27.5367 17.8884 27.7583 17.4101 27.7583Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="header_button">
+                        <a class="button_trans click-item" data-action="popup-open" data-label=".popup_order">
+                            <span>Заказать</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+</div>
+
+<div class="popup_container popup_order">
+    <div class="popup_background click-item" data-action="popup-close"></div>
+    <div class="popup">
+        <a class="popup_close click-item" data-action="popup-close">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M14 1.4L12.6 0L7 5.6L1.4 0L0 1.4L5.6 7L0 12.6L1.4 14L7 8.4L12.6 14L14 12.6L8.4 7L14 1.4Z" fill="#BBBBBB"/>
+            </svg>
+        </a>
+        <h2 class="popup_title">Заказать</h2>
+        <p class="popup_undertitle">Мы свяжемся с вами в тичение часа</p>
+        <form class="popup_form" method="post" action="/order">
+            <input type="hidden" name="product" value="">
+            <div class="popup_form_item">
+                <input type="text" placeholder="Имя" name="name" required />
+            </div>
+            <div class="popup_form_item">
+                <input type="text" placeholder="Фамилия" name="lastname" required />
+            </div>
+            <div class="popup_form_item">
+                <input type="tel" placeholder="Телефон" name="phone" required />
+            </div>
+            <div class="popup_form_item popup_form_item-button">
+                <button class="button_green" type="submit">
+                    <span>Заказать</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
