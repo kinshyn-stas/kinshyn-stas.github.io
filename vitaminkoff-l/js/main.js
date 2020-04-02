@@ -329,11 +329,33 @@ class Curier{
     }
 
     mouseMove(event){
+        let screenWidth = window.innerWidth;
+        let screenHeight = window.innerHeight;
+
+        let x = event.screenX;
+        let y = event.screenY;
+
+        move(this.cloud,14,8);
+        move(this.bushes,5,4);
+        move(this.ground,3,2);
+        move(this.man,20,10);
+
+        function move(item,maxW,maxH){
+            let dX = ((x / screenWidth) * maxW) - (maxW/2);
+            if(dX < (0 - (maxW/2))) dX = -maxW/2;
+            if(dX > (0 + (maxW/2))) dX = maxW/2;
+            let dY = ((y / screenHeight) * maxH) - (maxH/2);
+            if(dY < (0 - (maxH/2))) dY = -maxH/2;
+            if(dY > (0 + (maxH/2))) dY = maxH/2;
+            item.style.transform = `translate(${dX}%,${dY}%)`;
+        }
+        
+        /*
         this.screenWidth = window.innerWidth;
         this.screenHeight = window.innerHeight;
+
         let diffX = event.screenX;
         let diffY = event.screenY;
-
         if(diffY != this.mouseX){
             let perX = parseInt((diffY / this.screenHeight) * 56);
             if(perX < 0) perX = 0;
@@ -355,7 +377,7 @@ class Curier{
         }
 
         this.mouseX = event.screenX;
-        this.mouseY = event.screenY;
+        this.mouseY = event.screenY;*/
     }
 };
 
