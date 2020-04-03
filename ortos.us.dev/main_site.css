@@ -2480,6 +2480,9 @@ img.rekl_image_mobile{
 	border-right: 15px solid transparent;
 	transform: translate(-50%,-100%);
 }
+.ms-header_contacts_sh_popup.no-arrow:before{
+	display: none;
+}
 .ms-header_contacts_sh_popup-t{
 	min-width: 340px;
 	max-width: 100vw;
