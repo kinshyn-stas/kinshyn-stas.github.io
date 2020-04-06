@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
+    <script>
+      dataLayer = [];
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -126,7 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <p class="hot_text_price">{{ $setting->product_three_price }} грн/кг</p>
                                     @if(! empty($setting->product_three_old_price))
                                         <p class="hot_text_price_old">
-                                            <span>{{ $setting->product_one_three_price }} грн/кг</span>
+                                            <span>{{ $setting->product_three_old_price }} грн/кг</span>
                                         </p>
                                     @endif
                                 </div>
@@ -455,24 +458,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </svg>
         </a>
         <h2 class="popup_title">Заказать</h2>
-        <p class="popup_undertitle">Мы свяжемся с вами в тичение часа</p>
-        <form class="popup_form" method="post" action="/order">
+        <p class="popup_undertitle">Мы свяжемся с вами в течение часа</p>
+        <form id="orderForm" class="popup_form form_validate" method="post" action="/order">
             <input type="hidden" name="product" value="">
-            <div class="popup_form_item">
+            <div class="popup_form_item form_validate_item">
                 <input type="text" placeholder="Имя" name="name" required />
+                <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
-            <div class="popup_form_item">
+            <div class="popup_form_item form_validate_item">
                 <input type="text" placeholder="Фамилия" name="lastname" required />
+                <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
-            <div class="popup_form_item">
-                <input type="tel" placeholder="Телефон" name="phone" required />
+            <div class="popup_form_item form_validate_item">
+                <input type="tel" placeholder="Телефон" name="phone" minlength="12" maxlength="12" required />
+                <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
             <div class="popup_form_item popup_form_item-button">
-                <button class="button_green" type="submit">
+                <button class="button_green form_validate_submit" type="submit">
                     <span>Заказать</span>
                 </button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="popup_container popup_succes">
+    <div class="popup_background click-item" data-action="popup-close"></div>
+    <div class="popup popup-alert">
+        <a class="popup_close click-item" data-action="popup-close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12.6663 4.26665L11.733 3.33331L7.99967 7.06665L4.26634 3.33331L3.33301 4.26665L7.06634 7.99998L3.33301 11.7333L4.26634 12.6666L7.99967 8.93331L11.733 12.6666L12.6663 11.7333L8.93301 7.99998L12.6663 4.26665Z" fill="white"/>
+            </svg>
+        </a>
+        <p>Ваша заявка <br />успешно отправлено</p>
     </div>
 </div>
 

@@ -18,7 +18,16 @@ window.onload = function(){
         selector: '#faceAnim',
     });
 
+
     changeOpacity('.anim-opacity');
+
+
+    checkSubmit();
+
+
+    new classMultiplyWrapper(FormValidate, {
+        selector: '.form_validate',
+    });
 };
 
 
@@ -376,3 +385,158 @@ function changeOpacity(selector){
         });      
     }
 };
+
+
+function checkSubmit(){
+    if(location.hash) document.querySelector('.popup_succes').classList.add('active');
+};
+
+
+class FormValidate{
+    constructor(params){
+        this.form = params.item;
+        this.status = false;
+        this.items = this.form.querySelectorAll('.form_validate_item');
+        this.submit = this.form.querySelector('.form_validate_submit');
+        if(!this.submit) return;
+        this.submitFlag = false;
+
+        this.form.addEventListener('input',this.checkInputsPattern.bind(this));
+        this.form.addEventListener('change',this.checkInputsPattern.bind(this));
+        this.form.addEventListener('input',this.validatePhone.bind(this));
+        this.submit.addEventListener('click',this.submitClickHandler.bind(this));
+    }
+
+    checkInputsPattern(event){
+        if(event.target.tagName.toLowerCase() != 'input' && event.target.tagName.toLowerCase() != 'textarea') return;
+        let eType = event.target.type.toLowerCase();
+        if(!(event.target.required) && !(eType == 'checkbox' || eType == 'radio') && !(eType == 'file')) return;
+
+        let target = event.target;
+
+        if(event.type == 'input'){
+            if(this.testValue(target)) this.changeClassList(target,true);
+        } else if(event.type == 'change'){
+            this.testValue(target) ? this.changeClassList(target,true) : this.changeClassList(target,false);
+
+            if(eType == 'checkbox' || eType == 'radio'){
+                if(event.target.name){
+                    let flag = false;
+                    let counter = 0;
+
+                    this.form.querySelectorAll(`input[name=${target.name}]`).forEach(item => {
+                        if(item.checked){
+                            flag = true;
+                            counter++;
+                        } 
+                    })
+
+                    if(flag){
+                        this.changeClassList(target,true);
+                    } else {
+                        this.changeClassList(target,false);
+                    }
+
+                    
+                    if(!target.closest('.order_select')) return;
+                    if(!target.closest('.order_select').querySelector('.order_select_num')) return;
+                    target.closest('.order_select').querySelector('.order_select_num').textContent = counter;
+                } else {
+                    if(target.checked){
+                        this.changeClassList(target,true);
+                    } else {
+                        this.changeClassList(target,false);
+                    }
+                }
+            }
+
+            this.checkItems();
+        }
+
+    }
+
+    testValue(target){
+        let result = true;
+        
+        if(target.dataset.pattern){
+            let regexp = new RegExp(target.dataset.pattern);
+            if(!regexp.test(`${target.value}`)) result = false;
+        } else {
+            if(target.value == '') result = false;
+        }
+
+        if(target.getAttribute('minlength') && (target.value.length < +target.getAttribute('minlength'))) result = false;
+        if(target.getAttribute('maxlength') && (target.value.length > +target.getAttribute('maxlength'))) result = false;
+        return result;
+    }
+
+    changeClassList(target,direction = true){
+        if(direction){
+            target.closest('.form_validate_item').classList.remove('invalid');
+            target.classList.remove('invalid');
+        } else {
+            target.closest('.form_validate_item').classList.add('invalid');
+            target.classList.add('invalid');
+        }
+    }
+
+    checkItems(){
+        this.status = true;
+        this.items.forEach(item => {
+            let field;
+            field = item.querySelector('input, textarea');
+            if(item.classList.contains('invalid') || !field.value) this.status = false;
+        })
+
+        if(this.status){
+            this.submitFlag = true;
+        } else {
+            this.submitFlag = false;
+        }
+    }
+
+    validatePhone(){
+        if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+        
+        event.target.value = event.target.value.replace(/\D/g,"");
+        if(event.target.value.slice(0,3) != '380'){
+            event.target.value = `380${event.target.value.slice(3)}`;
+        }
+    }
+
+    submitClickHandler(event){
+        this.items.forEach(item => {
+            let event = new Event('change',{
+                'bubbles': true,
+                'cancelable': true
+            });
+            item.querySelector('input').dispatchEvent(event);
+        })
+
+        if(!this.submitFlag){
+            event.preventDefault();
+            return;
+        }
+        this.submitFlag = false;
+        this.submit.disabled = true;
+        this.submit.querySelector('span').textContent = '...';
+
+        dataLayer.push({
+            'event': 'GAevent',
+            'eventCategory': 'Form',
+            'eventAction': 'Submit'}
+        )
+
+        this.form.submit();
+    }
+};
+
+
+document.addEventListener('click', function(event){
+    if(!event.target.closest('.header_soc_item') && !event.target.closest('.contact_soc_item')) return;
+    dataLayer.push({
+        'event': 'GAevent',
+        'eventCategory': 'Button-click',
+        'eventAction': 'Social'
+    })
+});
