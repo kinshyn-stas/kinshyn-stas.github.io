@@ -1424,6 +1424,40 @@ img.rekl_image_mobile{
 .ms-info_q_rating_button span{
 	display: inline-block;
 	margin-left: 10px;
+	transition: all 0.2s ease-in-out;
+}
+.ms-info_q_rating_button span:before{
+	content: "(";
+	display: inline-block;
+	padding-right: 0.3em;
+}
+.ms-info_q_rating_button span:after{
+	content: ")";
+	display: inline-block;
+	padding-left: 0.3em;
+}
+.ms-info_q_rating_button .btn_like_dslike_active+span{
+	color: #ffa700;
+}
+.ms-info_q_rating_button .like-button{}
+.ms-info_q_rating_button .like-button:before,
+.ms-info_q_rating_button .dislike-button:before{
+	content: "";
+	display: block;
+	width: 17px;
+	height: 17px;
+	background-image: url(/image/catalog/hand_on.png);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	transform: translateY(-1px);
+	-webkit-transform: translateY(-1px);
+}
+.ms-info_q_rating_button .dislike-button:before{
+	background-image: url(/image/catalog/hand_off.png);
+}
+.ms-info_q_rating_button .fa{
+	display: none;
 }
 .ms-info_q_answer{}
 .ms-info_q_answer_link{
@@ -1479,6 +1513,7 @@ img.rekl_image_mobile{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 	width: 29%;
 	margin-bottom: 20px;
 }
@@ -1488,7 +1523,9 @@ img.rekl_image_mobile{
 .ms-info_o_form_item input,
 .ms-info_o_form_item textarea{
 	width: 100%;
-	padding: 12px 18px;
+	height: auto!important;
+	padding: 12px 18px!important;
+	margin: 0 0 auto!important;
 	background-color: #f8f8fa;
 	font-size: 14px;
 	line-height: 16px;
@@ -1499,6 +1536,10 @@ img.rekl_image_mobile{
 .ms-info_o_form_item textarea{
 	min-height: 100px;
 	resize: none;
+}
+.ms-info_o_form_item .alert-danger{
+	width: 100%;
+	margin: 8px 0 0;
 }
 .ms-info_o_form_star_title{
 	color: #757575;
