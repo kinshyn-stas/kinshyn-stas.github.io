@@ -484,13 +484,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="popup_container popup_succes">
     <div class="popup_background click-item" data-action="popup-close"></div>
-    <div class="popup popup-alert">
+    <div class="popup">
         <a class="popup_close click-item" data-action="popup-close">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12.6663 4.26665L11.733 3.33331L7.99967 7.06665L4.26634 3.33331L3.33301 4.26665L7.06634 7.99998L3.33301 11.7333L4.26634 12.6666L7.99967 8.93331L11.733 12.6666L12.6663 11.7333L8.93301 7.99998L12.6663 4.26665Z" fill="white"/>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M14.0002 1.39988L12.6002 -0.00012207L7.00024 5.59988L1.40024 -0.00012207L0.000244141 1.39988L5.60024 6.99988L0.000244141 12.5999L1.40024 13.9999L7.00024 8.39988L12.6002 13.9999L14.0002 12.5999L8.40024 6.99988L14.0002 1.39988Z" fill="#343F4B"/>
             </svg>
         </a>
-        <p>Ваша заявка <br />успешно отправлено</p>
+        <h2 class="popup_title">Ваш заказ оформлен</h2>
+        <p class="popup_undertitle">Наши сотрудники собирают заказ и готовят к отправке. <br />Как только он будет готов к отправке, мы свяжемся с вами, чтобы уточнить ваше местоположение и способ оплаты.</p>
+        <figure class="popup_image">
+            <img src="/img/succes.gif" alt="" />
+        </figure>
     </div>
 </div>
 
