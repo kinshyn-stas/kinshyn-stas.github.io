@@ -30,6 +30,10 @@ window.onload = function(){
     });
 
 
+    hiddenScrollAside('.menu_content_tabs-scroll');
+    window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs-scroll'));
+
+
     document.addEventListener('click', function(event){
         if(!event.target.closest('.header_soc_item') && !event.target.closest('.contact_soc_item')) return;
         dataLayer.push({
@@ -191,6 +195,16 @@ function clickItemHandler(event){
             parent.querySelectorAll('.menu_content_tab').forEach(item => item.classList.remove('active'));
             parent.querySelector(target.dataset.label).classList.add('active');
             hiddenScrollAside('.menu_content_tabs');
+        },
+
+        'switch-container': function(target){
+            if(target.classList.contains('active')) return;
+            let parent = target.closest('.menu_block');
+            parent.querySelectorAll('.menu_switch_item').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            parent.querySelectorAll('.menu_container').forEach(item => item.classList.remove('active'));
+            parent.querySelector(target.dataset.label).classList.add('active');
+            let switcher = target.closest('.menu_switch_box').classList.toggle('switch');
         },
     }
 
@@ -550,11 +564,6 @@ class FormValidate{
         this.form.submit();
     }
 };
-
-
-
-hiddenScrollAside('.menu_content_tabs');
-window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs'));
 
 
 function hiddenScrollAside(selector){

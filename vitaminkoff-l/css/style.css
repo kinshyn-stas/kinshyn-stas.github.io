@@ -1551,8 +1551,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transform: translate(40%,-40%);
 }
 .menu_container{
+    display: none;
     max-width: 560px;
     margin: 0 auto;
+}
+.menu_container.active{
+    display: block;
 }
 .menu_alphabet{
     width: 100%;
@@ -1628,8 +1632,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .menu_content_tabs{
     height: 520px;
+    overflow: hidden;
     /*max-height: 520px;
     overflow-y: auto;*/
+}
+.menu_content_tabs-obj{
+    height: 570px;
 }
 .menu_content_tab{
     display: none;
@@ -1724,6 +1732,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .menu_content_tab_letter_item_calc_num_n{}
 .menu_content_tab_letter_item_calc_num_t{
     color: #929292;
+}
+.menu_content_obj{
+    width: calc(100% + 16px);
+    height: 554px;
+}
+.menu_content_obj object{
+    width: 100%;
+    height: 100%;
 }
 
 
