@@ -25,6 +25,8 @@ window.onload = function(){
     checkSubmit();
 
 
+    document.addEventListener('input',validatePhone);
+
     new classMultiplyWrapper(FormValidate, {
         selector: '.form_validate',
     });
@@ -35,6 +37,8 @@ window.onload = function(){
 
 
     document.addEventListener('change', addMenuProduct);
+
+    document.addEventListener('change', changeMenuProductWeight);
 
 
     new Alphabet();
@@ -187,22 +191,23 @@ function addMenuProduct(event){
     if(!event.target.closest('.menu_content_tab_letter_item_name')) return;
     let target = event.target;
     let number = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num input');
-    let text = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num_n');
     let counter = document.querySelector('.menu_button_number');
     let popupInput = document.querySelector('.popup_form_number_input');
     let popupText = document.querySelector('.popup_form_number_input_n');
+    let resultNumber = 0;
+    document.querySelectorAll('.menu_content_tab_letter_item_name input').forEach(item => {
+        if(item.checked) resultNumber++;
+    });
 
     if(target.checked){
         number.value = 1;
-        text.textContent = 1;
-        counter.textContent = +counter.textContent + 1;
+        counter.textContent = resultNumber;
         counter.classList.add('active');
-        popupInput.value = +popupInput.value + 1;
-        popupText.textContent = popupInput.value;
+        popupInput.value = +resultNumber + 1;
+        popupText.textContent = resultNumber;
     } else {
         number.value = 0;
-        text.textContent = 0;
-        counter.textContent = +counter.textContent - 1;
+        counter.textContent = resultNumber;
         if(counter.textContent <= 0){
             counter.textContent = 0;
             counter.classList.remove('active');
@@ -213,6 +218,33 @@ function addMenuProduct(event){
             popupInput.value = "";
             popupText.textContent = 0;
         } 
+    }
+};
+
+
+function changeMenuProductWeight(event){    
+    if(!event.target.closest('.menu_content_tab_letter_item_calc_num_i')) return;
+    let target = event.target;
+    let value = +target.value;
+    let inputFlag = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_name input');
+
+    if(value>0){
+        inputFlag.checked = true;
+    } else {
+        inputFlag.checked = false;
+    }
+
+    let resultNumber = 0;
+    document.querySelectorAll('.menu_content_tab_letter_item_name input').forEach(item => {
+        if(item.checked) resultNumber++;
+    });
+    let counter = document.querySelector('.menu_button_number');
+    counter.textContent = resultNumber;
+    if(counter.textContent <= 0){
+        counter.textContent = 0;
+        counter.classList.remove('active');
+    } else {
+        counter.classList.add('active');
     }
 };
 
@@ -383,17 +415,19 @@ function clickItemHandler(event){
 
         'change-weight': function(target){
             let parent = target.closest('.menu_content_tab_letter_item');
-            if(!parent.querySelector('.menu_content_tab_letter_item input').checked) return;
-            let input = parent.querySelector('.menu_content_tab_letter_item_calc_num input');
-            let number = parent.querySelector('.menu_content_tab_letter_item_calc_num_n');
             let direction = +target.dataset.direction;
+            let inputFlag = parent.querySelector('.menu_content_tab_letter_item input')
+            if(!inputFlag.checked && !direction) return;
+            let input = parent.querySelector('.menu_content_tab_letter_item_calc_num_i');
             if(direction){
-                input.value = +input.value + 1;
-                number.textContent = input.value;
+                if(!inputFlag.checked){
+                    inputFlag.click();
+                } else {
+                    input.value = +input.value + 1;
+                }                
             } else {                
                 input.value = +input.value - 1;
                 if(input.value < 1) input.value = 1;
-                number.textContent = input.value;
             }
         },
     }
@@ -616,6 +650,16 @@ function checkSubmit(){
 };
 
 
+function validatePhone(event){
+    if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+        
+    event.target.value = event.target.value.replace(/\D/g,"");
+    if(event.target.value.slice(0,3) != '380' && event.target.dataset.type != 'number'){
+        event.target.value = `380${event.target.value.slice(3)}`;
+    }
+};
+
+
 class FormValidate{
     constructor(params){
         this.form = params.item;
@@ -627,7 +671,7 @@ class FormValidate{
 
         this.form.addEventListener('input',this.checkInputsPattern.bind(this));
         this.form.addEventListener('change',this.checkInputsPattern.bind(this));
-        this.form.addEventListener('input',this.validatePhone.bind(this));
+        //this.form.addEventListener('input',this.validatePhone.bind(this));
         this.submit.addEventListener('click',this.submitClickHandler.bind(this));
     }
 
@@ -719,14 +763,14 @@ class FormValidate{
         }
     }
 
-    validatePhone(){
+    /*validatePhone(){
         if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
         
         event.target.value = event.target.value.replace(/\D/g,"");
         if(event.target.value.slice(0,3) != '380'){
             event.target.value = `380${event.target.value.slice(3)}`;
         }
-    }
+    }*/
 
     submitClickHandler(event){
         this.items.forEach(item => {
