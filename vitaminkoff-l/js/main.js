@@ -34,6 +34,12 @@ window.onload = function(){
     window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs-scroll'));
 
 
+    document.addEventListener('change', addMenuProduct);
+
+
+    new Alphabet();
+
+
     document.addEventListener('click', function(event){
         if(!event.target.closest('.header_soc_item') && !event.target.closest('.contact_soc_item')) return;
         dataLayer.push({
@@ -42,6 +48,172 @@ window.onload = function(){
             'eventAction': 'Social'
         })
     });
+};
+
+
+class Alphabet{
+    constructor(){
+        if(!document.querySelector('.menu_alphabet')) return;
+        this.container = document.querySelector('.menu_alphabet');
+        this.list = this.container.querySelector('.menu_alphabet_list');
+        this.letters = this.list.querySelectorAll('.menu_alphabet_item');
+        this.buttonLeft = this.container.querySelector('.menu_alphabet_button-left');
+        this.buttonRight = this.container.querySelector('.menu_alphabet_button-right');
+
+        this.content = this.container.closest('.menu_container').querySelector('.menu_content');
+        this.contentTabs = this.content.querySelectorAll('.menu_content_tab');
+
+        this.container.addEventListener('click', this.clickHandler.bind(this));
+    }
+
+    clickHandler(event){
+        if(event.target.closest('.menu_alphabet_item')){
+            let target = event.target.closest('.menu_alphabet_item');
+            if(target.classList.contains('active')) return;
+            this.letters.forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+
+            this.contentTabs.forEach(tab => {
+                if(!tab.classList.contains('active')) return;
+                let letters = tab.querySelectorAll('.menu_content_tab_letter');
+                letters.forEach(item => item.classList.remove('active'));
+
+                for(let i = 0; i <= letters.length - 1; i++){
+                    let i1 = +target.dataset.label;
+                    let i2 = +letters[i].dataset.label;
+
+                    if(i1 <= i2){
+                        letters[i].classList.add('active');
+                        this.scrollToElement(tab.closest('.scroll-emul_content'),letters[i]);
+                        break;
+                    }
+
+                    if(i1 > letters.length - 1){
+                        letters[letters.length - 1].classList.add('active');
+                        this.scrollToElement(tab.closest('.scroll-emul_content'),letters[letters.length - 1]);
+                        break;
+                    }
+                }
+            });
+        };
+
+        if(event.target.closest('.menu_alphabet_button')){
+            let target = event.target.closest('.menu_alphabet_button');
+            let direction = 0;
+            if(target.classList.contains('menu_alphabet_button-right')) direction = 1;
+            let w = this.list.clientWidth * 2 / 3;
+            let wFull = 0;
+            this.letters.forEach(item => {
+                wFull += parseFloat(getComputedStyle(item).width);
+                wFull += parseFloat(getComputedStyle(item).marginRight);
+                wFull += parseFloat(getComputedStyle(item).marginLeft);
+            });
+            let t = parseFloat(getComputedStyle(this.list).left);
+            let r = 0;
+
+            this.container.classList.add('menu_alphabet-left');
+            this.container.classList.add('menu_alphabet-right');
+
+            if(direction){
+                r = t - w;
+                if(r < w - wFull){
+                    this.container.classList.remove('menu_alphabet-right');
+                    r = w - wFull;
+                } 
+            } else {
+                r = t + w;
+                if(r > 0){
+                    this.container.classList.remove('menu_alphabet-left');
+                    r = 0;
+                }
+            }
+            this.list.style.left = `${r}px`;
+        }
+    }
+
+    scrollToElement(parent,target){                    
+        let p = parent.scrollTop;
+        let step = 10;
+        let direction = false;
+        let container = parent.querySelector('.menu_content_tab.active');
+        let h = 0;
+        let letters = container.querySelectorAll('.menu_content_tab_letter');
+        for(let i = 0; i < letters.length - 1; i++){
+            if(letters[i] == target) break;
+            h += parseFloat(getComputedStyle(letters[i]).height);
+            h += parseFloat(getComputedStyle(letters[i]).marginBottom);
+            h += parseFloat(getComputedStyle(letters[i]).marginTop);
+        }
+        if(!h && h != 0) return;
+
+        if(parent.scrollTop > h){
+            direction = true;
+        }
+
+        let int = setInterval(()=>{
+            if(direction){               
+                if(p <= step){
+                    parent.scrollTop = 0;
+                    clearInterval(int);
+                } 
+
+                if(p > h){
+                    p -= step;
+                } else {
+                    p = h;
+                    clearInterval(int);
+                }
+            } else {      
+                if(p >= container.clientHeight - step){
+                    parent.scrollTop = container.clientHeight;
+                    clearInterval(int); 
+                }   
+
+                if(p < h){
+                    p += step;
+                } else {
+                    p = h;
+                    clearInterval(int);
+                }
+            }
+
+            parent.scrollTop = p;
+        }, 1);
+    }
+};
+
+
+function addMenuProduct(event){
+    if(!event.target.closest('.menu_content_tab_letter_item_name')) return;
+    let target = event.target;
+    let number = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num input');
+    let text = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num_n');
+    let counter = document.querySelector('.menu_button_number');
+    let popupInput = document.querySelector('.popup_form_number_input');
+    let popupText = document.querySelector('.popup_form_number_input_n');
+
+    if(target.checked){
+        number.value = 1;
+        text.textContent = 1;
+        counter.textContent = +counter.textContent + 1;
+        counter.classList.add('active');
+        popupInput.value = +popupInput.value + 1;
+        popupText.textContent = popupInput.value;
+    } else {
+        number.value = 0;
+        text.textContent = 0;
+        counter.textContent = +counter.textContent - 1;
+        if(counter.textContent <= 0){
+            counter.textContent = 0;
+            counter.classList.remove('active');
+        }
+        popupInput.value = +popupInput.value - 1;
+        popupText.textContent = popupInput.value;
+        if(popupInput.value <=0){
+            popupInput.value = "";
+            popupText.textContent = 0;
+        } 
+    }
 };
 
 
@@ -194,7 +366,8 @@ function clickItemHandler(event){
             target.classList.add('active');
             parent.querySelectorAll('.menu_content_tab').forEach(item => item.classList.remove('active'));
             parent.querySelector(target.dataset.label).classList.add('active');
-            hiddenScrollAside('.menu_content_tabs');
+            parent.querySelector(target.dataset.label).style.animationName = 'animation_tab';
+            hiddenScrollAside('.menu_content_tabs-scroll');
         },
 
         'switch-container': function(target){
@@ -204,7 +377,24 @@ function clickItemHandler(event){
             target.classList.add('active');
             parent.querySelectorAll('.menu_container').forEach(item => item.classList.remove('active'));
             parent.querySelector(target.dataset.label).classList.add('active');
+            parent.querySelector(target.dataset.label).style.animationName = 'animation_tab';
             let switcher = target.closest('.menu_switch_box').classList.toggle('switch');
+        },
+
+        'change-weight': function(target){
+            let parent = target.closest('.menu_content_tab_letter_item');
+            if(!parent.querySelector('.menu_content_tab_letter_item input').checked) return;
+            let input = parent.querySelector('.menu_content_tab_letter_item_calc_num input');
+            let number = parent.querySelector('.menu_content_tab_letter_item_calc_num_n');
+            let direction = +target.dataset.direction;
+            if(direction){
+                input.value = +input.value + 1;
+                number.textContent = input.value;
+            } else {                
+                input.value = +input.value - 1;
+                if(input.value < 1) input.value = 1;
+                number.textContent = input.value;
+            }
         },
     }
 

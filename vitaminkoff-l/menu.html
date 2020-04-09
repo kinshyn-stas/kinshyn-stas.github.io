@@ -42,12 +42,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
                     <div class="menu_button_container">
-                        <a class="menu_button">
+                        <a class="menu_button click-item" data-action="popup-open" data-label=".popup_order-menu">
                             <span class="menu_button_icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 13C10.6739 13 9.40215 12.4732 8.46447 11.5355C7.52678 10.5979 7 9.32608 7 8H9C9 8.79565 9.31607 9.55871 9.87868 10.1213C10.4413 10.6839 11.2044 11 12 11C12.7956 11 13.5587 10.6839 14.1213 10.1213C14.6839 9.55871 15 8.79565 15 8H17C17 9.32608 16.4732 10.5979 15.5355 11.5355C14.5979 12.4732 13.3261 13 12 13ZM12 3C12.7956 3 13.5587 3.31607 14.1213 3.87868C14.6839 4.44129 15 5.20435 15 6H9C9 5.20435 9.31607 4.44129 9.87868 3.87868C10.4413 3.31607 11.2044 3 12 3ZM19 6H17C17 5.34339 16.8707 4.69321 16.6194 4.08658C16.3681 3.47995 15.9998 2.92876 15.5355 2.46447C15.0712 2.00017 14.52 1.63188 13.9134 1.3806C13.3068 1.12933 12.6566 1 12 1C10.6739 1 9.40215 1.52678 8.46447 2.46447C7.52678 3.40215 7 4.67392 7 6H5C3.89 6 3 6.89 3 8V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V8C21 6.89 20.1 6 19 6Z" fill="white"/>
                                 </svg>
-                                <span class="menu_button_number">3</span>
+                                <span class="menu_button_number">0</span>
                             </span>
                             <span class="menu_button_text">Заказать</span>
                         </a>
@@ -56,42 +56,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div id="menu_container-1" class="menu_container active">
                     
-                    <div class="menu_alphabet">
+                    <div class="menu_alphabet menu_alphabet-right">
                         <div class="menu_alphabet_list">
-                            <a class="menu_alphabet_item active">А</a>
-                            <a class="menu_alphabet_item">Б</a>
-                            <a class="menu_alphabet_item">В</a>
-                            <a class="menu_alphabet_item">Г</a>
-                            <a class="menu_alphabet_item">Д</a>
-                            <a class="menu_alphabet_item">Е</a>
-                            <a class="menu_alphabet_item">Ё</a>
-                            <a class="menu_alphabet_item">Ж</a>
-                            <a class="menu_alphabet_item">З</a>
-                            <a class="menu_alphabet_item">И</a>
-                            <a class="menu_alphabet_item">Й</a>
-                            <a class="menu_alphabet_item">К</a>
-                            <a class="menu_alphabet_item">Л</a>
-                            <a class="menu_alphabet_item">М</a>
-                            <a class="menu_alphabet_item">Н</a>
-                            <a class="menu_alphabet_item">О</a>
-                            <a class="menu_alphabet_item">П</a>
-                            <a class="menu_alphabet_item">Р</a>
-                            <a class="menu_alphabet_item">С</a>
-                            <a class="menu_alphabet_item">Т</a>
-                            <a class="menu_alphabet_item">У</a>
-                            <a class="menu_alphabet_item">Ф</a>
-                            <a class="menu_alphabet_item">Х</a>
-                            <a class="menu_alphabet_item">Ц</a>
-                            <a class="menu_alphabet_item">Ч</a>
-                            <a class="menu_alphabet_item">Ш</a>
-                            <a class="menu_alphabet_item">Щ</a>
-                            <a class="menu_alphabet_item">Ъ</a>
-                            <a class="menu_alphabet_item">Ы</a>
-                            <a class="menu_alphabet_item">Ь</a>
-                            <a class="menu_alphabet_item">Ю</a>
-                            <a class="menu_alphabet_item">Э</a>
-                            <a class="menu_alphabet_item">Я</a>
+                            <a class="menu_alphabet_item active" data-label="0">А</a>
+                            <a class="menu_alphabet_item" data-label="1">Б</a>
+                            <a class="menu_alphabet_item" data-label="2">В</a>
+                            <a class="menu_alphabet_item" data-label="3">Г</a>
+                            <a class="menu_alphabet_item" data-label="4">Д</a>
+                            <a class="menu_alphabet_item" data-label="5">Е</a>
+                            <a class="menu_alphabet_item" data-label="6">Ё</a>
+                            <a class="menu_alphabet_item" data-label="7">Ж</a>
+                            <a class="menu_alphabet_item" data-label="8">З</a>
+                            <a class="menu_alphabet_item" data-label="9">И</a>
+                            <a class="menu_alphabet_item" data-label="10">Й</a>
+                            <a class="menu_alphabet_item" data-label="11">К</a>
+                            <a class="menu_alphabet_item" data-label="12">Л</a>
+                            <a class="menu_alphabet_item" data-label="13">М</a>
+                            <a class="menu_alphabet_item" data-label="14">Н</a>
+                            <a class="menu_alphabet_item" data-label="15">О</a>
+                            <a class="menu_alphabet_item" data-label="16">П</a>
+                            <a class="menu_alphabet_item" data-label="17">Р</a>
+                            <a class="menu_alphabet_item" data-label="18">С</a>
+                            <a class="menu_alphabet_item" data-label="19">Т</a>
+                            <a class="menu_alphabet_item" data-label="20">У</a>
+                            <a class="menu_alphabet_item" data-label="21">Ф</a>
+                            <a class="menu_alphabet_item" data-label="22">Х</a>
+                            <a class="menu_alphabet_item" data-label="23">Ц</a>
+                            <a class="menu_alphabet_item" data-label="24">Ч</a>
+                            <a class="menu_alphabet_item" data-label="25">Ш</a>
+                            <a class="menu_alphabet_item" data-label="26">Щ</a>
+                            <a class="menu_alphabet_item" data-label="27">Ъ</a>
+                            <a class="menu_alphabet_item" data-label="28">Ы</a>
+                            <a class="menu_alphabet_item" data-label="29">Ь</a>
+                            <a class="menu_alphabet_item" data-label="30">Ю</a>
+                            <a class="menu_alphabet_item" data-label="31">Э</a>
+                            <a class="menu_alphabet_item" data-label="32">Я</a>
                         </div>
+                        <a class="menu_alphabet_button menu_alphabet_button-left">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_b)">
+                                <rect width="32" height="32" rx="10" fill="white"/>
+                                <rect x="0.5" y="0.5" width="31" height="31" rx="9.5" stroke="#EFEFEF"/>
+                                </g>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19 11.4L14.4 16L19 20.6L17.6 22L11.6 16L17.6 10L19 11.4Z" fill="#4F8A86"/>
+                                </g>
+                                <defs>
+                                <filter id="filter0_b" x="-30" y="-30" width="92" height="92" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feGaussianBlur in="BackgroundImage" stdDeviation="15"/>
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+                                </filter>
+                                </defs>
+                            </svg>
+                        </a>
+                        <a class="menu_alphabet_button menu_alphabet_button-right">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_b)">
+                                <rect width="32" height="32" rx="10" fill="white"/>
+                                <rect x="0.5" y="0.5" width="31" height="31" rx="9.5" stroke="#EFEFEF"/>
+                                </g>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.6 11.4L17.2 16L12.6 20.6L14 22L20 16L14 10L12.6 11.4Z" fill="#4F8A86"/>
+                                <defs>
+                                <filter id="filter0_b" x="-30" y="-30" width="92" height="92" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feGaussianBlur in="BackgroundImage" stdDeviation="15"/>
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
+                                </filter>
+                                </defs>
+                            </svg>
+                        </a>                        
                     </div>
 
                     <div class="menu_content_outer">
@@ -104,7 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                 <div id="menu_content_tab-1" class="menu_content_tab active">
 
-                                    <div class="menu_content_tab_letter" data-label="А">
+                                    <div class="menu_content_tab_letter active" data-label="0">
                                         <div class="menu_content_tab_letter_title">
                                             <span>А</span>
                                         </div>
@@ -222,7 +257,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
 
-                                    <div class="menu_content_tab_letter" data-label="Б">
+                                    <div class="menu_content_tab_letter" data-label="1">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Б</span>
                                         </div>
@@ -340,7 +375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
 
-                                    <div class="menu_content_tab_letter" data-label="В">
+                                    <div class="menu_content_tab_letter" data-label="2">
                                         <div class="menu_content_tab_letter_title">
                                             <span>В</span>
                                         </div>
@@ -458,7 +493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Г">
+                                    <div class="menu_content_tab_letter" data-label="3">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Г</span>
                                         </div>
@@ -576,7 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Д">
+                                    <div class="menu_content_tab_letter" data-label="4">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Д</span>
                                         </div>
@@ -694,7 +729,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Е">
+                                    <div class="menu_content_tab_letter" data-label="5">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Е</span>
                                         </div>
@@ -812,7 +847,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Ё">
+                                    <div class="menu_content_tab_letter" data-label="6">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Ё</span>
                                         </div>
@@ -930,7 +965,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Ж">
+                                    <div class="menu_content_tab_letter" data-label="7">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Ж</span>
                                         </div>
@@ -1048,7 +1083,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="З">
+                                    <div class="menu_content_tab_letter" data-label="8">
                                         <div class="menu_content_tab_letter_title">
                                             <span>З</span>
                                         </div>
@@ -1170,7 +1205,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                 <div id="menu_content_tab-2" class="menu_content_tab">
 
-                                    <div class="menu_content_tab_letter" data-label="А">
+                                    <div class="menu_content_tab_letter active" data-label="0">
                                         <div class="menu_content_tab_letter_title">
                                             <span>А</span>
                                         </div>
@@ -1288,7 +1323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
 
-                                    <div class="menu_content_tab_letter" data-label="Б">
+                                    <div class="menu_content_tab_letter" data-label="1">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Б</span>
                                         </div>
@@ -1406,7 +1441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
 
-                                    <div class="menu_content_tab_letter" data-label="В">
+                                    <div class="menu_content_tab_letter" data-label="2">
                                         <div class="menu_content_tab_letter_title">
                                             <span>В</span>
                                         </div>
@@ -1524,7 +1559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Г">
+                                    <div class="menu_content_tab_letter" data-label="3">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Г</span>
                                         </div>
@@ -1642,7 +1677,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                     
-                                    <div class="menu_content_tab_letter" data-label="Д">
+                                    <div class="menu_content_tab_letter" data-label="4">
                                         <div class="menu_content_tab_letter_title">
                                             <span>Д</span>
                                         </div>
@@ -1811,7 +1846,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-<div class="popup_container popup_order">
+<div class="popup_container popup_order-menu">
     <div class="popup_background click-item" data-action="popup-close"></div>
     <div class="popup">
         <a class="popup_close click-item" data-action="popup-close">
@@ -1819,9 +1854,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M14 1.4L12.6 0L7 5.6L1.4 0L0 1.4L5.6 7L0 12.6L1.4 14L7 8.4L12.6 14L14 12.6L8.4 7L14 1.4Z" fill="#BBBBBB"/>
             </svg>
         </a>
-        <h2 class="popup_title">Заказать</h2>
-        <p class="popup_undertitle">Мы свяжемся с вами в течение часа</p>
+        <h2 class="popup_title">Оформление заказа</h2>
         <form id="orderForm" class="popup_form form_validate" method="post" action="/order">
+            <div class="popup_form_item popup_form_number form_validate_item">
+                <input class="popup_form_number_input" type="tel" required />
+                <div class="popup_form_number_input_text">
+                    <span class="popup_form_number_input_t">Количество товаров:</span>
+                    <span class="popup_form_number_input_b"></span>
+                    <span class="popup_form_number_input_n">0</span>
+                </div>
+                <span class="popup_form_item_alert">Нужно выбрать товар</span>
+            </div>
             <input type="hidden" name="product" value="">
             <div class="popup_form_item form_validate_item">
                 <input type="text" placeholder="Имя" name="name" required />
