@@ -1402,7 +1402,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-weight: 500;
     line-height: 21px;
 }
-.popup_form_number_input{
+.popup_form_order_input{
     display: none;
 }
 .popup_form_number_input_text{

@@ -36,12 +36,15 @@ window.onload = function(){
     window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs-scroll'));
 
 
-    document.addEventListener('change', addMenuProduct);
+    //document.addEventListener('change', addMenuProduct);
 
-    document.addEventListener('change', changeMenuProductWeight);
+    //document.addEventListener('change', changeMenuProductWeight);
 
 
     new Alphabet();
+
+
+    new menuOrder();
 
 
     document.addEventListener('click', function(event){
@@ -186,65 +189,93 @@ class Alphabet{
     }
 };
 
+class menuOrder{
+    constructor(){
+        this.block = document.querySelector('.menu_block');
+        this.buttonNumber = this.block.querySelector('.menu_button_number');
+        this.form = document.querySelector('#orderForm');
+        this.formInput = this.form.querySelector('.popup_form_order_input');
+        this.formInputText = this.form.querySelector('.popup_form_number_input_n');
+        this.items = this.block.querySelectorAll('.menu_content_tab_letter_item');
+        this.result = [];
 
-function addMenuProduct(event){
-    if(!event.target.closest('.menu_content_tab_letter_item_name')) return;
-    let target = event.target;
-    let number = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num input');
-    let counter = document.querySelector('.menu_button_number');
-    let popupInput = document.querySelector('.popup_form_number_input');
-    let popupText = document.querySelector('.popup_form_number_input_n');
-    let resultNumber = 0;
-    document.querySelectorAll('.menu_content_tab_letter_item_name input').forEach(item => {
-        if(item.checked) resultNumber++;
-    });
+        this.clickHandler = this.clickHandler.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+        this.block.addEventListener('click', this.clickHandler);
+        this.block.addEventListener('change', this.changeHandler);
+    }
 
-    if(target.checked){
-        number.value = 1;
-        counter.textContent = resultNumber;
-        counter.classList.add('active');
-        popupInput.value = +resultNumber + 1;
-        popupText.textContent = resultNumber;
-    } else {
-        number.value = 0;
-        counter.textContent = resultNumber;
-        if(counter.textContent <= 0){
-            counter.textContent = 0;
-            counter.classList.remove('active');
+    clickHandler(event){
+        if(event.target.closest('.menu_content_tab_letter_item_butt')){
+            let target = event.target.closest('.menu_content_tab_letter_item_butt');
+            let direction = 0
+            if(target.dataset.direction) direction = +target.dataset.direction;
+            let inputWeight = target.closest('.menu_content_tab_letter_item_calc').querySelector('.menu_content_tab_letter_item_calc_num_i');
+            let inputFlag = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_i');
+
+            if(direction){
+                if(!inputFlag.checked) inputFlag.checked = true;
+                inputWeight.value = +inputWeight.value + 1;
+            } else {                
+                inputWeight.value = +inputWeight.value - 1;
+                if(inputWeight.value <= 0){
+                    inputWeight.value = 0;
+                    inputFlag.checked = false;
+                }
+            }
+
+            this.checkAllFields();
         }
-        popupInput.value = +popupInput.value - 1;
-        popupText.textContent = popupInput.value;
-        if(popupInput.value <=0){
-            popupInput.value = "";
-            popupText.textContent = 0;
-        } 
-    }
-};
-
-
-function changeMenuProductWeight(event){    
-    if(!event.target.closest('.menu_content_tab_letter_item_calc_num_i')) return;
-    let target = event.target;
-    let value = +target.value;
-    let inputFlag = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_name input');
-
-    if(value>0){
-        inputFlag.checked = true;
-    } else {
-        inputFlag.checked = false;
     }
 
-    let resultNumber = 0;
-    document.querySelectorAll('.menu_content_tab_letter_item_name input').forEach(item => {
-        if(item.checked) resultNumber++;
-    });
-    let counter = document.querySelector('.menu_button_number');
-    counter.textContent = resultNumber;
-    if(counter.textContent <= 0){
-        counter.textContent = 0;
-        counter.classList.remove('active');
-    } else {
-        counter.classList.add('active');
+    changeHandler(event){
+        if(event.target.closest('.menu_content_tab_letter_item_calc_num_i')){
+            let inputWeight = event.target.closest('.menu_content_tab_letter_item_calc_num_i');
+            let inputFlag = inputWeight.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_i');
+            if(+inputWeight.value<=0){
+                inputWeight.value = 0;
+                inputFlag.checked = false;
+            } else {
+                inputFlag.checked = true;
+            }
+
+            this.checkAllFields();
+        }
+
+        if(event.target.closest('.menu_content_tab_letter_item_i')){
+            let inputFlag = event.target.closest('.menu_content_tab_letter_item_i');
+            let inputWeight = inputFlag.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_calc_num_i');
+            if(inputFlag.checked){
+                inputWeight.value = 1;
+            } else {
+                inputWeight.value = 0;
+            }
+
+            this.checkAllFields();
+        }
+    }
+
+    checkAllFields(){
+        this.result = [];
+        this.items.forEach(item => {
+            let inputFlag = item.querySelector('.menu_content_tab_letter_item_i');
+            let inputWeight = item.querySelector('.menu_content_tab_letter_item_calc_num_i');
+            let itemName = item.querySelector('.menu_content_tab_letter_item_name_text').textContent;
+
+            if(inputFlag.checked){
+                this.result.push(`${itemName} : ${inputWeight.value}`)
+            }
+        });
+
+        this.buttonNumber.textContent = this.result.length;
+        this.formInputText.textContent = this.result.length;
+        this.formInput.value = this.result.join(', ');
+        if(this.result.length){
+            this.buttonNumber.classList.add('active');
+        } else {
+            this.buttonNumber.classList.remove('active');
+            this.formInput.value = '';
+        }
     }
 };
 
@@ -411,24 +442,6 @@ function clickItemHandler(event){
             parent.querySelector(target.dataset.label).classList.add('active');
             parent.querySelector(target.dataset.label).style.animationName = 'animation_tab';
             let switcher = target.closest('.menu_switch_box').classList.toggle('switch');
-        },
-
-        'change-weight': function(target){
-            let parent = target.closest('.menu_content_tab_letter_item');
-            let direction = +target.dataset.direction;
-            let inputFlag = parent.querySelector('.menu_content_tab_letter_item input')
-            if(!inputFlag.checked && !direction) return;
-            let input = parent.querySelector('.menu_content_tab_letter_item_calc_num_i');
-            if(direction){
-                if(!inputFlag.checked){
-                    inputFlag.click();
-                } else {
-                    input.value = +input.value + 1;
-                }                
-            } else {                
-                input.value = +input.value - 1;
-                if(input.value < 1) input.value = 1;
-            }
         },
     }
 
