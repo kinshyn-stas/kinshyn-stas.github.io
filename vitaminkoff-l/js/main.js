@@ -86,8 +86,8 @@ class Alphabet{
                 letters.forEach(item => item.classList.remove('active'));
 
                 for(let i = 0; i <= letters.length - 1; i++){
-                    let i1 = +target.dataset.label;
-                    let i2 = +letters[i].dataset.label;
+                    let i1 = target.textContent[0];
+                    let i2 = letters[i].querySelector('.menu_content_tab_letter_title span').textContent[0];
 
                     if(i1 <= i2){
                         letters[i].classList.add('active');
@@ -95,7 +95,7 @@ class Alphabet{
                         break;
                     }
 
-                    if(i1 > letters.length - 1){
+                    if(i >= letters.length - 1){
                         letters[letters.length - 1].classList.add('active');
                         this.scrollToElement(tab.closest('.scroll-emul_content'),letters[letters.length - 1]);
                         break;
@@ -203,21 +203,33 @@ class menuOrder{
         this.changeHandler = this.changeHandler.bind(this);
         this.block.addEventListener('click', this.clickHandler);
         this.block.addEventListener('change', this.changeHandler);
+        this.prepare();
+    }
+
+    prepare(){
+        this.items.forEach(item => {
+            item.querySelector('.menu_content_tab_letter_item_calc_num_i').value = 0;
+            item.querySelector('.menu_content_tab_letter_item_i').checked = false;
+        });
+        this.checkAllFields();
     }
 
     clickHandler(event){
         if(event.target.closest('.menu_content_tab_letter_item_butt')){
             let target = event.target.closest('.menu_content_tab_letter_item_butt');
-            let direction = 0
+            let direction = 0;
             if(target.dataset.direction) direction = +target.dataset.direction;
+            let v = 1;
+            if(target.dataset.value) v = +target.dataset.value;
+
             let inputWeight = target.closest('.menu_content_tab_letter_item_calc').querySelector('.menu_content_tab_letter_item_calc_num_i');
             let inputFlag = target.closest('.menu_content_tab_letter_item').querySelector('.menu_content_tab_letter_item_i');
 
             if(direction){
                 if(!inputFlag.checked) inputFlag.checked = true;
-                inputWeight.value = +inputWeight.value + 1;
+                inputWeight.value = parseInt((+inputWeight.value + v) * 10) / 10;
             } else {                
-                inputWeight.value = +inputWeight.value - 1;
+                inputWeight.value = parseInt((+inputWeight.value - v) * 10) / 10;
                 if(inputWeight.value <= 0){
                     inputWeight.value = 0;
                     inputFlag.checked = false;
@@ -260,10 +272,11 @@ class menuOrder{
         this.items.forEach(item => {
             let inputFlag = item.querySelector('.menu_content_tab_letter_item_i');
             let inputWeight = item.querySelector('.menu_content_tab_letter_item_calc_num_i');
+            let inputUnits = item.querySelector('.menu_content_tab_letter_item_calc_num_t').textContent;
             let itemName = item.querySelector('.menu_content_tab_letter_item_name_text').textContent;
 
             if(inputFlag.checked){
-                this.result.push(`${itemName} : ${inputWeight.value}`)
+                this.result.push(`${itemName} : ${inputWeight.value}${inputUnits}`)
             }
         });
 
@@ -659,16 +672,27 @@ function changeOpacity(selector){
 
 
 function checkSubmit(){
-    if(location.hash) document.querySelector('.popup_succes').classList.add('active');
+    if(location.hash == "#success") document.querySelector('.popup_succes').classList.add('active');
+    if(location.search == "?pdf") document.querySelector('#menu_switch_item-2').click();
 };
 
 
 function validatePhone(event){
     if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
-        
-    event.target.value = event.target.value.replace(/\D/g,"");
-    if(event.target.value.slice(0,3) != '380' && event.target.dataset.type != 'number'){
-        event.target.value = `380${event.target.value.slice(3)}`;
+    let target = event.target;
+    
+    console.log(+target.dataset.format)
+    if(+target.dataset.format){
+        //target.value = target.value.replace(/./g,".");
+        //target.value = target.value.replace(/,/g,".");
+        target.value = target.value.replace(/,/g,".");
+        target.value = target.value.replace(/[^.0-9]/g,"");
+    } else {
+        target.value = target.value.replace(/\D/g,"");
+    }
+
+    if(target.value.slice(0,3) != '380' && target.dataset.type != 'number'){
+        target.value = `380${target.value.slice(3)}`;
     }
 };
 
