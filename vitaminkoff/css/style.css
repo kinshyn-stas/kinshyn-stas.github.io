@@ -609,7 +609,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.header-main{}
+.header-main{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
 .header_top{
     padding: 5px 0;
     background-color: #FFFFFF;
@@ -624,8 +626,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     justify-content: space-between;
 }
 .logotype{
-    width: 116px;
-    min-width: 116px;
+    width: 112.9px;
+    min-width: 112.9px;
     padding-bottom: 14px;
 }
 .logotype img{
@@ -713,7 +715,46 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     justify-content: space-between;
     align-items: center;
 }
-.header_categories{}
+.header_categories{
+    width: 334px;
+    min-width: 334px;
+}
+.header_categories .select{
+    width: 100%;
+    background-color: transparent;
+    color: #2F2F2F;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+}
+.header_categories .select_list_outer{
+    border-radius: 0 0 10px 10px;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+.header_categories .select_option{
+    padding: 13px 12px;
+    text-align: left;
+}
+.header_categories .select_option:not(.select_tit):hover{
+    color: #4F8A86;
+}
+.header_categories .select_tit{
+    padding: 7px 8px 7px 12px;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    transition: none;
+}
+.header_categories .select.active .select_tit{
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #ffffff;
+}
+.header_categories .select_tit:after{
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/arrow_select.svg);
+}
 .header_bottom_nav{
     flex-grow: 100;
     display: flex;
@@ -731,7 +772,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .header_panel{
     display: flex;
     align-items: center;
-    margin-left: 16px;
+    margin-left: 32px;
 }
 .header_panel_item{
     display: flex;
@@ -761,12 +802,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     position: relative;
     width: 96px;
     min-width: 96px;
-    background-color: transparent;
-    border-radius: 0;
-    border: none;
 }
 .header_panel_item-search input{
-    padding: 13px 8px 13px 40px;
+    padding: 12px 8px 12px 40px;
     color: #2F2F2F;
     font-size: 12px;
     font-weight: 500;
