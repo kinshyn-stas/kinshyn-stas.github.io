@@ -1248,6 +1248,30 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.seo_block{
+    padding: 56px 0 80px;
+    background-color: #4F8A86;
+    color: #ffffff;
+}
+.seo_content{
+    padding: 40px 40px 14px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+.seo_text{}
+.seo_text h1,
+.seo_text h2,
+.seo_text h3,
+.seo_text h4,
+.seo_text h5,
+.seo_text h6{
+    text-align: center;
+}
+.seo_text h2{
+    margin-bottom: 32px;
+}
+
+
 /*.scroll-emul_block{
     overflow-y: hidden;
 }
