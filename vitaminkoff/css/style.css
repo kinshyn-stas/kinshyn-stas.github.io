@@ -1009,6 +1009,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0 8px;
 }
 .p_text{
     flex-grow: 100;
@@ -1094,6 +1095,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .p_item:nth-of-type(n + 5){
         display: none;
+    }
+    .p_content{
+        padding: 0;
     }
     .p_text{
         margin-top: 12px;
