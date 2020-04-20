@@ -1124,24 +1124,40 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     margin-right: 0;
 }
 .face_button_link:hover{
-    background-color: #EB9F2D;
+    box-shadow: 0px 10px 10px transparent;
 }
 .face_button_link-orange{
     background-color: #EB9F2D;
+    box-shadow: 0px 10px 10px rgba(235, 159, 45, 0.3);
 }
-.face_button_link-orange:hover{
-    background-color: #4F8A86;
-}
-.face_button figure{
-    padding: 16px;
+.face_button_link figure{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
     margin-right: 16px;
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 6px;
 }
-.face_button figure svg{
+.face_button_link:hover figure{
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+.face_button_link figure svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: block;
     width: 48px;
     height: 48px;
+    transform: translate(-50%,-50%);
+}
+.face_button_link figure svg+svg{
+    opacity: 0;
+}
+.face_button_link:hover figure svg+svg{
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
 }
 .face_button_text{
     padding-bottom: 3px;
