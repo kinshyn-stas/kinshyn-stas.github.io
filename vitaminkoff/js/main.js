@@ -3,6 +3,13 @@
 window.onload = function(){
 
     new classMultiplyWrapper(Slider, {
+        selector: '.carousel_slider',
+        navigationArrows: true,
+        navigationDotters: true,
+        infinity: true,
+    });
+
+    new classMultiplyWrapper(Slider, {
         selector: '.pr_slider',
         navigationArrows: true,
         infinity: true,
