@@ -914,6 +914,65 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.cat_block{
+    padding: 56px 0 80px;
+}
+.cat_title{
+    margin-bottom: 33px;
+    text-align: center;
+}
+.cat_box{
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+}
+.cat_item{
+    width: calc((100% - 132px)/ 7);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+}
+.cat_image{
+    padding: 26px;
+}
+.cat_image figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cat_image figure img{
+    display: block;
+    height: 80px;
+}
+.cat_text{
+    padding: 0 16px 16px;
+    text-align: center;
+}
+.cat_text_title{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+}
+.cat_text_pos{
+    margin-top: 16px;
+    color: #929292;
+    font-family: Montserrat, Gilroy, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+}
+.cat_text_pos_num{
+    color: #2F2F2F;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1100px){
+    .cat_block{
+        display: none;
+    }
+}
+
+
 .pr_block{
     padding: 80px 0 72px;
 }
