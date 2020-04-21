@@ -1442,6 +1442,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.threshold{
+    padding: 16px 0;
+    background-color: #4F8A86;
+    color: #ffffff;
+    font-weight: 500;
+}
+.threshold_text br{
+    display: none;
+}
+.threshold_text a{
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1100px){
+    .threshold{
+        padding: 24px 0;
+    }
+    .threshold_text{
+        text-align: center;
+    }
+    .threshold_text br{
+        display: inline-block;
+    }
+}
+
+
 /*.popup_container{
     position: fixed;
     top: -200%;
