@@ -1254,11 +1254,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     color: #ffffff;
 }
 .seo_content{
-    padding: 40px 40px 14px;
+    max-height: 355px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
-.seo_text{}
+.seo_text{
+    padding: 40px;
+}
 .seo_text h1,
 .seo_text h2,
 .seo_text h3,
@@ -1272,8 +1274,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-/*.scroll-emul_block{
-    overflow-y: hidden;
+.scroll-emul_block{
+  overflow-y: auto;
 }
 .scroll-emul_container{
     position: relative;
@@ -1282,12 +1284,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     overflow-y: visible;
 }
 .scroll-emul_content{
-    width: calc(100% + 50px);
     height: 100%;
-    padding-right: 50px;
     overflow-x: hidden;
     overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .scroll-emul_content::-webkit-scrollbar {
     width: 0px;
@@ -1295,23 +1297,64 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .scroll-emul_line{
     position: absolute;
-    top: 1px;
-    right: 1px;
+    top: 8px;
+    right: 8px;
     z-index: 10;
-    width: 3px;
-    height: calc(100% - 2px);
-    background-color: rgba(220, 220, 220, 0.5);
-    border-radius: 2px;
+    width: 8px;
+    height: calc(100% - 16px);
+    background-color: transparent;
+    border-radius: 4px;
 }
 .scroll-emul_line_item{
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 8px;
     height: 100%;
-    background-color: rgba(220, 220, 220, 0.8);
-    border-radius: 2px;
-}*/
+    background-color:#FFFFFF;
+    border-radius: 4px;
+}
+
+
+.breadcrumbs_block{
+    padding: 12px 0;
+    background-color: #F5F5F5;
+}
+.breadcrumbs{
+    display: flex;
+    align-items: center;
+}
+.breadcrumbs_link{
+    display: inline-flex;
+    align-items: center;
+    color: #4F8A86;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+.breadcrumbs_link:after{
+    content: "/";
+    display: inline-block;
+    padding: 0 0.2em;
+}
+.breadcrumbs_link:last-of-type:after{
+    display: none;
+}
+.breadcrumbs_link.active{
+    color: #929292;
+    cursor: inherit;
+}
+.breadcrumbs_link svg{
+    display: block;
+    width: 24px;
+    margin-right: 12px;
+}
+.breadcrumbs_link svg path{
+    fill: #4F8A86!important;
+}
+.breadcrumbs_link.active svg path{
+    fill: #929292!important;
+}
 
 
 /*.popup_container{
