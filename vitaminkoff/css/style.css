@@ -1998,6 +1998,11 @@ input:checked+.checkbox_emulate:after{
     background-color: #4F8A86;
     color: #ffffff;
 }
+.catalog_morebutton{
+    display: none;
+    margin-top: 17px;
+    text-align: center;
+}
 
 @media screen and (max-width: 1100px){
     .catalog_block{
@@ -2032,6 +2037,12 @@ input:checked+.checkbox_emulate:after{
     .catalog_box .p_item{
         width: calc(50% - 7.5px);
         margin-bottom: 15px;
+    }
+    .catalog_paginator{
+        display: none;
+    }
+    .catalog_morebutton{
+        display: block;
     }
 }
 
