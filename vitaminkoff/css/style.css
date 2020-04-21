@@ -1694,6 +1694,88 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.catalog_block{
+    padding: 40px 0 80px;
+}
+.catalog_block .center-main-block{
+    display: flex;
+}
+.catalog_aside{
+    width: 340px;
+    min-width: 340px;
+}
+.catalog_aside_list{
+    background-color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid #4F8A86;
+}
+.catalog_aside_list_title{
+    padding: 16px 16px 15px;
+    background-color: #4F8A86;
+    color: #ffffff;
+    border-radius: 10px 10px 0px 0px;
+}
+.catalog_aside_list_item{
+    padding: 16px 16px 15px;
+}
+.catalog_aside_list_item:after{
+    content: "";
+    position: relative;
+    top: 15px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #929292;
+}
+.catalog_aside_list_item:last-of-type:after{
+    display: none;
+}
+.catalog_aside_list_item_label{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.catalog_aside_list_item_label:after{
+    content: "";
+    display: block;
+    width: 8px;
+    height: 12px;
+    margin: 0 8px;
+    background-image: url(../img/arrow_catalog_aside.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+}
+.catalog_aside_list_item.active .catalog_aside_list_item_label:after{
+    transform: rotate(90deg);
+}
+.catalog_aside_list_item_list{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 16px;
+    list-style: none;
+}
+.catalog_aside_list_item.active .catalog_aside_list_item_list{
+    height: auto;
+    padding-left: 16px;
+    padding-bottom: 2px;
+    margin-top: 15px;
+    opacity: 1;
+    transition: height 0.2s linear, opacity 0.2s ease-in-out;
+}
+.catalog_aside_list_item_list li{
+    margin-bottom: 13px;
+}
+.catalog_aside_list_item_list li:last-of-type{
+    margin-bottom: 0;
+}
+.catalog_aside_list_item_list li a{}
+
+
 /*.popup_container{
     position: fixed;
     top: -200%;
