@@ -1312,7 +1312,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin-bottom: 15px;
         box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     }
-    .p_item:nth-of-type(n + 5){
+    .pr_slider .p_item:nth-of-type(n + 5){
         display: none;
     }
     .p_content{
@@ -1901,6 +1901,62 @@ input:checked+.checkbox_emulate:after{
     color: #4F8A86;
     border-color: #4F8A86;
 }
+.catalog_panel_filter{
+    display: none;
+    width: calc(50% - 7.5px);
+}
+.catalog_panel_filter_link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 8px 8px 12px;
+    background-color: #FFFFFF;
+    color: #929292;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+}
+.catalog_panel_filter_link svg{
+    display: block;
+    margin-left: 8px;
+}
+.catalog_panel_sorted{
+    display: none;
+    width: calc(50% - 7.5px);
+}
+.catalog_panel_sorted .select{
+    width: 100%;
+}
+.catalog_panel_sorted .select_option{
+    padding: 12px;
+    background-color: #FFFFFF;
+    color: #929292;
+    font-weight: 500;
+    text-align: left;
+}
+.catalog_panel_sorted .select_tit{
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+}
+.catalog_panel_sorted .select.active .select_tit{
+    padding-bottom: 13px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+.catalog_panel_sorted .select_tit:after{
+    background-image: url(../img/arrow_catalog_panel.svg);
+    background-size: 12px;
+}
+.catalog_panel_sorted .select_list{
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
 .catalog_box{
     display: flex;
     justify-content: space-between;
@@ -1942,6 +1998,43 @@ input:checked+.checkbox_emulate:after{
     background-color: #4F8A86;
     color: #ffffff;
 }
+
+@media screen and (max-width: 1100px){
+    .catalog_block{
+        padding: 24px 0 40px;
+    }
+    .catalog_aside{
+        display: none;
+    }
+    .catalog_content{
+        max-width: 736px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .catalog_panel{
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+    }
+    .catalog_panel_title{
+        width: 100%;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    .catalog_panel_sort{
+        display: none;
+    }
+    .catalog_panel_filter{
+        display: block;
+    }
+    .catalog_panel_sorted{
+        display: block;
+    }
+    .catalog_box .p_item{
+        width: calc(50% - 7.5px);
+        margin-bottom: 15px;
+    }
+}
+
 
 /*.popup_container{
     position: fixed;
