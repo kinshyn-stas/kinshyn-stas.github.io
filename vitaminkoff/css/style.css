@@ -1260,6 +1260,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .seo_text{
     padding: 40px;
+    font-weight: 300;
 }
 .seo_text h1,
 .seo_text h2,
@@ -1271,6 +1272,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .seo_text h2{
     margin-bottom: 32px;
+}
+
+@media screen and (max-width: 1100px){
+    .seo_text{
+        padding: 24px 16px;
+    }
 }
 
 
