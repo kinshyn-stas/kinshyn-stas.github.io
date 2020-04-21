@@ -1821,7 +1821,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .catalog_aside_item .select.active .select_tit{
     border-radius: 5px 5px 0 0;
 }
-.catalog_aside_item .select_tit:after{}
+.catalog_aside_item .select_tit:after{
+    background-image: url(../img/arrow_catalog_aside_select.svg);
+    background-size: 12px;
+}
 .catalog_aside_item .select_list{
     background-color: #F5F5F5;
     border-radius: 0 0 5px 5px;
