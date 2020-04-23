@@ -567,6 +567,15 @@ function clickItemHandler(event){
             }
         },
 
+        'tab-change': function(target){
+            if(target.classList.contains('active')) return;
+            let block = target.closest('.main-block');
+            block.querySelectorAll('.tab_item').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            block.querySelectorAll('.tab_content').forEach(item => item.classList.remove('active'));
+            block.querySelector(target.dataset.label).classList.add('active');
+        },
+
         'video-start': function(target){
             let obj = target.closest('.click-obj');
             obj.classList.add('active');
