@@ -589,6 +589,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .button_green:hover{
     background-color: #EB9F2D;    
 }
+.button_gray{
+    display: inline-block;
+    padding: 12px 8px;
+    background-color: #D8D8D8;
+    color: #929292;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: initial;
+}
 .button_like{
     display: flex;
     justify-content: center;
@@ -1280,6 +1292,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .p_buttons .button_green{
     flex-grow: 100;
 }
+.p_buttons .button_gray{
+    flex-grow: 100;
+}
 .p_buttons .button_like{
     margin-left: 8px;
 }
@@ -1762,17 +1777,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .catalog_aside_list_item.active .catalog_aside_list_item_list{
     height: auto;
-    padding-left: 16px;
-    padding-bottom: 2px;
-    margin-top: 15px;
+    padding-left: 0;
+    margin-top: 9px;
+    margin-bottom: -4px;
     opacity: 1;
     transition: height 0.2s linear, opacity 0.2s ease-in-out;
 }
 .catalog_aside_list_item_list li{
-    margin-bottom: 13px;
+    padding: 6px 10px 6px 16px; 
+    margin-bottom: 1px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
 }
 .catalog_aside_list_item_list li:last-of-type{
     margin-bottom: 0;
+}
+.catalog_aside_list_item_list li:hover{
+    background-color: #4F8A86;
+    color: #ffffff;
+}
+.catalog_aside_list_item_list li:hover a{
+    color: #ffffff;
 }
 
 .catalog_aside_form{
@@ -1959,12 +1985,15 @@ input:checked+.checkbox_emulate:after{
 }
 .catalog_box{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 .catalog_box .p_item{
     width: calc((100% - 48px) / 3);
+    margin-right: 24px;
     margin-bottom: 24px;
+}
+.catalog_box .p_item:nth-of-type(3n + 3){
+    margin-right: 0;
 }
 .catalog_paginator{
     display: flex;
@@ -2054,9 +2083,14 @@ input:checked+.checkbox_emulate:after{
     font-weight: 500;
 }
 .catalog_filter_tab{
+    display: none;
     padding: 0 16px;
 }
-.catalog_filter_tab.active{}
+.catalog_filter_tab.active{
+    display: block;
+    animation: changeOpacity 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+}
 .catalog_filter_item{
     border-bottom: 1px solid #D8D8D8;
 }
@@ -2164,8 +2198,12 @@ input:checked+.checkbox_emulate:after{
     .catalog_panel_sorted{
         display: block;
     }
+    .catalog_box{
+        justify-content: space-between;
+    }
     .catalog_box .p_item{
         width: calc(50% - 7.5px);
+        margin-right: 0;
         margin-bottom: 15px;
     }
     .catalog_paginator{
