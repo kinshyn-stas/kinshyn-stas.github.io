@@ -2362,7 +2362,8 @@ input:checked+.checkbox_emulate:after{
     padding: 32px 0;
 }
 .pi_testimonials_box{
-    margin-bottom: 11px;
+    padding-bottom: 1px;
+    margin-bottom: 10px;
 }
 .pi_testimonials_item{
     margin-bottom: 24px;
@@ -2421,6 +2422,72 @@ input:checked+.checkbox_emulate:after{
 }
 .pi_testimonials_item_body{
     margin-top: 16px;
+}
+.pi_testimonials_form{
+    display: flex;
+    justify-content: space-between;
+}
+.pi_testimonials_form_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.pi_testimonials_form_item .pi_testimonials_form_item_title{
+    margin-bottom: 16px;
+    color: #929292;
+    font-size: 12px;
+    line-height: 14px;
+}
+.pi_testimonials_form_item-star{}
+.pi_testimonials_form_item_stars{
+    display: flex;
+}
+.pi_testimonials_form_item_star{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 40px;
+    min-width: 32px;
+    margin-right: 4px;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+.pi_testimonials_form_item_star:last-of-type{
+    margin-right: 0;
+}
+.pi_testimonials_form_item_star input{
+    display: none;
+}
+.pi_testimonials_form_item_star span{
+    display: block;
+}
+.pi_testimonials_form_item_star svg{
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+.pi_testimonials_form_item_star.active svg path{
+    fill: #EB9F2D!important;
+    transition: all 0.2s ease-in-out;
+}
+.pi_testimonials_form_item-input{
+    flex-grow: 100;
+    margin-left: 40px;
+}
+.pi_testimonials_form_item-input input{
+    width: 100%;
+    padding: 11px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+}
+.pi_testimonials_form_item-button{
+    margin-left: 40px;
+}
+.pi_testimonials_form_item-button button{
+    min-width: 184px;
+    font-family: Montserrat, Gilroy, sans-serif;
 }
 
 
