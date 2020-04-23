@@ -2488,6 +2488,8 @@ input:checked+.checkbox_emulate:after{
 .pi_testimonials_form_item-button button{
     min-width: 184px;
     font-family: Montserrat, Gilroy, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 
