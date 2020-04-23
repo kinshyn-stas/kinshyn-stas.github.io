@@ -2006,7 +2006,7 @@ input:checked+.checkbox_emulate:after{
 
 .catalog_filter{
     position: fixed;
-    top: 0;
+    top: -200%;
     left: 0;
     z-index: 200;
     display: block;
@@ -2015,6 +2015,12 @@ input:checked+.checkbox_emulate:after{
     min-width: 100vw;
     min-height: 100vh;
     background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+}
+.catalog_filter.active{
+    top: 0;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out, top 0.2s linear;
 }
 .catalog_filter_content{
     display: flex;
