@@ -2901,6 +2901,7 @@ input:checked+.checkbox_emulate:after{
     position: relative;
     width: 100%;
     padding: 12px 40px;
+    font-weight: 600;
     border-radius: 10px;
 }
 .order_aside_button .button_green svg{
