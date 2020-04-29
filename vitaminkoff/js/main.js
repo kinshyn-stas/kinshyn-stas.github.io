@@ -15,6 +15,22 @@ window.onload = function(){
         infinity: true,
     });
 
+    new classMultiplyWrapper(Slider, {
+        selector: '.pt_content_images_slider',
+        navigationArrows: true,
+        infinity: true,
+        multiDisplay: {
+            desktop: 5,
+            touch: 5,
+            mobile: 1,
+            marginRight: {
+                desktop: 9,
+                touch: 9,
+                mobile: 0,
+            }
+        }
+    });
+
     document.addEventListener('click', clickItemHandler);
 
     document.addEventListener('mousemove', handlerStarsHover);
@@ -22,8 +38,10 @@ window.onload = function(){
     document.addEventListener('click', handlerClickLinks);
 
 
-    emulateSelector('.select_emulator');
+    document.addEventListener('input', validatePhone);
 
+
+    emulateSelector('.select_emulator');
 
 
     resizeXWrapper();
@@ -237,9 +255,9 @@ class Slider{
         if(this.params.multiDisplay){
             if(this.params.multiDisplay.marginRight){
                 let w = document.body.offsetWidth
-                if(w>0 && w<=700){
+                if(w>0 && w<=768){
                     marginRight = this.params.multiDisplay.marginRight.mobile;
-                } else if(w>700 && w<=1100){
+                } else if(w>768 && w<=1100){
                     marginRight = this.params.multiDisplay.marginRight.touch;
                 } else {
                     marginRight = this.params.multiDisplay.marginRight.desktop;
@@ -249,11 +267,17 @@ class Slider{
             d = this.boxWidth - (marginRight * (this.slideOnScreen - 1)) / this.slideOnScreen;
         }
 
+        if(this.sliders.length < this.slideOnScreen){
+            this.block.style.width = `${100 * this.sliders.length / this.slideOnScreen}%`;
+            this.slideOnScreen = this.sliders.length; 
+        } 
+
         this.sliders.forEach((slide,i,arr)=>{
             slide.style.width = `${d}px`;
             slide.style.minWidth = `${d}px`;
             slide.dataset.number = i;
-            if((i + 1) % this.slideOnScreen) slide.style.marginRight = `${marginRight}px`;
+            //if((i + 1) % this.slideOnScreen) slide.style.marginRight = `${marginRight}px`;
+            slide.style.marginRight = `${marginRight}px`
         });
     }
 
@@ -836,4 +860,17 @@ function hiddenScrollAside(selector){
             }
         }
     })
+};
+
+
+function validatePhone(event){
+    if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+    let target = event.target;
+    
+    if(+target.dataset.format){
+        target.value = target.value.replace(/,/g,".");
+        target.value = target.value.replace(/[^.0-9]/g,"");
+    } else {
+        target.value = target.value.replace(/\D/g,"");
+    }
 };

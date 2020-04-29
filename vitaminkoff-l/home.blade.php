@@ -6,6 +6,7 @@
     <title>Vitaminkoff</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <script  src="https://code.jquery.com/jquery-3.5.0.min.js"  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="  crossorigin="anonymous"></script>
 
     <script>
       dataLayer = [];
@@ -580,7 +581,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
             <div class="popup_form_item form_validate_item">
-                <input type="tel" placeholder="Телефон" name="phone" minlength="12" maxlength="12" required />
+                <input type="tel" placeholder="Телефон" name="phone" minlength="9" maxlength="12" required />
                 <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
             <div class="popup_form_item popup_form_item-button">

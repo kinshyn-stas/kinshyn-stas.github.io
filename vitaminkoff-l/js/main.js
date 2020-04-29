@@ -55,6 +55,17 @@ window.onload = function(){
             'eventAction': 'Social'
         })
     });
+
+    document.addEventListener('click', function(event){
+        if(!event.target.closest('.click-item')) return;
+        let target = event.target.closest('.click-item');
+        if(!(target.dataset.action == 'popup-open')) return;
+        dataLayer.push({
+            'event': 'GAevent',
+            'eventCategory': 'Button-click',
+            'eventAction': 'Popup-open'
+        })
+    });
 };
 
 
@@ -191,6 +202,7 @@ class Alphabet{
 
 class menuOrder{
     constructor(){
+        if(!document.querySelector('.menu_block')) return;
         this.block = document.querySelector('.menu_block');
         this.buttonNumber = this.block.querySelector('.menu_button_number');
         this.form = document.querySelector('#orderForm');
@@ -681,7 +693,7 @@ function validatePhone(event){
     if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
     let target = event.target;
     
-    console.log(+target.dataset.format)
+    //console.log(+target.dataset.format)
     if(+target.dataset.format){
         //target.value = target.value.replace(/./g,".");
         //target.value = target.value.replace(/,/g,".");
@@ -691,9 +703,9 @@ function validatePhone(event){
         target.value = target.value.replace(/\D/g,"");
     }
 
-    if(target.value.slice(0,3) != '380' && target.dataset.type != 'number'){
+    /*if(target.value.slice(0,3) != '380' && target.dataset.type != 'number'){
         target.value = `380${target.value.slice(3)}`;
-    }
+    }*/
 };
 
 
