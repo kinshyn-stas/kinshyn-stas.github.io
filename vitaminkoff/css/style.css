@@ -2884,6 +2884,100 @@ input:checked+.checkbox_emulate:after{
 }
 
 
+.order_block{
+    padding: 40px 0 136px;
+}
+.order_container{
+    display: flex;
+    justify-content: space-between;
+}
+.order_aside{
+    width: 392px;
+    min-width: 392px;
+    margin-left: 24px;
+}
+.order_aside_button{}
+.order_aside_button .button_green{
+    position: relative;
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 10px;
+}
+.order_aside_button .button_green svg{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    display: block;
+    width: 24px;
+    transform: translateY(-50%);
+}
+.order_aside_info{
+    margin: 12px auto 16px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0px 10px 15px rgba(229, 229, 229, 0.3);
+}
+.order_aside_info b{
+    font-weight: 700;
+}
+.order_aside_info_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 24px 16px;
+}
+.order_aside_info_item-top{
+    padding: 16px 16px 0;
+}
+.order_aside_info_item-top:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 16px;
+    background-color: #D8D8D8;
+}
+.order_aside_info_item_t{
+    font-weight: 600;
+}
+.order_aside_info_item_r{
+    color: #4F8A86;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+}
+.order_aside_info_item_o{
+    font-weight: 500;
+}
+.order_aside_info_item-gray{
+    padding: 12px 16px 0;
+    background-color: #F5F5F5;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+}
+.order_aside_info_item-gray:last-of-type{
+    padding-bottom: 12px;
+}
+.order_aside_info_item-gray:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 12px;
+    background-color: #D8D8D8;    
+}
+.order_aside_info_item-gray:last-of-type:after{
+    display: none;
+}
+.order_aside_info_item-bottom{
+    font-size: 18px;
+    line-height: 21px;
+}
+
+
 /*.popup_container{
     position: fixed;
     top: -200%;
