@@ -2992,6 +2992,7 @@ input:checked+.checkbox_emulate:after{
 .order_form_item_part .checkbox_emulate{
     width: 32px;
     height: 32px;
+    min-width: 32px;
     padding: 6px;
     margin-right: 12px;
     background-color: #ffffff;
@@ -3158,6 +3159,63 @@ input:checked+.checkbox_emulate:after{
 .order_aside_info_item-bottom{
     font-size: 18px;
     line-height: 21px;
+}
+
+@media screen and (max-width: 1100px){
+    .order_block{
+        padding: 24px 0 40px;
+    }
+    .order_container{
+        display: block;
+    }
+    .order_aside{
+        width: 400px;
+        min-width: 0;
+        max-width: 100%;
+        margin: 24px auto 0;
+    }
+}
+@media screen and (max-width: 768px){
+    .order_block .center-main-block{
+        padding: 0;
+    }
+    .order_form{
+        padding: 24px 16px 8px;
+        border-radius: 0;
+    }
+    .order_form_item{
+        width: 100%;
+    }
+    .order_form_item_part{
+        width: 49%;
+    }
+    .order_form_item_part-h{
+        width: calc(50% - 7.5px);
+    }
+    .order_form_item_part-full{
+        width: 100%;
+    }
+    .order_form_item_part-m{
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .order_form_item_part-m:last-of-type{
+        margin-bottom: 0;
+    }
+    .order_form_item_title{
+        line-height: 16px;
+    }
+    .order_form_item_title br{
+        display: none;
+    }
+    .order_item_promo .button_green{
+        margin-left: -10px;
+    }
+    .order_aside{
+        max-width: calc(100% - 32px);
+        margin-left: 16px;
+        margin-right: 16px;
+    }
 }
 
 
