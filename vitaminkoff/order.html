@@ -28,7 +28,7 @@
                     		<div class="order_tabs">
                     			
                     			<div id="order_tab-1" class="order_tab active">
-                    				<form class="order_form">
+                    				<form class="order_form tab_parent">
 
                     					<div class="order_form_item">
                     						<p class="order_form_item_title">Имя</p>
@@ -41,37 +41,45 @@
                     					</div>
 
                     					<div class="order_form_item order_form_item-full">
-                    						<label class="order_form_item_part">
+                    						<label class="order_form_item_part click-item tab_label" data-action="change-dos" data-label=".tab-dos-1">
                     							<input type="radio" name="n1" checked>
                     							<span class="checkbox_emulate"></span>
                     							<span>Доставка</span>
                     						</label>
-                    						<label class="order_form_item_part">
+                    						<label class="order_form_item_part click-item tab_label" data-action="change-dos" data-label=".tab-dos-2">
                     							<input type="radio" name="n1">
                     							<span class="checkbox_emulate"></span>
                     							<span>Самовывоз</span>
                     						</label>
                     					</div>
 
-                    					<div class="order_form_item">
-                    						<p class="order_form_item_title">Улица</p>
-                    						<select class="select_emulator">
-                    							<option>Вариант 1</option>
-                    							<option>Вариант 2</option>
-                    							<option>Вариант 3</option>
-                    							<option>Вариант 4</option>
-                    							<option>Вариант 5</option>
-                    						</select>
-                    					</div>
+                    					<div class="tab_dos tab-dos-1 active">
+	                    					<div class="order_form_item">
+	                    						<p class="order_form_item_title">Улица</p>
+	                    						<select class="select_emulator">
+	                    							<option>Вариант 1</option>
+	                    							<option>Вариант 2</option>
+	                    							<option>Вариант 3</option>
+	                    							<option>Вариант 4</option>
+	                    							<option>Вариант 5</option>
+	                    						</select>
+	                    					</div>
 
-                    					<div class="order_form_item order_form_item-f">                 						
-                    						<div class="order_form_item_part-h">
-                    							<p class="order_form_item_title">Дом</p>   
-                    							<input type="text" />
-                    						</div>                    						
-                    						<div class="order_form_item_part-h">
-                    							<p class="order_form_item_title">Квартира/Офис</p>   
-                    							<input type="text" />
+	                    					<div class="order_form_item order_form_item-f">                 						
+	                    						<div class="order_form_item_part-h">
+	                    							<p class="order_form_item_title">Дом</p>   
+	                    							<input type="text" />
+	                    						</div>                    						
+	                    						<div class="order_form_item_part-h">
+	                    							<p class="order_form_item_title">Квартира/Офис</p>   
+	                    							<input type="text" />
+	                    						</div>
+	                    					</div>
+	                    				</div>
+
+                    					<div class="tab_dos tab-dos-2">
+                    						<div class="order_form_item order_form_item-full order_form_item-map">
+                    							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d162757.72582758658!2d30.392608824595417!3d50.40217023835585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1588227834966!5m2!1sru!2sua" width="600" height="240" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     						</div>
                     					</div>
 

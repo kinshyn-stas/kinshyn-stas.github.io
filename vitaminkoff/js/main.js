@@ -636,6 +636,15 @@ function clickItemHandler(event){
             parent.querySelector(target.dataset.label).classList.add('active');
             target.closest('.order_switch_box').classList.toggle('switch');
         },
+
+        'change-dos': function(target){
+            if(target.classList.contains('active')) return;
+            let parent = target.closest('.tab_parent');
+            parent.querySelectorAll('.tab_label').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            parent.querySelectorAll('.tab_dos').forEach(item => item.classList.remove('active'));
+            parent.querySelectorAll(target.dataset.label).forEach(item => item.classList.add('active'));            
+        },
     }
 
     if(item.dataset.action){
