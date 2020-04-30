@@ -16,7 +16,161 @@
 					
 					<div class="order_container">
 
-						<div class="order_content"></div>
+						<div class="order_content">
+
+							<div class="order_switch">
+		                        <div class="order_switch_box">
+		                            <a id="order_switch_item-1" class="order_switch_item active click-item" data-action="switch-container" data-label="#order_tab-1">Без регистрации</a>
+		                            <a id="order_switch_item-2" class="order_switch_item click-item" data-action="switch-container" data-label="#order_tab-2">Авторизоваться</a>
+		                        </div>
+                    		</div>
+
+                    		<div class="order_tabs">
+                    			
+                    			<div id="order_tab-1" class="order_tab active">
+                    				<form class="order_form">
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Имя</p>
+                    						<input type="text" />
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Номер телефона</p>
+                    						<input type="tel" />
+                    					</div>
+
+                    					<div class="order_form_item order_form_item-full">
+                    						<label class="order_form_item_part">
+                    							<input type="radio" name="n1" checked>
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Доставка</span>
+                    						</label>
+                    						<label class="order_form_item_part">
+                    							<input type="radio" name="n1">
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Самовывоз</span>
+                    						</label>
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Улица</p>
+                    						<select class="select_emulate">
+                    							<option>Вариант 1</option>
+                    							<option>Вариант 2</option>
+                    							<option>Вариант 3</option>
+                    							<option>Вариант 4</option>
+                    							<option>Вариант 5</option>
+                    						</select>
+                    					</div>
+
+                    					<div class="order_form_item order_form_item-f">                 						
+                    						<div class="order_form_item_part-h">
+                    							<p class="order_form_item_title">Дом</p>   
+                    							<input type="text" />
+                    						</div>                    						
+                    						<div class="order_form_item_part-h">
+                    							<p class="order_form_item_title">Квартира/Офис</p>   
+                    							<input type="text" />
+                    						</div>
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Дата</p>
+                    						<div class="order_form_item_data">
+                    							<input type="text" />
+                    							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M9 10V12H7V10H9ZM13 10V12H11V10H13ZM17 10V12H15V10H17ZM19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C3.89 21 3 20.1 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H6V1H8V3H16V1H18V3H19ZM19 19V8H5V19H19ZM9 14V16H7V14H9ZM13 14V16H11V14H13ZM17 14V16H15V14H17Z" fill="#D8D8D8"/>
+												</svg>
+                    						</div>
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Время</p>
+                    						<div class="order_form_item_time">
+                    							<input type="text" />
+                    							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM12 2C13.3132 2 14.6136 2.25866 15.8268 2.7612C17.0401 3.26375 18.1425 4.00035 19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 14.6522 20.9464 17.1957 19.0711 19.0711C17.1957 20.9464 14.6522 22 12 22C6.47 22 2 17.5 2 12C2 9.34784 3.05357 6.8043 4.92893 4.92893C6.8043 3.05357 9.34784 2 12 2ZM12.5 7V12.25L17 14.92L16.25 16.15L11 13V7H12.5Z" fill="#D8D8D8"/>
+												</svg>
+                    						</div>
+                    					</div>
+
+                    					<div class="order_form_item order_form_item-full">
+                    						<p class="order_form_item_title">Коментарий к заказу</p>
+                    						<textarea></textarea>
+                    					</div>
+
+                    					<div class="order_form_item order_form_item-full">
+                    						<p class="order_form_item_title">Что нам делать, если товар, который Вы выбрали, отсутствует на <br />складке  или по нему возникли какие-то вопросы?</p>
+                    						<label class="order_form_item_part order_form_item_part-full">
+                    							<input type="checkbox">
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Сделать замены на усмотрение сборщика</span>
+                    							<a class="order_part_question click-item" data-action="popup-open" data-label=".popup_sbor">
+                    								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#D8D8D8"/>
+														<path d="M10.87 14.13C10.87 13.7193 10.9587 13.3367 11.136 12.982C11.3133 12.6273 11.528 12.324 11.78 12.072C12.032 11.82 12.284 11.582 12.536 11.358C12.788 11.1247 13.0027 10.8727 13.18 10.602C13.3573 10.322 13.446 10.028 13.446 9.72C13.446 9.25333 13.2827 8.89867 12.956 8.656C12.6387 8.404 12.2233 8.278 11.71 8.278C10.6833 8.278 10.0253 8.73067 9.736 9.636L8.63 9.02C8.86333 8.36667 9.26 7.872 9.82 7.536C10.38 7.19067 11.0147 7.018 11.724 7.018C12.5547 7.018 13.264 7.25133 13.852 7.718C14.4493 8.18467 14.748 8.83333 14.748 9.664C14.748 10.056 14.6593 10.4247 14.482 10.77C14.3047 11.1153 14.09 11.414 13.838 11.666C13.586 11.918 13.334 12.1653 13.082 12.408C12.83 12.6413 12.6153 12.9073 12.438 13.206C12.2607 13.4953 12.172 13.8033 12.172 14.13H10.87ZM11.514 17.154C11.262 17.154 11.0473 17.0653 10.87 16.888C10.6927 16.7107 10.604 16.496 10.604 16.244C10.604 15.992 10.6927 15.7773 10.87 15.6C11.0473 15.4227 11.262 15.334 11.514 15.334C11.7753 15.334 11.99 15.4227 12.158 15.6C12.3353 15.7773 12.424 15.992 12.424 16.244C12.424 16.496 12.3353 16.7107 12.158 16.888C11.99 17.0653 11.7753 17.154 11.514 17.154Z" fill="#D8D8D8"/>
+													</svg>
+                    							</a>
+                    						</label>
+                    						<label class="order_form_item_part order_form_item_part-full order_form_item_part-f">
+                    							<input type="checkbox">
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Не собирать позиции, по которым требуется уточнение</span>
+                    							<a class="order_part_question click-item" data-action="popup-open" data-label=".popup_sbor">
+                    								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#D8D8D8"/>
+														<path d="M10.87 14.13C10.87 13.7193 10.9587 13.3367 11.136 12.982C11.3133 12.6273 11.528 12.324 11.78 12.072C12.032 11.82 12.284 11.582 12.536 11.358C12.788 11.1247 13.0027 10.8727 13.18 10.602C13.3573 10.322 13.446 10.028 13.446 9.72C13.446 9.25333 13.2827 8.89867 12.956 8.656C12.6387 8.404 12.2233 8.278 11.71 8.278C10.6833 8.278 10.0253 8.73067 9.736 9.636L8.63 9.02C8.86333 8.36667 9.26 7.872 9.82 7.536C10.38 7.19067 11.0147 7.018 11.724 7.018C12.5547 7.018 13.264 7.25133 13.852 7.718C14.4493 8.18467 14.748 8.83333 14.748 9.664C14.748 10.056 14.6593 10.4247 14.482 10.77C14.3047 11.1153 14.09 11.414 13.838 11.666C13.586 11.918 13.334 12.1653 13.082 12.408C12.83 12.6413 12.6153 12.9073 12.438 13.206C12.2607 13.4953 12.172 13.8033 12.172 14.13H10.87ZM11.514 17.154C11.262 17.154 11.0473 17.0653 10.87 16.888C10.6927 16.7107 10.604 16.496 10.604 16.244C10.604 15.992 10.6927 15.7773 10.87 15.6C11.0473 15.4227 11.262 15.334 11.514 15.334C11.7753 15.334 11.99 15.4227 12.158 15.6C12.3353 15.7773 12.424 15.992 12.424 16.244C12.424 16.496 12.3353 16.7107 12.158 16.888C11.99 17.0653 11.7753 17.154 11.514 17.154Z" fill="#D8D8D8"/>
+													</svg>
+                    							</a>
+                    						</label>
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Ваша почта</p>
+                    						<input type="email" />
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Телефон получателя</p>
+                    						<input type="tel" />
+                    					</div>
+
+                    					<div class="order_form_item">
+                    						<p class="order_form_item_title">Промокод</p>
+                    						<div class="order_item_promo">
+                    							<input type="tel" />
+                    							<button class="button_green">Применить</button>
+                    						</div>
+                    					</div>
+
+                    					<div class="order_form_item order_form_item-full">
+                    						<p class="order_form_item_title">Оплата</p>
+                    						<label class="order_form_item_part">
+                    							<input type="radio" name="n2" checked>
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Наличными</span>
+                    						</label>
+                    						<label class="order_form_item_part">
+                    							<input type="radio" name="n2">
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Картой</span>
+                    						</label>
+                    						<label class="order_form_item_part">
+                    							<input type="radio" name="n2">
+                    							<span class="checkbox_emulate"></span>
+                    							<span>Банковский перевод</span>
+                    						</label>
+                    					</div>
+
+                    				</form>
+                    			</div>
+
+                    			<div id="order_tab-2" class="order_tab">2</div>
+
+                    		</div>
+
+						</div>
 
 						<div class="order_aside">
 							<div class="order_aside_button">

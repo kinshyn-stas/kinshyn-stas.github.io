@@ -626,6 +626,16 @@ function clickItemHandler(event){
                 if(item == target) flag = true;
             });
         },
+
+        'switch-container': function(target){
+            if(target.classList.contains('active')) return;
+            let parent = target.closest('.order_content');
+            parent.querySelectorAll('.order_switch_item').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+            parent.querySelectorAll('.order_tab').forEach(item => item.classList.remove('active'));
+            parent.querySelector(target.dataset.label).classList.add('active');
+            target.closest('.order_switch_box').classList.toggle('switch');
+        },
     }
 
     if(item.dataset.action){
