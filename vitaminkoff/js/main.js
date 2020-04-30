@@ -642,6 +642,8 @@ function clickItemHandler(event){
             let parent = target.closest('.tab_parent');
             parent.querySelectorAll('.tab_label').forEach(item => item.classList.remove('active'));
             target.classList.add('active');
+            console.log(parent)
+            console.log(parent.querySelectorAll('.tab_dos'))
             parent.querySelectorAll('.tab_dos').forEach(item => item.classList.remove('active'));
             parent.querySelectorAll(target.dataset.label).forEach(item => item.classList.add('active'));            
         },

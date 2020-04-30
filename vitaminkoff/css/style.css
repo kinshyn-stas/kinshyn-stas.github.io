@@ -3089,6 +3089,21 @@ input:checked+.checkbox_emulate:after{
     height: 240px;
     border-radius: 10px;
 }
+.order_form_item-addres{
+    display: none;
+}
+.order_form_item-addres.active{
+    display: block;
+    animation: changeOpacity 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+}
+.order_form_item-addres .select_tit{
+    
+}
+.order_form_item-addres .select_tit:after{
+    width: 16px;
+    height: 16px;
+}
 
 .order_aside{
     width: 392px;
