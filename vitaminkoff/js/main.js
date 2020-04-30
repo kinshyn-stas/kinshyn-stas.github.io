@@ -895,3 +895,14 @@ function validatePhone(event){
         target.value = target.value.replace(/\D/g,"");
     }
 };
+
+
+function costul(selector){
+    let arr = document.querySelectorAll(selector);
+    let n = 1;
+    for(let i = arr.length - 1; i>=0; i--){
+        arr[i].style.zIndex = n;
+        n++;
+    }
+}
+costul('.order_form_item, .tab_dos');

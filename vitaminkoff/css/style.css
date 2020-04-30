@@ -2964,6 +2964,7 @@ input:checked+.checkbox_emulate:after{
     animation-fill-mode: forwards;
 }
 .order_form_item{
+    position: relative;
     width: calc(50% - 12px);
     margin-bottom: 16px;
 }
@@ -3096,9 +3097,6 @@ input:checked+.checkbox_emulate:after{
     display: block;
     animation: changeOpacity 0.4s ease-in-out;
     animation-fill-mode: forwards;
-}
-.order_form_item-addres .select_tit{
-    
 }
 .order_form_item-addres .select_tit:after{
     width: 16px;
