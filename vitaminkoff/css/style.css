@@ -3001,6 +3001,33 @@ input:checked+.checkbox_emulate:after{
 .order_form_item_part .checkbox_emulate:after{
     border-radius: 4px;
 }
+.order_form_item .select{
+    background-color: transparent;
+}
+.order_form_item .select_option{
+    padding: 12px;
+    text-align: left;
+}
+.order_form_item .select_tit{
+    padding: 8px 8px 8px 12px;
+    border: 1px solid #EFEFEF;
+    border-radius: 10px;   
+}
+.order_form_item .select.active .select_tit{
+    border-radius: 10px 10px 0 0;
+    border-bottom: transparent;
+}
+.order_form_item .select_tit:after{
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/arrow_order.svg);
+}
+.order_form_item .select_list{
+    border-radius: 0 0 10px 10px;
+    border-left: 1px solid #EFEFEF;
+    border-right: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+}
 .order_form_item_data{
     position: relative;
 }
