@@ -8,6 +8,18 @@
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <script  src="https://code.jquery.com/jquery-3.5.0.min.js"  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="  crossorigin="anonymous"></script>
 
+    <!-- Hotjar Tracking Code for user.prof-unity.org -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1598856,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
     <script>
       dataLayer = [];
     </script>
@@ -386,6 +398,135 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section class="main-block vars_block">
+            <div class="center-main-block anim-opacity">
+                <h2 class="vars_title">Наши товары</h2>
+                <div class="vars_slider">
+
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_1.jpg" alt="" />
+                        </figure>
+                    </div>
+
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_2.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_3.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_4.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_5.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_6.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_7.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_8.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_9.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_10.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_11.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_12.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_13.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_14.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_15.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_16.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_17.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_18.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_19.jpg" alt="" />
+                        </figure>
+                    </div>
+                    
+                    <div class="vars_slide">
+                        <figure>
+                            <img src="img/slides/slide_20.jpg" alt="" />
+                        </figure>
+                    </div>
+
+                </div>
             </div>
         </section>
 
