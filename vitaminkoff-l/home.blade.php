@@ -6,7 +6,7 @@
     <title>Vitaminkoff</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <script  src="https://code.jquery.com/jquery-3.5.0.min.js"  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="  crossorigin="anonymous"></script>
+    <!--<script  src="https://code.jquery.com/jquery-3.5.0.min.js"  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="  crossorigin="anonymous"></script>-->
 
     <!-- Hotjar Tracking Code for user.prof-unity.org -->
     <script>
@@ -93,7 +93,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <span class="face_button_undertitle">овощи и фрукты</span>
                                 </div>
                             </a>
-                            <a href="/order?pdf" class="face_button_link face_button_link-orange">
+                            <a href="/doc/price.pdf" class="face_button_link face_button_link-orange" target="_blank">
                                 <figure>
                                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0)">
@@ -164,7 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </svg>
                                 </figure>
                                 <div class="face_button_text">
-                                    <span class="face_button_title">Цены</span>
+                                    <span class="face_button_title">Смотреть прайс</span>
                                     <span class="face_button_undertitle">на овощи и фрукты</span>
                                 </div>
                             </a>
@@ -189,7 +189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>Горячее предложения</span>
                         <img src="/img/hot.png" alt="" />
                     </h2>
-                    <p class="hot_undertitle">Мы делаем все для вашего удобства, и у нас есть всегда хорошие предложение для вас</p>
+                    <p class="hot_undertitle">Не упусти шанс заказать со скидкой и бесплатной доставкой! Акция ограничена!</p>
                     <div class="hot_box">
 
                         <div class="hot_item">
@@ -265,6 +265,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
 
                     </div>
+                    <div class="hot_button button_container">
+                        <a class="button_white" href="doc/price.pdf" target="_blank">Смотреть все товары</a>
+                    </div>
                 </div>
 
             </div>
@@ -275,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="delivery_content anim-opacity">
                     <h2 class="delivery_title">Доставка и оплата</h2>
-                    <p class="delivery_undertitle">Мы сделали удобную и быстурую доставку для вас</p>
+                    <p class="delivery_undertitle">У нас самая удобная и быстрая доставка для вас!</p>
                     <div class="delivery_box">
 
                         <div class="delivery_item">
@@ -343,7 +346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                                 <div class="course_left_text">
                                     <div class="course_left_text_top">
-                                        <p>Цена на овощи та фрукты</p>
+                                        <p>Цена на овощи и фрукты</p>
                                     </div>
                                     <div class="course_left_button">
                                         <a href="/doc/price.pdf" target="_blank" class="button_white">
@@ -361,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                                 <div class="course_left_text">
                                     <div class="course_left_text_top">
-                                        <p>Наш канал в Viber</p>
+                                        <p>Наши товары в Viber</p>
                                     </div>
                                     <div class="course_left_button">
                                         <a href="{{ $setting->viber_url }}" target="_blank" class="button_white">
@@ -379,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                                 <div class="course_left_text">
                                     <div class="course_left_text_top">
-                                        <p>Наш канал в Telegram</p>
+                                        <p>Наши товары в Telegram</p>
                                     </div>
                                     <div class="course_left_button">
                                         <a href="{{ $setting->telegram_url }}" target="_blank" class="button_white">
@@ -565,18 +568,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <div class="contact_item">
                             <div class="contact_item_part contact_item-cont">
-                                <p class="contact_item_part_title">Наш телефон</p>
+                                <p class="contact_item_part_title">Звоните нам</p>
                                 <p><a class="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></p>
                             </div>
                             <div class="contact_item_part">
-                                <p class="contact_item_part_title">Наша почта</p>
+                                <p class="contact_item_part_title">Пишите нам</p>
                                 <p><a class="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
                             </div>
                         </div>
 
                         <div class="contact_item contact_item-soc">
                             <div class="contact_item_part contact_item_part-full">
-                                <p class="contact_item_part_title">Мы находимся</p>
+                                <p class="contact_item_part_title">Доступны в</p>
                                 <div class="contact_soc">
                                     <a href="https://www.facebook.com/Vitaminkoff/" target="_blank" class="contact_soc_item">
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -745,7 +748,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="popup_title">Ваш заказ обрабатывается</h2>
         <p class="popup_undertitle">Ожидайте звонка оператора для подтверждения заказа.</p>
         <figure class="popup_image">
-            <img src="/img/succes.gif" alt="" />
+            <video autoplay muted loop>
+                <source src="/img/succes.webm">
+                <source src="/img/succes.mp4">
+            </video>
+            <!--<img src="/img/succes.gif" alt="" />-->
         </figure>
     </div>
 </div>
