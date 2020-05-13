@@ -283,7 +283,11 @@
         <h2 class="popup_title">Ваш заказ оформлен</h2>
         <p class="popup_undertitle">Наши сотрудники собирают заказ и готовят к отправке. <br />Как только он будет готов к отправке, мы свяжемся с вами, чтобы уточнить ваше местоположение и способ оплаты.</p>
         <figure class="popup_image">
-            <img src="/img/succes.gif" alt="" />
+            <video autoplay muted loop>
+                <source src="/img/succes.webm">
+                <source src="/img/succes.mp4">
+            </video>
+            <!--<img src="/img/succes.gif" alt="" />-->
         </figure>
     </div>
 </div>

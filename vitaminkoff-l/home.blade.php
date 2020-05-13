@@ -195,7 +195,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="hot_item">
                             <div class="hot_image">
                                 <figure>
-                                    <img src="/img/p_1.jpeg" alt="" />
+                                    <picture>
+                                        <source srcset="/img/p_1.webp">
+                                        <img src="/img/p_1.jpeg" alt="" />
+                                    </picture>
                                 </figure>
                             </div>
                             <div class="hot_text">
@@ -219,7 +222,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="hot_item">
                             <div class="hot_image">
                                 <figure>
-                                    <img src="/img/p_2.jpeg" alt="" />
+                                    <picture>
+                                        <source srcset="/img/p_2.webp">
+                                        <img src="/img/p_2.jpeg" alt="" />
+                                    </picture>
                                 </figure>
                             </div>
                             <div class="hot_text">
@@ -243,7 +249,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="hot_item">
                             <div class="hot_image">
                                 <figure>
-                                    <img src="/img/p_3.jpeg" alt="" />
+                                    <picture>
+                                        <source srcset="/img/p_3.webp">
+                                        <img src="/img/p_3.jpeg" alt="" />
+                                    </picture>
                                 </figure>
                             </div>
                             <div class="hot_text">
@@ -396,7 +405,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="course_right">
                         <figure>
-                            <img src="/img/course_right.png" alt="" />
+                            <picture>
+                                <source srcset="/img/course_right.webp" media="(min-width: 769px)">
+                                <source srcset="/img/course_right.png" media="(min-width: 769px)">
+                                <img src="" alt="" />
+                            </picture>
                         </figure>
                     </div>
                 </div>
@@ -411,121 +424,181 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_1.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_1.webp">
+                                <img src="img/slides/slide_1.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
 
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_2.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_2.webp">
+                                <img src="img/slides/slide_2.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_3.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_3.webp">
+                                <img src="img/slides/slide_3.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_4.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_4.webp">
+                                <img src="img/slides/slide_4.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_5.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_5.webp">
+                                <img src="img/slides/slide_5.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_6.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_6.webp">
+                                <img src="img/slides/slide_6.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_7.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_7.webp">
+                                <img src="img/slides/slide_7.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_8.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_8.webp">
+                                <img src="img/slides/slide_8.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_9.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_9.webp">
+                                <img src="img/slides/slide_9.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_10.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_10.webp">
+                                <img src="img/slides/slide_10.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_11.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_11.webp">
+                                <img src="img/slides/slide_11.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_12.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_12.webp">
+                                <img src="img/slides/slide_12.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_13.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_13.webp">
+                                <img src="img/slides/slide_13.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_14.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_14.webp">
+                                <img src="img/slides/slide_14.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_15.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_15.webp">
+                                <img src="img/slides/slide_15.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_16.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_16.webp">
+                                <img src="img/slides/slide_16.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_17.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_17.webp">
+                                <img src="img/slides/slide_17.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_18.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_18.webp">
+                                <img src="img/slides/slide_18.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_19.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_19.webp">
+                                <img src="img/slides/slide_19.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
                     
                     <div class="vars_slide">
                         <figure>
-                            <img src="img/slides/slide_20.jpg" alt="" />
+                            <picture>
+                                <source srcset="img/slides/slide_20.webp">
+                                <img src="img/slides/slide_20.jpg" alt="" />
+                            </picture>
                         </figure>
                     </div>
 
@@ -628,7 +701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                     <div class="contact_map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.2018320473408!2d30.438598116025165!3d50.381435979465934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c905cc24e625%3A0x41fc4db9aad2a498!2z0JrQvtC70YzRhtC10LLQsNGPINC00L7RgC4sIDExMCwg0JrQuNC10LIsINCa0LjQtdCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDAyMDAw!5e0!3m2!1sru!2sua!4v1585829037183!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <iframe class="lazyIframe" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.2018320473408!2d30.438598116025165!3d50.381435979465934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c905cc24e625%3A0x41fc4db9aad2a498!2z0JrQvtC70YzRhtC10LLQsNGPINC00L7RgC4sIDExMCwg0JrQuNC10LIsINCa0LjQtdCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDAyMDAw!5e0!3m2!1sru!2sua!4v1585829037183!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
 

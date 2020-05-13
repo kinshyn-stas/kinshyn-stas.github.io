@@ -65,6 +65,9 @@ window.onload = function(){
     });
 
 
+    lazyLoadIframe('.lazyIframe');
+
+
     document.addEventListener('click', function(event){
         if(!event.target.closest('.header_soc_item') && !event.target.closest('.contact_soc_item')) return;
         dataLayer.push({
@@ -1433,4 +1436,13 @@ class Slider{
         this.container.addEventListener('touchend', touchEndBinded);
         this.container.addEventListener('touchcancel', touchEndBinded);
     }
+};
+
+
+function lazyLoadIframe(selector){
+    document.querySelectorAll(selector).forEach(item => {
+        setTimeout(() => {
+            if(item.dataset.src) item.src = item.dataset.src;
+        }, 1000)
+    })
 };
