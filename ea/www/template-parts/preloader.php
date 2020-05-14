@@ -1,4 +1,4 @@
-  <div id="preloader">
+  <!--<div id="preloader">
     <img src="../img/prelogo.svg" alt="">
   </div>
   <script type="text/javascript">
@@ -8,4 +8,4 @@
       document.getElementById("preloader").style.display = "none";
     }, 3000);
   });
-  </script>
+  </script>-->
