@@ -255,8 +255,9 @@
                 <input type="text" placeholder="Фамилия" name="lastname" required />
                 <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
-            <div class="popup_form_item form_validate_item">
-                <input type="tel" placeholder="Телефон" name="phone" minlength="9" maxlength="12" required />
+            <div class="popup_form_item popup_form_item-phone form_validate_item popup_form_item">
+                <span class="popup_form_item_pref">+380</span>
+                <input type="tel" placeholder="Телефон" name="phone" minlength="9" maxlength="9" required />
                 <span class="popup_form_item_alert">Проверьте введенные данные</span>
             </div>
             <div class="popup_form_item form_validate_item">
@@ -292,6 +293,6 @@
     </div>
 </div>
 
-<script src="/js/main.js"></script>
+<script src="/js/main.js?ver2"></script>
 </body>
 </html>

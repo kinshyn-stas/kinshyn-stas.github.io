@@ -1538,6 +1538,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-align: center;
 }
 .popup_form_item{
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 8px;
 }
 .popup_form_item:last-of-type{
@@ -1546,11 +1548,23 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .popup_form_item-button{
     margin-top: 24px;
 }
+.popup_form_item_pref{
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-right: 10px;
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 10px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 0px 2px 5px rgba(229, 229, 229, 0.2);
+}
 .popup_form_item input{
-    width: 100%;
+    flex-grow: 100;
 }
 .popup_form_item_alert{
     display: none;
+    width: 100%;
     padding-top: 4px;
     color: #DD0000;
     font-size: 12px;
