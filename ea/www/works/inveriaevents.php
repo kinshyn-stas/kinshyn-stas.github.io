@@ -35,7 +35,7 @@
 						</div>
 						<div class="col-12 col-lg-4 info-block">
 							<h4>Услуга</h4>
-							<p>Landing page, разработка дизайна, интеграция дизайна в CMS Wordoress, интеграция с AMO CRM, подключение IP Телефонии, подключение LiqPay</p>
+							<p>Landing page, разработка дизайна, интеграция дизайна в CMS Wordpress, интеграция с AMO CRM, подключение IP Телефонии, подключение LiqPay</p>
 						</div>
 						<div class="col-12 col-lg-3 info-more">
 							<a href="https://event.inveria.com.ua/" class="btn btnarrnext" target="_blank">Готовый проект</a>
