@@ -1,7 +1,7 @@
   <div class="cursor"></div>
   <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../css/main.min.css">
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/animate.min.css">
   <link rel="stylesheet" type="text/css" href="../libs/validetta/validetta.min.css">
   <link href="https://fonts.googleapis.com/css?family=Heebo|Open+Sans:300,400,600&amp;subset=cyrillic,cyrillic-ext,latin-ext&display=swap" rel="stylesheet">
