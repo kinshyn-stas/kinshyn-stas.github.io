@@ -196,8 +196,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="hot_image">
                                 <figure>
                                     <picture>
-                                        <source srcset="/img/p_1.webp">
-                                        <img src="/img/p_1.jpeg" alt="" />
+                                        <source srcset="/img/p_4.webp">
+                                        <img src="/img/p_4.jpeg" alt="" />
                                     </picture>
                                 </figure>
                             </div>
@@ -223,8 +223,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="hot_image">
                                 <figure>
                                     <picture>
-                                        <source srcset="/img/p_2.webp">
-                                        <img src="/img/p_2.jpeg" alt="" />
+                                        <source srcset="/img/p_5.webp">
+                                        <img src="/img/p_5.jpeg" alt="" />
                                     </picture>
                                 </figure>
                             </div>
@@ -250,8 +250,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="hot_image">
                                 <figure>
                                     <picture>
-                                        <source srcset="/img/p_3.webp">
-                                        <img src="/img/p_3.jpeg" alt="" />
+                                        <source srcset="/img/p_6.webp">
+                                        <img src="/img/p_6.jpeg" alt="" />
                                     </picture>
                                 </figure>
                             </div>
@@ -439,7 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -448,7 +448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -457,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -466,7 +466,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -475,7 +475,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -484,7 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -493,7 +493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -502,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -511,7 +511,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -520,7 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -529,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -538,7 +538,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -547,7 +547,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -556,7 +556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -565,7 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -574,7 +574,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -583,7 +583,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
@@ -592,7 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </picture>
                         </figure>
                     </div>
-                    
+
                     <div class="vars_slide">
                         <figure>
                             <picture>
