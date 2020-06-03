@@ -57,7 +57,9 @@
   margin-bottom: 0;
 }
 
-.testimonial_box{}
+.testimonial_box{
+  margin-bottom: 69px;
+}
 .testimonial_item{
   max-width: 79%;
   padding-right: 25.5%;
@@ -113,8 +115,8 @@
 .testimonial_media{
   order: 4;
   position: relative;
-  width: 34%;
-  min-width: 34%;
+  width: 326px;
+  min-width: 326px;
   margin-left: 8%;
   margin-bottom: 0;
   text-align: center;
@@ -155,6 +157,62 @@
   background-image: url('../img/lupa.svg');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.testimonialpage .fourthblock{
+  padding-top: 152px;
+}
+.testimonialpage .fourthblock .backblock-heading{
+  top: calc(152px - 5rem);
+}
+.testimonialpage .fourthblock .frontblock-heading{
+  max-width: 100%;
+  margin-bottom: 3.3rem;
+  font-size: 3.6rem;
+  line-height: 1.2;
+}
+.testimonialform{}
+.testimonialform input,
+.testimonialform textarea{
+  padding: 48px 0 14px;
+  margin: 0;
+  font-size: 48px;
+  line-height: 58px;
+}
+.testimonialform_panel{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.4rem;
+}
+.testimonialform_panel input[type=submit]{
+  padding: 0 6rem 0 0.5rem!important;
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.fileLabel{
+  display: flex;
+  align-items: center;
+  max-width: 80%;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19px;
+  cursor: pointer;
+}
+.fileLabel:before{
+  content: "";
+  display: block;
+  width: 22px;
+  height: 26px;
+  margin-right: 8px;
+  background-image: url('../img/file_icon.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fileLabel input{
+  display: none;
 }
 
 @media only screen and (max-width: 992px){
@@ -214,5 +272,44 @@
     position: static;
     justify-content: flex-start;
     font-weight: 400;
+  }
+  .testimonialpage .fourthblock{
+    padding-top: 62px;
+  }
+  .testimonialpage .fourthblock .backblock-heading{
+    top: calc(62px - 3rem);
+  }
+  .testimonialpage .fourthblock .frontblock-heading{
+    margin-bottom: 3.4rem;
+    font-size: 1.5rem;
+  }
+  .testimonialform input,
+  .testimonialform textarea{
+    padding: 30px 0 16px;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .testimonialform_panel{
+    display: block;
+    margin-top: 2rem;
+  }
+  .testimonialform_panel input[type=submit]{
+    padding: 0 6rem 0 0.5rem!important;
+    margin: 39px 0 0 42px;
+  }
+  .fileLabel{
+    max-width: 100%;
+    font-weight: 500;
+  }
+  .fileLabel:before{
+    content: "";
+    display: block;
+    width: 22px;
+    height: 26px;
+    margin-right: 8px;
+    background-image: url('../img/file_icon.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }

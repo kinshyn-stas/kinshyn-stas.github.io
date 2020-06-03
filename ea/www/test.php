@@ -202,31 +202,117 @@
 
 			</div>
    		</section>
-		<!--<section class="container-fluid secondblock">
+  
+		<script>
+		  function onSubmit(token) {
+			document.getElementById("testimonialform").submit();
+		  }
+
+		  function validate(event) {
+		    event.preventDefault();
+		    if (!document.getElementById('email').value) {			
+		      		var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+		            var email = $('#email').val();            
+
+		            if (!email.match(emailPattern)) {                
+		                $('#email').css('border-bottom', '2px solid #FF0000');
+						$('#email').after('<span style="text-align:center;display:block;color:#ff1100">Введите корректный email</span>')				
+		            }
+		    } else {
+		      grecaptcha.execute();
+		    }
+		  }
+
+		  function onload() {
+		    var element = document.getElementById('send');
+		    element.onclick = validate;
+		  }
+		</script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+		<section class="container-fluid fourthblock">
 			<div class="row">
+				<h2 class="backblock-heading">Leave a review</h2>
 				<div class="container">
-					<div class="row work-content-block">
-						<div class="col-12 col-lg-6 left-part">
-							<h4>Мы находимся</h4>
-							<p>
-		            Easy-Agency<br>
-								Украина, Киев<br>
-								<a href="https://goo.gl/maps/vYwZhmkgQAedMqpf6" target="_blank">пр-т. В. Лобановского, 6а</a>
-		          </p>
+					<div class="row">
+						<div class="col-12 content-part">
+							<h1 class="frontblock-heading">Оставьте отзыв о нас</h1>
 						</div>
-						<div class="col-12 col-lg-6 right-part">
-							<h4>Наши контакты</h4>
-		          <p>
-		            <a href="tel:+380934686757">+38 (093) 468-67-57</a><br>
-		            <a href="mailto:support@easy-agency.com">support@easy-agency.com</a>
-		          </p>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 content-part">
+							<form id="testimonialform" class="contactform testimonialform" action="mail/mail.php" method="POST">
+								<div class="row">
+									<div class="col-12">
+										<input type="text" name="name" placeholder="Имя">
+									</div>
+									<div class="col-12">
+										<input type="text" name="post" placeholder="Должность">
+									</div>
+									<div class="col-12">
+										<textarea name="message" rows="2" placeholder="Сообщение"></textarea>
+									</div>
+									<div id='recaptcha' class="g-recaptcha"
+										data-sitekey="6Lc8sbMUAAAAAGV5pQRNcxV4fnNLhL3cZTNU3iXg"
+										data-callback="onSubmit"
+										data-size="invisible">
+									</div>									
+									<div class="col-12 testimonialform_panel">	
+										<label class="fileLabel input_emulator-file">
+											<span>Прикрепить скан</span>
+											<input type="file" class="form-control-file">
+										</label>		
+										<input type="submit" class="btnarrleft" value="Отправить" id="send">								
+									</div>	
+								</div>
+							</form>
+							<script>
+								onload();
+
+								class inputFileEmulator{
+								    constructor(selector){
+								        document.querySelectorAll(selector).forEach(label =>{
+								            let input = label.querySelector('input');
+								            let span = label.querySelector('span');
+								            let acceptArr;
+								            if(input.getAttribute('accept')) acceptArr = input.getAttribute('accept').split('/');
+
+								            input.addEventListener('change', function(e){
+								                let fileName = '';
+
+								                if (this.files && this.files.length > 1){
+								                    fileName = ( this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
+								                }
+								                else{
+								                    fileName = e.target.value.split('\\').pop();
+								                }
+
+								                if (fileName) span.innerHTML = `${fileName}`;
+
+								                if(acceptArr){
+								                    let n = fileName.slice(fileName.lastIndexOf('.') + 1);
+								                    let result = acceptArr.findIndex(item => item == n);
+								                    if(result == -1){
+								                        input.value = '';
+								                        span.innerHTML = `Неверный формат файла`;
+								                    }
+								                }
+								            })
+								        })
+								    }
+								};
+
+								new inputFileEmulator('.input_emulator-file');
+							</script>							
 						</div>
 					</div>
 				</div>
 			</div>
-    	</section>-->
+		</section>
   </main>
 <?php
-	// require('template-parts/footer-main.php');
+	require('template-parts/footer-main.php');
 	require('template-parts/page-end.php');
 ?>

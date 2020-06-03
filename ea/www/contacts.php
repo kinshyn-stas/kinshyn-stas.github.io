@@ -2,32 +2,6 @@
 	require('template-parts/page-start.php');
 	require('template-parts/header-main.php');
 ?>
-  
-<script>
-  function onSubmit(token) {
-	document.getElementById("contactform").submit();
-  }
-
-  function validate(event) {
-    event.preventDefault();
-    if (!document.getElementById('email').value) {			
-      		var emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-            var email = $('#email').val();            
-
-            if (!email.match(emailPattern)) {                
-                $('#email').css('border-bottom', '2px solid #FF0000');
-				$('#email').after('<span style="text-align:center;display:block;color:#ff1100">Введите корректный email</span>')				
-            }
-    } else {
-      grecaptcha.execute();
-    }
-  }
-
-  function onload() {
-    var element = document.getElementById('send');
-    element.onclick = validate;
-  }
-</script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <main class="contactspage">
 		<section class="container-fluid firstblock">
