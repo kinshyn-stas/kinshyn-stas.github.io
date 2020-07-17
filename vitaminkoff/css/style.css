@@ -2503,6 +2503,32 @@ input:checked+.checkbox_emulate:after{
     font-family: Montserrat, Gilroy, sans-serif;
 }
 
+@media screen and (max-width: 768px){
+    .pi_testimonials_form{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pi_testimonials_form_item-star{
+        width: 100%;
+    }
+    .pi_testimonials_form_item-input{
+        width: 100%;
+        margin-top: 24px;
+        margin-left: 0;
+    }
+    .pi_testimonials_form_item-button{
+        display: block;
+        width: 100%;
+        margin-top: 24px;
+        margin-left: 0;
+        text-align: center;        
+    }
+    .pi_testimonials_form_item-button button{
+        width: auto;
+        padding: 12px;
+    }
+}
+
 
 .pt_block{}
 .pt_return{
@@ -2532,6 +2558,7 @@ input:checked+.checkbox_emulate:after{
     margin-bottom: 80px;
 }
 .pt_content_images{
+    position: relative;
     width: 43%;
     min-width: 43%;
     margin-right: 40px;
@@ -2582,6 +2609,32 @@ input:checked+.checkbox_emulate:after{
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+.pt_content_images_slider .slider_arrow{
+    position: absolute;
+    top: 36%;
+    left: 15px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/arrow_slider_images_left.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.pt_content_images_slider .slider_arrow:hover{
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+.pt_content_images_slider .slider_arrow-right{
+    left: auto;
+    right: 15px;
+    background-image: url(../img/arrow_slider_images_right.svg);
+}
+.pt_content_images_slider .slider_arrow svg{
+    display: none;
 }
 .pt_content_text{
     flex-grow: 100;
@@ -2744,6 +2797,94 @@ input:checked+.checkbox_emulate:after{
     min-width: 208px;
     max-width: 49%;
     font-weight: 700;
+}
+
+@media screen and (max-width: 1100px){
+    .pt_content{
+        flex-wrap: wrap;
+    }
+    .pt_content_images{
+        width: 100%;
+        min-width: 0;
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+}
+@media screen and (max-width: 768px){
+    .pt_content_images_main{
+        margin-bottom: 0;
+    }
+    .pt_content_images_slider{
+        display: none;
+    }
+    .pt_content_text_panel_left{
+        justify-content: space-between;
+    }
+    .pt_content_text_panel_title{
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+    .pt_content_text_panel_plash{
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+    .pt_content_text_panel_right{
+        display: none;
+    }
+    .pt_content_text_body{
+        margin: 16px 0;
+    }
+    .pt_content_text_form{
+        padding: 16px;
+    }
+    .pt_content_text_form_top{
+        display: block;
+        padding-bottom: 16px;
+    }
+    .pt_content_text_form_item:not(.pt_content_text_form_item-mobile){
+        display: none;
+    }
+    .pt_content_text_form_item .pt_content_text_form_item_title{
+        margin-bottom: 12px;
+    }
+    .pt_content_text_form_item-calc{
+        margin-bottom: 23px;
+    }
+    .pt_content_text_form_cal_input{
+        flex-grow: 100;
+    }
+    .pt_content_text_form_cal_input input{
+        width: 100%;
+    }
+    .pt_content_text_form_item-sum{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pt_content_text_form_item-sum .pt_content_text_form_item_title{
+        margin-bottom: 0;
+    }
+    .pt_content_text_form_item_text{
+        padding-top: 0;
+        color: #EB9F2D;
+        font-size: 24px;
+    }
+    .pt_content_text_form_bottom{
+        display: block;
+        padding-top: 0;
+        border-top: 0;
+    }
+    .pt_content_text_form_bottom button{
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: 12px 8px;
+        margin-bottom: 16px;
+        border-radius: 5px;
+    }
+    .pt_content_text_form_bottom button:last-of-type{
+        margin-bottom: 0;
+    }
 }
 
 
