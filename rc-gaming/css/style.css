@@ -456,6 +456,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .article_body_content figure img{
     display: block;
+    width: 100%;
 }
 .article_body_content figcaption{
     margin-top: 20px;
@@ -548,6 +549,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .article_body_content blockquote .blockquote_content{
         padding: 40px;
+    }
+    .article_body_soc{
+        display: none;
     }
 }
 @media screen and (max-width: 767px){
