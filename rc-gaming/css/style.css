@@ -600,3 +600,195 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin-left: -20px;
     }
 }
+
+
+.footer_main{
+    padding: 160px 0 60px;
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+.footer_main .center-main-block{
+    max-width: 1210px;
+}
+.footer_content{}
+.footer_top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer_top_column{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    padding: 75px 100px;
+    border-right: 1px solid #404040;
+}
+.footer_top_column:last-of-type{
+    justify-content: flex-start;
+    border-right: 0;
+}
+.footer_top_column a{
+    display: inline-flex;
+    align-items: flex-end;
+    font-size: 40px;
+    line-height: 50px;
+    text-decoration: none;
+}
+.footer_top_column a svg{
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    transform: translateY(-0.24em);
+}
+.footer_top_column a svg path{
+    fill: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+.footer_top_column a.hover-hide{
+    color: #919191;
+}
+.footer_top_column a.hover-hide svg path{
+    fill: #919191;
+}
+.footer_middle{
+    display: flex;
+    margin-top: 160px;
+}
+.footer_middle_column{    
+    width: 240px;
+    min-width: 240px;
+    padding-right: 10px;
+}
+.footer_middle_column-logo{
+    flex-grow: 100;
+}
+.footer_middle_column-logo a{
+    display: block;
+    text-decoration: none;
+}
+.footer_middle_column-logo a img{
+    display: block;
+    width: 62px;
+}
+.footer_middle_column_nav{}
+.footer_middle_column_nav a{
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+.footer_middle_column_nav a:last-of-type{
+    margin-bottom: 0;
+}
+.footer_middle_column_nav a.hover-hide{
+    color: #919191;
+}
+.footer_middle_column-adress{
+    width: 234px;
+    min-width: 234px;
+    padding-right: 0;
+}
+.footer_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+.footer_bottom_column{}
+.footer_bottom_column p{}
+.footer_bottom_column a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1499px){
+    .footer_main{
+        padding: 140px 0 40px;
+    }
+    .footer_main .center-main-block{
+        max-width: 1012px;
+    }
+    .footer_middle{
+        margin-top: 140px;
+    }
+    .footer_middle_column{
+        width: 200px;
+        min-width: 200px;
+    }
+    .footer_middle_column-adress{
+        width: 210px;
+        min-width: 210px;
+    }
+}
+@media screen and (max-width: 1199px){
+    .footer_main{
+        padding: 100px 0 40px;
+    }
+    .footer_main .center-main-block{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .footer_top_column{
+        padding: 50px 80px;
+    }
+    .footer_top_column a{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .footer_middle{
+        margin-top: 140px;
+    }
+    .footer_middle_column{
+        width: 145px;
+        min-width: 145px;
+    }
+    .footer_middle_column-adress{
+        width: 205px;
+        min-width: 205px;
+    }
+}
+@media screen and (max-width: 767px){
+    .footer_main{
+        padding: 60px 0 30px;
+    }
+    .footer_main .center-main-block{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .footer_top_column{
+        padding: 53px 40px 53px 0;
+    }
+    .footer_top_column:last-of-type{
+        padding: 53px 0 53px 40px;
+    }
+    .footer_top_column a{
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .footer_middle{
+        flex-wrap: wrap;
+        margin-top: 60px;
+    }
+    .footer_middle_column{
+        width: 50%;
+        min-width: 0;
+        margin-top: 40px;
+    }
+    .footer_middle_column-logo{
+        width: 100%;
+        margin-top: 0;
+    }
+    .footer_middle_column-logo img{
+        width: 56px;
+    }
+    .footer_middle_column-adress{
+        width: 100%;
+        min-width: 0;
+        margin-top: 60px;
+    }
+    .footer_bottom_column{
+        width: 50%;
+    }
+
+}
