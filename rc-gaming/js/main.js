@@ -39,6 +39,9 @@ window.onload = function(){
     });*/
 
     document.addEventListener('mouseover', hoverItemsHandler);
+
+
+    headerStroke();
 };
 
 
@@ -817,3 +820,28 @@ function validatePhone(event){
         this.container.addEventListener('touchcancel', touchEndBinded);
     }
 };*/
+
+
+function headerStroke(){
+    document.querySelectorAll('.header_stroke').forEach(parent => {
+        let line = parent.querySelector('.header_stroke_line');
+        let items = [];
+        let item = parent.querySelector('.header_stroke_item');
+        let parentWidth = parent.offsetWidth;
+        let itemWidth = item.offsetWidth;
+        if(parentWidth < itemWidth / 2) return;
+
+        let c = Math.floor(parentWidth / itemWidth) * 2;
+        for(let i = 0; i<c; i++){
+            items.push(item.cloneNode(true));
+        }
+
+        line.innerHTML = '';
+        items.forEach(item => {
+            item.style.minWidth = `${parentWidth / c * 2}px`;
+            item.style.paddingRight = `0`;
+            line.append(item);
+        });
+        line.style.minWidth = `${parentWidth * 2}px`;
+    })
+}

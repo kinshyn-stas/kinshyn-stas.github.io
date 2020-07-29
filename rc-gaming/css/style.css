@@ -792,3 +792,210 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
 
 }
+
+
+.header_main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    min-width: 100vw;
+}
+.header_stroke{
+    position: relative;
+    padding: 11px 0;
+    background-color: #ffebc8;
+    font-weight: 600;
+    overflow: hidden;
+}
+.header_stroke:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 28%;
+    height: 100%;
+    background-image: linear-gradient(to left, #ffebc8, rgba(255, 235, 200, 0))
+}
+.header_stroke_line{
+    display: flex;
+    align-items: center;
+    animation: header_stroke_line 20s linear;
+    animation-iteration-count: infinite; 
+}
+.header_stroke_line:hover{
+    animation-play-state: paused;
+}
+@keyframes header_stroke_line{
+    0%{transform: translateX(0);}
+    100%{transform: translateX(calc(-100% + 100vw));}
+}
+.header_stroke_item{
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+    text-decoration: none;
+}
+.header_stroke_item span{
+    display: block;
+}
+.header_stroke_item svg{
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+}
+.header_stroke_item:hover svg g{
+    fill: #D30000;
+    transition: all 0.2s ease-in-out;
+}
+.header_content{
+    background-color: #ffffff;
+}
+.header_content .center-main-block{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.header_logo{}
+.header_logo img{
+    display: block;
+    width: 68px;
+}
+.header_nav{
+    display: flex;
+    align-items: center;
+}
+.header_nav_link{
+    display: block;
+    margin-right: 40px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+.header_nav_link:last-of-type{
+    margin-right: 0;
+}
+.header_nav_link.hover-hide{
+    color: #919191;
+}
+.header_phone{
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+.header_phone:hover{
+    padding: 4px 10px;
+    font-size: 16px;
+    line-height: 26px;
+    border-color: #dbdbdb;
+}
+.header_plash{
+    position: absolute;
+    top: 0;
+    right: 31px;
+    padding: 4px 8px;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 2px;
+    transform: translateY(-50%) rotate(3deg);
+}
+.header_plash_text{}
+.header_switch{
+    display: none;
+    margin-right: -6px;
+    margin-left: 46px;
+}
+.header_switch svg{
+    display: block;
+    width: 40px;
+}
+.header_switch svg.header_switch_close{
+    display: none;
+}
+.header_main.active .header_switch svg.header_switch_open{
+    display: none;
+}
+.header_main.active .header_switch svg.header_switch_close{
+    display: block;
+}
+.header_menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.header_main.active .header_menu{
+    height: calc(100vh - 123px);
+    padding: 64px 20px;
+    opacity: 1;
+    overflow-y: auto;
+    transition: height 0.4s linear, opacity 1s ease-in-out;
+}
+.header_menu_content{}
+.header_menu_nav{}
+.header_menu_nav_link{
+    display: block;
+    margin-bottom: 30px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 34px;
+    text-decoration: none;
+}
+.header_menu_nav_link:last-of-type{
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1199px){
+    .header_stroke_item{
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .header_nav_link{
+        margin-right: 24px;
+    }
+    .header_phone,
+    .header_phone:hover{
+        padding: 2px 6px;
+        font-size: 14px;
+        line-height: 22px;
+        border-color: #dbdbdb;
+    }
+    .header_plash{
+        right: 39px;
+    }
+}
+@media screen and (max-width: 767px){
+    .header_stroke:after{
+        display: none;
+    }
+    .header_logo img{
+        height: 51px;
+    }
+    .header_plash{
+        display: none;
+    }
+    .header_nav{
+        display: none;
+    }
+    .header_phone{
+        margin-left: auto;
+    }
+    .header_switch{
+        display: block;
+    }
+}
