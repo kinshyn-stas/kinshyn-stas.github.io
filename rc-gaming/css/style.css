@@ -821,6 +821,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .header_stroke_line{
     display: flex;
     align-items: center;
+    min-width: 200vw;
     animation: header_stroke_line 5s linear;
     animation-iteration-count: infinite; 
 }
@@ -829,7 +830,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 @keyframes header_stroke_line{
     0%{transform: translateX(0);}
-    100%{transform: translateX(-100vw);}
+    100%{transform: translateX(-50%);}
 }
 .header_stroke_item{
     display: flex;

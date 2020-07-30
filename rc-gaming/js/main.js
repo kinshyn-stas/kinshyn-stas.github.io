@@ -829,9 +829,9 @@ function headerStroke(){
         let item = parent.querySelector('.header_stroke_item');
         let parentWidth = parent.offsetWidth;
         let itemWidth = item.offsetWidth;
-        if(parentWidth < itemWidth / 2) return;
 
         let c = Math.floor(parentWidth / itemWidth) * 2;
+        if(parentWidth < itemWidth) c = 2;
         for(let i = 0; i<c; i++){
             items.push(item.cloneNode(true));
         }
@@ -839,7 +839,7 @@ function headerStroke(){
         line.innerHTML = '';
         items.forEach(item => {
             item.style.minWidth = `${parentWidth / c * 2}px`;
-            item.style.paddingRight = `0`;
+            if(parentWidth < itemWidth) item.style.minWidth = `${itemWidth * 2}px`;
             line.append(item);
         });
         line.style.minWidth = `${parentWidth * 2}px`;
