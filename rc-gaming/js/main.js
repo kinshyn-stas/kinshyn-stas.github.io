@@ -21,11 +21,12 @@ window.onload = function(){
     window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs-scroll'));*/
 
 
-    /*new classMultiplyWrapper(Slider, {
-        selector: '.vars_slider',
+    new classMultiplyWrapper(Slider, {
+        selector: '.blog_slider',
         navigationArrows: true,
+        navigationDotters: true,
         infinity: true,
-        multiDisplay: {
+        /*multiDisplay: {
             desktop: 4,
             touch: 4,
             mobile: 1,
@@ -35,8 +36,8 @@ window.onload = function(){
                 mobile: 12,
             },
             multiShift: true,
-        }
-    });*/
+        }*/
+    });
 
     document.addEventListener('mouseover', hoverItemsHandler);
 
@@ -88,6 +89,15 @@ function clickItemHandler(event){
                 document.querySelector(target.dataset.label).classList.remove('active')
             } else {
                 target.closest('.popup_container').classList.remove('active');
+            }
+        },
+
+        'blog-cat-switch': function(target){
+            target.closest('.click-obj').classList.toggle('active');
+
+            if(!target.classList.contains('active')){
+                obj.querySelectorAll('.blog_slider_label').forEach(item => item.classList.remove('active'));
+                target.classList.add('active');
             }
         },
     }
@@ -324,7 +334,7 @@ function validatePhone(event){
 };*/
 
 
-/*class Slider{
+class Slider{
     constructor(params){
         this.params = params;
         this.container = params.item;
@@ -436,14 +446,24 @@ function validatePhone(event){
     createSliderNavigationArrows(){
         this.slider_arrow_right = document.createElement('div');
         this.slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
-        this.slider_arrow_right.innerHTML = `<img src="img/slider_arrow_right.svg" alt="" />`
+        this.slider_arrow_right.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                                <g fill="#0A0A0A">
+                                                    <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z"/>
+                                                    <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z"/>
+                                                </g>
+                                            </svg>`;
         this.slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
         //slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
         this.container.append(this.slider_arrow_right);
 
         this.slider_arrow_left = document.createElement('div');
         this.slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
-        this.slider_arrow_left.innerHTML = `<img src="img/slider_arrow_left.svg" alt="" />`
+        this.slider_arrow_left.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                                <g fill="#0A0A0A">
+                                                    <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z" transform="matrix(-1 0 0 1 32 0)"/>
+                                                    <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="matrix(-1 0 0 1 32 0)"/>
+                                                </g>
+                                            </svg>`;
         this.slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
         //slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
         this.container.append(this.slider_arrow_left);
@@ -552,7 +572,9 @@ function validatePhone(event){
         });
 
         if(!this.sliders.length) return;
-        if(n == 0) this.sliders[0].classList.add('active');
+        if(n == 0){
+            this.sliders[0].classList.add('active');
+        } 
         if(n >= this.sliders.length) n = this.sliders.length - 1;
 
         if(this.params.navigationDotters){
@@ -608,7 +630,11 @@ function validatePhone(event){
         } else {
             if(params.direction == 'right') this.activeSlider++;
             if(params.direction == 'left') this.activeSlider--;
-            if(params.counter != undefined) this.activeSlider = params.counter;
+            if(params.counter != undefined) {
+                this.sliders.forEach((slide,i) => {
+                    if(+slide.dataset.number == params.counter) this.activeSlider = i
+                });
+            }
 
             if(this.params.infinity){
                 this.infinitySlideWork.call(this);
@@ -819,7 +845,7 @@ function validatePhone(event){
         this.container.addEventListener('touchend', touchEndBinded);
         this.container.addEventListener('touchcancel', touchEndBinded);
     }
-};*/
+};
 
 
 function headerStroke(){
