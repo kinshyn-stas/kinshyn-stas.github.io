@@ -1423,6 +1423,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         display: none;
     }
     .header_logo img{
+        width: auto;
         height: 51px;
     }
     .header_plash{
@@ -1432,9 +1433,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         display: none;
     }
     .header_phone{
+        margin-right: auto;
         margin-left: auto;
     }
     .header_switch{
         display: block;
+        margin-left: 0;
     }
 }
