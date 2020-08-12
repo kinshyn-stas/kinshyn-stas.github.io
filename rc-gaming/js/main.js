@@ -130,10 +130,11 @@ class SlSlider{
         this.items = this.parent.querySelectorAll('.sl_slider_item');
 
         this.activeItem(0);
+        this.ready();
+
         this.box.addEventListener("mousedown", this.mouseFlip.bind(this));
         this.box.addEventListener("touchstart", this.touchFlip.bind(this));
-
-        this.ready();
+        window.addEventListener("resize", this.ready.bind(this));
     }
 
     ready(){
@@ -144,6 +145,8 @@ class SlSlider{
         });
         this.box.style.minWidth = `${boxWidth}px`;
         this.box.style.width = `auto`;
+
+        this.activeItem(this.activeNumber);
     }
 
     activeItem(n){
