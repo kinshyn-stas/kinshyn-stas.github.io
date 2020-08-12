@@ -22,8 +22,27 @@ window.onload = function(){
 
 
     new classMultiplyWrapper(Slider, {
-        selector: '.blog_slider',
+        selector: '.rekl_box',
         navigationArrows: true,
+        infinity: true,
+    });
+
+    new classMultiplyWrapper(Slider, {
+        selector: '.blog_slider',
+        navigationArrows: {
+            left: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <g fill="#0A0A0A">
+                        <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z" transform="matrix(-1 0 0 1 32 0)"/>
+                        <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="matrix(-1 0 0 1 32 0)"/>
+                    </g>
+                </svg>`,
+            right: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <g fill="#0A0A0A">
+                            <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z"/>
+                            <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z"/>
+                        </g>
+                    </svg>`,
+        },
         navigationDotters: true,
         infinity: true,
         /*multiDisplay: {
@@ -39,10 +58,22 @@ window.onload = function(){
         }*/
     });
 
+
     document.addEventListener('mouseover', hoverItemsHandler);
 
 
+    document.addEventListener('mouseover', hoverCanvasHandler);
+
+
     headerStroke();
+
+
+    vBannerContentCarousel();
+
+
+    new classMultiplyWrapper(SlSlider, {
+        selector: '.sl_slider',
+    });
 };
 
 
@@ -67,6 +98,167 @@ function hoverItemsHandler(event){
         document.removeEventListener('mouseout', hoverItemsHandlerCleaner);
     }
 };
+
+
+function hoverCanvasHandler(event){
+    if(!event.target.closest('.pc_canvas_item')) return;
+    let target = event.target.closest('.pc_canvas_item');
+    let parent = event.target.closest('.pc_canvas_items');
+
+    parent.querySelectorAll('.pc_canvas_item').forEach(item => item.classList.remove('active', 'left'));
+    target.classList.add('active');
+
+    if(parent.offsetWidth - target.offsetWidth - target.offsetLeft < 178){
+        target.classList.add('left');
+    };
+
+    target.addEventListener('mouseout', hoverCanvasHandlerCleaner);
+    function hoverCanvasHandlerCleaner(){
+        target.classList.remove('active','left');
+        target.removeEventListener('mouseout', hoverCanvasHandlerCleaner);
+    }
+};
+
+
+class SlSlider{
+    constructor(params){
+        this.parent = params.item;
+        this.params = params;
+
+        this.articles = this.parent.querySelectorAll('.sl_slider_content_item');
+        this.box = this.parent.querySelector('.sl_slider_box');
+        this.items = this.parent.querySelectorAll('.sl_slider_item');
+
+        this.activeItem(0);
+        this.box.addEventListener("mousedown", this.mouseFlip.bind(this));
+        this.box.addEventListener("touchstart", this.touchFlip.bind(this));
+
+        this.ready();
+    }
+
+    ready(){
+        let boxWidth = 0;
+        this.items.forEach(item => {
+            boxWidth += item.offsetWidth;
+            boxWidth += parseFloat(getComputedStyle(item).marginRight);
+        });
+        this.box.style.minWidth = `${boxWidth}px`;
+        this.box.style.width = `auto`;
+    }
+
+    activeItem(n){
+        if(n < 0) n = 0;
+        if(n >= this.items.length) n = this.items.length - 1;
+        this.activeNumber = n;
+        this.items.forEach(items => items.classList.remove('active'));
+        this.items[n].classList.add('active');
+
+        this.activeArticle(n);
+        this.moveBox(n);
+    }
+
+    activeArticle(n){
+        if(n < 0) n = 0;
+        if(n >= this.articles.length) n = this.articles.length - 1;
+        this.articles.forEach(article => article.classList.remove('active'));
+        this.articles[n].classList.add('active')
+    }
+
+    moveBox(n){
+        let boxShift = 0;
+        for(let i = 0; i < n; i++){
+            boxShift += this.items[i].offsetWidth;
+            boxShift += parseFloat(getComputedStyle(this.items[i]).marginRight);
+        }
+        this.box.style.transform = `translateX(-${boxShift}px)`;
+    }
+
+    mouseFlip(event){
+        event.preventDefault();
+        let mousePointStart = event.clientX;
+        let mousePointCurrent = 0;
+
+        let mouseMoveBinded = mouseMove.bind(this);
+        function mouseMove(event){
+            event.preventDefault();
+            mousePointCurrent = event.clientX;
+            let m = (mousePointCurrent - mousePointStart);
+
+            if(m < -document.body.offsetWidth/4){
+                this.activeItem(this.activeNumber + 1);
+                mousePointStart = mousePointCurrent;
+                mouseUp.call(this,event);
+            } else if(m > document.body.offsetWidth/4){
+                this.activeItem(this.activeNumber - 1);
+                mousePointStart = mousePointCurrent;
+                mouseUp.call(this,event);
+            }
+        }
+
+        function mouseUp(event){
+            event.preventDefault();
+            this.box.removeEventListener('mousemove', mouseMoveBinded);
+            mousePointStart = 0;
+            mousePointCurrent = 0;
+        }
+
+        this.box.addEventListener('mousemove', mouseMoveBinded);
+        this.box.addEventListener('mouseup', mouseUp.bind(this));
+
+    }
+
+    touchFlip(event){
+        let touchPointStart = event.changedTouches['0'].screenX;
+        let touchPointStartY = event.changedTouches['0'].screenY;
+        let touchPointCurrent = 0;
+        let touchPointCurrentY = 0;
+        let m = 0;
+        let n = 0;
+
+        let touchMoveBinded = touchMove.bind(this);
+        let touchEndBinded = touchEnd.bind(this);
+
+        function touchMove(event){
+            touchPointCurrent = event.changedTouches['0'].screenX;
+            touchPointCurrentY = event.changedTouches['0'].screenY;
+            m = touchPointCurrent - touchPointStart;
+            n = touchPointCurrentY - touchPointStartY;
+
+            if(m >= document.body.offsetWidth/4){
+                event.preventDefault();
+                this.activeItem(this.activeNumber + 1);
+                touchPointStart = touchPointCurrent;
+                touchEndBinded(event);
+            } else if(m <= -document.body.offsetWidth/4){
+                event.preventDefault();
+                this.activeItem(this.activeNumber - 1);
+                touchPointStart = touchPointCurrent;
+                touchEndBinded(event);
+            }
+
+        }
+
+
+        function touchEnd(event){
+            this.box.removeEventListener('touchmove', touchMoveBinded);
+            this.box.removeEventListener('touchend', touchEndBinded);
+            touchPointStart = 0;
+            touchPointStartY = 0;
+            touchPointCurrent = 0;
+            touchPointCurrentY = 0;
+
+            if((m <= 20 && m >= -20) && (n <= 20 && n >= -20)){
+                event.target.click();
+            }
+
+            event.preventDefault();
+        }
+
+        this.box.addEventListener('touchmove', touchMoveBinded);
+        this.box.addEventListener('touchend', touchEndBinded);
+        this.box.addEventListener('touchcancel', touchEndBinded);
+    }
+}
 
 
 function clickItemHandler(event){
@@ -446,26 +638,32 @@ class Slider{
     createSliderNavigationArrows(){
         this.slider_arrow_right = document.createElement('div');
         this.slider_arrow_right.classList = 'slider_arrow slider_arrow-right';
-        this.slider_arrow_right.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                                <g fill="#0A0A0A">
-                                                    <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z"/>
-                                                    <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z"/>
-                                                </g>
-                                            </svg>`;
+        if(this.params.navigationArrows.right){
+            this.slider_arrow_right.innerHTML = `${this.params.navigationArrows.right}`;
+        } else {
+            this.slider_arrow_right.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="12" viewBox="0 0 32 12" class="hover-item">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0H32V32H0z" transform="translate(0 -10)"/>
+                                                        <path class="arrow" fill="#0A0A0A" fill-rule="nonzero" d="M25.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034H.717c-.254-.002-.492.134-.62.362-.13.227-.13.506 0 .734.128.227.366.364.62.361h28.638l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="translate(0 -10)"/>
+                                                    </g>
+                                                </svg>`;            
+        }
         this.slider_arrow_right.onclick = ()=> this.slideMove({direction: 'right'});
-        //slider_arrow_right.ontouchstart = ()=> this.slideMove({direction: 'right'});
         this.container.append(this.slider_arrow_right);
 
         this.slider_arrow_left = document.createElement('div');
         this.slider_arrow_left.classList = 'slider_arrow slider_arrow-left';
-        this.slider_arrow_left.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                                <g fill="#0A0A0A">
-                                                    <path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm0 .97C24.301.97 31.03 7.699 31.03 16c0 8.301-6.729 15.03-15.03 15.03C7.699 31.03.97 24.301.97 16 .97 7.699 7.699.97 16 .97z" transform="matrix(-1 0 0 1 32 0)"/>
-                                                    <path d="M14.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034c.378.317.567.56.567.729 0 .169-.189.411-.567.728l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="matrix(-1 0 0 1 32 0)"/>
-                                                </g>
-                                            </svg>`;
+        if(this.params.navigationArrows.left){
+            this.slider_arrow_left.innerHTML = `${this.params.navigationArrows.left}`;
+        } else {
+            this.slider_arrow_left.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="12" viewBox="0 0 32 12" class="hover-item">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0H32V32H0z" transform="matrix(-1 0 0 1 32 -10)"/>
+                                                        <path class="arrow" fill="#0A0A0A" fill-rule="nonzero" d="M25.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034H.717c-.254-.002-.492.134-.62.362-.13.227-.13.506 0 .734.128.227.366.364.62.361h28.638l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="matrix(-1 0 0 1 32 -10)"/>
+                                                    </g>
+                                                </svg>`;            
+        }
         this.slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
-        //slider_arrow_left.ontouchstart = ()=> this.slideMove({direction: 'left'});
         this.container.append(this.slider_arrow_left);
     }
 
@@ -869,5 +1067,45 @@ function headerStroke(){
             line.append(item);
         });
         line.style.minWidth = `${parentWidth * 2}px`;
+    })
+}
+
+
+function vBannerContentCarousel(){
+    let itemsOnScreen = 3;
+    vBannerContentCheckSize();
+    window.addEventListener('resize', () => resizeXWrapper(vBannerContentCheckSize, event));
+
+
+    function vBannerContentCheckSize(){
+        if(window.innerWidth <= 1199) itemsOnScreen = 2;
+        if(window.innerWidth <= 767) itemsOnScreen = 1;
+    }
+
+    document.querySelectorAll('.v-banner_content_box').forEach(box => {
+        let items = box.querySelectorAll('.v-banner_content_item');
+        let counter = 0;
+
+        changeVisibleItems()
+        setInterval(() => {
+            changeVisibleItems()
+        }, 4000)
+
+
+        function changeVisibleItems(){
+            items.forEach(item => item.classList.remove('v-banner_content_item-visible'));
+
+            for(let i = 0; i < itemsOnScreen; i++){
+                c();
+            }
+
+            function c(){
+                items[counter].classList.add('v-banner_content_item-visible');
+                items[counter].style.animationName = '';
+                items[counter].style.animationName = 'v-banner_content_item';
+                counter++;
+                if(counter >= items.length) counter = 0;
+            }            
+        }
     })
 }
