@@ -17,8 +17,8 @@ window.onload = function(){
     //document.addEventListener('input', validatePhone);
 
 
-    /*hiddenScrollAside('.menu_content_tabs-scroll');
-    window.addEventListener('resize',() => hiddenScrollAside('.menu_content_tabs-scroll'));*/
+    hiddenScrollAside('.seo_content');
+    window.addEventListener('resize',() => hiddenScrollAside('.seo_content'));
 
 
     new classMultiplyWrapper(Slider, {
@@ -476,7 +476,7 @@ function validatePhone(event){
     }
 };
 
-/*function hiddenScrollAside(selector){
+function hiddenScrollAside(selector){
     document.querySelectorAll(selector).forEach(box =>{            
       box.classList.add('scroll-emul_block');
       box.style.height = `${(parseInt(getComputedStyle(box).height))}px`;
@@ -544,7 +544,7 @@ function validatePhone(event){
             }
         }
     })
-};*/
+};
 
 
 class Slider{
