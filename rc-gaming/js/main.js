@@ -225,13 +225,17 @@ class SlSlider{
             n = touchPointCurrentY - touchPointStartY;
 
             if(m >= document.body.offsetWidth/4){
-                event.preventDefault();
-                this.activeItem(this.activeNumber + 1);
+                if(event.cancelable){
+                    event.preventDefault();
+                }
+                this.activeItem(this.activeNumber - 1);
                 touchPointStart = touchPointCurrent;
                 touchEndBinded(event);
             } else if(m <= -document.body.offsetWidth/4){
-                event.preventDefault();
-                this.activeItem(this.activeNumber - 1);
+                if(event.cancelable){
+                   event.preventDefault();
+                }
+                this.activeItem(this.activeNumber + 1);
                 touchPointStart = touchPointCurrent;
                 touchEndBinded(event);
             }
@@ -251,7 +255,9 @@ class SlSlider{
                 event.target.click();
             }
 
-            event.preventDefault();
+            if(event.cancelable){
+                event.preventDefault();
+            }
         }
 
         this.box.addEventListener('touchmove', touchMoveBinded);
