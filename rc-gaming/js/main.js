@@ -274,10 +274,12 @@ function clickItemHandler(event){
     if(!event.target.closest('.click-item')) return;
     let item = event.target.closest('.click-item');
     if(item.getAttribute('href') && item.getAttribute('href') == '#') event.preventDefault();
+    let parent;
+    if(event.target.closest('.click-obj')) parent = event.target.closest('.click-obj');
 
     let obj = {
         'toggle': function(target){
-            target.closest('.click-obj').classList.toggle('active');
+            parent.classList.toggle('active');
         },
 
         'popup-open': function(target){
@@ -293,8 +295,18 @@ function clickItemHandler(event){
             }
         },
 
+        'testimonial-switch': function(target){
+            parent.querySelectorAll('.click-item[data-action="testimonial-switch"]').forEach(item => {
+                item.classList.remove('active');
+                item.classList.add('hover-hide');
+            });
+
+            item.classList.add('active');
+            item.classList.remove('hover-hide');
+        },
+
         'blog-cat-switch': function(target){
-            target.closest('.click-obj').classList.toggle('active');
+            parent.classList.toggle('active');
 
             if(!target.classList.contains('active')){
                 obj.querySelectorAll('.blog_slider_label').forEach(item => item.classList.remove('active'));
