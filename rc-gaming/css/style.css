@@ -482,6 +482,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-align: left;
 }
 .v-banner_undertitle{
+    max-width: 690px;
     padding-left: 120px;
     text-align: left;
 }
@@ -3158,4 +3159,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #d92525;
     border-radius: 2px;
     cursor: pointer;
+}
+
+
+.text-anim{
+    position: relative;
+    overflow: hidden;
+}
+.text-anim_inner{
+    transition: opacity 1s ease-in-out, transform 0.6s linear;
 }

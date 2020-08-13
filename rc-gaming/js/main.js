@@ -78,6 +78,9 @@ window.onload = function(){
     new classMultiplyWrapper(SlSlider, {
         selector: '.sl_slider',
     });
+
+
+    animationText();
 };
 
 
@@ -1175,4 +1178,71 @@ function changeHeaderClassScroll(){
     } else {
         document.querySelector('.header_main').classList.remove('scrolled');
     }    
+};
+
+
+function animationText(){
+    document.querySelectorAll('.text-anim').forEach(item => {
+        let inner = document.createElement('div');
+        inner.classList.add('text-anim_inner');
+
+        for(let i = 0; i < item.childNodes.length; i++){
+            inner.append(item.childNodes[i]);
+        }
+
+        item.append(inner);
+
+        inner.style.opacity = `0`;
+        let transform = `translate(0,100%)`;
+
+        if(item.dataset.direction){
+            switch(item.dataset.direction){
+                case 'top':
+                    transform = `translate(0,-100%)`;
+                    break;
+                case 'left':
+                    transform = `translate(100%,0)`;
+                    break;
+                case 'right':
+                    transform = `translate(-100%,0)`;
+                    break;
+                case 'bottom':
+                    transform = `translate(0,100%)`;
+                    break;
+            }
+        }
+
+        inner.style.transform = transform;
+    });
+
+
+    // устанавливаем настройки
+    const options = {
+        // родитель целевого элемента - область просмотра
+        root: null,
+        // без отступов
+        rootMargin: '0px',
+        // процент пересечения - половина изображения
+        threshold: 0.5
+    }
+
+    // создаем наблюдатель
+    const observer = new IntersectionObserver((entries, observer) => {
+        // для каждой записи-целевого элемента
+        entries.forEach(entry => {
+            // если элемент является наблюдаемым
+            if (entry.isIntersecting) {
+                let inner = entry.target.querySelector('.text-anim_inner')
+                console.log(inner)
+                inner.style.opacity = '1'
+                inner.style.transform = 'translate(0,0)'
+                observer.unobserve(entry.target)
+            }
+        })
+    }, options)
+
+    const arr = document.querySelectorAll('.text-anim')
+    arr.forEach(i => {
+        observer.observe(i)
+    })
 };
