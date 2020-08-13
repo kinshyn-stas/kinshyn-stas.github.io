@@ -1189,6 +1189,8 @@ function animationText(){
         for(let i = 0; i < item.childNodes.length; i++){
             inner.append(item.childNodes[i]);
         }
+        console.log(item)
+        console.log(inner)
 
         item.append(inner);
 
@@ -1216,33 +1218,25 @@ function animationText(){
     });
 
 
-    // устанавливаем настройки
     const options = {
-        // родитель целевого элемента - область просмотра
         root: null,
-        // без отступов
         rootMargin: '0px',
-        // процент пересечения - половина изображения
-        threshold: 0.5
-    }
+        threshold: 0.5,
+    };
 
-    // создаем наблюдатель
     const observer = new IntersectionObserver((entries, observer) => {
-        // для каждой записи-целевого элемента
         entries.forEach(entry => {
-            // если элемент является наблюдаемым
             if (entry.isIntersecting) {
-                let inner = entry.target.querySelector('.text-anim_inner')
-                console.log(inner)
-                inner.style.opacity = '1'
-                inner.style.transform = 'translate(0,0)'
-                observer.unobserve(entry.target)
+                let inner = entry.target.querySelector('.text-anim_inner');
+                inner.style.opacity = '1';
+                inner.style.transform = 'translate(0,0)';
+                observer.unobserve(entry.target);
             }
         })
-    }, options)
+    }, options);
 
-    const arr = document.querySelectorAll('.text-anim')
+    const arr = document.querySelectorAll('.text-anim');
     arr.forEach(i => {
         observer.observe(i)
-    })
+    });
 };
