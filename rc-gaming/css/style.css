@@ -1430,13 +1430,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .price_head_title{}
 .price_head_undertitle{}
 .price_body{
-    max-width: 920px;
     margin: 120px auto 0;
 }
 .price_box{}
 .price_item{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 160px;
 }
@@ -1446,6 +1445,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .price_text{
     width: 400px;
     min-width: 400px;
+    margin-right: 160px;
 }
 .price_button{
     margin-top: 30px;
@@ -1453,7 +1453,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .price_info{
     width: 380px;
     min-width: 380px;
-    margin-left: 20px;
 }
 .price_info_item{
     padding: 29px 39px;
@@ -1546,6 +1545,26 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .price_info_item.hover-hide .price_info_item_link_item:after{
     opacity: 0;
+}
+
+@media screen and (max-width: 1499px){
+    .price_block{
+        margin-bottom: 140px;
+    }
+    .price_head{
+        padding: 118px 0;
+    }
+    .price_body{
+        margin: 100px auto 0;
+    }
+    .price_item{
+        margin-bottom: 140px;
+    }
+    .price_text{
+        width: 380px;
+        min-width: 380px;
+        margin-right: 120px;
+    }
 }
 
 
