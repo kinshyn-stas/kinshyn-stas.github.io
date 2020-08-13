@@ -1186,11 +1186,9 @@ function animationText(){
         let inner = document.createElement('div');
         inner.classList.add('text-anim_inner');
 
-        for(let i = 0; i < item.childNodes.length; i++){
-            inner.append(item.childNodes[i]);
+        while(item.children.length){
+            inner.append(item.children[0]);
         }
-        console.log(item)
-        console.log(inner)
 
         item.append(inner);
 

@@ -3163,7 +3163,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .text-anim{
-    position: relative;
     overflow: hidden;
 }
 .text-anim_inner{
