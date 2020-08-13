@@ -71,6 +71,10 @@ window.onload = function(){
     functionMultiplyWrapper(vBannerContentCarousel);
 
 
+    functionMultiplyWrapper(changeHeaderClassScroll);
+    document.addEventListener('scroll', changeHeaderClassScroll)
+
+
     new classMultiplyWrapper(SlSlider, {
         selector: '.sl_slider',
     });
@@ -1162,4 +1166,13 @@ function vBannerContentCarousel(){
 
 function changeMainPaddingTop(){
     document.querySelector('main.main').style.paddingTop = `${document.querySelector('.header_main').clientHeight}px`;
+};
+
+
+function changeHeaderClassScroll(){
+    if(window.pageYOffset > 10){
+        document.querySelector('.header_main').classList.add('scrolled');
+    } else {
+        document.querySelector('.header_main').classList.remove('scrolled');
+    }    
 };
