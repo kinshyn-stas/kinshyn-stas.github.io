@@ -1568,6 +1568,35 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin-right: 120px;
     }
 }
+@media screen and (max-width: 1199px){
+    .price_block{
+        margin-bottom: 140px;
+    } 
+    .price_head{
+        padding: 79px 0;
+    }   
+    .price_body{
+        margin: 60px auto 0;
+    }
+    .price_item{
+        margin-bottom: 100px;
+    }
+    .price_text{
+        width: 300px;
+        min-width: 300px;
+        margin-right: 50px;
+    }
+    .price_info{
+        width: 340px;
+        min-width: 340px;
+    }
+    .price_info_item{
+        margin-bottom: 20px;
+    }
+    .price_button{
+        margin-top: 24px;
+    }
+}
 
 
 .blog_block{
