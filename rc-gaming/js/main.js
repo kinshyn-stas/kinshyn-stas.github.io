@@ -516,6 +516,24 @@ function hiddenScrollAside(selector){
           let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
           line.hidden = (line_itemHeight >= 100)
           line_item.style.height = `${line_itemHeight}%`;
+          line_item.onmousedown = function(event){
+            event.preventDefault();
+            let startY = event.clientY;
+            let startScroll = content.scrollTop;
+
+            document.addEventListener('mousemove', scrollMousemoveHandler);
+            document.addEventListener('mouseup', scrollMouseupHandler);
+
+            function scrollMousemoveHandler(event){
+                let diffY = event.clientY - startY;
+                content.scrollTop = startScroll + (contentFullHeight * diffY / parseFloat(content.offsetHeight));
+            }
+
+            function scrollMouseupHandler(event){
+                document.removeEventListener('mousemove', scrollMousemoveHandler);
+                document.removeEventListener('mouseup', scrollMouseupHandler);
+            }
+          };
 
           content.removeEventListener('scroll', scrollContent);
           content.addEventListener('scroll', scrollContent);

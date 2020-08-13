@@ -1241,7 +1241,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .seo_content .scroll-emul_container{
     padding-right: 80px;
 }
-.seo_text{}
+.seo_text{
+    padding-bottom: 120px;
+}
 .seo_text h3{
     margin-bottom: 30px;
 }
@@ -2514,4 +2516,5 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 100%;
     background-color: #d92525;
     border-radius: 2px;
+    cursor: pointer;
 }
