@@ -31,7 +31,7 @@ body{
 }
 h1,h2,h3,h4,h5,h6{
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: 600;
     line-height: 1.2;
 }
@@ -43,6 +43,7 @@ h2{
     line-height: 50px;
 }
 h3{
+    margin-bottom: 30px;
     font-size: 30px;
     line-height: 40px;
 }
@@ -411,9 +412,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 .main{
-    padding-top: 242px;
+    padding-top: 138px;
 }
 .main_block{}
+.main-block-top{
+    margin-top: 104px;
+}
 .center-main-block{
     max-width: 1440px;
     padding-left: 20px;
@@ -430,8 +434,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 @media screen and (max-width: 1499px){
-    .main{
-        padding-top: 222px;
+    .main-block-top{
+        margin-top: 84px;
     }
     .center-main-block{
         max-width: 1210px;
@@ -439,7 +443,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 @media screen and (max-width: 1199px){
     .main{
-        padding-top: 193px;
+        padding-top: 129px;
+    }
+    .main-block-top{
+        margin-top: 64px;
     }
     .center-main-block{
         padding-left: 39px;
@@ -451,7 +458,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 @media screen and (max-width: 767px){
     .main{
-        padding-top: 146px;
+        padding-top: 123px;
+    }
+    .main-block-top{
+        margin-top: 23px;
     }
     .center-main-block{
         padding-left: 20px;
@@ -1398,6 +1408,144 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         width: calc((100% - 10px) / 2);
         margin-bottom: 10px;
     }
+}
+
+
+.price_block{
+    margin-bottom: 160px;
+}
+.price_head{
+    padding: 168px 0;
+    background-color: #0a0a0a;
+    background-image: url("../img/price_head.jpg");
+    background-size: cover;
+    color: #ffffff;
+    border-radius: 4px;
+}
+.price_head_text{
+    max-width: 570px;
+    margin: 0 auto;
+    text-align: center;
+}
+.price_head_title{}
+.price_head_undertitle{}
+.price_body{
+    max-width: 920px;
+    margin: 120px auto 0;
+}
+.price_box{}
+.price_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 160px;
+}
+.price_item:last-of-type{
+    margin-bottom: 0;
+}
+.price_text{
+    width: 400px;
+    min-width: 400px;
+}
+.price_button{
+    margin-top: 30px;
+}
+.price_info{
+    width: 380px;
+    min-width: 380px;
+    margin-left: 20px;
+}
+.price_info_item{
+    padding: 29px 39px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+}
+.price_info_item.hover-hide{
+    color: #919191;
+}
+.price_info_item:last-of-type{
+    margin-bottom: 0;
+}
+.price_info_item_table{
+    padding: 30px 20px;    
+}
+.price_info_item_row{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0 15px;
+}
+.price_info_item_row:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to bottom, #efefef, #dbdbdb);
+}
+.price_info_item_row:first-of-type{
+    padding-top: 0;
+}
+.price_info_item_row:last-of-type{
+    padding-bottom: 0;
+}
+.price_info_item_row:last-of-type:after{
+    display: none;
+}
+.price_info_item_row-title{
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out;
+}
+.price_info_item_column{}
+.price_info_item_column:nth-of-type(2){
+    flex-grow: 100;
+}
+.price_info_item_column:nth-of-type(2){
+    text-align: right;
+}
+.price_info_item_column a{
+    font-weight: 500;
+}
+.price_info_item_title{
+    font-weight: 600;
+}
+.price_info_item_link{
+    margin-top: 30px;
+}
+.price_info_item_link_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+.price_info_item_link_item:after{
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    margin-left: 10px;
+    background-image: url("../img/icon/price_info_item_link_item.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+}
+.price_info_item.hover-hide .price_info_item_link_item:after{
+    opacity: 0;
 }
 
 
