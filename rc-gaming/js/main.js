@@ -11,14 +11,14 @@ window.onload = function(){
     document.addEventListener('click', handlerClickLinks);
 
 
-    resizeXWrapper();
-
-
     //document.addEventListener('input', validatePhone);
 
 
-    hiddenScrollAside('.seo_content');
+    functionMultiplyWrapper(() => hiddenScrollAside('.seo_content'));
     window.addEventListener('resize',() => hiddenScrollAside('.seo_content'));
+
+    functionMultiplyWrapper(() => changeMainPaddingTop());
+    resizeXWrapper(changeMainPaddingTop)
 
 
     new classMultiplyWrapper(Slider, {
@@ -65,10 +65,10 @@ window.onload = function(){
     document.addEventListener('mouseover', hoverCanvasHandler);
 
 
-    headerStroke();
+    functionMultiplyWrapper(headerStroke);
 
 
-    vBannerContentCarousel();
+    functionMultiplyWrapper(vBannerContentCarousel);
 
 
     new classMultiplyWrapper(SlSlider, {
@@ -77,10 +77,23 @@ window.onload = function(){
 };
 
 
+function functionMultiplyWrapper(func){
+    try{
+        func();
+    } catch(err){
+        console.log(err);
+    }
+};
+
+
 function classMultiplyWrapper(Cls,parametrs){
     document.querySelectorAll(parametrs.selector).forEach((item) => {
-        parametrs.item = item;
-        new Cls(parametrs);
+        try{
+            parametrs.item = item;
+            new Cls(parametrs);
+        } catch(err){
+            console.log(err);
+        }
     })
 };
 
@@ -448,19 +461,15 @@ function handlerClickLinks(event){
 };
 
 
-function resizeXWrapper(func,event){
-    if(!event){
-        window.widthStart = window.innerWidth;
-    } else {
-        if(window.widthStart){
-            if(window.widthStart != window.innerWidth){
-                window.widthStart = window.innerWidth;
-                func();
-            }
-        } else {
-            window.widthStart = window.innerWidth;
+function resizeXWrapper(func){
+    let widthStart = window.innerWidth;
+
+    window.addEventListener('resize', () => {
+        if(window.innerWidth != widthStart){
+            func();
+            widthStart = window.innerWidth;
         }
-    }
+    })
 };
 
 
@@ -1113,10 +1122,11 @@ function headerStroke(){
 function vBannerContentCarousel(){
     let itemsOnScreen = 3;
     vBannerContentCheckSize();
-    window.addEventListener('resize', () => resizeXWrapper(vBannerContentCheckSize, event));
+    resizeXWrapper(vBannerContentCheckSize);
 
 
     function vBannerContentCheckSize(){
+        itemsOnScreen = 3;
         if(window.innerWidth <= 1199) itemsOnScreen = 2;
         if(window.innerWidth <= 767) itemsOnScreen = 1;
     }
@@ -1147,4 +1157,9 @@ function vBannerContentCarousel(){
             }            
         }
     })
-}
+};
+
+
+function changeMainPaddingTop(){
+    document.querySelector('main.main').style.paddingTop = `${document.querySelector('.header_main').clientHeight}px`;
+};
