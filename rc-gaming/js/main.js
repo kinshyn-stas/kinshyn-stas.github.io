@@ -334,6 +334,12 @@ function clickItemHandler(event){
                 target.classList.add('active');
             }
         },
+
+        'faq-switch': function(target){
+            let box = target.closest('.faq_main_f_box');
+            box.querySelectorAll('.faq_main_f_item_label').forEach(item => item.classList.remove('active'));
+            target.classList.add('active');
+        },
     }
 
     if(item.dataset.action){
