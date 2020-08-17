@@ -3042,6 +3042,37 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding-left: 1.8em;
 }
 
+@media screen and (max-width: 1499px){
+    .politic_block{
+        margin-bottom: 140px;
+    }
+    .politic_content{
+        max-width: 970px;
+    }
+}
+@media screen and (max-width: 1199px){
+    .politic_block{
+        margin-bottom: 100px;
+    }
+    .politic_text{
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width: 767px){
+    .politic_block{
+        margin-bottom: 60px;
+    }
+    .politic_text{
+        margin-top: 40px;
+    }
+    .politic_text h4{
+        margin-top: 30px;
+    }
+    .politic_text p{
+        margin-bottom: 20px;
+    }
+}
+
 
 .footer_main{
     padding: 160px 0 60px;
