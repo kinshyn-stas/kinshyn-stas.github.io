@@ -2095,6 +2095,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         display: block;
     }
     .faq_aside{
+        z-index: 10;
         width: 100%;
         min-width: 0;
         margin: 0 0 10px
@@ -2105,18 +2106,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .faq_aside_nav ul li a:before,
     .faq_aside_nav ul li a:after{
         display: none;
-    }
-    .faq_main_banner{
-        padding: 65px 20px;
-    }
-    .faq_main_contact{
-        margin: 40px 0;
-    }
-    .faq_main_contact_item{
-        width: calc((100% - 60px) / 3);
-    }
-    .faq_main_contact_item .button_container{
-        margin-top: 20px;
     }
     .faq_aside_content{
         padding: 0;
@@ -2164,8 +2153,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .faq_aside_nav-m ul li a br{
         display: none;
     }
+    .faq_main_banner{
+        padding: 65px 20px;
+    }
+    .faq_main_contact{
+        margin: 40px 0;
+    }
+    .faq_main_contact_item{
+        width: calc((100% - 60px) / 3);
+    }
+    .faq_main_contact_item .button_container{
+        margin-top: 20px;
+    }
     .faq_main_f_head-article{
-        padding: 65px 40px 60;
+        padding: 65px 40px 60px;
     }
 }
 @media screen and (max-width: 767px){
