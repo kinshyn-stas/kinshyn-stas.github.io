@@ -111,10 +111,11 @@ function hoverItemsHandler(event){
     let parent = event.target.closest('.hover-parent');
     parent.querySelectorAll('.hover-item').forEach(item => item.classList.add('hover-hide'));
     target.classList.remove('hover-hide');
+    target.classList.add('hover-focus');
 
     document.addEventListener('mouseout', hoverItemsHandlerCleaner);
     function hoverItemsHandlerCleaner(){
-        parent.querySelectorAll('.hover-item').forEach(item => item.classList.remove('hover-hide'));
+        parent.querySelectorAll('.hover-item').forEach(item => item.classList.remove('hover-hide','hover-focus'));
         document.removeEventListener('mouseout', hoverItemsHandlerCleaner);
     }
 };
@@ -1183,16 +1184,8 @@ function changeHeaderClassScroll(){
 
 function animationText(){
     document.querySelectorAll('.text-anim').forEach(item => {
-        let inner = document.createElement('div');
-        inner.classList.add('text-anim_inner');
+        item.innerHTML = `<div class="text-anim_inner" style="opacity: 0">${item.innerHTML}</div>`;
 
-        while(item.children.length){
-            inner.append(item.children[0]);
-        }
-
-        item.append(inner);
-
-        inner.style.opacity = `0`;
         let transform = `translate(0,100%)`;
 
         if(item.dataset.direction){
@@ -1212,6 +1205,7 @@ function animationText(){
             }
         }
 
+        let inner = item.querySelector('.text-anim_inner');
         inner.style.transform = transform;
     });
 
