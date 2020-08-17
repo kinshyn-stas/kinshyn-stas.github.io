@@ -5,7 +5,7 @@ window.onload = function(){
     document.addEventListener('click', clickItemHandler);
 
 
-    //emulateSelector('.select_emulator');
+    emulateSelector('.select_emulator');
 
 
     document.addEventListener('click', handlerClickLinks);
@@ -1175,7 +1175,9 @@ function vBannerContentCarousel(){
 
 
 function changeMainPaddingTop(){
-    document.querySelector('main.main').style.paddingTop = `${document.querySelector('.header_main').clientHeight}px`;
+    let h = document.querySelector('.header_main').clientHeight;
+    document.querySelectorAll('main.main').forEach(item => item.style.paddingTop = `${h}px`);
+    document.querySelectorAll('.faq_aside_content').forEach(item => item.style.top = `${h}px`);
 };
 
 
