@@ -301,6 +301,20 @@ function clickItemHandler(event){
     let obj = {
         'toggle': function(target){
             parent.classList.toggle('active');
+
+            if(target.classList.contains('header_switch')){
+                let header = document.querySelector('.header_main');
+                let header_content = document.querySelector('.header_content');
+
+                if(header.classList.contains('active')){
+                    header.querySelector('.header_stroke').style.display = 'none';
+                    header.querySelector('.header_menu').style.height = `calc(100vh - ${header_content.clientHeight}px)`;
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    header.querySelector('.header_stroke').style.display = '';
+                    document.body.style.overflow = '';
+                }
+            }
         },
 
         'popup-open': function(target){
