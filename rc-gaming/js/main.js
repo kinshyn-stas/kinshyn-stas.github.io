@@ -312,6 +312,7 @@ function clickItemHandler(event){
                     document.body.style.overflow = 'hidden';
                 } else {
                     header.querySelector('.header_stroke').style.display = '';
+                    header.querySelector('.header_menu').style.height = '';
                     document.body.style.overflow = '';
                 }
             }
