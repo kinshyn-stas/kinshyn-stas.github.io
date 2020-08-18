@@ -1208,6 +1208,7 @@ function changeMainPaddingTop(){
     let h = document.querySelector('.header_main').clientHeight;
     document.querySelectorAll('main.main').forEach(item => item.style.paddingTop = `${h}px`);
     document.querySelectorAll('.faq_aside_content').forEach(item => item.style.top = `${h}px`);
+    document.querySelectorAll('.article_body_soc').forEach(item => item.style.top = `${h}px`);
 };
 
 

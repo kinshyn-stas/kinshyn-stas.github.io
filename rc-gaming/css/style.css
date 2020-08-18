@@ -2306,6 +2306,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         padding: 0;
         opacity: 0;
         background-color: #ffffff;
+        overflow: hidden;
         border-radius: 2px;
         border: solid 1px #dbdbdb;
     }
