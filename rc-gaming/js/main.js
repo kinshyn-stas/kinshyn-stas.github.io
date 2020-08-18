@@ -84,6 +84,10 @@ window.onload = function(){
 
     functionMultiplyWrapper(animationBackground);
 
+
+    functionMultiplyWrapper(() => changeSliderCursor('.sl_slider_box'));
+
+
     functionMultiplyWrapper(preloaderOff);
 };
 
@@ -1316,4 +1320,30 @@ function animationBackground(){
 
 function preloaderOff(){
     document.body.classList.add('no-preloader');
+};
+
+
+function changeSliderCursor(selector){
+    let emulate = document.createElement('div');
+    emulate.classList.add('emulate_cursor');
+    emulate.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="83" height="46" viewBox="0 0 83 46">
+                            <g fill="#919191">
+                                <path d="M79.512 20c.108.003.212.041.29.102l2.702 2.493.069.083c.18.258.142.617-.094.834l-2.676 2.466c-.193.15-.469.134-.647-.042-.2-.197-.202-.517 0-.731l2.226-1.937c.053-.044.1-.087.139-.128l.065-.071-.002-.056-.048-.054c-.029-.03-.061-.062-.099-.096l-2.297-2c-.139-.144-.18-.363-.1-.555.072-.166.223-.28.397-.304l.075-.004zM3.488 20c-.108.003-.212.041-.29.102L.496 22.595l-.069.083c-.18.258-.142.617.094.834l2.676 2.466c.193.15.469.134.647-.042.2-.197.202-.517 0-.731l-2.226-1.937c-.053-.044-.1-.087-.139-.128l-.065-.071.002-.056.048-.054c.029-.03.061-.062.099-.096l2.297-2c.139-.144.18-.363.1-.555-.072-.166-.223-.28-.397-.304L3.488 20zM41 0C28.297 0 18 10.297 18 23s10.297 23 23 23 23-10.297 23-23S53.703 0 41 0zm0 .979C53.162.979 63.021 10.838 63.021 23S53.162 45.021 41 45.021 18.979 35.162 18.979 23 28.838.979 41 .979z"/>
+                            </g>
+                        </svg>`;
+    document.body.append(emulate);
+
+    document.addEventListener('mousemove', (e) => {
+        document.querySelectorAll(selector).forEach(box => {
+            let boxC = box.getBoundingClientRect();
+
+            if(e.y <= boxC.bottom && e.y >= boxC.top && e.x <= boxC.right && e.x >= boxC.left){
+                emulate.style.top = `${event.y}px`;
+                emulate.style.left = `${event.x}px`;    
+            } else {
+                emulate.style.top = ``;
+                emulate.style.left = ``;
+            }
+        }); 
+    });
 };
