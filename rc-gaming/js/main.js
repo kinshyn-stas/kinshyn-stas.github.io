@@ -326,6 +326,7 @@ function clickItemHandler(event){
             if(!document.querySelector(target.dataset.label)) return;
             let popup = document.querySelector(target.dataset.label);
             popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
 
             if(target.classList.contains('header_stroke_item')){
                 let h = document.querySelector('.header_stroke').clientHeight;
@@ -342,6 +343,7 @@ function clickItemHandler(event){
                 popup = target.closest('.popup_container');
             }
             popup.classList.remove('active')
+            document.body.style.overflow = '';
 
             if(popup.classList.contains('popup-newsletter')){
                 popup.style.top = ``;
