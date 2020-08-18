@@ -489,6 +489,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .v-banner_undertitle{
     max-width: 690px;
     padding-left: 120px;
+    margin: 0;
     text-align: left;
 }
 .v-banner_content{
