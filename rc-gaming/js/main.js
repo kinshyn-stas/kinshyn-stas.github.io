@@ -381,7 +381,7 @@ function emulateSelector(select){
         };
 
         let tit = document.createElement('div');
-        tit.classList.add("select_option", "select_tit"_;
+        tit.classList.add("select_option", "select_tit");
         tit.onclick = () => select.classList.toggle('active');
         emul.append(tit);
 
