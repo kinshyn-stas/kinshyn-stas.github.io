@@ -1337,9 +1337,9 @@ function changeSliderCursor(selector){
         document.querySelectorAll(selector).forEach(box => {
             let boxC = box.getBoundingClientRect();
 
-            if(e.y <= boxC.bottom && e.y >= boxC.top && e.x <= boxC.right && e.x >= boxC.left){
-                emulate.style.top = `${event.y}px`;
-                emulate.style.left = `${event.x}px`;    
+            if(e.clientY <= boxC.bottom && e.clientY >= boxC.top && e.clientX <= boxC.right && e.clientX >= boxC.left){
+                emulate.style.top = `${e.clientY}px`;
+                emulate.style.left = `${e.clientX}px`;    
             } else {
                 emulate.style.top = ``;
                 emulate.style.left = ``;
