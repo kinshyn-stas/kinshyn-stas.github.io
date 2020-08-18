@@ -3466,6 +3466,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .footer_top_column a.hover-hide{
     color: #919191;
 }
+.footer_top_column a:hover svg path{
+    fill: #d30000;
+}
 .footer_top_column a.hover-hide svg path{
     fill: #919191;
 }
@@ -4209,4 +4212,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .soc_open:hover{
     transform: scale(0.83);
+}
+
+
+.fix_button{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    box-shadow: 0 10px 40px 0 rgba(10, 10, 10, 0.3);
+    z-index: 80;
 }
