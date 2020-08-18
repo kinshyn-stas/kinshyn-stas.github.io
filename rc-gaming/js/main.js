@@ -80,7 +80,11 @@ window.onload = function(){
     });
 
 
-    animationText();
+    functionMultiplyWrapper(animationText);
+
+    functionMultiplyWrapper(animationBackground);
+
+    functionMultiplyWrapper(preloaderOff);
 };
 
 
@@ -1249,13 +1253,8 @@ function animationText(){
     });
 
 
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observerText = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 let inner = entry.target.querySelector('.text-anim_inner');
@@ -1264,10 +1263,55 @@ function animationText(){
                 observer.unobserve(entry.target);
             }
         })
-    }, options);
-
-    const arr = document.querySelectorAll('.text-anim');
-    arr.forEach(i => {
-        observer.observe(i)
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
     });
+
+    document.querySelectorAll('.text-anim').forEach(i => {
+        observerText.observe(i)
+    });
+};
+
+
+function animationBackground(){
+    const observerBlock = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.dataset.visible = 'true';
+            } else {
+                entry.target.dataset.visible = 'false';
+            }
+        })
+
+        let main = document.querySelector('.main');
+        let flag = false;
+        document.querySelectorAll('.main-block-black').forEach(i => {
+            if(i.dataset.visible == 'true') flag = true;
+        });
+
+        if(flag){
+            main.classList.remove('main-white');
+            main.classList.add('main-black');
+        } else {
+            main.classList.add('main-white');
+            main.classList.remove('main-black');
+        }
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+
+
+    document.querySelectorAll('.main-block-black').forEach((item,i,arr) => {
+        observerBlock.observe(item)
+    });    
+};
+
+
+function preloaderOff(){
+    document.body.classList.add('no-preloader');
 };
