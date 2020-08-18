@@ -320,14 +320,28 @@ function clickItemHandler(event){
 
         'popup-open': function(target){
             if(!document.querySelector(target.dataset.label)) return;
-            document.querySelector(target.dataset.label).classList.add('active');
+            let popup = document.querySelector(target.dataset.label);
+            popup.classList.add('active');
+
+            if(target.classList.contains('header_stroke_item')){
+                let h = document.querySelector('.header_stroke').clientHeight;
+                popup.style.top = `${h}px`;
+                popup.style.height = `calc(100vh - ${h}px)`;
+            }
         },
 
         'popup-close': function(target){
+            let popup;
             if(target.dataset.label){
-                document.querySelector(target.dataset.label).classList.remove('active')
+                popup = document.querySelector(target.dataset.label);
             } else {
-                target.closest('.popup_container').classList.remove('active');
+                popup = target.closest('.popup_container');
+            }
+            popup.classList.remove('active')
+
+            if(popup.classList.contains('popup-newsletter')){
+                popup.style.top = ``;
+                popup.style.height = ``;
             }
         },
 

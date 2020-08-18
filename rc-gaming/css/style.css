@@ -3951,3 +3951,126 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transition: opacity 0.4s ease-in-out;
     box-shadow: 0 1px 3px 0 #919191;
 }
+
+
+.popup_container{
+    position: fixed;
+    top: 200%;
+    left: 0;
+    z-index: 2000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 5px;
+    opacity: 0;
+    overflow-y: auto;
+}
+.popup_container.active{
+    top: 0;
+    opacity: 1;
+    transition: top 0.4s linear, opacity 0.8s ease-in-out;
+}
+.popup_background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.7);
+}
+.popup{
+    position: relative;
+    z-index: 400;
+    max-width: 570px;
+    padding: 40px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+.popup-newsletter .popup{
+    max-width: 370px;
+    margin: 15px auto;
+}
+.popup_close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: block;
+    width: 14px;
+    cursor: pointer;
+}
+.popup_close svg{
+    display: block;
+}
+.popup_close svg .line{
+    fill: #919191;
+    transition: all 0.2s ease-in-out;
+}
+.popup_close:hover svg .line{
+    fill: #000000;
+}
+.popup_form{}
+.popup_form_content{}
+.popup_form_thx{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.popup_form.active .popup_form_content{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.popup_form.active .popup_form_thx{
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+    transition: opacity 0.6s ease-in-out;
+}
+.popup_form p{
+    margin-bottom: 6px;
+}
+.popup_form p:last-of-type{
+    margin-bottom: 0;
+}
+.popup_form b{
+    font-weight: 600;
+}
+.popup_form_text{
+    margin-bottom: 20px;
+}
+.popup_form_item{
+    margin-bottom: 10px;
+}
+.popup_form_item input{
+    width: 100%;
+}
+.popup_form_item-button{}
+.popup_form_item-button button{
+    width: 100%;
+    text-align: center;
+}
+.popup_form_thx{
+    text-align: center;
+}
+.popup_form_thx figure{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.popup_form_thx figure img{
+    display: block;
+}
+
+@media screen and (max-width: 767px){
+    .popup{
+        padding: 40px 30px;
+    }
+    .popup-newsletter .popup{
+        margin: 0 auto;
+    }
+}
