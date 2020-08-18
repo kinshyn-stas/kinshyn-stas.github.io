@@ -1381,6 +1381,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: all 0.2s ease-in-out;
+}
+.prefooter_item figure:hover img{
+    transform: scale(1.2);
 }
 
 @media screen and (max-width: 1499px){
@@ -3935,6 +3939,13 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .text-anim_inner{
     transition: opacity 1s ease-in-out, transform 0.6s linear;
+}
+
+@media screen and (max-width: 767px){
+    .text-anim_inner{
+        opacity: 1!important;
+        transform: none!important;
+    }
 }
 
 
