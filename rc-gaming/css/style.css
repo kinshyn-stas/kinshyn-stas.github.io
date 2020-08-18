@@ -80,6 +80,9 @@ a:focus,
 a:visited{
     text-decoration: none;
 }
+b{
+    font-weight: 600;
+}
 ul,ol{
     padding-left: 1.2em;
     margin-bottom: 30px;
@@ -2159,8 +2162,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .faq_form{
     width: 100%;
-    max-width: 330px;
+    max-width: 470px;
     margin: 60px auto 0;
+}
+.faq_form_content{
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.faq_form_thx{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.faq_form.active .faq_form_content{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.faq_form.active .faq_form_thx{
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+    transition: opacity 0.4s ease-in-out;
 }
 .faq_form_item{
     margin-bottom: 14px;
@@ -2172,6 +2196,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .faq_form_item-button button{
     display: block;
     width: 100%;
+    text-align: center;
+}
+.faq_form_thx{}
+.faq_form_thx_square{
+    position: relative;
+    margin-top: 24px;
+    padding: 45px 59px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+}
+.faq_form_thx_square_icon{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 1px 15px 9px;
+    background-color: #ffffff;
+    transform: translate(-50%,-50%);
+}
+.faq_form_thx_square_icon img{
+    display: block;
+    width: 40px;
+}
+.faq_form_thx_square_text{
     text-align: center;
 }
 
@@ -2334,6 +2381,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .faq_form{
         margin-top: 43px;
         margin-bottom: 60px;
+    }
+    .faq_form_thx_square{
+        margin-top: 0;
+        padding: 45px 29px;
     }
 }
 
@@ -4064,6 +4115,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .popup_form_thx figure img{
     display: block;
+    width: 40px;
 }
 
 @media screen and (max-width: 767px){
