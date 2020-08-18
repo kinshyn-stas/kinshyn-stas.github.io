@@ -97,7 +97,7 @@ iframe{
 }
 input,
 textarea{
-    padding: 11px 12px;
+    padding: 10px 11px;
     background-color: #ffffff;
     color: inherit;
     font-size: 14px;
@@ -2279,6 +2279,29 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.faq_title{}
+.faq_undertitle{
+    max-width: 570px;
+}
+.faq_form{
+    width: 100%;
+    max-width: 330px;
+    margin: 60px auto 0;
+}
+.faq_form_item{
+    margin-bottom: 14px;
+}
+.faq_form_item input{
+    width: 100%;
+}
+.faq_form_item-button{}
+.faq_form_item-button button{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
 .copy_block{
     margin-bottom: 160px;
 }
@@ -3820,4 +3843,75 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .text-anim_inner{
     transition: opacity 1s ease-in-out, transform 0.6s linear;
+}
+
+
+
+.hidden{
+    display: none!important;
+}
+.select{
+    position: relative;
+    background-color: #ffffff;
+}
+.select_option{
+    width: 100%;
+    padding: 10px 11px;
+    background-color: #ffffff;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+.select_option:hover{
+    background-color: #f4f4f4;
+}
+.select_tit{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px 10px 11px;
+    color: #919191;
+    border-radius: 2px;
+    border: 1px solid #dbdbdb;
+}
+.select_tit.chosen{
+    color: inherit;
+}
+.select_option.selected,
+.select_option.disabled{
+    display: none;
+}
+.select_tit:after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    margin-left: 11px;
+    background-image: url(../img/icon/arrow_select.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.select_list_outer{
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    z-index: 10;
+    height: 0;
+    width: 100%;
+    background-color: #ffffff;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+}
+.select.active .select_list_outer{
+    height: 210px;
+    opacity: 1;
+    overflow-y: auto;
+    transition: opacity 0.4s ease-in-out;
+    box-shadow: 0 1px 3px 0 #919191;
 }

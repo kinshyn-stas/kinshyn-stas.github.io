@@ -373,7 +373,7 @@ function emulateSelector(select){
         select.hidden = true;
 
         let emul = document.createElement('div');
-        emul.classList = "select";
+        emul.classList.add("select");
         emul.onclick = ()=>emul.classList.toggle('active');
         emul.setAttribute('tabindex','1');
         emul.onblur = function(){
@@ -381,21 +381,21 @@ function emulateSelector(select){
         };
 
         let tit = document.createElement('div');
-        tit.classList = "select_option select_tit";
+        tit.classList.add("select_option", "select_tit"_;
         tit.onclick = () => select.classList.toggle('active');
         emul.append(tit);
 
         let emulListOuter = document.createElement('div');
-        emulListOuter.classList = "select_list_outer";
+        emulListOuter.classList.add("select_list_outer");
         emul.append(emulListOuter);
 
         let emulList = document.createElement('div');
-        emulList.classList = "select_list";
+        emulList.classList.add("select_list","hover-parent");
         emulListOuter.append(emulList);
 
         select.querySelectorAll('option').forEach((item)=>{
             let option = document.createElement('div');
-            option.classList = "select_option";
+            option.classList.add("select_option","hover-item");
             option.innerHTML = item.innerHTML;
             option.dataset.value = item.value;
 
@@ -403,6 +403,7 @@ function emulateSelector(select){
                 if(!emul.classList.contains('active')) return;
                 select.value=option.dataset.value;
                 tit.textContent = option.textContent;
+                tit.classList.add('chosen');
 
                 let evt = document.createEvent('HTMLEvents');
                 evt.initEvent('change', true, true);
