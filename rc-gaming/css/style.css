@@ -3964,6 +3964,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    position: relative;
+}
+.slider_nav_butt::after{
+    content: '';
+    display: block;
+    opacity: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: -3px;
 }
 .slider_nav_butt:last-of-type{
     margin-right: 0;
