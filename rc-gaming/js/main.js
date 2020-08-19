@@ -11,7 +11,7 @@ window.onload = function(){
     document.addEventListener('click', handlerClickLinks);
 
 
-    //document.addEventListener('input', validatePhone);
+    document.addEventListener('input', validatePhone);
 
 
     functionMultiplyWrapper(() => hiddenScrollAside('.seo_content'));
@@ -45,6 +45,7 @@ window.onload = function(){
         },
         navigationDotters: true,
         infinity: true,
+        mouseBlock: true,
         /*multiDisplay: {
             desktop: 4,
             touch: 4,
@@ -640,8 +641,8 @@ class Slider{
         }
         if(!this.sizeFlag) this.create();
 
-        this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
-        this.container.addEventListener("touchstart", this.touchFlip.bind(this));
+        if(!this.params.mouseBlock) this.container.addEventListener('mousedown',this.mouseFlip.bind(this));
+        if(!this.params.touchBlock) this.container.addEventListener("touchstart", this.touchFlip.bind(this));
 
         window.addEventListener('resize', this.prepare.bind(this));
     }
