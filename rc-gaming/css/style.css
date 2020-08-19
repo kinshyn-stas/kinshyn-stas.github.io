@@ -2117,6 +2117,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .faq_main_title{
     margin-bottom: 0;
+    font-size: 50px;
 }
 .faq_main_contact{
     margin: 80px 0;
@@ -2326,6 +2327,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .faq_main_banner{
         padding: 60px 20px;
     }
+    .faq_main_title{        
+        font-size: 40px;
+        line-height: 50px;
+    }
     .faq_main_contact{
         margin: 60px 0;
     }
@@ -2411,6 +2416,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .faq_main_banner{
         padding: 65px 20px;
+    }
+    .faq_main_title{        
+        font-size: 30px;
+        line-height: 40px;
     }
     .faq_main_contact{
         margin: 40px 0;
