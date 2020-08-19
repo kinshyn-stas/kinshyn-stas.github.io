@@ -4403,6 +4403,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     box-shadow: 0 10px 40px 0 rgba(10, 10, 10, 0.3);
     z-index: 80;
 }
+.fix_button_m{
+    display: none;
+}
+
+@media screen and (max-width: 767px){
+    .fix_button_d{
+        display: none;
+    }
+    .fix_button_m{
+        display: inline;
+    }
+}
 
 
 .emulate_cursor{
