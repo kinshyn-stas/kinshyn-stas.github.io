@@ -22,7 +22,13 @@ window.onload = function(){
 
 
     new classMultiplyWrapper(Slider, {
-        selector: '.rekl_box',
+        selector: '.rekl_box-slider',
+        navigationArrows: true,
+        infinity: true,
+    });
+
+    new classMultiplyWrapper(Slider, {
+        selector: '.rekl_item_left',
         navigationArrows: true,
         infinity: true,
     });

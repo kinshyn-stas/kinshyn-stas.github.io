@@ -3794,7 +3794,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: flex;
     align-items: center;
     min-width: 200vw;
-    animation: header_stroke_line 20s linear;
+    animation: header_stroke_line 30s linear;
     animation-iteration-count: infinite; 
 }
 .header_stroke_line:hover{
