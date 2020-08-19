@@ -2706,6 +2706,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding: 60px 60px 80px;
     background-color: #0a0a0a;
     color: #ffffff;
+    border-radius: 4px;
 }
 .blog_slider_item_content_cat{
     display: inline-block;
@@ -2854,6 +2855,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .blog_slider_item_content{
         width: 100%;
         padding: 40px 20px 30px;
+        border-radius: 0;
     }
     .blog_slider_item_content_cat{
         margin-bottom: 14px;
@@ -2945,6 +2947,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .articles_item_text_title a{
     text-decoration: none;
+    transition: none;
 }
 .articles_more{
     margin-top: 20px;
