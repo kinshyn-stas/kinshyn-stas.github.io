@@ -3328,6 +3328,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .contacts_item_text{
     padding-top: 2px;
 }
+.contacts_item_link{
+    font-weight: 500;
+}
 .contacts_item_phone{
     position: relative;
     top: -2px;
