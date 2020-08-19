@@ -1165,21 +1165,22 @@ function headerStroke(){
         let items = [];
         let item = parent.querySelector('.header_stroke_item');
         let parentWidth = parent.offsetWidth;
-        let itemWidth = item.offsetWidth;
+        let itemWidth = item.clientWidth + 1;
 
-        let c = Math.floor(parentWidth / itemWidth) * 2;
-        if(parentWidth < itemWidth) c = 2;
+        let c = Math.floor(parentWidth / itemWidth) * 3;
+        if(parentWidth < itemWidth) c = 3;
         for(let i = 0; i<c; i++){
             items.push(item.cloneNode(true));
         }
 
         line.innerHTML = '';
         items.forEach(item => {
-            item.style.minWidth = `${parentWidth / c * 2}px`;
-            if(parentWidth < itemWidth) item.style.minWidth = `${itemWidth * 2}px`;
+            item.style.minWidth = `${itemWidth}px`;
+            //if(parentWidth < itemWidth) item.style.minWidth = `${itemWidth * 2}px`;
             line.append(item);
         });
-        line.style.minWidth = `${parentWidth * 2}px`;
+        //line.style.minWidth = `${parentWidth * 2}px`;
+        line.style.minWidth = `${itemWidth * items.length}px`;
     })
 }
 
