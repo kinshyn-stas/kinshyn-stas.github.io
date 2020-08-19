@@ -3036,6 +3036,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: inline-block;
     margin-right: 30px;
     color: #d30000;
+    transition: all 0.4s ease-in-out;
+}
+.article_head_tag:hover{
+    color: #0a0a0a;
+    cursor: pointer;
 }
 .article_head_time{
     display: inline-block;

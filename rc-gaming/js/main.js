@@ -1236,7 +1236,7 @@ function animationText(){
         item.innerHTML = `<div class="text-anim_inner" style="opacity: 0">${item.innerHTML}</div>`;
 
         let transform = `translate(0,100%)`;
-
+        
         if(item.dataset.direction){
             switch(item.dataset.direction){
                 case 'top':
