@@ -3872,7 +3872,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .header_menu_nav_link{
     display: block;
     margin-bottom: 30px;
-    font-size: 34px;
+    font-size: 24px;
     font-weight: 600;
     line-height: 34px;
     text-decoration: none;
