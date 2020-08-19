@@ -2689,6 +2689,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     border-radius: 4px;
     overflow: hidden;
 }
+.blog_slider_item:hover .blog_slider_item_image{
+    transform: scale(1.1);
+}
 .blog_slider_item_image{
     position: absolute;
     top: 0;
@@ -2699,6 +2702,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 100%;
     object-position: center;
     object-fit: cover;
+    transition: all .4s ease-in-out;
 }
 .blog_slider_item_content{
     width: 670px;
