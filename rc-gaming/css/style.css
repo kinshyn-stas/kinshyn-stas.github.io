@@ -3557,6 +3557,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: inline-flex;
     align-items: flex-end;
     font-size: 40px;
+    font-weight: 600;
     line-height: 50px;
     text-decoration: none;
 }
