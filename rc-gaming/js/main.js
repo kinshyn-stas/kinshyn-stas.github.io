@@ -759,7 +759,7 @@ class Slider{
         if(this.params.navigationArrows.right){
             this.slider_arrow_right.innerHTML = `${this.params.navigationArrows.right}`;
         } else {
-            this.slider_arrow_right.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="12" viewBox="0 0 32 12" class="hover-item">
+            this.slider_arrow_right.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 12" class="hover-item">
                                                     <g fill="none" fill-rule="evenodd">
                                                         <path d="M0 0H32V32H0z" transform="translate(0 -10)"/>
                                                         <path class="arrow" fill="#0A0A0A" fill-rule="nonzero" d="M25.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034H.717c-.254-.002-.492.134-.62.362-.13.227-.13.506 0 .734.128.227.366.364.62.361h28.638l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="translate(0 -10)"/>
@@ -774,7 +774,7 @@ class Slider{
         if(this.params.navigationArrows.left){
             this.slider_arrow_left.innerHTML = `${this.params.navigationArrows.left}`;
         } else {
-            this.slider_arrow_left.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="12" viewBox="0 0 32 12" class="hover-item">
+            this.slider_arrow_left.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 12" class="hover-item">
                                                     <g fill="none" fill-rule="evenodd">
                                                         <path d="M0 0H32V32H0z" transform="matrix(-1 0 0 1 32 -10)"/>
                                                         <path class="arrow" fill="#0A0A0A" fill-rule="nonzero" d="M25.237 10c-.288-.006-.55.17-.667.441-.113.273-.055.589.147.8l4.638 4.034H.717c-.254-.002-.492.134-.62.362-.13.227-.13.506 0 .734.128.227.366.364.62.361h28.638l-4.638 4.035c-.271.29-.26.751.022 1.03.282.279.73.27 1.002-.023l5.461-5.035c.406-.374.432-1.007.058-1.413-.018-.02-.038-.04-.058-.058l-5.461-5.035c-.13-.145-.313-.227-.504-.233z" transform="matrix(-1 0 0 1 32 -10)"/>
