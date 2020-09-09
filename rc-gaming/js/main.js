@@ -32,6 +32,7 @@ window.onload = function(){
         infinity: true,
         multiDisplay: {
             desktop: 2,
+            notebook: 2,
             touch: 1,
             mobile: 1,
             multiShift: false,
@@ -762,10 +763,12 @@ class Slider{
         this.slideOnScreen = 1;
         if(this.params.multiDisplay){
             let w = document.body.offsetWidth;
-            if(w>0 && w<=768){
+            if(w>0 && w<=767){
                 this.slideOnScreen = this.params.multiDisplay.mobile;
-            } else if(w>768 && w<=1100){
+            } else if(w>767 && w<=1199){
                 this.slideOnScreen = this.params.multiDisplay.touch;
+            } else if(w>1199 && w<=1499){
+                this.slideOnScreen = this.params.multiDisplay.notebook;
             } else {
                 this.slideOnScreen = this.params.multiDisplay.desktop;
             }

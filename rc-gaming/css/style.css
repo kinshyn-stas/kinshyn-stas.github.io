@@ -1286,25 +1286,36 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .lnt_item{
     display: flex;
     flex-direction: column;
-    height: 100%;
     padding: 80px 60px 0;
     border-right: 1px solid #dbdbdb;
+    transition: all 0.4s ease-in-out;
+}
+.lnt_item.hover-hide{
+    color: #919191;
 }
 .lnt_item-left{
     width: calc(100% / 3);
     border-left: 1px solid #dbdbdb;
 }
 .lnt_item_text{}
-.lnt_item_text .lnt_item_overtitle{
+.lnt_item .lnt_item_overtitle{
     margin-bottom: 40px;
     color: #fc0000;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
+    transition: all 0.4s ease-in-out;
+}
+.lnt_item.hover-hide .lnt_item_overtitle{
+    opacity: 0.3;
 }
 .lnt_item_title{}
 .lnt_item_form{
     margin-top: 20px;
+    transition: all 0.4s ease-in-out;
+}
+.lnt_item.hover-hide .lnt_item_form{
+    opacity: 0.3;
 }
 .lnt_item_form_item{
     margin-bottom: 10px;
@@ -1323,6 +1334,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     flex-grow: 100;
     display: flex;
     align-items: flex-end;
+    min-height: 92px;
 }
 .lnt_item_link_arrow{
     display: inline-block;
@@ -1331,6 +1343,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: block;
     width: 32px;
     transform: scale(-1,1)
+}
+.lnt_item_link_arrow svg g{
+    transition: all 0.4s ease-in-out;
+}
+.lnt_item.hover-hide .lnt_item_link_arrow svg g{
+    fill: #919191;
 }
 .lnt_box .slider_block{
     height: 100%;
@@ -1346,6 +1364,34 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .lnt_box .slider_arrow-left{
     transform: translate(calc(-100% - 20px),100%);    
+}
+.lnt_box .slider_arrow svg .arrow{
+    transition: all 0.4s ease-in-out;
+}
+.lnt_box .slider_arrow svg.hover-hide .arrow{
+    fill: #919191;
+}
+
+@media screen and (max-width: 1499px){
+    .lnt_block{
+        padding-bottom: 140px;
+    }
+    .lnt_item{
+        padding: 60px 40px 0;
+    }
+}
+@media screen and (max-width: 1199px){
+    .lnt_block{
+        padding-bottom: 104px;
+    }        
+    .lnt_content{
+        padding-bottom: 52px;
+    } 
+}
+@media screen and (max-width: 767px){
+    .lnt_block{
+        padding-bottom: 60px;
+    }
 }
 
 
