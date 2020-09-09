@@ -1450,6 +1450,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .lnt_item_link{
         justify-content: center;
+        min-height: 0;
+        margin-top: 20px;
     }
     .lnt_box .slider_arrow{
         display: none;
