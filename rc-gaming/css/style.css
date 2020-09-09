@@ -1414,7 +1414,45 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 @media screen and (max-width: 767px){
     .lnt_block{
-        padding-bottom: 60px;
+        padding-bottom: 20px;
+    }
+    .lnt_content{
+        display: block;
+        padding-bottom: 0;
+    }
+    .lnt_box{
+        width: 100%;
+        border-right: 0;
+    }
+    .lnt_item{
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .lnt_item-left{
+        position: relative;
+        width: 100%;
+    }
+    .lnt_item-left:after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        display: block;
+        width: calc(100% - 40px);
+        height: 1px;
+        background-color: #dbdbdb;
+    }
+    .lnt_item .lnt_item_overtitle{
+        margin-bottom: 10px;
+    }
+    .lnt_item_title{
+        margin-bottom: 10px;
+    }
+    .lnt_item_link{
+        justify-content: center;
+    }
+    .lnt_box .slider_arrow{
+        display: none;
     }
 }
 
