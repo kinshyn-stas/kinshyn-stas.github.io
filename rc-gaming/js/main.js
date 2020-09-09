@@ -27,6 +27,18 @@ window.onload = function(){
     });
 
     new classMultiplyWrapper(Slider, {
+        selector: '.lnt_box',
+        navigationArrows: true,
+        infinity: true,
+        multiDisplay: {
+            desktop: 2,
+            touch: 1,
+            mobile: 1,
+            multiShift: false,
+        }
+    });
+
+    new classMultiplyWrapper(Slider, {
         selector: '.blog_slider',
         navigationArrows: {
             left: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
