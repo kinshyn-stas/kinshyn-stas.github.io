@@ -1385,8 +1385,32 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         padding-bottom: 104px;
     }        
     .lnt_content{
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
         padding-bottom: 52px;
     } 
+    .lnt_box{
+        width: 50%;
+        border-left: 1px solid #dbdbdb;
+    }
+    .lnt_item{
+        padding: 60px 40px;
+        border-right: none;
+    }
+    .lnt_item-left{
+        width: 50%;
+        border-left: none;
+    }
+    .lnt_item .lnt_item_overtitle{
+        margin-bottom: 20px;
+    }
+    .lnt_item_link{
+        min-height: 74px;
+    }
+    .lnt_box .slider_arrow{
+        right: 40px;
+        bottom: -20px;
+    }
 }
 @media screen and (max-width: 767px){
     .lnt_block{
