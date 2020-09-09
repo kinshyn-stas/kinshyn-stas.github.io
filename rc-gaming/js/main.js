@@ -15,7 +15,7 @@ window.onload = function(){
 
 
     functionMultiplyWrapper(() => hiddenScrollAside('.seo_content'));
-    window.addEventListener('resize',() => hiddenScrollAside('.seo_content'));
+    window.addEventListener('resize', () => hiddenScrollAside('.seo_content'));
 
     functionMultiplyWrapper(() => changeMainPaddingTop());
     resizeXWrapper(changeMainPaddingTop);
@@ -88,6 +88,8 @@ window.onload = function(){
 
 
     functionMultiplyWrapper(preloaderOff);
+
+    functionMultiplyWrapper(changePriceBlock);
 };
 
 
@@ -1295,8 +1297,6 @@ function animationText(){
         inner.style.transform = transform;
     });
 
-
-
     const observerText = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1382,5 +1382,43 @@ function changeSliderCursor(selector){
                 emulate.style.left = ``;
             }
         }); 
+    });
+};
+
+
+function changePriceBlock(){
+    document.querySelectorAll('.price_body').forEach(block => {
+        //let box = block.querySelector('.price_box');
+        let items = block.querySelectorAll('.price_item');
+        //let aside = block.querySelector('.price_aside');
+        let content = block.querySelector('.price_aside_content');
+
+        changeContentInner();
+        document.addEventListener('scroll', changeContentInner);
+
+        function changeContentInner(){
+            if(document.documentElement.clientWidth < 768) return;
+            let pointCenter = document.elementFromPoint(document.documentElement.clientWidth / 2, document.documentElement.clientHeight / 2);
+            if(pointCenter.closest('.price_item')){
+                let item = pointCenter.closest('.price_item');
+                if(item.dataset.number == content.dataset.number) return;   
+                changeContentInnerHTML(item);    
+            } else {
+                if(content.innerHTML == ''){
+                    changeContentInnerHTML(items[0]);                  
+                }            
+            }            
+        }
+
+        function changeContentInnerHTML(item){
+            content.innerHTML = '';
+            content.append(item.querySelector('.price_info').cloneNode(true)); 
+            content.dataset.number = item.dataset.number;
+            content.style.animationName = '';  
+
+            setTimeout(() => {
+                content.style.animationName = 'price_aside_content';
+            }, 1)
+        }
     });
 };
