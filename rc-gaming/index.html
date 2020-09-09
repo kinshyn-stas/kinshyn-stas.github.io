@@ -841,5 +841,23 @@
 		    excluded          : ''
 		})
 	</script>
+	<script src="https://cdnjs.com/libraries/lottie-web"></script>
+	<script>
+		lottie.loadAnimation({
+		  container:document.querySelector('.soc_open'), // the dom element that will contain the animation
+		  renderer: 'svg',
+		  loop: true,
+		  autoplay: true,
+		  path: 'anim.json' // the path to the animation json
+		});
+
+		/*var animation = bodymovin.loadAnimation({
+		  container: document.querySelector('.soc_open'), // Required
+		  path: 'anim.json', // Required
+		  renderer: 'svg', // Required
+		  loop: true, // Optional
+		  autoplay: true, // Optional
+		})*/
+	</script>
 </body>
 </html>
