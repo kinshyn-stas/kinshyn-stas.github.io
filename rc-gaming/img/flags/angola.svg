@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="12" viewBox="0 0 17 12">
+    <defs>
+        <filter id="ukhyjscx8d" width="117.9%" height="153.6%" x="-8.9%" y="-26.8%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+        </filter>
+        <filter id="7nfgr089of" width="117.9%" height="146.9%" x="-8.9%" y="-23.4%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+        </filter>
+        <filter id="0mhnujxywh" width="127.1%" height="142.3%" x="-13.6%" y="-10.6%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+        </filter>
+        <path id="bodv0r7sne" d="M0 6.4H16.8V12H0z"/>
+        <path id="x7tloadykg" d="M0 0H16.8V6.4H0z"/>
+        <path id="cwkx8cdnri" d="M8.175 3.41l.08.013c1.28.343 2.04 1.659 1.697 2.94-.054.203-.133.393-.233.568l.503.336c.184.123.233.371.11.555-.122.184-.37.233-.554.11l-.569-.38c-.582.505-1.396.722-2.196.507-.213-.057-.34-.276-.283-.49.057-.213.277-.34.49-.282.455.122.917.034 1.284-.203l-1.126-.751c-.184-.123-.233-.371-.11-.555.122-.184.37-.233.554-.11l1.229.817c.054-.103.097-.213.129-.33.228-.853-.278-1.73-1.132-1.96-.213-.056-.34-.276-.283-.49.058-.213.277-.34.49-.282zM7.6 4.4c.22 0 .4.18.4.4 0 .22-.18.4-.4.4-.22 0-.4-.18-.4-.4 0-.22.18-.4.4-.4z"/>
+        <linearGradient id="dwjrv1n1fb" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF323E"/>
+            <stop offset="100%" stop-color="#FD0D1B"/>
+        </linearGradient>
+        <rect id="ftbitpy5wa" width="16.8" height="12" x="0" y="0" rx="1.2"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <mask id="4y24wvdeic" fill="#fff">
+            <use xlink:href="#ftbitpy5wa"/>
+        </mask>
+        <use fill="#FFF" xlink:href="#ftbitpy5wa"/>
+        <path fill="url(#dwjrv1n1fb)" d="M0 0H16.8V12H0z" mask="url(#4y24wvdeic)"/>
+        <g mask="url(#4y24wvdeic)">
+            <use fill="#000" filter="url(#ukhyjscx8d)" xlink:href="#bodv0r7sne"/>
+            <use fill="#262626" xlink:href="#bodv0r7sne"/>
+        </g>
+        <g mask="url(#4y24wvdeic)">
+            <use fill="#000" filter="url(#7nfgr089of)" xlink:href="#x7tloadykg"/>
+            <use fill="#DD2137" xlink:href="#x7tloadykg"/>
+        </g>
+        <g fill-rule="nonzero" mask="url(#4y24wvdeic)">
+            <use fill="#000" filter="url(#0mhnujxywh)" xlink:href="#cwkx8cdnri"/>
+            <use fill="#F8D84B" xlink:href="#cwkx8cdnri"/>
+        </g>
+    </g>
+</svg>

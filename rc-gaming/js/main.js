@@ -411,12 +411,13 @@ function clickItemHandler(event){
 function emulateSelector(select){
     let selects = document.querySelectorAll(select);
 
-    selects.forEach((select) =>{
+    selects.forEach((select, z) =>{
         select.hidden = true;
 
         let emul = document.createElement('div');
         emul.classList.add("select");
-        emul.onclick = ()=>emul.classList.toggle('active');
+        emul.style.zIndex = `${z}0`;
+        //emul.onclick = ()=>emul.classList.toggle('active');
         emul.setAttribute('tabindex','1');
         emul.onblur = function(){
             this.classList.remove('active');
@@ -441,7 +442,7 @@ function emulateSelector(select){
             option.innerHTML = item.innerHTML;
             option.dataset.value = item.value;
 
-            option.onclick = ()=>{
+            /*option.onclick = ()=>{
                 if(!emul.classList.contains('active')) return;
                 select.value=option.dataset.value;
                 tit.textContent = option.textContent;
@@ -455,7 +456,7 @@ function emulateSelector(select){
                     option.classList.remove('selected')
                 });
                 option.classList.add('selected');
-            };
+            };*/
 
             if(item.selected){
                 option.classList.add('selected');
@@ -482,6 +483,41 @@ function emulateSelector(select){
         selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
         z++;
     }
+
+    document.addEventListener('click', (event) => {
+        if(event.target.closest('.select_option')){
+            let target = event.target.closest('.select_option');
+            let emul = target.closest('.select');
+            let select;
+            if(emul.previousElementSibling && emul.previousElementSibling.classList.contains('.select_emulator')) select = emul.previousElementSibling.classList.contains('.select_emulator');
+            let tit = emul.querySelector('.select_tit')
+            let list = emul.querySelector('.select_list_outer');
+
+            if(target.classList.contains('select_tit')){
+                emul.classList.toggle('active');
+            } else {
+                if(select){
+                    select.value=option.dataset.value;
+
+                    let evt = document.createEvent('HTMLEvents');
+                    evt.initEvent('change', true, true);
+                    select.dispatchEvent(evt);
+                } 
+
+                let value;
+                if(target.querySelector('.select_option_radio')) value = target.querySelector('.select_option_radio').value;
+                if(target.dataset.value) value = target.dataset.value;
+                tit.textContent = value;
+                tit.classList.add('chosen');
+
+                list.querySelectorAll('.select_option').forEach((option)=>{
+                    option.classList.remove('selected')
+                });
+                target.classList.add('selected');
+                emul.classList.remove('active');
+            }
+        }
+    });
 };
 
 

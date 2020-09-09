@@ -2281,7 +2281,35 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .faq_form_item input{
     width: 100%;
 }
-.faq_form_item-button{}
+.faq_form_item .select_list{
+    padding: 7px 0;
+}
+.faq_form_item .select_option{
+    padding: 0;
+}
+.faq_form_item .select_option.hover-hide{
+    color: #919191;
+    font-weight: 500;
+    transition: all 0.4s ease-in-out;
+}
+.faq_form_item .select_tit{
+    padding: 11px 16px 11px 12px;
+}
+.faq_form_item .select_option_content{
+    padding: 5px 12px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.faq_form_item .select_option_content img{
+    display: block;
+    width: 17px;
+    min-width: 17px;
+    margin-right: 12px;
+    transition: all 0.4s ease-in-out;
+}
+.faq_form_item .select_option.hover-hide img{
+    opacity: 0.3;
+}
 .faq_form_item-button button{
     display: block;
     width: 100%;
@@ -4141,9 +4169,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
 }
-.select_option:hover{
+/*.select_option:hover{
     background-color: #f4f4f4;
-}
+}*/
 .select_tit{
     display: flex;
     align-items: center;
@@ -4186,11 +4214,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     -webkit-transform: translateY(100%);
 }
 .select.active .select_list_outer{
-    height: 210px;
+    height: auto;
     opacity: 1;
     overflow-y: auto;
     transition: opacity 0.4s ease-in-out;
     box-shadow: 0 1px 2px 0 #919191;
+}
+.select_option_radio{
+    display: none;
+}
+.select_option_content{
+    display: flex;
+}
+.select_option_content img{
+    display: block;
 }
 
 
