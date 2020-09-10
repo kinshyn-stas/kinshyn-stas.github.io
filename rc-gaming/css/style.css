@@ -947,8 +947,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         height: 500px;
         object-fit: cover;
     }
-    .pc_canvas_item{
+    .pc_canvas_item:nth-of-type(n+8){
         display: none;
+    }
+    .pc_canvas_item.active .pc_canvas_item_text{
+        width: 140px;
+        top: 42px;
+        left: 0;
+        right: auto;
+    }
+    .pc_canvas_item.left .pc_canvas_item_text{
+        left: auto;
+        right: 0;
     }
 }
 
