@@ -176,515 +176,6 @@ function hoverCanvasHandler(event){
 };
 
 
-class SlSlider{
-    constructor(params){
-        this.parent = params.item;
-        this.params = params;
-
-        this.articles = this.parent.querySelectorAll('.sl_slider_content_item');
-        this.box = this.parent.querySelector('.sl_slider_box');
-        this.items = this.parent.querySelectorAll('.sl_slider_item');
-
-        this.activeItem(0);
-        this.ready();
-
-        this.box.addEventListener("mousedown", this.mouseFlip.bind(this));
-        this.box.addEventListener("touchstart", this.touchFlip.bind(this));
-        window.addEventListener("resize", this.ready.bind(this));
-    }
-
-    ready(){
-        let boxWidth = 0;
-        this.items.forEach(item => {
-            boxWidth += item.offsetWidth;
-            boxWidth += parseFloat(getComputedStyle(item).marginRight);
-        });
-        this.box.style.minWidth = `${boxWidth}px`;
-        this.box.style.width = `auto`;
-
-        this.activeItem(this.activeNumber);
-    }
-
-    activeItem(n){
-        if(n < 0) n = 0;
-        if(n >= this.items.length) n = this.items.length - 1;
-        this.activeNumber = n;
-        this.items.forEach(items => items.classList.remove('active'));
-        this.items[n].classList.add('active');
-
-        this.activeArticle(n);
-        this.moveBox(n);
-    }
-
-    activeArticle(n){
-        if(n < 0) n = 0;
-        if(n >= this.articles.length) n = this.articles.length - 1;
-        this.articles.forEach(article => article.classList.remove('active'));
-        this.articles[n].classList.add('active')
-    }
-
-    moveBox(n){
-        let boxShift = 0;
-        for(let i = 0; i < n; i++){
-            boxShift += this.items[i].offsetWidth;
-            boxShift += parseFloat(getComputedStyle(this.items[i]).marginRight);
-        }
-        this.box.style.transform = `translateX(-${boxShift}px)`;
-    }
-
-    mouseFlip(event){
-        event.preventDefault();
-        let mousePointStart = event.clientX;
-        let mousePointCurrent = 0;
-
-        let mouseMoveBinded = mouseMove.bind(this);
-        function mouseMove(event){
-            event.preventDefault();
-            mousePointCurrent = event.clientX;
-            let m = (mousePointCurrent - mousePointStart);
-
-            if(m < -document.body.offsetWidth/16){
-                this.activeItem(this.activeNumber + 1);
-                mousePointStart = mousePointCurrent;
-                mouseUp.call(this,event);
-            } else if(m > document.body.offsetWidth/16){
-                this.activeItem(this.activeNumber - 1);
-                mousePointStart = mousePointCurrent;
-                mouseUp.call(this,event);
-            }
-        }
-
-        function mouseUp(event){
-            event.preventDefault();
-            this.box.removeEventListener('mousemove', mouseMoveBinded);
-            mousePointStart = 0;
-            mousePointCurrent = 0;
-        }
-
-        this.box.addEventListener('mousemove', mouseMoveBinded);
-        this.box.addEventListener('mouseup', mouseUp.bind(this));
-
-    }
-
-    touchFlip(event){
-        let touchPointStart = event.changedTouches['0'].screenX;
-        let touchPointStartY = event.changedTouches['0'].screenY;
-        let touchPointCurrent = 0;
-        let touchPointCurrentY = 0;
-        let m = 0;
-        let n = 0;
-
-        let touchMoveBinded = touchMove.bind(this);
-        let touchEndBinded = touchEnd.bind(this);
-
-        function touchMove(event){
-            touchPointCurrent = event.changedTouches['0'].screenX;
-            touchPointCurrentY = event.changedTouches['0'].screenY;
-            m = touchPointCurrent - touchPointStart;
-            n = touchPointCurrentY - touchPointStartY;
-
-            if(m >= document.body.offsetWidth/16){
-                if(event.cancelable){
-                    event.preventDefault();
-                }
-                this.activeItem(this.activeNumber - 1);
-                touchPointStart = touchPointCurrent;
-                touchEndBinded(event);
-            } else if(m <= -document.body.offsetWidth/16){
-                if(event.cancelable){
-                   event.preventDefault();
-                }
-                this.activeItem(this.activeNumber + 1);
-                touchPointStart = touchPointCurrent;
-                touchEndBinded(event);
-            }
-
-        }
-
-
-        function touchEnd(event){
-            this.box.removeEventListener('touchmove', touchMoveBinded);
-            this.box.removeEventListener('touchend', touchEndBinded);
-            touchPointStart = 0;
-            touchPointStartY = 0;
-            touchPointCurrent = 0;
-            touchPointCurrentY = 0;
-
-            if((m <= 20 && m >= -20) && (n <= 20 && n >= -20)){
-                event.target.click();
-            }
-
-            if(event.cancelable){
-                event.preventDefault();
-            }
-        }
-
-        this.box.addEventListener('touchmove', touchMoveBinded);
-        this.box.addEventListener('touchend', touchEndBinded);
-        this.box.addEventListener('touchcancel', touchEndBinded);
-    }
-}
-
-
-function clickItemHandler(event){
-    if(!event.target.closest('.click-item')) return;
-    let item = event.target.closest('.click-item');
-    if(item.getAttribute('href') && item.getAttribute('href') == '#') event.preventDefault();
-    let parent;
-    if(event.target.closest('.click-obj')) parent = event.target.closest('.click-obj');
-
-    let obj = {
-        'toggle': function(target){
-            parent.classList.toggle('active');
-
-            if(target.classList.contains('header_switch')){
-                let header = document.querySelector('.header_main');
-                let header_content = document.querySelector('.header_content');
-
-                if(header.classList.contains('active')){
-                    header.querySelector('.header_stroke').style.display = 'none';
-                    header.querySelector('.header_menu').style.height = `calc(100vh - ${header_content.clientHeight}px)`;
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    header.querySelector('.header_stroke').style.display = '';
-                    header.querySelector('.header_menu').style.height = '';
-                    document.body.style.overflow = '';
-                }
-            }
-        },
-
-        'popup-open': function(target){
-            if(!document.querySelector(target.dataset.label)) return;
-            let popup = document.querySelector(target.dataset.label);
-            popup.classList.add('active');
-            document.body.style.overflow = 'hidden';
-
-            if(target.classList.contains('header_stroke_item')){
-                let h = document.querySelector('.header_stroke').clientHeight;
-                popup.style.top = `${h}px`;
-                popup.style.height = `calc(100vh - ${h}px)`;
-            }
-        },
-
-        'popup-close': function(target){
-            let popup;
-            if(target.dataset.label){
-                popup = document.querySelector(target.dataset.label);
-            } else {
-                popup = target.closest('.popup_container');
-            }
-            popup.classList.remove('active')
-            document.body.style.overflow = '';
-
-            if(popup.classList.contains('popup-newsletter')){
-                popup.style.top = ``;
-                popup.style.height = ``;
-            }
-        },
-
-        'blog-cat-switch': function(target){
-            parent.classList.toggle('active');
-
-            if(!target.classList.contains('active')){
-                obj.querySelectorAll('.blog_slider_label').forEach(item => item.classList.remove('active'));
-                target.classList.add('active');
-            }
-        },
-
-        'faq-switch': function(target){
-            let box = target.closest('.faq_main_f_box');
-            if(target.classList.contains('active')){
-                target.classList.remove('active');
-            } else {
-                box.querySelectorAll('.faq_main_f_item_label').forEach(item => item.classList.remove('active'));
-                target.classList.add('active');
-            }
-        },
-    }
-
-    if(item.dataset.action){
-        let actions = item.dataset.action.split(' ');
-        actions.forEach(action => obj[action](item));
-    } else {
-        obj['toggle'](item);
-    }
-};
-
-
-function emulateSelector(select){
-    let selects = document.querySelectorAll(select);
-
-    selects.forEach((select, z) =>{
-        select.hidden = true;
-
-        let emul = document.createElement('div');
-        emul.classList.add("select");
-        emul.style.zIndex = `${z}0`;
-        //emul.onclick = ()=>emul.classList.toggle('active');
-        emul.setAttribute('tabindex','1');
-        emul.onblur = function(){
-            this.classList.remove('active');
-        };
-
-        let tit = document.createElement('div');
-        tit.classList.add("select_option", "select_tit");
-        tit.onclick = () => select.classList.toggle('active');
-        emul.append(tit);
-
-        let emulListOuter = document.createElement('div');
-        emulListOuter.classList.add("select_list_outer");
-        emul.append(emulListOuter);
-
-        let emulList = document.createElement('div');
-        emulList.classList.add("select_list","hover-parent");
-        emulListOuter.append(emulList);
-
-        select.querySelectorAll('option').forEach((item)=>{
-            let option = document.createElement('div');
-            option.classList.add("select_option","hover-item");
-            option.innerHTML = item.innerHTML;
-            option.dataset.value = item.value;
-
-            /*option.onclick = ()=>{
-                if(!emul.classList.contains('active')) return;
-                select.value=option.dataset.value;
-                tit.textContent = option.textContent;
-                tit.classList.add('chosen');
-
-                let evt = document.createEvent('HTMLEvents');
-                evt.initEvent('change', true, true);
-                select.dispatchEvent(evt);
-
-                option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
-                    option.classList.remove('selected')
-                });
-                option.classList.add('selected');
-            };*/
-
-            if(item.selected){
-                option.classList.add('selected');
-                tit.textContent = item.textContent;
-            } 
-            if(item.dataset.default == 'true') option.classList.add('default');
-            if(item.disabled) option.classList.add('disabled');
-            emulList.append(option);
-        });
-
-        select.parentNode.append(emul);
-
-        let heightStart = emul.querySelector('.select_option').offsetHeight;
-        let heightEnd = 0;
-        emul.querySelectorAll('.select_option').forEach((option)=>{
-            heightEnd += option.offsetHeight;
-        });
-        //emul.style.height = heightStart + 'px';
-        //emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
-    })
-
-    let z = 1;
-    for(let i=selects.length - 1; i>=0; i--){
-        selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
-        z++;
-    }
-
-    document.addEventListener('click', (event) => {
-        if(event.target.closest('.select_option')){
-            let target = event.target.closest('.select_option');
-            let emul = target.closest('.select');
-            let select;
-            if(emul.previousElementSibling && emul.previousElementSibling.classList.contains('.select_emulator')) select = emul.previousElementSibling.classList.contains('.select_emulator');
-            let tit = emul.querySelector('.select_tit')
-            let list = emul.querySelector('.select_list_outer');
-
-            if(target.classList.contains('select_tit')){
-                emul.classList.toggle('active');
-            } else {
-                if(select){
-                    select.value=option.dataset.value;
-
-                    let evt = document.createEvent('HTMLEvents');
-                    evt.initEvent('change', true, true);
-                    select.dispatchEvent(evt);
-                } 
-
-                let value;
-                if(target.querySelector('.select_option_radio')) value = target.querySelector('.select_option_radio').value;
-                if(target.dataset.value) value = target.dataset.value;
-                tit.textContent = value;
-                tit.classList.add('chosen');
-
-                list.querySelectorAll('.select_option').forEach((option)=>{
-                    option.classList.remove('selected')
-                });
-                target.classList.add('selected');
-                emul.classList.remove('active');
-            }
-        }
-    });
-};
-
-
-function handlerClickLinks(event){
-    if(!(event.target.closest('a') && event.target.closest('a').href.split('#')[1])) return;
-    let a = event.target.closest('a');
-    event.preventDefault();
-    let target = document.getElementById(`${a.href.split('#')[1]}`);
-    if(!target) return;
-
-
-    function calculateHeight(){
-        return Math.max(
-            document.body.scrollHeight, document.documentElement.scrollHeight,
-            document.body.offsetHeight, document.documentElement.offsetHeight,
-            document.body.clientHeight, document.documentElement.clientHeight
-        );
-    }
-
-    let p = pageYOffset;
-    let step = 10;
-    let direction = false;
-
-    if(pageYOffset > target.getBoundingClientRect().top + pageYOffset){
-        direction = true;
-    }
-
-    let int = setInterval(()=>{
-        if(direction){
-            if(p <= step) clearInterval(int);
-
-            if(p>target.getBoundingClientRect().top + pageYOffset - 88){
-                p -= step;
-            } else {
-                clearInterval(int);
-            }
-        } else {
-            if(p >= calculateHeight() - step) clearInterval(int);
-
-            if(p<target.getBoundingClientRect().top + pageYOffset - 88){
-                p += step;
-            } else {
-                clearInterval(int);
-            }
-        }
-
-        scrollTo(pageXOffset,p)
-    }, 1);
-};
-
-
-function resizeXWrapper(func){
-    let widthStart = window.innerWidth;
-
-    window.addEventListener('resize', () => {
-        if(window.innerWidth != widthStart){
-            func();
-            widthStart = window.innerWidth;
-        }
-    })
-};
-
-
-function validatePhone(event){
-    if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
-    let target = event.target;
-    
-    if(+target.dataset.format){
-        target.value = target.value.replace(/,/g,".");
-        target.value = target.value.replace(/[^.0-9]/g,"");
-    } else {
-        target.value = target.value.replace(/\D/g,"");
-    }
-};
-
-function hiddenScrollAside(selector){
-    document.querySelectorAll(selector).forEach(box =>{            
-      box.classList.add('scroll-emul_block');
-      box.style.height = `${(parseInt(getComputedStyle(box).height))}px`;
-      let cont = box.querySelector('.scroll-emul_container');
-
-      if(!box.children[0].classList.contains('scroll-emul_container')){
-          cont = document.createElement('div');
-          cont.classList = 'scroll-emul_container';
-
-          let content = document.createElement('div');
-          content.classList = 'scroll-emul_content';
-
-          while(box.children.length){
-              content.append(box.children[0])
-          }
-
-          let line = document.createElement('div');
-          line.classList = 'scroll-emul_line';
-
-          let line_item = document.createElement('div');
-          line_item.classList = 'scroll-emul_line_item';
-
-          cont.append(content);
-          line.append(line_item);
-          cont.append(line);
-          box.append(cont);
-
-          let n = content.offsetWidth - content.clientWidth - content.clientLeft;
-          if(n<=0) n = 50;
-          content.style.width = `calc(100% + ${n}px)`;
-          content.style.paddingRight = `${n}px`;
-
-          let contentFullHeight = 0;
-          for(let i = 0; i<content.children.length; i++){
-              contentFullHeight += parseFloat(content.children[i].offsetHeight);
-          };
-          let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
-          line.hidden = (line_itemHeight >= 100)
-          line_item.style.height = `${line_itemHeight}%`;
-          line_item.onmousedown = function(event){
-            event.preventDefault();
-            let startY = event.clientY;
-            let startScroll = content.scrollTop;
-
-            document.addEventListener('mousemove', scrollMousemoveHandler);
-            document.addEventListener('mouseup', scrollMouseupHandler);
-
-            function scrollMousemoveHandler(event){
-                let diffY = event.clientY - startY;
-                content.scrollTop = startScroll + (contentFullHeight * diffY / parseFloat(content.offsetHeight));
-            }
-
-            function scrollMouseupHandler(event){
-                document.removeEventListener('mousemove', scrollMousemoveHandler);
-                document.removeEventListener('mouseup', scrollMouseupHandler);
-            }
-          };
-
-          content.removeEventListener('scroll', scrollContent);
-          content.addEventListener('scroll', scrollContent);
-
-          function scrollContent(e){
-              line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
-          }
-      } else {
-            let content = box.querySelector('.scroll-emul_content');
-            let line = box.querySelector('.scroll-emul_line');
-            let line_item = box.querySelector('.scroll-emul_line_item');
-
-            let contentFullHeight = 0;
-            for(let i = 0; i<content.children.length; i++){
-                contentFullHeight += parseFloat(content.children[i].offsetHeight);
-            };
-            let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
-            line.hidden = (line_itemHeight >= 100)
-            line_item.style.height = `${line_itemHeight}%`;
-
-            content.removeEventListener('scroll', scrollContent);
-            content.addEventListener('scroll', scrollContent);
-
-            function scrollContent(e){
-                line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
-            }
-        }
-    })
-};
-
-
 class Slider{
     constructor(params){
         this.params = params;
@@ -1127,11 +618,11 @@ class Slider{
             mousePointCurrent = event.clientX;
             let m = (mousePointCurrent - mousePointStart);
 
-            if(m < -document.body.offsetWidth/4){
+            if(m < -this.container.offsetWidth/4){
                 this.slideMove({direction: 'right'});
                 mousePointStart = mousePointCurrent;
                 mouseUp.call(this,event);
-            } else if(m > document.body.offsetWidth/4){
+            } else if(m > this.container.offsetWidth/4){
                 this.slideMove({direction: 'left'});
                 mousePointStart = mousePointCurrent;
                 mouseUp.call(this,event);
@@ -1168,13 +659,13 @@ class Slider{
             m = touchPointCurrent - touchPointStart;
             n = touchPointCurrentY - touchPointStartY;
 
-            if(m >= document.body.offsetWidth/4){
+            if(m >= this.container.offsetWidth/4){
                 event.preventDefault();
                 clearInterval(this.autoShift);
                 this.slideMove({direction: 'left'});
                 touchPointStart = touchPointCurrent;
                 touchEndBinded(event);
-            } else if(m <= -document.body.offsetWidth/4){
+            } else if(m <= -this.container.offsetWidth/4){
                 event.preventDefault();
                 clearInterval(this.autoShift);
                 this.slideMove({direction: 'right'});
@@ -1204,6 +695,515 @@ class Slider{
         this.container.addEventListener('touchend', touchEndBinded);
         this.container.addEventListener('touchcancel', touchEndBinded);
     }
+};
+
+
+class SlSlider{
+    constructor(params){
+        this.parent = params.item;
+        this.params = params;
+
+        this.articles = this.parent.querySelectorAll('.sl_slider_content_item');
+        this.box = this.parent.querySelector('.sl_slider_box');
+        this.items = this.parent.querySelectorAll('.sl_slider_item');
+
+        this.activeItem(0);
+        this.ready();
+
+        this.box.addEventListener("mousedown", this.mouseFlip.bind(this));
+        this.box.addEventListener("touchstart", this.touchFlip.bind(this));
+        window.addEventListener("resize", this.ready.bind(this));
+    }
+
+    ready(){
+        let boxWidth = 0;
+        this.items.forEach(item => {
+            boxWidth += item.offsetWidth;
+            boxWidth += parseFloat(getComputedStyle(item).marginRight);
+        });
+        this.box.style.minWidth = `${boxWidth}px`;
+        this.box.style.width = `auto`;
+
+        this.activeItem(this.activeNumber);
+    }
+
+    activeItem(n){
+        if(n < 0) n = 0;
+        if(n >= this.items.length) n = this.items.length - 1;
+        this.activeNumber = n;
+        this.items.forEach(items => items.classList.remove('active'));
+        this.items[n].classList.add('active');
+
+        this.activeArticle(n);
+        this.moveBox(n);
+    }
+
+    activeArticle(n){
+        if(n < 0) n = 0;
+        if(n >= this.articles.length) n = this.articles.length - 1;
+        this.articles.forEach(article => article.classList.remove('active'));
+        this.articles[n].classList.add('active')
+    }
+
+    moveBox(n){
+        let boxShift = 0;
+        for(let i = 0; i < n; i++){
+            boxShift += this.items[i].offsetWidth;
+            boxShift += parseFloat(getComputedStyle(this.items[i]).marginRight);
+        }
+        this.box.style.transform = `translateX(-${boxShift}px)`;
+    }
+
+    mouseFlip(event){
+        event.preventDefault();
+        let mousePointStart = event.clientX;
+        let mousePointCurrent = 0;
+
+        let mouseMoveBinded = mouseMove.bind(this);
+        function mouseMove(event){
+            event.preventDefault();
+            mousePointCurrent = event.clientX;
+            let m = (mousePointCurrent - mousePointStart);
+
+            if(m < -document.body.offsetWidth/16){
+                this.activeItem(this.activeNumber + 1);
+                mousePointStart = mousePointCurrent;
+                mouseUp.call(this,event);
+            } else if(m > document.body.offsetWidth/16){
+                this.activeItem(this.activeNumber - 1);
+                mousePointStart = mousePointCurrent;
+                mouseUp.call(this,event);
+            }
+        }
+
+        function mouseUp(event){
+            event.preventDefault();
+            this.box.removeEventListener('mousemove', mouseMoveBinded);
+            mousePointStart = 0;
+            mousePointCurrent = 0;
+        }
+
+        this.box.addEventListener('mousemove', mouseMoveBinded);
+        this.box.addEventListener('mouseup', mouseUp.bind(this));
+
+    }
+
+    touchFlip(event){
+        let touchPointStart = event.changedTouches['0'].screenX;
+        let touchPointStartY = event.changedTouches['0'].screenY;
+        let touchPointCurrent = 0;
+        let touchPointCurrentY = 0;
+        let m = 0;
+        let n = 0;
+
+        let touchMoveBinded = touchMove.bind(this);
+        let touchEndBinded = touchEnd.bind(this);
+
+        function touchMove(event){
+            touchPointCurrent = event.changedTouches['0'].screenX;
+            touchPointCurrentY = event.changedTouches['0'].screenY;
+            m = touchPointCurrent - touchPointStart;
+            n = touchPointCurrentY - touchPointStartY;
+
+            if(m >= document.body.offsetWidth/16){
+                if(event.cancelable){
+                    event.preventDefault();
+                }
+                this.activeItem(this.activeNumber - 1);
+                touchPointStart = touchPointCurrent;
+                touchEndBinded(event);
+            } else if(m <= -document.body.offsetWidth/16){
+                if(event.cancelable){
+                   event.preventDefault();
+                }
+                this.activeItem(this.activeNumber + 1);
+                touchPointStart = touchPointCurrent;
+                touchEndBinded(event);
+            }
+
+        }
+
+
+        function touchEnd(event){
+            this.box.removeEventListener('touchmove', touchMoveBinded);
+            this.box.removeEventListener('touchend', touchEndBinded);
+            touchPointStart = 0;
+            touchPointStartY = 0;
+            touchPointCurrent = 0;
+            touchPointCurrentY = 0;
+
+            if((m <= 20 && m >= -20) && (n <= 20 && n >= -20)){
+                event.target.click();
+            }
+
+            if(event.cancelable){
+                event.preventDefault();
+            }
+        }
+
+        this.box.addEventListener('touchmove', touchMoveBinded);
+        this.box.addEventListener('touchend', touchEndBinded);
+        this.box.addEventListener('touchcancel', touchEndBinded);
+    }
+};
+
+
+function clickItemHandler(event){
+    if(!event.target.closest('.click-item')) return;
+    let item = event.target.closest('.click-item');
+    if(item.getAttribute('href') && item.getAttribute('href') == '#') event.preventDefault();
+    let parent;
+    if(event.target.closest('.click-obj')) parent = event.target.closest('.click-obj');
+
+    let obj = {
+        'toggle': function(target){
+            parent.classList.toggle('active');
+
+            if(target.classList.contains('header_switch')){
+                let header = document.querySelector('.header_main');
+                let header_content = document.querySelector('.header_content');
+
+                if(header.classList.contains('active')){
+                    header.querySelector('.header_stroke').style.display = 'none';
+                    header.querySelector('.header_menu').style.height = `calc(100vh - ${header_content.clientHeight}px)`;
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    header.querySelector('.header_stroke').style.display = '';
+                    header.querySelector('.header_menu').style.height = '';
+                    document.body.style.overflow = '';
+                }
+            }
+        },
+
+        'popup-open': function(target){
+            if(!document.querySelector(target.dataset.label)) return;
+            let popup = document.querySelector(target.dataset.label);
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            if(target.classList.contains('header_stroke_item')){
+                let h = document.querySelector('.header_stroke').clientHeight;
+                popup.style.top = `${h}px`;
+                popup.style.height = `calc(100vh - ${h}px)`;
+            }
+        },
+
+        'popup-close': function(target){
+            let popup;
+            if(target.dataset.label){
+                popup = document.querySelector(target.dataset.label);
+            } else {
+                popup = target.closest('.popup_container');
+            }
+            popup.classList.remove('active')
+            document.body.style.overflow = '';
+
+            if(popup.classList.contains('popup-newsletter')){
+                popup.style.top = ``;
+                popup.style.height = ``;
+            }
+        },
+
+        'blog-cat-switch': function(target){
+            parent.classList.toggle('active');
+
+            if(!target.classList.contains('active')){
+                obj.querySelectorAll('.blog_slider_label').forEach(item => item.classList.remove('active'));
+                target.classList.add('active');
+            }
+        },
+
+        'faq-switch': function(target){
+            let box = target.closest('.faq_main_f_box');
+            if(target.classList.contains('active')){
+                target.classList.remove('active');
+            } else {
+                box.querySelectorAll('.faq_main_f_item_label').forEach(item => item.classList.remove('active'));
+                target.classList.add('active');
+            }
+        },
+    }
+
+    if(item.dataset.action){
+        let actions = item.dataset.action.split(' ');
+        actions.forEach(action => obj[action](item));
+    } else {
+        obj['toggle'](item);
+    }
+};
+
+
+function emulateSelector(select){
+    let selects = document.querySelectorAll(select);
+
+    selects.forEach((select, z) =>{
+        select.hidden = true;
+
+        let emul = document.createElement('div');
+        emul.classList.add("select");
+        emul.style.zIndex = `${z}0`;
+        //emul.onclick = ()=>emul.classList.toggle('active');
+        emul.setAttribute('tabindex','1');
+        emul.onblur = function(){
+            this.classList.remove('active');
+        };
+
+        let tit = document.createElement('div');
+        tit.classList.add("select_option", "select_tit");
+        tit.onclick = () => select.classList.toggle('active');
+        emul.append(tit);
+
+        let emulListOuter = document.createElement('div');
+        emulListOuter.classList.add("select_list_outer");
+        emul.append(emulListOuter);
+
+        let emulList = document.createElement('div');
+        emulList.classList.add("select_list","hover-parent");
+        emulListOuter.append(emulList);
+
+        select.querySelectorAll('option').forEach((item)=>{
+            let option = document.createElement('div');
+            option.classList.add("select_option","hover-item");
+            option.innerHTML = item.innerHTML;
+            option.dataset.value = item.value;
+
+            /*option.onclick = ()=>{
+                if(!emul.classList.contains('active')) return;
+                select.value=option.dataset.value;
+                tit.textContent = option.textContent;
+                tit.classList.add('chosen');
+
+                let evt = document.createEvent('HTMLEvents');
+                evt.initEvent('change', true, true);
+                select.dispatchEvent(evt);
+
+                option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
+                    option.classList.remove('selected')
+                });
+                option.classList.add('selected');
+            };*/
+
+            if(item.selected){
+                option.classList.add('selected');
+                tit.textContent = item.textContent;
+            } 
+            if(item.dataset.default == 'true') option.classList.add('default');
+            if(item.disabled) option.classList.add('disabled');
+            emulList.append(option);
+        });
+
+        select.parentNode.append(emul);
+
+        let heightStart = emul.querySelector('.select_option').offsetHeight;
+        let heightEnd = 0;
+        emul.querySelectorAll('.select_option').forEach((option)=>{
+            heightEnd += option.offsetHeight;
+        });
+        //emul.style.height = heightStart + 'px';
+        //emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
+    })
+
+    let z = 1;
+    for(let i=selects.length - 1; i>=0; i--){
+        selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
+        z++;
+    }
+
+    document.addEventListener('click', (event) => {
+        if(event.target.closest('.select_option')){
+            let target = event.target.closest('.select_option');
+            let emul = target.closest('.select');
+            let select;
+            if(emul.previousElementSibling && emul.previousElementSibling.classList.contains('.select_emulator')) select = emul.previousElementSibling.classList.contains('.select_emulator');
+            let tit = emul.querySelector('.select_tit')
+            let list = emul.querySelector('.select_list_outer');
+
+            if(target.classList.contains('select_tit')){
+                emul.classList.toggle('active');
+            } else {
+                if(select){
+                    select.value=option.dataset.value;
+
+                    let evt = document.createEvent('HTMLEvents');
+                    evt.initEvent('change', true, true);
+                    select.dispatchEvent(evt);
+                } 
+
+                let value;
+                if(target.querySelector('.select_option_radio')) value = target.querySelector('.select_option_radio').value;
+                if(target.dataset.value) value = target.dataset.value;
+                tit.textContent = value;
+                tit.classList.add('chosen');
+
+                list.querySelectorAll('.select_option').forEach((option)=>{
+                    option.classList.remove('selected')
+                });
+                target.classList.add('selected');
+                emul.classList.remove('active');
+            }
+        }
+    });
+};
+
+
+function handlerClickLinks(event){
+    if(!(event.target.closest('a') && event.target.closest('a').href.split('#')[1])) return;
+    let a = event.target.closest('a');
+    event.preventDefault();
+    let target = document.getElementById(`${a.href.split('#')[1]}`);
+    if(!target) return;
+
+
+    function calculateHeight(){
+        return Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+        );
+    }
+
+    let p = pageYOffset;
+    let step = 10;
+    let direction = false;
+
+    if(pageYOffset > target.getBoundingClientRect().top + pageYOffset){
+        direction = true;
+    }
+
+    let int = setInterval(()=>{
+        if(direction){
+            if(p <= step) clearInterval(int);
+
+            if(p>target.getBoundingClientRect().top + pageYOffset - 88){
+                p -= step;
+            } else {
+                clearInterval(int);
+            }
+        } else {
+            if(p >= calculateHeight() - step) clearInterval(int);
+
+            if(p<target.getBoundingClientRect().top + pageYOffset - 88){
+                p += step;
+            } else {
+                clearInterval(int);
+            }
+        }
+
+        scrollTo(pageXOffset,p)
+    }, 1);
+};
+
+
+function resizeXWrapper(func){
+    let widthStart = window.innerWidth;
+
+    window.addEventListener('resize', () => {
+        if(window.innerWidth != widthStart){
+            func();
+            widthStart = window.innerWidth;
+        }
+    })
+};
+
+
+function validatePhone(event){
+    if(!(event.target.tagName.toLowerCase() == 'input' && event.target.type == 'tel')) return;
+    let target = event.target;
+    
+    if(+target.dataset.format){
+        target.value = target.value.replace(/,/g,".");
+        target.value = target.value.replace(/[^.0-9]/g,"");
+    } else {
+        target.value = target.value.replace(/\D/g,"");
+    }
+};
+
+function hiddenScrollAside(selector){
+    document.querySelectorAll(selector).forEach(box =>{            
+      box.classList.add('scroll-emul_block');
+      box.style.height = `${(parseInt(getComputedStyle(box).height))}px`;
+      let cont = box.querySelector('.scroll-emul_container');
+
+      if(!box.children[0].classList.contains('scroll-emul_container')){
+          cont = document.createElement('div');
+          cont.classList = 'scroll-emul_container';
+
+          let content = document.createElement('div');
+          content.classList = 'scroll-emul_content';
+
+          while(box.children.length){
+              content.append(box.children[0])
+          }
+
+          let line = document.createElement('div');
+          line.classList = 'scroll-emul_line';
+
+          let line_item = document.createElement('div');
+          line_item.classList = 'scroll-emul_line_item';
+
+          cont.append(content);
+          line.append(line_item);
+          cont.append(line);
+          box.append(cont);
+
+          let n = content.offsetWidth - content.clientWidth - content.clientLeft;
+          if(n<=0) n = 50;
+          content.style.width = `calc(100% + ${n}px)`;
+          content.style.paddingRight = `${n}px`;
+
+          let contentFullHeight = 0;
+          for(let i = 0; i<content.children.length; i++){
+              contentFullHeight += parseFloat(content.children[i].offsetHeight);
+          };
+          let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
+          line.hidden = (line_itemHeight >= 100)
+          line_item.style.height = `${line_itemHeight}%`;
+          line_item.onmousedown = function(event){
+            event.preventDefault();
+            let startY = event.clientY;
+            let startScroll = content.scrollTop;
+
+            document.addEventListener('mousemove', scrollMousemoveHandler);
+            document.addEventListener('mouseup', scrollMouseupHandler);
+
+            function scrollMousemoveHandler(event){
+                let diffY = event.clientY - startY;
+                content.scrollTop = startScroll + (contentFullHeight * diffY / parseFloat(content.offsetHeight));
+            }
+
+            function scrollMouseupHandler(event){
+                document.removeEventListener('mousemove', scrollMousemoveHandler);
+                document.removeEventListener('mouseup', scrollMouseupHandler);
+            }
+          };
+
+          content.removeEventListener('scroll', scrollContent);
+          content.addEventListener('scroll', scrollContent);
+
+          function scrollContent(e){
+              line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
+          }
+      } else {
+            let content = box.querySelector('.scroll-emul_content');
+            let line = box.querySelector('.scroll-emul_line');
+            let line_item = box.querySelector('.scroll-emul_line_item');
+
+            let contentFullHeight = 0;
+            for(let i = 0; i<content.children.length; i++){
+                contentFullHeight += parseFloat(content.children[i].offsetHeight);
+            };
+            let line_itemHeight = (parseFloat(content.offsetHeight) / contentFullHeight) * 100;
+            line.hidden = (line_itemHeight >= 100)
+            line_item.style.height = `${line_itemHeight}%`;
+
+            content.removeEventListener('scroll', scrollContent);
+            content.addEventListener('scroll', scrollContent);
+
+            function scrollContent(e){
+                line_item.style.top = `${(e.target.scrollTop / contentFullHeight) * 100}%`;
+            }
+        }
+    })
 };
 
 
