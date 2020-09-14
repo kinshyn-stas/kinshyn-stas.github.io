@@ -4005,7 +4005,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #ffebc8;
     font-weight: 600;
     overflow: hidden;
-    transition: opacity 1s ease-in-out;
+    transition: padding 0.4s linear, opacity 1s ease-in-out;
 }
 .header_stroke:after{
     content: "";
