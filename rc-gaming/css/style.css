@@ -2966,7 +2966,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-transform: uppercase;
     text-decoration: none;
 }
-.blog_slider_item:hover .blog_slider_item_content_cat{
+.blog_slider_item_content_cat:hover{
     color: #ffffff;
 }
 .blog_slider_item_content_title{
