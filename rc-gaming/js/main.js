@@ -382,16 +382,6 @@ function clickItemHandler(event){
             }
         },
 
-        'testimonial-switch': function(target){
-            parent.querySelectorAll('.click-item[data-action="testimonial-switch"]').forEach(item => {
-                item.classList.remove('active');
-                item.classList.add('hover-hide');
-            });
-
-            item.classList.add('active');
-            item.classList.remove('hover-hide');
-        },
-
         'blog-cat-switch': function(target){
             parent.classList.toggle('active');
 
