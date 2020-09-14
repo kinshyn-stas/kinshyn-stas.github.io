@@ -1443,8 +1443,21 @@ function changePriceBlock(){
         //let aside = block.querySelector('.price_aside');
         let content = block.querySelector('.price_aside_content');
 
+        changeItemsHeight();
+        resizeXWrapper(changeItemsHeight);
         changeContentInner();
         document.addEventListener('scroll', changeContentInner);
+
+        function changeItemsHeight(){
+            items.forEach(item => {
+                if(document.documentElement.clientWidth < 768){
+                    item.style.height = '';
+                } else {
+                    let info = item.querySelector('.price_info');
+                    item.style.height = getComputedStyle(info).height;
+                }
+            })            
+        }
 
         function changeContentInner(){
             if(document.documentElement.clientWidth < 768) return;

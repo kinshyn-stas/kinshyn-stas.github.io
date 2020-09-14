@@ -251,6 +251,24 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-size: 14px;
     line-height: 22px;
 }
+.form_item_alert{
+    display: block;
+    width: 100%;
+    height: 0;
+    color: #d30000;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    overflow: hidden;
+    visibility: hidden;
+}
+.invalid~.form_item_alert{
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    margin-top: 6px;
+    transition: opacity 0.4s ease-in-out, margin-top 0.2s linear;
+}
 
 @media screen and (max-width: 1199px){
     .p1{
@@ -1369,9 +1387,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     fill: #919191;
 }
 .lnt_item_thx{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 0;
     height: 0;
     opacity: 0;
@@ -1742,7 +1757,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 400px;
+    margin-bottom: 160px;
 }
 .price_item:last-of-type{
     margin-bottom: 0;
@@ -1760,7 +1775,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     min-width: 380px;
 }
 .price_box .price_info{
-    display: none;
+    position: fixed;
+    top: -200%;
+    left: -200%;
+    opacity: 0;
 }
 .price_info_item{
     padding: 29px 39px;
@@ -1926,7 +1944,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin: 100px auto 0;
     }
     .price_item{
-        margin-bottom: 340px;
+        margin-bottom: 140px;
     }
     .price_text{
         width: 380px;
@@ -1952,7 +1970,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin: 60px auto 0;
     }
     .price_item{
-        margin-bottom: 300px;
+        margin-bottom: 100px;
     }
     .price_text{
         width: 300px;
@@ -2010,7 +2028,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         margin: 60px auto 0;
     }
     .price_box .price_info{
-        display: block;
+        position: static;
+        opacity: 1;
     }
     .price_item{
         flex-direction: column;
