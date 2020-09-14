@@ -4626,7 +4626,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .soc_open svg{
     display: block;
     max-width: 100%;
-    display: none;
 }
 .soc_open:hover{
     transform: scale(0.83);
