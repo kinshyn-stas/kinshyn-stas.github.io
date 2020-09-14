@@ -1842,22 +1842,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     position: sticky;
     top: calc(50vh - 35%);
     opacity: 0;
-    transform: scale(0);
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
 }
 @keyframes price_aside_content{
     0%{
         opacity: 0;
-        transform: scale(0);
     }
     50%{
         opacity: 0;
-        transform: scale(0.5);
     }
     100%{
         opacity: 1;
-        transform: scale(1);
     }
 }
 
