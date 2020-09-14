@@ -1676,11 +1676,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .price_head_undertitle{}
 .price_body{
     display: flex;
+    justify-content: center;
     margin: 120px auto 0;
 }
-.price_box{
-    flex-grow: 100;
-}
+.price_box{}
 .price_item{
     display: flex;
     justify-content: center;
