@@ -4143,12 +4143,18 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     padding-bottom: 7px;
 }
 .header_logo{}
-.header_logo img{
+.header_logo svg{
     display: block;
     height: 62px;
 }
-.header_main.scrolled .header_logo img{
+.header_main.scrolled .header_logo svg{
     height: 55px;
+}
+.header_logo .logo-color{
+    transition: all 0.2s ease-in-out;
+}
+.header_logo:hover .logo-color{
+    fill: #D92525;
 }
 .header_nav{
     display: flex;
