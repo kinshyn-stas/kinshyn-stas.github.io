@@ -130,10 +130,19 @@ function classMultiplyWrapper(Cls,parametrs){
 function hoverItemsHandler(event){
     if(!event.target.closest('.hover-item')) return;
     let target = event.target.closest('.hover-item');
-    let parent = event.target.closest('.hover-parent');
-    parent.querySelectorAll('.hover-item').forEach(item => item.classList.add('hover-hide'));
+    let parent = target.closest('.hover-parent');
+    let items = parent.querySelectorAll('.hover-item');
+    if(target.closest('slider_arrow')){
+        items = parent.querySelectorAll('.slider_arrow');
+    };
+    if(target.classList.contains('lnt_item')){
+        items = parent.querySelectorAll('.lnt_item');
+    };
+    items.forEach(item => item.classList.add('hover-hide'));
     target.classList.remove('hover-hide');
     target.classList.add('hover-focus');
+
+
 
     if(target.dataset.label){
         document.querySelectorAll(target.dataset.label).forEach(item => {
