@@ -132,8 +132,8 @@ function hoverItemsHandler(event){
     let target = event.target.closest('.hover-item');
     let parent = target.closest('.hover-parent');
     let items = parent.querySelectorAll('.hover-item');
-    if(target.closest('slider_arrow')){
-        items = parent.querySelectorAll('.slider_arrow');
+    if(target.closest('.slider_arrow')){
+        items = parent.querySelectorAll('.slider_arrow svg');
     };
     if(target.classList.contains('lnt_item')){
         items = parent.querySelectorAll('.lnt_item');
