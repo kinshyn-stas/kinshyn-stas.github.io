@@ -4005,6 +4005,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #ffebc8;
     font-weight: 600;
     overflow: hidden;
+    transition: opacity 1s ease-in-out;
 }
 .header_stroke:after{
     content: "";
@@ -4020,7 +4021,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 0;
     padding: 0;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
 }
 .header_stroke_line{
     display: flex;
