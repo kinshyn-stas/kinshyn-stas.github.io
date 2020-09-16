@@ -4706,6 +4706,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     box-shadow: 0 10px 40px 0 rgba(10, 10, 10, 0.3);
     transition: opacity 0.6s ease-in-out, transform 0.2s ease-in-out;
 }
+.soc_open img{
+    display: none;
+}
 .soc_open svg{
     display: block;
     max-width: 100%;
