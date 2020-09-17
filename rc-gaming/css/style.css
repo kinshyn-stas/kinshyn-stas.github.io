@@ -4707,7 +4707,21 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transition: opacity 0.6s ease-in-out, transform 0.2s ease-in-out;
 }
 .soc_open img{
-    display: none;
+    /*display: none;*/
+    animation-name: soc_open;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes soc_open{
+    0%{transform: translate(0,0);}
+    12%{transform: translate(5%,0);}
+    24%{transform: translate(0,0);}
+    36%{transform: translate(-5%,0);}
+    48%{transform: translate(0,0);}
+    60%{transform: translate(0,-5%);}
+    72%{transform: translate(0,0);}
+    84%{transform: translate(0,5%);}
+    100%{transform: translate(0,0);}
 }
 .soc_open svg{
     display: block;
