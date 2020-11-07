@@ -4,7 +4,7 @@
           <img src="../img/logomin.svg" alt="" style="filter:grayscale(100%);">
         </div>
         <div class="col-10 col-lg-7 info">
-          <h3>Создание красивых брендов и сайтов.</h3>
+          <h3>Разработка уникальных платформ</h3>
           <a href="/contacts" class="btn btn-aftline">Contact us</a>
         </div>
         <div class="offset-2 col-10 offset-lg-0 col-lg-3 contacts">
@@ -15,6 +15,9 @@
           <p>
             <a href="tel:+380934686757">+38 (093) 468-67-57</a> <br>
             <a href="mailto:support@easy-agency.com">support@easy-agency.com</a>
+          </p>
+          <p>
+            <a href="./pdf/Presentation.pdf" download="">Скачать презентацию</a>
           </p>
         </div>
       </div>

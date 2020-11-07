@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IMG to iframe</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="main" class="main_container">
+
+		<img src="img/d.png" onClick="changeContent()" style="width: 100%; cursor: pointer;" />
+
+	</div>
+
+	<script type="text/javascript">
+		function changeContent(){
+			let main = document.getElementById('main');
+			let frame1 = `<iframe src="https://af.l-ark.com/fields360/tour-01/" width="" height="" align="center"> </iframe>`
+			let frame2 = `<iframe src="https://af.l-ark.com/fields360/tour-02/" width="" height="" align="center"> </iframe>`
+			main.innerHTML = frame2;
+		}
+	</script>
+</body>
+</html>

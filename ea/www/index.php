@@ -12,6 +12,7 @@
 				</div>
 			</div>
 			<a href="#servicesblock" class="btn btn-bfline">Узнай больше</a>
+			<a href="./pdf/Presentation.pdf" class="btn-presentation" download="">Презентация</a>
     </section>
 		<section class="container-fluid home-servicesblock dark_bg" id="servicesblock">
 			<div class="row">
@@ -189,7 +190,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
-							<h3 class="frontblock-heading">Давайте посчитаем ваш проект...</h3>
+							<h3 class="frontblock-heading">Напишите нам, и мы ответим на вопросы по вашему проекту...</h3>
 						</div>
 						<div class="col-12">
 							<a href="/callback" class="btn btn-aftline">Start a project</a>
