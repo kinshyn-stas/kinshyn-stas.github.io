@@ -21,8 +21,7 @@ export default class Item extends React.Component{
 
   checkItemPosition(){
     let pos = this.item.current.getBoundingClientRect();
-    let w = window.pageYOffset + (window.screen.height / 2);
-    if(pos.top + window.pageYOffset < w && pos.bottom + window.pageYOffset > w){
+    if(pos.top < (window.screen.height * 3 / 4) && pos.bottom > (window.screen.height * 1 / 4)){
       this.changeNumber();
     }
   }
@@ -52,7 +51,7 @@ export default class Item extends React.Component{
 
   render() {
     return (
-      <div className="achiev_item" ref={this.item}>
+      <div className={`achiev_item ${this.state.flag ? 'active' : ''}`} ref={this.item}>
         <figure>
           {this.props.item.img}
         </figure>
