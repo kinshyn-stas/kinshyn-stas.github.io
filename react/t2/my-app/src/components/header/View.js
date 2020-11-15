@@ -17,7 +17,7 @@ export default class Header extends React.Component{
 
     return (
       <React.Fragment>
-        <header className="main-block header-main">
+        <header className="header-main">
           <div className="center-main-block">
 
             <figure className="header_logo">

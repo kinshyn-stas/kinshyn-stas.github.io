@@ -70,8 +70,10 @@ h1{
     font-size: 50px;
 }
 h2{
+    margin-bottom: 40px;
     font-size: 40px;
     line-height: 50px;
+    text-align: center;
 }
 h3{
     margin-bottom: 30px;
@@ -96,7 +98,7 @@ svg{
     border-style: none;
 }
 p{
-    margin-bottom: 30px;
+    margin-bottom: 0.75em;
 }
 p:last-of-type{
     margin-bottom: 0;
@@ -185,7 +187,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         line-height: 50px;
     }
     h2{
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         font-size: 30px;
         line-height: 40px;
     }
@@ -237,11 +239,19 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .main{
   flex-grow: 100;
 }
-.main-block{}
+.main-block{
+    padding: 80px 0;
+}
 .center-main-block{
   max-width: 1200px;
   padding: 0 10px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px){
+    .main-block{
+        padding: 40px 0;
+    }
 }
 
 
@@ -465,9 +475,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.slider_main{
+.main-block.slider_main{
     position: relative;
     width: 100%;
+    padding: 0;
 }
 .slider_item{
     display: none;
@@ -499,6 +510,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-align: center;
 }
 .slider_item_title{
+    margin-bottom: 20px;
     letter-spacing: 0.3em;
 }
 .slider_item_undertitle{}
@@ -582,5 +594,51 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .slider_item_content{
         font-size: 16px;
+    }
+}
+
+
+.achiev_block{}
+.achiev_title{}
+.achiev_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.achiev_item{
+    flex-grow: 100;
+    width: 25%;
+    padding: 0 10px;
+}
+.achiev_item figure{
+    width: 34px;
+    margin: 0 auto 14px;
+}
+.achiev_item figure svg{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.achiev_item_number{
+    margin-bottom: 14px;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1;
+}
+.achiev_item_label{
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px){
+    .achiev_box{
+        flex-direction: column;
+    }
+    .achiev_item{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .achiev_item:last-of-type{
+        margin-bottom: 0;
     }
 }

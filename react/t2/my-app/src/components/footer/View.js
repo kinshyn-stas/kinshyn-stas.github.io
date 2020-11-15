@@ -14,7 +14,7 @@ export default class Footer extends React.Component{
   render() {
 
     return (
-      <footer className="main-block footer-main">
+      <footer className="footer-main">
         <div className="center-main-block">
 
           <figure className="footer_logo">
