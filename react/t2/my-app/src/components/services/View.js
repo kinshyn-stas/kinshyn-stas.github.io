@@ -56,7 +56,7 @@ export default class Services extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className="services_item" style={{backgroundImage: `url(${item.bg})`}}>
+      <div className="services_item" style={{backgroundImage: `url(${item.bg})`}} key={`services_item-${i}`}>
         <div className="services_item_content">
           <div className="services_item_top">
             <p className="services_item_title">{item.title}</p>
