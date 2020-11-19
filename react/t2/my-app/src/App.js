@@ -6,6 +6,7 @@ import Footer from './components/footer/View'
 import SliderMain from './components/slidermain/View'
 import Services from './components/services/View'
 import Achievements from './components/achievements/View'
+import Prices from './components/prices/View'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <SliderMain />
         <Services />
         <Achievements />
+        <Prices />
       </main>
 
       <Footer />
