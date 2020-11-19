@@ -33,7 +33,7 @@ export default class Item extends React.Component{
     let s = this.state.finishNumber - 400;
     if(s<0) s = 0;
     this.setState({number: s});
-    let t = parseInt((this.props.animTime + (this.props.i * 1000)) / (this.state.finishNumber - s));
+    let t = parseInt((this.props.animTime + (this.props.i * 500)) / (this.state.finishNumber - s));
     
     document.removeEventListener('scroll', this.checkItemPosition);
 

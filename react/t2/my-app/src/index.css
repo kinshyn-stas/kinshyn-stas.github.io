@@ -598,7 +598,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.achiev_block{}
+.achiev_block{
+  background-color: #0a0a0a;
+  background-image: url('./assets/img/bg-achiev.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+}
 .achiev_title{}
 .achiev_box{
     display: flex;
@@ -646,4 +653,96 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .achiev_item:last-of-type{
         margin-bottom: 0;
     }
+}
+
+
+.services_block{}
+.services_title{}
+.services_box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -30px;
+}
+.services_item{
+  width: calc((100% - 60px) / 3);
+  margin-bottom: 30px;
+  background-color: #0a0a0a;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.services_item_content{
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 40px;
+  background-color: rgba(0,0,0,0.6);
+  color: #ffffff;
+}
+.services_item_top{
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+.services_item_top:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: width 0.4s linear, opacity 1s ease-in-out;
+}
+.services_item:hover .services_item_top:after{
+  width: 100%;
+  opacity: 1;
+}
+.services_item_title{
+  font-size: 18px;
+}
+.services_item_body{
+  position: relative;
+  left: 200%;
+  opacity: 0;
+  transition: left 0.4s linear, opacity 1s ease-in-out;
+}
+.services_item:hover .services_item_body{
+  left: 0;
+  opacity: 1;
+}
+.services_item_name{
+  margin-bottom: 14px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1100px){
+  .services_item{
+    width: calc(50% - 15px);
+  }
+  .services_item_top:after{
+    width: 100%;
+    opacity: 1;
+  }
+  .services_item_body{
+    left: 0;
+    opacity: 1;
+  }
+}@media screen and (max-width: 768px){
+  .services_box{
+    flex-direction: column;
+    align-items: center;
+  }
+  .services_item{
+    width: 100%;
+    max-width: 400px;
+  }
+  .services_item_content{
+    min-height: 300px;    
+  }
 }
