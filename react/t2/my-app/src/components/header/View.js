@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {action_1} from '../../store/actions.js';
 
 import LogoHeader from '../../assets/img/LogoHeader.svg'
 import Search from './Search.js'
 
-export default class Header extends React.Component{
+class Header extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -14,6 +17,9 @@ export default class Header extends React.Component{
   }
 
   render() {
+    //console.log(this.props.changeValue_1)
+    this.props.changeValue({test: 't'})
+    console.log(this.props)
 
     return (
       <React.Fragment>
@@ -64,3 +70,17 @@ export default class Header extends React.Component{
     )    
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    test: state.test
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeValue: bindActionCreators(action_1, dispatch)
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header)
