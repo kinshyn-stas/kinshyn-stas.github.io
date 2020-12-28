@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import BG0 from '../../assets/img/slider/bg-0.jpg'
 import BG1 from '../../assets/img/slider/bg-1.jpg'
@@ -31,12 +30,13 @@ export default class SliderMain extends React.Component{
         },
       ],
       activeSlide: 0,
+      transitionShow: false,
     }
   }
 
   renderSlide(item,i){
     return (
-      <div className={`slider_item ${this.state.activeSlide == i ? 'active' : ''}`} style={{ backgroundImage: `url(${item.bg})` }} key={`slider_item-${i}`}>
+      <div className={`slider_item ${this.state.activeSlide === i ? 'active' : ''}`} style={{ backgroundImage: `url(${item.bg})` }} key={`slider_item-${i}`}>
         <div className="slider_item_content">
           {item.title && <h2 className="slider_item_title">{item.title}</h2>}
           {item.undertitle && <p className="slider_item_undertitle">{item.undertitle}</p>}
@@ -50,7 +50,7 @@ export default class SliderMain extends React.Component{
 
   renderSliderNav(item,i){
     return (
-      <button className={`slider_nav_item ${this.state.activeSlide == i ? 'active' : ''}`} onClick={(e) => this.changeSlide(i)} key={`slider_nav_item-${i}`}></button>
+      <button className={`slider_nav_item ${this.state.activeSlide === i ? 'active' : ''}`} onClick={(e) => this.changeSlide(i)} key={`slider_nav_item-${i}`}></button>
     )
   }
 
@@ -69,7 +69,36 @@ export default class SliderMain extends React.Component{
       }
     }
 
-    this.setState({activeSlide: a})
+    this.setState({activeSlide: a, transitionShow: true})
+  }
+
+  renderSlideTransition(){
+    let t = 1600;
+    let n = 6;
+
+    setTimeout(() => {
+      this.setState({transitionShow: false})
+    }, t + 200)
+
+    let arr = [];
+    for(let i=0; i<n; i++){
+      let d = (t * 0.5 / n) * i / 1000;
+      arr.push(<div className="slider_trans_item" key={`slider_trans_item-${i}`} style={{animationDelay: `${d}s`, animationDuration: `${t / 2000}s`}}></div>)
+    }
+
+    function randomInteger(min, max) {
+      let rand = min + Math.random() * (max + 1 - min);
+      return Math.floor(rand);
+    }
+
+    let cl = "slider_trans"
+    if(randomInteger(0,1)) cl += " slider_trans-reverse"
+
+    return(
+      <div className={cl}>
+        {arr.map(item => item)}
+      </div>
+    )
   }
 
   render() {
@@ -77,6 +106,7 @@ export default class SliderMain extends React.Component{
     return (
       <div className="main-block slider_main">
         {this.state.slides.map((item,i) => this.renderSlide(item,i))}
+        {this.state.transitionShow && this.renderSlideTransition()}
         <div className="slider_arrow slider_arrow-left" onClick={() => this.changeSlide(false)}>
           <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.67 1.87L9.9 0.1L0 10L9.9 19.9L11.67 18.13L3.54 10L11.67 1.87Z" fill="#ffffff"/>

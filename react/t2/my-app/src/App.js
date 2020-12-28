@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import Header from './components/header/View'
 import Footer from './components/footer/View'
@@ -10,18 +16,23 @@ import Prices from './components/prices/View'
 
 function App() {
   return (
-    <React.Fragment>
+    <Router>
       <main className="main">
-        <SliderMain />
-        <Services />
-        <Achievements />
-        <Prices />
+        <Switch>
+          <Route path="/about" component={Services} />
+          <Route path="/">
+            <SliderMain />
+            <Services />
+            <Achievements />
+            <Prices />
+          </Route>
+        </Switch>
       </main>
 
       <Footer />
 
       <Header />
-    </React.Fragment>
+    </Router>
   );
 }
 

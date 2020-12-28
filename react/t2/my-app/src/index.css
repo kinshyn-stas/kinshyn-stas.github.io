@@ -539,6 +539,37 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     0%{opacity: 0.4};
     100%{opacity: 1};
 }
+.slider_trans{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.slider_trans-reverse{
+  flex-direction: column;
+}
+.slider_trans_item{
+  width: 100%;
+  height: 100%;
+  flex-grow: 100;
+  background-color: #000;
+  animation-name: slider_trans_item;
+  animation-fill-mode: forwards;
+}
+@keyframes slider_trans_item{
+  0%{transform: translateY(0);}
+  100%{transform: translateY(-100%);}
+}
+.slider_trans-reverse .slider_trans_item{
+  animation-name: slider_trans_item-reverse;  
+}
+@keyframes slider_trans_item-reverse{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(100%);}
+}
 .slider_arrow{
     position: absolute;
     top: 50%;

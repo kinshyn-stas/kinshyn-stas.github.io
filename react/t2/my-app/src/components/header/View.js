@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {bindActionCreators} from 'redux';
+import { Link } from "react-router-dom";
+/*import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {action_1} from '../../store/actions.js';
+import {action_1} from '../../store/actions.js';*/
 
 import LogoHeader from '../../assets/img/LogoHeader.svg'
 import Search from './Search.js'
 
-class Header extends React.Component{
+export default class Header extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -17,9 +18,8 @@ class Header extends React.Component{
   }
 
   render() {
-    //console.log(this.props.changeValue_1)
-    this.props.changeValue({test: 't'})
-    console.log(this.props)
+    /*(this.props.changeValue({test: 't'})
+    console.log(this.props)*/
 
     return (
       <React.Fragment>
@@ -42,13 +42,13 @@ class Header extends React.Component{
 
               <nav className="header_nav">
                 <ul>
-                  <li><a className="header_nav_link active">Home</a></li>
-                  <li><a className="header_nav_link">About</a></li>
-                  <li><a className="header_nav_link">Services</a></li>
-                  <li><a className="header_nav_link">Projects</a></li>
-                  <li><a className="header_nav_link">News</a></li>
-                  <li><a className="header_nav_link">Shop</a></li>
-                  <li><a className="header_nav_link">Contact</a></li>
+                  <li><Link to={`/`} className="header_nav_link active">Home</Link></li>
+                  <li><Link to={`/about`} className="header_nav_link">About</Link></li>
+                  <li><Link to={`/services`} className="header_nav_link">Services</Link></li>
+                  <li><Link to={`/projects`} className="header_nav_link">Projects</Link></li>
+                  <li><Link to={`/news`} className="header_nav_link">News</Link></li>
+                  <li><Link to={`/shop`} className="header_nav_link">Shop</Link></li>
+                  <li><Link to={`/contact`} className="header_nav_link">Contact</Link></li>
                 </ul>
               </nav>
 
@@ -71,7 +71,7 @@ class Header extends React.Component{
   }
 }
 
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
   return {
     test: state.test
   }
@@ -83,4 +83,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default connect(mapStateToProps,mapDispatchToProps)(Header)*/
