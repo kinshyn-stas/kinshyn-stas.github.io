@@ -3551,7 +3551,7 @@ input:checked+.checkbox_emulate:after{
 }
 .select_list_outer{
     position: absolute;
-    left: 0;
+    left: -330px;
     bottom: 0;
     z-index: 10;
     height: 0;

@@ -13,6 +13,7 @@ window.onload = function(){
         selector: '.pr_slider',
         navigationArrows: true,
         infinity: true,
+        reverse: true,
     });
 
     new classMultiplyWrapper(Slider, {
@@ -335,8 +336,20 @@ class Slider{
             let m = this.sliders.length - (this.sliders.length % this.slideOnScreen);
             if(m == this.sliders.length) m = this.sliders.length - this.slideOnScreen;
 
-            if(params.direction == 'right') this.activeSlider += this.slideOnScreen;
-            if(params.direction == 'left') this.activeSlider -= this.slideOnScreen;
+            if(params.direction == 'right'){
+                if(this.params.reverse){
+                    this.activeSlider -= this.slideOnScreen;
+                } else {
+                    this.activeSlider += this.slideOnScreen;
+                }
+            } 
+            if(params.direction == 'left'){                
+                if(this.params.reverse){
+                    this.activeSlider += this.slideOnScreen;
+                } else {
+                    this.activeSlider -= this.slideOnScreen;
+                }
+            }
             if(params.counter != undefined) this.activeSlider = params.counter;
 
             if(this.params.infinity){
@@ -349,8 +362,20 @@ class Slider{
             this.installActiveSlider(this.activeSlider);
             this.slideAll();
         } else {
-            if(params.direction == 'right') this.activeSlider++;
-            if(params.direction == 'left') this.activeSlider--;
+            if(params.direction == 'right'){
+                if(this.params.reverse){
+                    this.activeSlider++;
+                } else {
+                    this.activeSlider--;
+                }
+            }
+            if(params.direction == 'left'){                
+                if(this.params.reverse){
+                    this.activeSlider--;
+                } else {
+                    this.activeSlider++;
+                }
+            }
             if(params.counter != undefined) this.activeSlider = params.counter;
 
             if(this.params.infinity){
