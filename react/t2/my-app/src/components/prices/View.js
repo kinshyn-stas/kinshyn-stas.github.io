@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 
 export default class Services extends React.Component{
@@ -8,6 +7,7 @@ export default class Services extends React.Component{
     this.state = {
       items: [
         {
+          id: 0,
           title: 'FREE BASIC',
           price: '0',
           duration: 'Per Month',
@@ -15,6 +15,7 @@ export default class Services extends React.Component{
           link: ''
         },
         {
+          id: 1,
           title: 'BASIC',
           price: '5',
           duration: 'Per Month',
@@ -22,6 +23,7 @@ export default class Services extends React.Component{
           link: ''
         },
         {
+          id: 2,
           title: 'STANDART',
           price: '20',
           duration: 'Per Month',
@@ -30,6 +32,7 @@ export default class Services extends React.Component{
           recommended: true,
         },
         {
+          id: 3,
           title: 'PREMIUM',
           price: '500',
           duration: 'Per Year',
@@ -42,7 +45,7 @@ export default class Services extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className={`prices_item ${item.recommended ? 'recommended' : ''}`} key={`prices_item-${i}`}>
+      <div className={`prices_item ${item.recommended ? 'recommended' : ''}`} key={`prices_item-${item.id}`}>
         <div className="prices_item_top">
           <p>{item.title}</p>
         </div>
@@ -66,14 +69,14 @@ export default class Services extends React.Component{
 
   render(){
     return (
-      <div className="main-block prices_block">  
+      <section className="main-block prices_block">  
         <div className="center-main-block">
           <h2 className="prices_title">OUR PRICE PLANS</h2>
           <div className="prices_box">
             {this.state.items.map((item,i) => this.renderItem(item,i))}
           </div>
         </div>
-      </div>
+      </section>
     )    
   }
 }

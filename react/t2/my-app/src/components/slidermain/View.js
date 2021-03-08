@@ -10,18 +10,21 @@ export default class SliderMain extends React.Component{
     this.state = {
       slides: [
         {
+          id: 0,
           bg: BG0,
           title: 'WALKING THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
           linkHref: '/test1',
         },
         {
+          id: 1,
           bg: BG1,
           title: 'FLY THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
           linkHref: '/test2',
         },
         {
+          id: 2,
           bg: BG2,
           title: 'SWIMMING THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
@@ -36,7 +39,7 @@ export default class SliderMain extends React.Component{
 
   renderSlide(item,i){
     return (
-      <div className={`slider_item ${this.state.activeSlide === i ? 'active' : ''}`} style={{ backgroundImage: `url(${item.bg})` }} key={`slider_item-${i}`}>
+      <div className={`slider_item ${this.state.activeSlide === i ? 'active' : ''}`} style={{ backgroundImage: `url(${item.bg})` }} key={`slider_item-${item.id}`}>
         <div className="slider_item_content">
           {item.title && <h2 className="slider_item_title">{item.title}</h2>}
           {item.undertitle && <p className="slider_item_undertitle">{item.undertitle}</p>}
@@ -104,7 +107,7 @@ export default class SliderMain extends React.Component{
   render() {
 
     return (
-      <div className="main-block slider_main">
+      <section className="main-block slider_main">
         {this.state.slides.map((item,i) => this.renderSlide(item,i))}
         {this.state.transitionShow && this.renderSlideTransition()}
         <div className="slider_arrow slider_arrow-left" onClick={() => this.changeSlide(false)}>
@@ -118,7 +121,7 @@ export default class SliderMain extends React.Component{
           </svg>
         </div>
         <div className="slider_nav">{this.state.slides.map((item,i) => this.renderSliderNav(item,i))}</div>        
-      </div>
+      </section>
     )    
   }
 }
