@@ -478,10 +478,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.main-block.slider_main{
+.slider_main{
     position: relative;
     width: 100%;
     padding: 0;
+    overflow: hidden;
 }
 .slider_item{
     display: none;
