@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 /*import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {action_1} from '../../store/actions.js';*/
@@ -7,7 +7,7 @@ import {action_1} from '../../store/actions.js';*/
 import LogoHeader from '../../assets/img/LogoHeader.svg'
 import Search from './Search.js'
 
-export default class Header extends React.Component{
+class Header extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -19,6 +19,8 @@ export default class Header extends React.Component{
   render() {
     /*(this.props.changeValue({test: 't'})
     console.log(this.props)*/
+
+    const { match, location, history } = this.props;
 
     return (
       <React.Fragment>
@@ -41,13 +43,12 @@ export default class Header extends React.Component{
 
               <nav className="header_nav">
                 <ul>
-                  <li><Link to={`/`} className="header_nav_link active">Home</Link></li>
-                  <li><Link to={`/about`} className="header_nav_link">About</Link></li>
-                  <li><Link to={`/services`} className="header_nav_link">Services</Link></li>
-                  <li><Link to={`/projects`} className="header_nav_link">Projects</Link></li>
-                  <li><Link to={`/news`} className="header_nav_link">News</Link></li>
-                  <li><Link to={`/shop`} className="header_nav_link">Shop</Link></li>
-                  <li><Link to={`/contact`} className="header_nav_link">Contact</Link></li>
+                  <li><Link to={`/`} className={`header_nav_link ${location.pathname ===  '/' ? 'active' : ''}`}>Home</Link></li>
+                  <li><Link to={`/about`} className={`header_nav_link ${location.pathname ===  '/about' ? 'active' : ''}`}>About</Link></li>
+                  <li><Link to={`/services`} className={`header_nav_link ${location.pathname ===  '/services' ? 'active' : ''}`}>Services</Link></li>
+                  <li><Link to={`/projects`} className={`header_nav_link ${location.pathname ===  '/projects' ? 'active' : ''}`}>Projects</Link></li>
+                  <li><Link to={`/news`} className={`header_nav_link ${location.pathname ===  '/news' ? 'active' : ''}`}>News</Link></li>
+                  <li><Link to={`/contact`} className={`header_nav_link ${location.pathname ===  '/contact' ? 'active' : ''}`}>Contact</Link></li>
                 </ul>
               </nav>
 
@@ -69,6 +70,8 @@ export default class Header extends React.Component{
     )    
   }
 }
+
+export default withRouter(Header)
 
 /*const mapStateToProps = state => {
   return {

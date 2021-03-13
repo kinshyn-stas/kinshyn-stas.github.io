@@ -19,6 +19,11 @@ export default class Item extends React.Component{
   }
 
   checkItemPosition(){
+    if(!this.item.current){
+      document.removeEventListener('scroll', this.checkItemPosition);
+      return;
+    }
+
     let pos = this.item.current.getBoundingClientRect();
     if(pos.top < (window.screen.height * 3 / 4) && pos.bottom > (window.screen.height * 1 / 4)){
       this.changeNumber();

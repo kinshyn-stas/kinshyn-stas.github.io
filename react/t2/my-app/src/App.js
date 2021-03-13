@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
   //Link
+  useLocation,
 } from "react-router-dom";
 
 import Header from './components/header/View'
@@ -18,38 +19,20 @@ import Testimonials from './components/testimonials/View'
 import Seo from './components/seo/View'
 import Team from './components/team/View'
 import About from './components/about/View'
+import Clients from './components/clients/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
 
 function App() {
   const [preloader, setPreloader] = useState(true);
-
   useEffect(() => {
-    setPreloader(false)
-  });
-
-  intersectionObserver();
+    setPreloader(false);
+  }, []);
 
   return (
     <Router>
-      <main className="main">
-        <Switch>
-          <Route path="/about">
-            <About observer={true} />
-            <Team observer={true} />
-          </Route>
-          <Route path="/">
-            <SliderMain />
-            <Services observer={true} />
-            <Achievements />
-            <Prices observer={true} />
-            <Testimonials observer={true} />
-            <Seo observer={true} />
-            <Team observer={true} />
-          </Route>
-        </Switch>
-      </main>
+      <Main />
 
       <Footer />
 
@@ -57,6 +40,35 @@ function App() {
 
       <Preloader preloader={preloader} />
     </Router>
+  );
+} 
+
+function Main() {
+  const location = useLocation();
+
+  useEffect(() => {
+    intersectionObserver();
+  }, [location]);
+
+  return (
+    <main className="main">
+      <Switch>
+        <Route path="/about">
+          <About observer={true} />
+          <Clients observer={true} />
+          <Team observer={true} />
+        </Route>
+        <Route path="/">
+          <SliderMain />
+          <Services observer={true} />
+          <Achievements />
+          <Prices observer={true} />
+          <Testimonials observer={true} />
+          <Seo observer={true} />
+          <Team observer={true} />
+        </Route>
+      </Switch>
+    </main>
   );
 }
 
