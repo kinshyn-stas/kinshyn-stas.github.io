@@ -61,7 +61,7 @@ export default class Services extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className="services_item observer_item" style={{backgroundImage: `url(${item.bg})`}} key={`services_item-${item.id}`}>
+      <div className={`services_item ${this.props.observer ? 'observer_item' : ''}`} style={{backgroundImage: `url(${item.bg})`}} key={`services_item-${item.id}`}>
         <div className="services_item_content">
           <div className="services_item_top">
             <p className="services_item_title">{item.title}</p>
@@ -77,7 +77,7 @@ export default class Services extends React.Component{
 
   render(){
     return (
-      <section className="main-block services_block observer">  
+      <section className={`main-block services_block ${this.props.observer ? 'observer' : ''}`}>  
         <div className="center-main-block">
           <h2 className="services_title">Our Services</h2>
           <div className="services_box">

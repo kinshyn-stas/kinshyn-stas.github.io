@@ -45,7 +45,7 @@ export default class Services extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className={`prices_item observer_item ${item.recommended ? 'recommended' : ''}`} key={`prices_item-${item.id}`}>
+      <div className={`prices_item ${this.props.observer ? 'observer_item' : ''} ${item.recommended ? 'recommended' : ''}`} key={`prices_item-${item.id}`}>
         <div className="prices_item_top">
           <p>{item.title}</p>
         </div>
@@ -69,7 +69,7 @@ export default class Services extends React.Component{
 
   render(){
     return (
-      <section className="main-block prices_block observer" data-observerdirection="right">  
+      <section className={`main-block prices_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="right">  
         <div className="center-main-block">
           <h2 className="prices_title">OUR PRICE PLANS</h2>
           <div className="prices_box">

@@ -17,6 +17,7 @@ import Prices from './components/prices/View'
 import Testimonials from './components/testimonials/View'
 import Seo from './components/seo/View'
 import Team from './components/team/View'
+import About from './components/about/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
@@ -34,15 +35,18 @@ function App() {
     <Router>
       <main className="main">
         <Switch>
-          <Route path="/about" component={Services} />
+          <Route path="/about">
+            <About observer={true} />
+            <Team observer={true} />
+          </Route>
           <Route path="/">
             <SliderMain />
-            <Services />
+            <Services observer={true} />
             <Achievements />
-            <Prices />
-            <Testimonials />
-            <Seo />
-            <Team />
+            <Prices observer={true} />
+            <Testimonials observer={true} />
+            <Seo observer={true} />
+            <Team observer={true} />
           </Route>
         </Switch>
       </main>

@@ -19,10 +19,10 @@ export default class Seo extends React.Component{
 
   render(){
     return (
-      <section className="main-block seo_block">  
+      <section className={`main-block seo_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="opacity">  
         <div className="center-main-block">
           <h2 className="seo_title">SEO text</h2>
-          <div className="seo_content">
+          <div className={`seo_content ${this.props.observer ? 'observer_item' : ''}`}>
             {this.state.text}
           </div>
         </div>

@@ -19,6 +19,11 @@ export default function intersectionObserver(o = {}){
 
                     if(target.dataset.observerdirection){
                         switch(target.dataset.observerdirection){
+                            case 'none':
+                                break;
+                            case 'opacity':
+                                item.classList.add('observer_item-opacity')
+                                break;
                             case 'top':
                                 item.classList.add('observer_item-top')
                                 break;
