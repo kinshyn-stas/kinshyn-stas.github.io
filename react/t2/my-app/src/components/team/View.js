@@ -41,7 +41,7 @@ export default class Team extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className="team_item" style={{backgroundImage: `url(${item.bg})`}} key={`team_item-${item.id}`}>
+      <div className="team_item observer_item" style={{backgroundImage: `url(${item.bg})`}} key={`team_item-${item.id}`}>
         <div className="team_item_wrapper">
           <div className="team_item_content">
             <p className="team_item_title">{item.title}</p>
@@ -54,7 +54,7 @@ export default class Team extends React.Component{
 
   render(){
     return (
-      <section className="main-block team_block">  
+      <section className="main-block team_block observer" data-observerdirection="bottom">  
         <div className="center-main-block">
           <h2 className="team_title">OUR AWESOME TEAM</h2>
           <p className="team_undertitle">Meet our professionals and experts in business consulting services</p>

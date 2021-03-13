@@ -110,7 +110,7 @@ export default class Testimonials extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className="tst_item" key={`tst_item-${item.id}`} style={{gridRow: item.row, gridColumn: item.column}}>
+      <div className="tst_item observer_item" key={`tst_item-${item.id}`} style={{gridRow: item.row, gridColumn: item.column}}>
         <div className="tst_head">
           <figure>
             <img src={item.img} alt={item.title} />
@@ -127,7 +127,7 @@ export default class Testimonials extends React.Component{
 
   render(){
     return (
-      <section className="main-block tst_block">  
+      <section className="main-block tst_block observer" data-observerrandom="true">  
         <div className="center-main-block">
           <h2 className="tst_title">Testimonials</h2>
           <div className="tst_box">
