@@ -15,7 +15,7 @@ export default function intersectionObserver(o = {}){
                 target.classList.add('observer-active')   
 
                 target.querySelectorAll('.observer_item').forEach((item,i) => {
-                    item.style.animationDelay = `${0.5 * i}s`;
+                    item.style.animationDelay = `${0.4 * i}s`;
 
                     if(target.dataset.observerdirection){
                         switch(target.dataset.observerdirection){
