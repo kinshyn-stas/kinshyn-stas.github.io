@@ -20,6 +20,7 @@ import Seo from './components/seo/View'
 import Team from './components/team/View'
 import About from './components/about/View'
 import Clients from './components/clients/View'
+import News from './components/news/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
@@ -57,6 +58,9 @@ function Main() {
           <About observer={true} />
           <Clients observer={true} />
           <Team observer={true} />
+        </Route>
+        <Route path="/news">
+          <News />
         </Route>
         <Route path="/">
           <SliderMain />

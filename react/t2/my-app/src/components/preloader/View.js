@@ -7,7 +7,9 @@ export default function Preloader(props){
     if(!props.preloader){
       setTimeout(() => {
         setShow(false)
-      }, 4000)
+      }, 3000)
+    } else {
+      setShow(true)
     }    
   }, [props.preloader])  
 
