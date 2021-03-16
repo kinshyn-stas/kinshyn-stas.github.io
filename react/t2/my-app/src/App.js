@@ -21,6 +21,7 @@ import Team from './components/team/View'
 import About from './components/about/View'
 import Clients from './components/clients/View'
 import News from './components/news/View'
+import Test from './components/test/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
@@ -54,6 +55,9 @@ function Main() {
   return (
     <main className="main">
       <Switch>
+        <Route path="/test">
+          <Test />
+        </Route>
         <Route path="/about">
           <About observer={true} />
           <Clients observer={true} />
