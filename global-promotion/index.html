@@ -45,10 +45,34 @@
 						<div class="mer_left">
 							<p class="mer_labels_title">Предоставляем услуги</p>
 							<div class="mer_labels">
-								<a class="mer_label click-item active" data-action="slick-label" data-label=".mer_content">Мерчандайзинг</a>
-								<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">Маркетинговые исследования</a>
-								<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">POS-материалы</a>
-								<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">MM&CS</a>
+								<div class="mer_label_wrapper">
+									<a class="mer_label click-item active" data-action="slick-label" data-label=".mer_content">Мерчандайзинг</a>
+									<div class="mer_label_content">
+										<p>Это второй, ненавязчивый и эффективный продавец в вашем магазине, который не требует особых затрат и повышения зарплаты, но который, при правильном использовании, повысит лояльность ваших покупателей и увеличит обороты магазина, в среднем, на 20-30%.</p>
+										<a class="link_arrow"><span>Подробнее</span></a>
+									</div>
+								</div>
+								<div class="mer_label_wrapper">
+									<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">Маркетинговые исследования</a>
+									<div class="mer_label_content">
+										<p>Это второй, ненавязчивый и эффективный продавец в вашем магазине, который не требует особых затрат и повышения зарплаты, но который, при правильном использовании, повысит лояльность ваших покупателей и увеличит обороты магазина, в среднем, на 20-30%.</p>
+										<a class="link_arrow"><span>Подробнее</span></a>
+									</div>
+								</div>
+								<div class="mer_label_wrapper">
+									<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">POS-материалы</a>
+									<div class="mer_label_content">
+										<p>Это второй, ненавязчивый и эффективный продавец в вашем магазине, который не требует особых затрат и повышения зарплаты, но который, при правильном использовании, повысит лояльность ваших покупателей и увеличит обороты магазина, в среднем, на 20-30%.</p>
+										<a class="link_arrow"><span>Подробнее</span></a>
+									</div>
+								</div>
+								<div class="mer_label_wrapper">
+									<a class="mer_label click-item" data-action="slick-label" data-label=".mer_content">MM&CS</a>
+									<div class="mer_label_content">
+										<p>Это второй, ненавязчивый и эффективный продавец в вашем магазине, который не требует особых затрат и повышения зарплаты, но который, при правильном использовании, повысит лояльность ваших покупателей и увеличит обороты магазина, в среднем, на 20-30%.</p>
+										<a class="link_arrow"><span>Подробнее</span></a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="mer_right">
@@ -319,23 +343,5 @@
 
 
 	<script src="js/main.js"></script>
-	<script>
-		$(document).ready(function(){
-		  	$('.mer_slider').on('init', function(event, slick){
-			  $('.mer_content .slide_counter_all').text(slick.$slides.length);
-			});
-
-		  	$('.mer_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-			  $('.mer_content .slide_counter_current').text(nextSlide + 1);
-			  $('.mer_label').removeClass('active');
-			  $(`.mer_label:nth-child(${nextSlide + 1})`).addClass('active');
-			});
-
-		  	$('.mer_slider').slick({
-		    	infinite: true,
-	  			dots: true,
-		  	});
-		});
-	</script>
 </body>
 </html>

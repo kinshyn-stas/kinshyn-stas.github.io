@@ -7,6 +7,24 @@ window.onload = function(){
 };
 
 
+        $(document).ready(function(){
+            $('.mer_slider').on('init', function(event, slick){
+              $('.mer_content .slide_counter_all').text(slick.$slides.length);
+            });
+
+            $('.mer_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              $('.mer_content .slide_counter_current').text(nextSlide + 1);
+              $('.mer_label').removeClass('active');
+              $(`.mer_label_wrapper:nth-child(${nextSlide + 1}) .mer_label`).addClass('active');
+            });
+
+            $('.mer_slider').slick({
+                infinite: true,
+                dots: true,
+            });
+        });
+
+
 function functionMultiplyWrapper(func){
     try{
         func();
@@ -53,13 +71,19 @@ function clickItemHandler(event){
         },
 
         'slick-label':  function(target){
-            let arr = Array.from(target.parentNode.children);
-            let n;
-            arr.map((item,i) => {
-                if(item === target) n = i;
-            });
-            let dots = target.closest(target.dataset.label).querySelector('.slick-dots');
-            dots.children[n].click();
+            let arr = Array.from(target.parentNode.parentNode.children);
+
+            if(document.documentElement.clientWidth <= 768){
+                arr.forEach(item => item.querySelector('.mer_label').classList.remove('active'));
+                target.classList.add('active');
+            } else {
+                let n;
+                arr.forEach((item,i) => {
+                    if(item.querySelector('.mer_label') === target) n = i;
+                });
+                let dots = target.closest(target.dataset.label).querySelector('.slick-dots');
+                dots.children[n].click();                
+            }
         },
     }
 
