@@ -1,13 +1,14 @@
 import React from 'react';
 
+import Info from './Info'
+
 export default class Test extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       startClick: false,
       statistickClick: false,
-
-      values: {},
+      statistickKey: 0,
 
       mean: 0,
       standard: 0,
@@ -19,60 +20,57 @@ export default class Test extends React.Component{
       timeStatistic: 0,
     }
 
-    this.handlerMessage = this.handlerMessage.bind(this);
+    this.start = this.start.bind(this);
+    this.getInfo = this.getInfo.bind(this);
   }
-
-  /*componentDidUpdate(prevProps,prevState){
-    console.log(prevState.values,this.state.values)
-  }*/
 
   start(){
     this.setState({startClick: true, timeStart: +new Date()})
-    let socket = new WebSocket("wss://trade.trademux.net:8800/?password=1234");
-
-    socket.onopen = function(e) {
-      console.log("[open] Соединение установлено");
-      console.log("Отправляем данные на сервер");
-      socket.send("Меня зовут Джон");
-    };
-
-    socket.onmessage = (event) => this.handlerMessage(event);
-
-    socket.onclose = function(event) {
-      if (event.wasClean) {
-        console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-      } else {
-        // например, сервер убил процесс или сеть недоступна
-        // обычно в этом случае event.code 1006
-        console.log('[close] Соединение прервано');
-      }
-    };
-
-    socket.onerror = function(error) {
-      console.log(`[error] ${error.message}`);
-    };
   }
 
-  handlerMessage(event){
-    //console.log(`[message] Данные получены с сервера: ${event.data}`);
-    let values = JSON.parse(JSON.stringify(this.state.values));
+  getInfo(values){
+    console.log('values',values)
 
-    let v = JSON.parse(event.data).value;
-    if(v || v === 0){
-      if(values[`${v}`]){
-        values[`${v}`] = values[`${v}`] + 1
-      } else {
-        values[`${v}`] = 1
-      }        
+    let number = 0;
+    let sum = 0;
+
+    let fashion = 0;
+    let fashionNumbers = 0;
+
+    for(let k in values){
+      //console.log(k,values[k])
+      sum = sum + (+k * values[k])
+      number = number + values[k]
+
+      if(values[k] > fashionNumbers){
+        fashionNumbers = values[k]
+        fashion = +k
+      } else if(values[k] === fashionNumbers){
+        fashion = [].concat(fashion, +k)
+      }
     }
-    console.log(v,values[v])
 
-    //console.log(values)
-    this.setState({values: values})    
+    let mean = parseInt(sum / number);
+
+    let standard = 0;  
+    let median = 0;
+    let medianNumbers = 0;
+
+    for(let k in values){
+      standard = standard + (values[k] * Math.pow(((+k - mean) / (number - 1)), 2))
+
+      medianNumbers = medianNumbers + values[k]
+      if(!median && medianNumbers >= number / 2) median = +k
+    }
+    standard = Math.sqrt(standard)
+
+
+
+    this.setState({mean: mean, standard: standard, fashion: fashion, median: median})
   }
 
   statistic(){
-    this.setState({statistickClick: true, timeStatistic: +new Date()})
+    this.setState({statistickClick: true, statistickKey: this.state.statistickKey + 1, timeStatistic: +new Date()})
   }
 
   render(){
@@ -81,20 +79,15 @@ export default class Test extends React.Component{
 
     return (
       <div className="center-main-block">
-        <button onClick={() => this.start()}>Start</button>
+        <button className="slider_item_href_item" onClick={() => this.start()}>Start</button>
         <br/>
-        <button onClick={() => this.statistic()}>Statistic</button>
+        <button className="slider_item_href_item" onClick={() => this.statistic()}>Statistic</button>
         <br />
-        {this.state.statistickClick && (
-          <div>
-            <p><b>среднее:</b> {this.state.mean}</p>
-            <p><b>стандартное отклонение:</b> {this.state.standard}</p>
-            <p><b>моду:</b> {this.state.fashion}</p>
-            <p><b>медиану:</b> {this.state.median}</p>
-            <p><b>время расчетов:</b> {time}s</p>
-            <p><b>количество потерянных котировок :</b> {this.state.lostQuotes}</p>
-          </div>
-        )}
+        <Info
+          startClick={this.state.startClick}
+          statistickKey={this.state.statistickKey}
+          getInfo={this.getInfo}
+        />
       </div>
     )    
   }
