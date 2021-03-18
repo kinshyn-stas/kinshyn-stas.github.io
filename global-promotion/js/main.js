@@ -41,8 +41,8 @@ function clickItemHandler(event){
         },
 
         'popup-open': function(target){
-            if(item.dataset.label){
-                document.querySelector(item.dataset.label).classList.add('active');
+            if(target.dataset.label){
+                document.querySelector(target.dataset.label).classList.add('active');
             } else {
                 console.log('укажите селектор требуемого элемента в data-label нажимаемой кнопки')
             }
@@ -50,6 +50,16 @@ function clickItemHandler(event){
 
         'menu-toggle': function(target){
             document.querySelector('.header_block').classList.toggle('active');
+        },
+
+        'slick-label':  function(target){
+            let arr = Array.from(target.parentNode.children);
+            let n;
+            arr.map((item,i) => {
+                if(item === target) n = i;
+            });
+            let dots = target.closest(target.dataset.label).querySelector('.slick-dots');
+            dots.children[n].click();
         },
     }
 
