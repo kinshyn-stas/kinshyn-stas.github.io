@@ -36,7 +36,6 @@ $(document).ready(function(){
           }
         }]
     });
-
     
 
     $('.pd_slider').slick({
@@ -46,6 +45,20 @@ $(document).ready(function(){
         {
           breakpoint: 769,
           settings: {
+            slidesToShow: 2
+          }
+        }]
+    });
+
+
+    $('.gr_box').slick({
+        infinite: false,
+        slidesToShow: 4,
+        responsive: [
+        {
+          breakpoint: 1101,
+          settings: {
+            infinite: true,
             slidesToShow: 2
           }
         }]

@@ -1068,6 +1068,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     top: 50%;
     left: 50%;
     display: block;
+    max-width: 100%;
     max-height: 100%;
     transform: translate(-50%,-50%);
 }
@@ -1099,24 +1100,72 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.com_top-v1{
+    margin-bottom: 120px;
+}
 .com_top_left{
     width: 50%;
     max-width: 640px;
 }
+.com_top-v1 .com_top_left{
+    width: calc(100% - 380px);
+    max-width: 840px;
+}
 .com_top-v2 .com_top_left{
     width: 100%;
     max-width: 850px;
+}
+.com_top_left_content{
+    display: flex;
+    margin-top: 56px;
+}
+.com_top_left_content_item{
+    width: 50%;
+}
+.com_top_left_content_item .com_top_left_content_item_title{
+    margin-bottom: 20px;
+    color: var(--c2);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
 }
 .com_top_right{
     width: 50%;
     max-width: 520px;
     padding-top: 140px;
 }
+.com_top-v1 .com_top_right{
+    width: 360px;
+    max-width: 360px;
+    min-width: 360px;
+    padding-top: 0;
+}
 .com_top-v2 .com_top_right{
     width: 100%;
     max-width: 560px;
     padding-top: 40px;
     margin-left: auto;
+}
+.com_top_right_img{
+    width: 360px;
+    max-width: 100%;
+    padding: 20px;
+}
+.com_top_right_img figure{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: var(--c3);
+}
+.com_top_right_img figure img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%,-50%);
 }
 .com_middle{
     margin-top: 80px;
@@ -1235,10 +1284,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .com_top_right{
         width: 100%!important;
         max-width: 100%!important;
+        min-width: 0!important;
         margin-left: 0!important;
     }
     .com_top_right{
         padding-top: 0!important;
+    }
+    .com_top_right_img{
+        display: none;
     }
     .com_box{
         justify-content: space-between;
@@ -1251,6 +1304,22 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 @media screen and (max-width: 768px){
     .com_block{
         padding: 64px 0;
+    }
+    .com_top-v1{
+        margin-bottom: 40px;
+    }
+    .com_top_left_title{
+        font-size: 40px;
+    }
+    .com_top_left_content{
+        display: block;
+    }
+    .com_top_left_content_item{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .com_top_left_content_item:last-of-type{
+        margin-bottom: 0;
     }
     .com_middle{
         margin-top: 32px;
@@ -1291,6 +1360,89 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         transform: translateY(40px);
     }
 }
+
+
+.gr_block{
+    padding: 120px 0 0;
+    background-color: var(--b1);
+    color: var(--c3);
+}
+.gr_content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.gr_content_left{
+    width: 52%;
+    max-width: 700px;
+}
+.gr_content_left_title{
+    color: var(--c3);
+}
+.gr_content_right{
+    width: 47%;
+    max-width: 540px;
+    padding-top: 160px;
+}
+.gr_box_wrapper{
+    margin-top: 40px;    
+}
+.gr_box{
+    display: flex;
+    transform: translateY(40px);
+}
+.gr_box .slick-arrow{
+    display: none!important;
+}
+.gr_box .slick-track{
+    display: flex;
+    align-items: stretch;
+}
+.gr_box .slick-slide{
+    height: auto;
+}
+.gr_item{
+    width: calc((100% - 60px) / 4);
+    padding: 40px 24px;
+    margin-right: 20px;
+    background-color: var(--c3);
+    color: var(--c1);
+    line-height: 1.6;
+}
+.gr_item figure{
+    margin-bottom: 24px;
+}
+.gr_item figure svg{
+    display: block;
+    width: auto;
+    height: 64px;
+}
+.gr_item_text{}
+
+@media screen and (max-width: 1100px){
+    .gr_content{
+        display: block;
+    }
+    .gr_content_left,
+    .gr_content_right{
+        width: 100%;
+        max-width: 100%;
+        padding-top: 0;
+    }
+}
+@media screen and (max-width: 768px){
+    .gr_block{
+        padding-top: 64px;
+    }
+    .gr_box_wrapper{
+        width: calc(100% + 16px);
+        margin-top: 0;
+    }
+    .gr_box{
+        width: 180%;
+    }
+}
+
 
 .blog_block{
     padding: 120px 0;
