@@ -731,7 +731,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
-.vl_block{}
+.vl_block{
+    padding-bottom: 120px;
+}
 .vl_block-nv{
     position: relative;
     z-index: 10;
@@ -814,6 +816,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .vl_block-nv{
         position: static;
+        padding-top: 0;
         margin-bottom: 0;
     }
     .vl_panel{
@@ -1042,7 +1045,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .com_top_left{
     width: 50%;
-    max-width: 600px;
+    max-width: 640px;
 }
 .com_top_right{
     width: 50%;
