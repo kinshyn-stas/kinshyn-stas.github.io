@@ -100,7 +100,7 @@ function clickItemHandler(event){
             document.querySelector('.header_block').classList.toggle('active');
         },
 
-        'slick-label':  function(target){
+        'slick-label': function(target){
             let arr = Array.from(target.parentNode.parentNode.children);
 
             if(document.documentElement.clientWidth <= 768){
@@ -116,13 +116,28 @@ function clickItemHandler(event){
             }
         },
 
-        'slick-arrow':  function(target){
+        'slick-arrow': function(target){
             let p = target.closest(target.dataset.label);
             if(target.classList.contains('slide_arrow-left')){
                 p.querySelector('.slick-prev').click();
             } else {
                 p.querySelector('.slick-next').click();
             }
+        },
+
+        'tab-change': function(target){
+            if(target.classList.contains('active')) return;
+            let n = 0;
+            parent.querySelectorAll('.com_tabs_label').forEach((item,i) => {
+                item.classList.remove('active');
+                if(item === target) n = i;
+            });
+            target.classList.add('active');
+
+            parent.querySelectorAll('.com_tabs_tab').forEach((item,i) => {
+                item.classList.remove('active');
+                if(i === n) item.classList.add('active');
+            });
         },
     }
 
@@ -136,20 +151,30 @@ function clickItemHandler(event){
 
 
 function mouseMenuHandler(event){
-    if(event.target.closest('.header_nav_list_item-trigger')){
-        document.querySelectorAll('.header_nav_list_item-trigger').forEach(item => item.classList.remove('active'))
-        event.target.closest('.header_nav_list_item-trigger').classList.add('active')
+    if(event.target.closest('.header_nav_list_item')){
+        document.querySelectorAll('.header_nav_list_item').forEach(item => item.classList.remove('active'))
+        event.target.closest('.header_nav_list_item').classList.add('active')
     }
 
     if(event.target.closest('.header_nav_list_item_list_item')){
         let target = event.target.closest('.header_nav_list_item_list_item');
         document.querySelectorAll('.header_nav_list_item_list_item').forEach(item => item.classList.remove('active'))
         target.classList.add('active');
+        let img;
         if(target.dataset.src && document.querySelector('.header_nav_right_img')){
-            let img = document.querySelector('.header_nav_right_img');
+            img = document.querySelector('.header_nav_right_img');
             img.classList.remove('active');
             img.src = target.dataset.src;
             img.classList.add('active');
         }
+
+        function f(){
+            img.src = '';
+            img.classList.remove('active');
+
+            document.removeEventListener('mouseout', f);
+        }
+
+        if(img) document.addEventListener('mouseout', f);
     }
 };
