@@ -599,7 +599,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 
 
-.mer_block{}
+.mer_block{
+    padding-bottom: 120px;
+}
 .mer_content{
     position: relative;
     padding-top: 104px;
@@ -717,6 +719,107 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
     .mer_right{
         display: none;
+    }
+}
+@media screen and (max-width: 768px){
+    .mer_block{
+        padding-bottom: 64px;
+    }
+}
+
+
+.mh_block{
+    padding: 120px 0;
+    background-color: var(--b1);
+    color: var(--c3);
+    font-size: 20px;
+    line-height: 24px;
+}
+.mh_content{
+    display: flex;
+    justify-content: space-between;
+}
+.mh_left{
+    position: relative;
+    width: 64%;
+}
+.mh_title{
+    margin-bottom: 0;
+    color: var(--c3);
+    font-size: 140px;
+    line-height: 1;
+    text-align: center;
+}
+.mh_undertitle{
+    position: absolute;
+    top: 15%;
+    right: -21%;
+    max-width: 240px;
+}
+.mh_image{
+    position: absolute;
+    top: 89px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 89px);
+}
+.mh_image img{
+    width: auto;
+    height: 100%;
+}
+.mh_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 30%;
+    padding-top: 230px;
+}
+.mh_list{}
+.mh_list_item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+}
+.mh_list_item:last-of-type{
+    margin-bottom: 0;
+}
+.mh_list_item_number{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 64px;
+    line-height: 1;
+    white-space: nowrap;
+}
+.mh_list_item_text{}
+
+@media screen and (max-width: 1100px){
+    .mh_content{
+        display: block;
+    }
+    .mh_left{
+        width: 100%;
+    }
+    .mh_title{
+        font-size: 80px;
+    }
+    .mh_undertitle{
+        top: auto;
+        left: 0;
+        right: auto;
+        bottom: 0;
+        max-width: 120px;
+    }
+    .mh_image{
+        position: relative;
+        top: -30px;
+        height: auto;
+    }
+    .mh_right{
+        width: 100%;
+        padding-top: 0;
+        margin-top: 64px;
     }
 }
 
