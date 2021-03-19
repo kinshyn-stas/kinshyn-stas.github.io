@@ -57,26 +57,9 @@ window.onload = function(){
     document.addEventListener('click', clickItemHandler);
 
     document.addEventListener('mouseover', mouseMenuHandler);
-};
 
-
-function functionMultiplyWrapper(func){
-    try{
-        func();
-    } catch(err){
-        console.log(err);
-    }
-};
-
-
-function classMultiplyWrapper(Cls,parametrs){
-    document.querySelectorAll(parametrs.selector).forEach((item) => {
-        try{
-            parametrs.item = item;
-            new Cls(parametrs);
-        } catch(err){
-            console.log(err);
-        }
+    document.querySelectorAll('.mer_labels').forEach(block => {
+        if(block.querySelector('.mer_labels_box').children.length < 5) block.classList.remove('harmonic');
     })
 };
 
@@ -84,7 +67,6 @@ function classMultiplyWrapper(Cls,parametrs){
 function clickItemHandler(event){
     if(!event.target.closest('.click-item')) return;
     let item = event.target.closest('.click-item');
-    //if(item.getAttribute('href') && item.getAttribute('href') == '#') event.preventDefault();
     let parent;
     if(event.target.closest('.click-obj')) parent = event.target.closest('.click-obj');
 
