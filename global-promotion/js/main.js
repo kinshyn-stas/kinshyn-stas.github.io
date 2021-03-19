@@ -28,11 +28,13 @@ $(document).ready(function(){
     $('.vl_slider').slick({
         infinite: true,
         slidesToShow: 2,
+        variableWidth: true,
         responsive: [
         {
-          breakpoint: 1101,
+          breakpoint: 769,
           settings: {
-            slidesToShow: 1
+            slidesToShow: 1,
+            variableWidth: false,
           }
         }]
     });
@@ -60,6 +62,28 @@ $(document).ready(function(){
           settings: {
             infinite: true,
             slidesToShow: 2
+          }
+        }]
+    });
+
+
+    $('.com_bottom_box').slick({
+        infinite: true,
+        slidesToShow: 3,
+        variableWidth: true,
+        arrows: false,
+        responsive: [
+        {
+          breakpoint: 1101,
+          settings: {
+            slidesToShow: 2,        
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,            
+            variableWidth: false,
           }
         }]
     });
@@ -152,29 +176,23 @@ function clickItemHandler(event){
 
 function mouseMenuHandler(event){
     if(event.target.closest('.header_nav_list_item')){
+        let target = event.target.closest('.header_nav_list_item');
         document.querySelectorAll('.header_nav_list_item').forEach(item => item.classList.remove('active'))
-        event.target.closest('.header_nav_list_item').classList.add('active')
-    }
+        target.classList.add('active')
 
-    if(event.target.closest('.header_nav_list_item_list_item')){
-        let target = event.target.closest('.header_nav_list_item_list_item');
-        document.querySelectorAll('.header_nav_list_item_list_item').forEach(item => item.classList.remove('active'))
-        target.classList.add('active');
         let img;
+        console.log()
         if(target.dataset.src && document.querySelector('.header_nav_right_img')){
             img = document.querySelector('.header_nav_right_img');
             img.classList.remove('active');
             img.src = target.dataset.src;
             img.classList.add('active');
         }
+    }
 
-        function f(){
-            img.src = '';
-            img.classList.remove('active');
-
-            document.removeEventListener('mouseout', f);
-        }
-
-        if(img) document.addEventListener('mouseout', f);
+    if(event.target.closest('.header_nav_list_item_list_item')){
+        let target = event.target.closest('.header_nav_list_item_list_item');
+        document.querySelectorAll('.header_nav_list_item_list_item').forEach(item => item.classList.remove('active'))
+        target.classList.add('active');
     }
 };
