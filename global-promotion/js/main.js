@@ -1,28 +1,40 @@
 "use strict";
 
+$(document).ready(function(){
+    $('.mer_slider').on('init', function(event, slick){
+      $('.mer_content .slide_counter_all').text(slick.$slides.length);
+    });
+
+    $('.mer_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      $('.mer_content .slide_counter_current').text(nextSlide + 1);
+      $('.mer_label').removeClass('active');
+      $(`.mer_label_wrapper:nth-child(${nextSlide + 1}) .mer_label`).addClass('active');
+    });
+
+    $('.mer_slider').slick({
+        infinite: true,
+        dots: true,
+    });
+
+    $('.pd_slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        responsive: [
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 2
+          }
+        }]
+    });
+});
+
+
 window.onload = function(){
     document.addEventListener('click', clickItemHandler);
 
     document.addEventListener('mouseover', mouseMenuHandler);
 };
-
-
-        $(document).ready(function(){
-            $('.mer_slider').on('init', function(event, slick){
-              $('.mer_content .slide_counter_all').text(slick.$slides.length);
-            });
-
-            $('.mer_slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              $('.mer_content .slide_counter_current').text(nextSlide + 1);
-              $('.mer_label').removeClass('active');
-              $(`.mer_label_wrapper:nth-child(${nextSlide + 1}) .mer_label`).addClass('active');
-            });
-
-            $('.mer_slider').slick({
-                infinite: true,
-                dots: true,
-            });
-        });
 
 
 function functionMultiplyWrapper(func){
@@ -83,6 +95,15 @@ function clickItemHandler(event){
                 });
                 let dots = target.closest(target.dataset.label).querySelector('.slick-dots');
                 dots.children[n].click();                
+            }
+        },
+
+        'slick-arrow':  function(target){
+            let p = target.closest(target.dataset.label);
+            if(target.classList.contains('slide_arrow-left')){
+                p.querySelector('.slick-prev').click();
+            } else {
+                p.querySelector('.slick-next').click();
             }
         },
     }
