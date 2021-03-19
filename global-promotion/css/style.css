@@ -795,6 +795,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .mh_list_item_text{}
 
 @media screen and (max-width: 1100px){
+    .mp_block{
+        padding: 64px 0;
+    }
     .mh_content{
         display: block;
     }
