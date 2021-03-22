@@ -21,8 +21,9 @@ import Team from './components/team/View'
 import About from './components/about/View'
 import Clients from './components/clients/View'
 import News from './components/news/View'
-import Test from './components/test/View'
-import Test2 from './components/test2/View'
+import Article from './components/article/View'
+//import Test from './components/test/View'
+//import Test2 from './components/test2/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
@@ -53,15 +54,18 @@ function Main() {
     intersectionObserver();
   }, [location]);
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className="main">
       <Switch>
-        <Route path="/test2">
-          <Test2 />
-        </Route>
-        <Route path="/test">
+        {/*<Route path="/test">
           <Test />
-        </Route>
+        </Route>*/}
         <Route path="/about">
           <About observer={true} />
           <Clients observer={true} />
@@ -69,6 +73,9 @@ function Main() {
         </Route>
         <Route path="/news">
           <News />
+        </Route>
+        <Route path="/article:id">
+          <Article />
         </Route>
         <Route path="/">
           <SliderMain />

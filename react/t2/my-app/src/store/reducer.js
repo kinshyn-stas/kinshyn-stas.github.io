@@ -1,8 +1,9 @@
-import {ACTION_1} from './constants'
+import {NewsTag, ArticleInfo} from './constants'
 
 export function reducer(state, action){
     switch(action.type) {
-        case ACTION_1: return { test: action.test + '_1' };
+        case NewsTag: return { newsTag: action.newsTag };
+        case ArticleInfo: return { articleInfo: action.articleInfo };
         
         default: return state;
     }

@@ -1,1 +1,2 @@
-export const ACTION_1 = "ACTION_1";
+export const NewsTag = "NewsTag";
+export const ArticleInfo = "ArticleInfo";

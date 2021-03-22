@@ -1,5 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { withRouter, Link } from "react-router-dom";
+
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {newsTag, articleInfo} from '../../store/actions.js';
 
 import Preloader from '../preloader/View'
 
@@ -7,7 +11,7 @@ import Img0 from '../../assets/img/news/news-0.jpg'
 import Img1 from '../../assets/img/news/news-1.jpg'
 
 
-export default class News extends React.Component{
+class News extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -329,10 +333,14 @@ export default class News extends React.Component{
   componentDidMount(){
     let arr = this.state.items.slice(0,this.state.itemOnPage);
     this.setState({itemsShow: arr});
+    if(this.props.newsTag){
+      this.changeArticleInfo(this.props.newsTag)
+      this.props.changeArticleInfo({newsTag: ''})
+    } 
   }
 
   componentDidUpdate(prevProps,prevState){
-    if(prevState.itemsShow != this.state.itemsShow){
+    if(prevState.itemsShow !== this.state.itemsShow){
       this.changeLastPage();
     }
   }
@@ -361,7 +369,7 @@ export default class News extends React.Component{
     })
 
     arr1.forEach((item,i) => {
-      if(parseInt(i / this.state.itemOnPage) != n) return null;  
+      if(parseInt(i / this.state.itemOnPage) !== n) return null;  
       arr2.push(item);    
     })
 
@@ -370,7 +378,7 @@ export default class News extends React.Component{
     });
   }
 
-  changeTag(tag){
+  changeArticleInfo(tag){
     if(tag === this.state.tag) return;
 
     let arr = [];
@@ -394,15 +402,15 @@ export default class News extends React.Component{
           <img src={item.img} alt={item.title ? item.title : ''} />
         </figure>
         <div className="news_item_content">
-          <Link to={`/article/:${item.id}`} className="news_item_content_title">{item.title}</Link>
+          <Link to={`/article:${item.id}`} className="news_item_content_title">{item.title}</Link>
           <div className="news_item_content_text">{item.text}</div>
           <div className="news_item_content_bottom">
-            <Link className="news_item_content_bottom_read" to={`/article/:${item.id}`}>Read more</Link>
+            <Link className="news_item_content_bottom_read" to={`/article:${item.id}`} onClick={() => this.props.changeArticleInfo({articleInfo: item})}>Read more</Link>
             <time>{item.date}</time>
             <div className="news_item_tags">
               {!!item.tags.length && item.tags.map((tag,i) => {   
                 return (
-                  <a className={`news_item_tags_item ${this.state.tag === tag ? 'active' : ''}`} key={`news_item_tags_item-${i}`} onClick={() => this.changeTag(tag)}>#{tag}</a>
+                  <a className={`news_item_tags_item ${this.state.tag === tag ? 'active' : ''}`} key={`news_item_tags_item-${i}`} onClick={() => this.changeArticleInfo(tag)}>#{tag}</a>
                 )
               })}
             </div>
@@ -425,10 +433,10 @@ export default class News extends React.Component{
                 <div className="news_aside">
                   <div className="news_aside_tags">
                     <h4>Select tag</h4>
-                    <a className={`news_aside_tags_item ${this.state.tag === null ? 'active' : ''}`}  onClick={() => this.changeTag(null)}>All</a>
+                    <a className={`news_aside_tags_item ${this.state.tag === null ? 'active' : ''}`}  onClick={() => this.changeArticleInfo(null)}>All</a>
                     {this.state.tags.map(tag => {
                       return (
-                        <a className={`news_aside_tags_item ${this.state.tag === tag ? 'active' : ''}`} key={`news_aside_tags_item-${tag}`}  onClick={() => this.changeTag(tag)}>#{tag}</a>
+                        <a className={`news_aside_tags_item ${this.state.tag === tag ? 'active' : ''}`} key={`news_aside_tags_item-${tag}`}  onClick={() => this.changeArticleInfo(tag)}>#{tag}</a>
                       )
                     })}
                   </div>
@@ -437,7 +445,7 @@ export default class News extends React.Component{
             </div>
 
             <div className="pagination">
-              <a className={`pagination_arrow pagination_arrow-left ${this.state.page==1 ? 'disabled' : ''}`} onClick={() => this.changePage(1)}>
+              <a className={`pagination_arrow pagination_arrow-left ${this.state.page===1 ? 'disabled' : ''}`} onClick={() => this.changePage(1)}>
                 <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.67 1.87L9.9 0.1L0 10L9.9 19.9L11.67 18.13L3.54 10L11.67 1.87Z" fill="#0A0A0A"/>
                 </svg>
@@ -447,7 +455,7 @@ export default class News extends React.Component{
               <a className="pagination_number active">{this.state.page}</a>
               {this.state.lastPage>=this.state.page + 1 && <a className="pagination_number" onClick={() => this.changePage(this.state.page + 1)}>{this.state.page + 1}</a>}
               {this.state.lastPage>=this.state.page + 2 && <a className="pagination_number" onClick={() => this.changePage(this.state.page + 2)}>{this.state.page + 2}</a>}
-              <a className={`pagination_arrow pagination_arrow-left ${this.state.page==this.state.lastPage ? 'disabled' : ''}`} onClick={() => this.changePage(this.state.lastPage)}>
+              <a className={`pagination_arrow pagination_arrow-left ${this.state.page===this.state.lastPage ? 'disabled' : ''}`} onClick={() => this.changePage(this.state.lastPage)}>
                 <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M-1.90735e-06 1.87L1.77 0.1L11.67 10L1.77 19.9L-1.90735e-06 18.13L8.13 10L-1.90735e-06 1.87Z" fill="#0A0A0A"/>
                 </svg>
@@ -461,3 +469,12 @@ export default class News extends React.Component{
     )    
   }
 }
+
+export default connect(state => {
+  return {
+    newsTag: state.newsTag
+  }}, dispatch => {
+  return {
+    changeArticleInfo: bindActionCreators(articleInfo, dispatch)
+  }}
+)(withRouter(News))

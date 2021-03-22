@@ -1,8 +1,15 @@
-import {ACTION_1} from './constants'
+import {NewsTag, ArticleInfo} from './constants'
 
-export function action_1(value) {
+export function newsTag(value) {
     return { 
-        type: ACTION_1,
-        test: value.test
+        type: NewsTag,
+        newsTag: value.newsTag
+    };
+}
+
+export function articleInfo(value) {
+    return { 
+        type: ArticleInfo,
+        articleInfo: value.articleInfo
     };
 }

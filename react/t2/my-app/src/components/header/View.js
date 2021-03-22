@@ -1,8 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from "react-router-dom";
-/*import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {action_1} from '../../store/actions.js';*/
 
 import LogoHeader from '../../assets/img/LogoHeader.svg'
 import Search from './Search.js'
@@ -17,9 +14,6 @@ class Header extends React.Component{
   }
 
   render() {
-    /*(this.props.changeValue({test: 't'})
-    console.log(this.props)*/
-
     const { match, location, history } = this.props;
 
     return (
@@ -72,17 +66,3 @@ class Header extends React.Component{
 }
 
 export default withRouter(Header)
-
-/*const mapStateToProps = state => {
-  return {
-    test: state.test
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    changeValue: bindActionCreators(action_1, dispatch)
-  };
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(Header)*/
