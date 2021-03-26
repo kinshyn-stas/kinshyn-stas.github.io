@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Popup from '../popup/View';
+import Form from '../form/View';
 import BG0 from '../../assets/img/slider/bg-0.jpg'
 import BG1 from '../../assets/img/slider/bg-1.jpg'
 import BG2 from '../../assets/img/slider/bg-2.jpg'
@@ -14,26 +16,24 @@ export default class SliderMain extends React.Component{
           bg: BG0,
           title: 'WALKING THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
-          linkHref: '/test1',
         },
         {
           id: 1,
           bg: BG1,
           title: 'FLY THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
-          linkHref: '/test2',
         },
         {
           id: 2,
           bg: BG2,
           title: 'SWIMMING THE CITY',
           undertitle: 'Post-ironic authentic drinking vinegar chambray quinoa. VHS letterpress sriracha, tacos skateboard migas farm-to-table artisan kombucha.',
-          linkHref: '/test3',
           linkText: 'GO'
         },
       ],
       activeSlide: 0,
       transitionShow: false,
+      popupShow: false,
     }
   }
 
@@ -43,9 +43,9 @@ export default class SliderMain extends React.Component{
         <div className="slider_item_content">
           {item.title && <h2 className="slider_item_title">{item.title}</h2>}
           {item.undertitle && <p className="slider_item_undertitle">{item.undertitle}</p>}
-          {item.linkHref && <div className="slider_item_href">
-            <a href={item.linkHref} className="slider_item_href_item">{item.linkText ? item.linkText : 'Read more'}</a>
-          </div>}
+          <div className="slider_item_href">
+            <button className="slider_item_href_item" onClick={() => this.setState({popupShow: true})}>{item.linkText ? item.linkText : 'Read more'}</button>
+          </div>
         </div>
       </div>
     )
@@ -105,23 +105,30 @@ export default class SliderMain extends React.Component{
   }
 
   render() {
-
     return (
-      <section className="main-block slider_main">
-        {this.state.slides.map((item,i) => this.renderSlide(item,i))}
-        {this.state.transitionShow && this.renderSlideTransition()}
-        <div className="slider_arrow slider_arrow-left" onClick={() => this.changeSlide(false)}>
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.67 1.87L9.9 0.1L0 10L9.9 19.9L11.67 18.13L3.54 10L11.67 1.87Z" fill="#ffffff"/>
-          </svg>
-        </div>
-        <div className="slider_arrow slider_arrow-right" onClick={() => this.changeSlide(true)}>
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-1.90735e-06 1.87L1.77 0.1L11.67 10L1.77 19.9L-1.90735e-06 18.13L8.13 10L-1.90735e-06 1.87Z" fill="#ffffff"/>
-          </svg>
-        </div>
-        <div className="slider_nav">{this.state.slides.map((item,i) => this.renderSliderNav(item,i))}</div>        
-      </section>
+      <React.Fragment>
+        <section className="main-block slider_main">
+          {this.state.slides.map((item,i) => this.renderSlide(item,i))}
+          {this.state.transitionShow && this.renderSlideTransition()}
+          <div className="slider_arrow slider_arrow-left" onClick={() => this.changeSlide(false)}>
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.67 1.87L9.9 0.1L0 10L9.9 19.9L11.67 18.13L3.54 10L11.67 1.87Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div className="slider_arrow slider_arrow-right" onClick={() => this.changeSlide(true)}>
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M-1.90735e-06 1.87L1.77 0.1L11.67 10L1.77 19.9L-1.90735e-06 18.13L8.13 10L-1.90735e-06 1.87Z" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div className="slider_nav">{this.state.slides.map((item,i) => this.renderSliderNav(item,i))}</div>        
+        </section>
+
+        {this.state.popupShow && (
+          <Popup close={() => this.setState({popupShow: false})}>
+            <Form title='Contact Us' />
+          </Popup>
+        )}
+      </React.Fragment>
     )    
   }
 }

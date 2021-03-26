@@ -22,7 +22,7 @@ class Article extends React.Component{
     if(!article) return null;
 
     return (
-      <section className={`main-block article_block ${this.props.observer ? 'observer' : ''}`}>  
+      <section className={`main-block article_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="opacity">  
         <div className="center-main-block">
           <Link to={'/news'} className="return_link"><span>back</span></Link>
           <h2 className="article_title">{article.title}</h2>
@@ -36,7 +36,7 @@ class Article extends React.Component{
               </div>
             )}             
           </div>
-          <div className="article_content">
+          <div className="article_content observer_item">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum finibus nibh. Etiam blandit tellus eget mollis ultricies. Nullam dapibus, justo sed elementum rutrum, tortor dolor egestas dolor, id imperdiet nunc lacus vitae enim. Vivamus posuere tincidunt metus vitae dictum. Ut rutrum felis nec nisl semper vestibulum. Cras ac lorem vitae sapien tempus lacinia. Sed nisi neque, scelerisque et ipsum quis, placerat viverra turpis. Aliquam erat volutpat. Pellentesque luctus, tortor eu mattis rhoncus, sapien ante tempus nulla, at scelerisque lectus diam ut sapien. Maecenas a turpis ornare, cursus ipsum quis, sollicitudin ligula. Nulla iaculis dapibus tempor.</p>
             <p>Donec gravida lacus ut augue tempor posuere eget eu justo. Duis nec consectetur odio. Fusce id finibus sapien. Ut nisi turpis, euismod id suscipit a, porta vitae velit. Integer pellentesque est et libero efficitur dignissim. Maecenas at turpis ac est ultrices rutrum. Aliquam eu interdum orci. Pellentesque mi purus, varius et semper in, vestibulum ut dui.</p>
             <p>Cras consequat blandit ornare. Curabitur sodales magna eget ultrices maximus. Aliquam erat volutpat. Fusce imperdiet pharetra nisi vel lacinia. Fusce bibendum nisi at dui auctor, vel fringilla magna scelerisque. Nullam interdum justo vehicula, pulvinar est sed, condimentum nulla. Nullam sollicitudin sem quis viverra iaculis. Morbi posuere sodales ligula quis aliquet. Etiam cursus vel mi egestas bibendum. Nunc eget leo ut erat elementum dignissim. Curabitur vehicula pretium molestie. Mauris ac dui volutpat, commodo justo ut, finibus sapien. Phasellus vel gravida mi. Donec sollicitudin egestas massa, in tincidunt ligula maximus sit amet. Vivamus blandit vulputate blandit. Donec blandit risus est, eu elementum ipsum ullamcorper sit amet.</p>

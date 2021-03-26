@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Popup from '../popup/View';
+import Form from '../form/View';
+
 
 export default class Services extends React.Component{
   constructor(props){
@@ -12,7 +15,6 @@ export default class Services extends React.Component{
           price: '0',
           duration: 'Per Month',
           list: ['1 business consultation', 'general business plan', 'books recommendations', 'free video lecture record'],
-          link: ''
         },
         {
           id: 1,
@@ -20,7 +22,6 @@ export default class Services extends React.Component{
           price: '5',
           duration: 'Per Month',
           list: ['3 business consultations', 'basic business plan', 'access to the library', '3 video lecture records'],
-          link: ''
         },
         {
           id: 2,
@@ -28,7 +29,6 @@ export default class Services extends React.Component{
           price: '20',
           duration: 'Per Month',
           list: ['5 business consultations', 'standard business plan', 'access to the library', '5 video lecture records'],
-          link: '',
           recommended: true,
         },
         {
@@ -37,9 +37,9 @@ export default class Services extends React.Component{
           price: '500',
           duration: 'Per Year',
           list: ['10 business consultations', 'individual business plan', 'access to the library', 'access to the Youtube videos'],
-          link: ''
         },
-      ]
+      ],
+      popupShow: false,
     }
   }
 
@@ -61,7 +61,7 @@ export default class Services extends React.Component{
           </ul>
         </div>
         <div className="prices_item_bottom">
-          <a href={item.link} className="prices_item_button">READ MORE</a>
+          <a className="prices_item_button" onClick={() => this.setState({popupShow: true})}>READ MORE</a>
         </div>
       </div>
     )
@@ -69,14 +69,22 @@ export default class Services extends React.Component{
 
   render(){
     return (
-      <section className={`main-block prices_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="right">  
-        <div className="center-main-block">
-          <h2 className="prices_title">OUR PRICE PLANS</h2>
-          <div className="prices_box">
-            {this.state.items.map((item,i) => this.renderItem(item,i))}
+      <React.Fragment>
+        <section className={`main-block prices_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="right">  
+          <div className="center-main-block">
+            <h2 className="prices_title">OUR PRICE PLANS</h2>
+            <div className="prices_box">
+              {this.state.items.map((item,i) => this.renderItem(item,i))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        
+        {this.state.popupShow && (
+          <Popup close={() => this.setState({popupShow: false})}>
+            <Form title='Contact Us' />
+          </Popup>
+        )}
+      </React.Fragment>
     )    
   }
 }

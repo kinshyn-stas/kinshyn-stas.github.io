@@ -58,5 +58,9 @@ export default function intersectionObserver(o = {}){
 
     arr.forEach(i => {
         observer.observe(i)
-    })
+    });
+
+    /*document.addEventListener('transitionend', (e) => {
+        console.log(e)
+    })*/
 }

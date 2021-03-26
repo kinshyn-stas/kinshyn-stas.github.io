@@ -22,6 +22,8 @@ import About from './components/about/View'
 import Clients from './components/clients/View'
 import News from './components/news/View'
 import Article from './components/article/View'
+import Contacts from './components/contacts/View'
+import Map from './components/contacts/Map'
 //import Test from './components/test/View'
 //import Test2 from './components/test2/View'
 
@@ -75,7 +77,11 @@ function Main() {
           <News />
         </Route>
         <Route path="/article:id">
-          <Article />
+          <Article observer={true} />
+        </Route>
+        <Route path="/contacts">
+          <Contacts observer={true} />
+          <Map observer={true} />
         </Route>
         <Route path="/">
           <SliderMain />

@@ -41,8 +41,8 @@ class Header extends React.Component{
                   <li><Link to={`/about`} className={`header_nav_link ${location.pathname ===  '/about' ? 'active' : ''}`}>About</Link></li>
                   <li><Link to={`/services`} className={`header_nav_link ${location.pathname ===  '/services' ? 'active' : ''}`}>Services</Link></li>
                   {/*<li><Link to={`/projects`} className={`header_nav_link ${location.pathname ===  '/projects' ? 'active' : ''}`}>Projects</Link></li>*/}
-                  <li><Link to={`/news`} className={`header_nav_link ${location.pathname ===  '/news' ? 'active' : ''} ${location.pathname ===  '/article' ? 'active' : ''}`}>News</Link></li>
-                  <li><Link to={`/contact`} className={`header_nav_link ${location.pathname ===  '/contact' ? 'active' : ''}`}>Contact</Link></li>
+                  <li><Link to={`/news`} className={`header_nav_link ${location.pathname ===  '/news' ? 'active' : ''} ${location.pathname.indexOf('/article') != -1 ? 'active' : ''}`}>News</Link></li>
+                  <li><Link to={`/contacts`} className={`header_nav_link ${location.pathname ===  '/contacts' ? 'active' : ''}`}>Contacts</Link></li>
                 </ul>
               </nav>
 
