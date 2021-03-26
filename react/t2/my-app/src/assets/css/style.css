@@ -1587,9 +1587,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   display: flex;
 }
 .contacts_left{
-  flex-grow: 100;
+  width: calc(70% - 30px);
 }
-.contacts_left .form{
+.contacts_left .form_box{
   margin: 0 0 0 auto;
 }
 .contacts_right{
@@ -1617,6 +1617,28 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .contacts_info_item_link:hover{
   opacity: 0.6;
 }
+
+@media screen and (max-width: 768px){
+  .contacts_content{
+    display: block;
+  }
+  .contacts_left,
+  .contacts_right{
+    width: 100%;
+  }
+  .contacts_left .form_box{
+    margin: 0 auto;
+  }
+  .contacts_right{
+    margin: 0;
+  }
+  .contacts_info{
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
 
 .map_block{
   padding: 0;
