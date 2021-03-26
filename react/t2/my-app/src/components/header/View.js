@@ -46,7 +46,7 @@ class Header extends React.Component{
                 </ul>
               </nav>
 
-              <Search className="header_search-d" onClick={() => this.setState({ isSearch: !this.state.isSearch })} />
+              {/*<Search className="header_search-d" onClick={() => this.setState({ isSearch: !this.state.isSearch })} /> */}
 
             </div>
 
