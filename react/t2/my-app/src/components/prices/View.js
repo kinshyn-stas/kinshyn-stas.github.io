@@ -61,7 +61,7 @@ export default class Services extends React.Component{
           </ul>
         </div>
         <div className="prices_item_bottom">
-          <a className="prices_item_button" onClick={() => this.setState({popupShow: true})}>READ MORE</a>
+          <a className="prices_item_button" onClick={() => this.setState({popupShow: true})}>TAKE</a>
         </div>
       </div>
     )
