@@ -18,6 +18,7 @@ import Prices from './components/prices/View'
 import Testimonials from './components/testimonials/View'
 import Seo from './components/seo/View'
 import Team from './components/team/View'
+import TeamFull from './components/team/TeamFull'
 import About from './components/about/View'
 import Clients from './components/clients/View'
 import News from './components/news/View'
@@ -70,8 +71,9 @@ function Main() {
         </Route>*/}
         <Route path="/about">
           <About observer={true} />
+          <Achievements />
           <Clients observer={true} />
-          <Team observer={true} />
+          <TeamFull />
         </Route>
         <Route path="/news">
           <News />

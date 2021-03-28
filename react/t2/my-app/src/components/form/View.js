@@ -36,6 +36,7 @@ export default class Form extends React.Component{
   onChange(e,name){
     if(name === 'phone'){
       if(!Number.isInteger(+e.nativeEvent.data)) return;
+      if(e.nativeEvent.data === ' ') return;
     }
 
     let obj = {};
@@ -67,7 +68,7 @@ export default class Form extends React.Component{
 
     switch (field.type){
       case 'phone':
-        if(!value.length || value.length < 10 || value.length > 12) error = true;
+        if(value.length !== 10 && value.length !== 12) error = true;
         break;
       case 'email':
         const r = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -125,7 +126,7 @@ export default class Form extends React.Component{
               {this.props.title && <h2 className="form_title">{this.props.title}</h2>}
               <div className="form_box">
                 <Field name='name' value={this.state.name} error={this.state.errors.name} placeholder='Name' onChange={this.onChange} required={true} />
-                <Field type='tel' name='phone' value={this.state.phone} error={this.state.errors.phone} placeholder='Phone' onChange={this.onChange} required={true} />
+                <Field type='tel' name='phone' value={this.state.phone} error={this.state.errors.phone} placeholder='Phone' onChange={this.onChange} required={true} maxlength="12" />
                 <Field type='email' name='email' value={this.state.email} error={this.state.errors.email} placeholder='Email' onChange={this.onChange} required={true} />
                 <Field name='comment' value={this.state.comment} error={this.state.errors.comment} placeholder='Comment' onChange={this.onChange} textarea={true} />
                 <div className="form_item form_item-button">
