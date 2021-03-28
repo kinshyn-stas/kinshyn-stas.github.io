@@ -81,7 +81,7 @@ export default class Services extends React.Component{
         
         {this.state.popupShow && (
           <Popup close={() => this.setState({popupShow: false})}>
-            <Form title='Contact Us' />
+            <Form />
           </Popup>
         )}
       </React.Fragment>

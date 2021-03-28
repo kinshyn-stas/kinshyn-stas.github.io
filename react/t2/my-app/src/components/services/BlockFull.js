@@ -61,13 +61,16 @@ export default class Services extends React.Component{
 
   renderItem(item,i){
     return (
-      <div className={`services_item ${this.props.observer ? 'observer_item' : ''}`} style={{backgroundImage: `url(${item.bg})`}} key={`services_item-${item.id}`}>
-        <div className="services_item_content">
-          <div className="services_item_top">
-            <p className="services_item_title">{item.title}</p>
+      <div className={`services_elem ${this.props.observer ? 'observer_item' : ''}`} key={`services_item-${item.id}`}>
+        <div className="services_elem_content">
+          <div className="services_elem_content_left">
+            <figure>
+              <img src={item.bg} alt={item.title} />
+            </figure>
           </div>
-          <div className="services_item_body">
-            <p className="services_item_name">{item.name}</p>
+          <div className="services_elem_content_right">
+            <p className="services_elem_content_title">{item.title}</p>
+            <p className="services_elem_content_name">{item.name}</p>
             <p>{item.text}</p>
           </div>
         </div>
@@ -77,10 +80,10 @@ export default class Services extends React.Component{
 
   render(){
     return (
-      <section className={`main-block services_block ${this.props.observer ? 'observer' : ''}`}>  
+      <section className={`main-block services_block services_block-full ${this.props.observer ? 'observer' : ''}`}>  
         <div className="center-main-block">
           <h2 className="services_title">Our Services</h2>
-          <div className="services_box">
+          <div className="services_list">
             {this.state.items.map((item,i) => this.renderItem(item,i))}
           </div>
         </div>
