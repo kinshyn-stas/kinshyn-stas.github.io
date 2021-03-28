@@ -120,11 +120,12 @@ export default class Form extends React.Component{
             <div className="form_plug">
               <h2 className="form_title">Thank you</h2>
               <p className="form_undertitle">Wait for feedback please</p>
+              <p className="form_undertitle">(Ожидание затянется, потому что форма никуда не отправляется. Бэкенда нет.)</p>
             </div>
           ) : (
-            <form className="form" onSubmit={this.onSubmit}>
+            <form className={`form ${this.props.observer ? 'observer' : ''}`} onSubmit={this.onSubmit} data-observerdirection="opacity">
               {this.props.title && <h2 className="form_title">{this.props.title}</h2>}
-              <div className="form_box">
+              <div className={`form_box ${this.props.observer ? 'observer_item' : ''}`}>
                 <Field name='name' value={this.state.name} error={this.state.errors.name} placeholder='Name' onChange={this.onChange} required={true} />
                 <Field type='tel' name='phone' value={this.state.phone} error={this.state.errors.phone} placeholder='Phone' onChange={this.onChange} required={true} maxlength="12" />
                 <Field type='email' name='email' value={this.state.email} error={this.state.errors.email} placeholder='Email' onChange={this.onChange} required={true} />

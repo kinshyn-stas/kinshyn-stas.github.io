@@ -1,7 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
-import Popup from '../popup/View';
-import Form from '../form/View';
 import BG0 from '../../assets/img/slider/bg-0.jpg'
 import BG1 from '../../assets/img/slider/bg-1.jpg'
 import BG2 from '../../assets/img/slider/bg-2.jpg'
@@ -44,7 +43,7 @@ export default class SliderMain extends React.Component{
           {item.title && <h2 className="slider_item_title">{item.title}</h2>}
           {item.undertitle && <p className="slider_item_undertitle">{item.undertitle}</p>}
           <div className="slider_item_href">
-            <button className="slider_item_href_item" onClick={() => this.setState({popupShow: true})}>{item.linkText ? item.linkText : 'Read more'}</button>
+            <Link to='/services' className="slider_item_href_item">{item.linkText ? item.linkText : 'Read more'}</Link>
           </div>
         </div>
       </div>
@@ -122,12 +121,6 @@ export default class SliderMain extends React.Component{
           </div>
           <div className="slider_nav">{this.state.slides.map((item,i) => this.renderSliderNav(item,i))}</div>        
         </section>
-
-        {this.state.popupShow && (
-          <Popup close={() => this.setState({popupShow: false})}>
-            <Form title='Contact Us' />
-          </Popup>
-        )}
       </React.Fragment>
     )    
   }

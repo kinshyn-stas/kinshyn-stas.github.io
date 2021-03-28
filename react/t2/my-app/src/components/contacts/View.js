@@ -14,11 +14,10 @@ export default class Contacts extends React.Component{
     return (
       <section className={`main-block contacts_block`}>  
         <div className="center-main-block">
-          <h2 className="contacts_title">Contact us</h2>
           <div className="contacts_content">
             <div className="contacts_left">
 
-              <Form />
+              <Form title="Contact us" observer={true} />
 
             </div>
             <div className={`contacts_right ${this.props.observer ? 'observer' : ''}`} data-observerdirection="left">

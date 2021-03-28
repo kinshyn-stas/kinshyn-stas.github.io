@@ -117,11 +117,11 @@ export default class TeamFull extends React.Component{
     let an = `${this.state.contentAnimationName ? 'showOpacity' : ''}`;
 
     return (
-      <section className={`main-block team_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="right">  
+      <section className={`main-block team_block ${this.props.observer ? 'observer' : ''}`} data-observerdirection="opacity">  
         <div className="center-main-block">
           <h2 className="team_title">OUR AWESOME TEAM</h2>
           <p className="team_undertitle">Meet our professionals and experts in business consulting services</p>
-          <div className="team_grid">
+          <div className={`team_grid ${this.props.observer ? 'observer_item' : ''}`}>
             {this.state.items.map((item,i) => this.renderItem(item,i))}
             <div className="team_grid_info">
               <div className="team_grid_info_content" style={{animationName: an}}>

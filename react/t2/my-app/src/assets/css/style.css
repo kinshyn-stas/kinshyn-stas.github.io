@@ -1761,20 +1761,21 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .contacts_left{
   width: calc(70% - 30px);
 }
-.contacts_left .form_box{
+.contacts_left .form{
+  max-width: 600px;
   margin: 0 0 0 auto;
 }
 .contacts_right{
   width: 30%;
   min-width: 30%;
   margin-left: 30px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 .contacts_info{
   font-size: 18px;
 }
 .contacts_info_item{
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .contacts_info_item_title{
   font-weight: 600;
@@ -1807,7 +1808,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   .contacts_info{
     width: 100%;
     max-width: 240px;
+    padding-top: 30px;
     margin: 0 auto;
+  }
+  .contacts_info_item{
+    margin-bottom: 30px;
+  }
+  .contacts_info_item:last-of-type{
+    margin-bottom: 0;
   }
 }
 

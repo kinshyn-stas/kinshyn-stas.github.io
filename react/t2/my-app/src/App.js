@@ -13,20 +13,19 @@ import Footer from './components/footer/View'
 import Preloader from './components/preloader/View'
 import SliderMain from './components/slidermain/View'
 import Services from './components/services/View'
+import ServicesFull from './components/services/BlockFull'
 import Achievements from './components/achievements/View'
 import Prices from './components/prices/View'
 import Testimonials from './components/testimonials/View'
 import Seo from './components/seo/View'
 import Team from './components/team/View'
-import TeamFull from './components/team/TeamFull'
+import TeamFull from './components/team/BlockFull'
 import About from './components/about/View'
 import Clients from './components/clients/View'
 import News from './components/news/View'
 import Article from './components/article/View'
 import Contacts from './components/contacts/View'
 import Map from './components/contacts/Map'
-//import Test from './components/test/View'
-//import Test2 from './components/test2/View'
 
 import intersectionObserver from './utils/intersectionObserver'
 
@@ -73,7 +72,12 @@ function Main() {
           <About observer={true} />
           <Achievements />
           <Clients observer={true} />
-          <TeamFull />
+          <TeamFull observer={true} />
+        </Route>
+        <Route path="/services">
+          <ServicesFull observer={true} />
+          <Prices observer={true} />
+          <Testimonials observer={true} />
         </Route>
         <Route path="/news">
           <News />
