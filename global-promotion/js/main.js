@@ -97,7 +97,10 @@ window.onload = function(){
 
     document.querySelectorAll('.mer_labels').forEach(block => {
         if(block.querySelector('.mer_labels_box').children.length < 5) block.classList.remove('harmonic');
-    })
+    });
+
+    changerHeaderClass();
+    document.addEventListener('scroll',changerHeaderClass);
 };
 
 
@@ -195,4 +198,28 @@ function mouseMenuHandler(event){
         document.querySelectorAll('.header_nav_list_item_list_item').forEach(item => item.classList.remove('active'))
         target.classList.add('active');
     }
+};
+
+
+function changerHeaderClass(){
+    document.querySelectorAll('.header_block').forEach(header => {
+        let flag = false;
+
+        if(!pageYOffset){
+            document.querySelectorAll('.main-block').forEach(block => {
+                if(block.classList.contains('pr_block')){
+                    let b = block.getBoundingClientRect();
+                    if(b.top <= 0 && b.bottom >= header.getBoundingClientRect().height){
+                        flag = true;
+                    }
+                }
+            })            
+        }
+
+        if(flag){
+            header.classList.add('transparent');
+        } else {
+            header.classList.remove('transparent');
+        }
+    })
 };
