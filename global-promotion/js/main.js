@@ -123,6 +123,18 @@ function clickItemHandler(event){
             }
         },
 
+        'popup-submit': function(target){
+            let p1 = target.closest('.popup_container');
+            p1.querySelectorAll('input,textarea').forEach(i => {
+                i.value = '';
+            });
+            p1.classList.remove('active');
+
+            if(target.dataset.label){
+                document.querySelector(target.dataset.label).classList.add('active');
+            }
+        },
+
         'menu-toggle': function(target){
             document.querySelector('.header_block').classList.toggle('active');
         },

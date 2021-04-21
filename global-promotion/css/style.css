@@ -331,7 +331,7 @@ textarea{
   display: block;
   padding: 25px 22px 20px;
   background-color: #ffffff;
-  color: inherit;
+  color: var(--c2);
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
