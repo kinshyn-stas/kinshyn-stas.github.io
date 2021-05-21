@@ -266,7 +266,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 .main{
   flex-grow: 100;
-  padding-top: 70px;
+  /*padding-top: 70px;*/
 }
 .main-block{
   margin: 120px 0;
@@ -292,10 +292,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   left: auto;
   right: 0;
 }
-.main-block-shield-third{
+.main-block-shield-third:before{
   width: 33%;
 }
-.main-block-shield-half{
+.main-block-shield-half:before{
   width: 50%;
 }
 .main-block-shield .center-main-block{
@@ -397,6 +397,87 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   transform: scale(1.05);
 }
 .video_plug_text{}
+
+
+.first_block{
+  padding-top: 150px;
+}
+.first_content{
+  display: flex;
+}
+.first_left{
+  width: 600px;
+  min-width: 600px;
+  margin-right: 25px;
+  line-height: 140%;
+}
+.first_left_title{}
+.text-gradient{
+  position: relative;
+  display: inline-block;
+  color: var(--c3);
+}
+.text-gradient:before{
+  content: "";
+  position: absolute;
+  bottom: 0.16em;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 16px;
+  background-color: #E9F1FF;
+}
+.first_left_button{
+  margin-top: 24px;
+}
+.first_right{
+  width: 580px;
+  min-width: 580px;
+}
+.first_right figure{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 69%;
+}
+.first_right figure img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.first_bottom{
+  display: flex;
+  max-width: 840px;
+  margin-top: 64px;
+  font-size: 15px;
+  line-height: 140%;
+}
+.first_bottom_item{
+  position: relative;
+  width: calc(100% / 3);
+  padding-left: 30px;
+}
+.first_bottom_item:first-of-type{
+  padding-left: 0;
+}
+.first_bottom_item:after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 24px;
+  background-color: #D2D9E4;
+  transform: translateY(-50%);
+}
+.first_bottom_item:last-of-type:after{
+  display: none;
+}
 
 
 .service_block{}
