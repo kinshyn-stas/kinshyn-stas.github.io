@@ -25,7 +25,7 @@ window.onload = function(){
         },*/
         navigationArrows: true,
         navigationDotters: false,
-        infinity: true,
+        infinity: false,
         //mouseBlock: false,
         multiDisplay: {
             desktop: 2,

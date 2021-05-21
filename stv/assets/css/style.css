@@ -665,7 +665,20 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .last_block{}
 .last_top{}
-.last_slider{}
+.last_slider{
+  position: relative;
+  padding-top: 24px;
+}
+.last_slider .slider_arrow{
+  position: absolute;
+  top: -19px;
+  right: 0;
+  z-index: 4;
+  transform: translateY(-100%);
+}
+.last_slider .slider_arrow-left{
+  transform: translate(calc(-100% - 12px),-100%);  
+}
 .last_slide{}
 .last_slide figure{
   position: relative;
@@ -701,6 +714,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   height: 56px;
   cursor: pointer;
   transition: all 0.2s ease-in-out; 
+}
+.slider_arrow:not(.disabled):hover{
+  opacity: 0.7;
 }
 .slider_arrow svg{
   display: block;
