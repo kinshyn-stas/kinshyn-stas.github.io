@@ -29,10 +29,12 @@ window.onload = function(){
         //mouseBlock: false,
         multiDisplay: {
             desktop: 2,
+            notebook: 2,
             touch: 2,
             mobile: 1,
             marginRight: {
                 desktop: 72,
+                notebook: 72,
                 touch: 24,
                 mobile: 12,
             },
@@ -225,6 +227,7 @@ class Slider{
                 this.slideOnScreen = this.params.multiDisplay.desktop;
             }
         }
+        if(!this.slideOnScreen) this.slideOnScreen = 1;
     }
 
     prepare(){
