@@ -41,6 +41,26 @@ window.onload = function(){
             multiShift: true,
         }
     });
+
+    new classMultiplyWrapper(Slider, {
+        selector: '.pr_slider',
+        navigationArrows: true,
+        multiDisplay: {
+            desktop: 3,
+            notebook: 3,
+            touch: 2,
+            mobile: 1,
+            marginRight: {
+                desktop: 40,
+                notebook: 40,
+                touch: 24,
+                mobile: 12,
+            },
+            multiShift: true,
+        }
+    });
+
+    emulateSelector('.select_emulator');
 };
 
 
@@ -689,4 +709,117 @@ function ticker(){
         });
         line.style.minWidth = `${itemWidth * items.length}px`;
     })
+};
+
+
+function emulateSelector(select){
+    let selects = document.querySelectorAll(select);
+
+    selects.forEach((select, z) =>{
+        select.hidden = true;
+
+        let emul = document.createElement('div');
+        emul.classList.add("select");
+        emul.style.zIndex = `${z}0`;
+        //emul.onclick = ()=>emul.classList.toggle('active');
+        emul.setAttribute('tabindex','1');
+        emul.onblur = function(){
+            this.classList.remove('active');
+        };
+
+        let tit = document.createElement('div');
+        tit.classList.add("select_option", "select_tit");
+        tit.onclick = () => select.classList.toggle('active');
+        emul.append(tit);
+
+        let emulListOuter = document.createElement('div');
+        emulListOuter.classList.add("select_list_outer");
+        emul.append(emulListOuter);
+
+        let emulList = document.createElement('div');
+        emulList.classList.add("select_list","hover-parent");
+        emulListOuter.append(emulList);
+
+        select.querySelectorAll('option').forEach((item)=>{
+            let option = document.createElement('div');
+            option.classList.add("select_option","hover-item");
+            option.innerHTML = item.innerHTML;
+            option.dataset.value = item.value;
+
+            /*option.onclick = ()=>{
+                if(!emul.classList.contains('active')) return;
+                select.value=option.dataset.value;
+                tit.textContent = option.textContent;
+                tit.classList.add('chosen');
+
+                let evt = document.createEvent('HTMLEvents');
+                evt.initEvent('change', true, true);
+                select.dispatchEvent(evt);
+
+                option.parentNode.querySelectorAll('.select_option').forEach((option)=>{
+                    option.classList.remove('selected')
+                });
+                option.classList.add('selected');
+            };*/
+
+            if(item.selected){
+                option.classList.add('selected');
+                tit.textContent = item.textContent;
+            } 
+            if(item.dataset.default == 'true') option.classList.add('default');
+            if(item.disabled) option.classList.add('disabled');
+            emulList.append(option);
+        });
+
+        select.parentNode.append(emul);
+
+        let heightStart = emul.querySelector('.select_option').offsetHeight;
+        let heightEnd = 0;
+        emul.querySelectorAll('.select_option').forEach((option)=>{
+            heightEnd += option.offsetHeight;
+        });
+        //emul.style.height = heightStart + 'px';
+        //emul.querySelector('.select_list').style.maxHeight = heightStart + 'px';
+    })
+
+    let z = 1;
+    for(let i=selects.length - 1; i>=0; i--){
+        selects[i].parentNode.querySelector('.select').style.zIndex = `${z}0`;
+        z++;
+    }
+
+    document.addEventListener('click', (event) => {
+        if(event.target.closest('.select_option')){
+            let target = event.target.closest('.select_option');
+            let emul = target.closest('.select');
+            let select;
+            if(emul.previousElementSibling && emul.previousElementSibling.classList.contains('.select_emulator')) select = emul.previousElementSibling.classList.contains('.select_emulator');
+            let tit = emul.querySelector('.select_tit')
+            let list = emul.querySelector('.select_list_outer');
+
+            if(target.classList.contains('select_tit')){
+                emul.classList.toggle('active');
+            } else {
+                if(select){
+                    select.value=option.dataset.value;
+
+                    let evt = document.createEvent('HTMLEvents');
+                    evt.initEvent('change', true, true);
+                    select.dispatchEvent(evt);
+                } 
+
+                let value;
+                if(target.querySelector('.select_option_radio')) value = target.querySelector('.select_option_radio').value;
+                if(target.dataset.value) value = target.dataset.value;
+                tit.textContent = value;
+                tit.classList.add('chosen');
+
+                list.querySelectorAll('.select_option').forEach((option)=>{
+                    option.classList.remove('selected')
+                });
+                target.classList.add('selected');
+                emul.classList.remove('active');
+            }
+        }
+    });
 };
