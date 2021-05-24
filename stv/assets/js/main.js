@@ -25,7 +25,7 @@ window.onload = function(){
         },*/
         navigationArrows: true,
         navigationDotters: false,
-        infinity: false,
+        //infinity: false,
         //mouseBlock: false,
         multiDisplay: {
             desktop: 2,
@@ -41,6 +41,7 @@ window.onload = function(){
             multiShift: true,
         }
     });
+
 
     new classMultiplyWrapper(Slider, {
         selector: '.pr_slider',
@@ -60,7 +61,22 @@ window.onload = function(){
         }
     });
 
+
     emulateSelector('.select_emulator');
+
+
+    document.addEventListener('mouseover', (e) => {
+        if(e.target.closest('.switcher_labels_item')){
+            let target = e.target.closest('.switcher_labels_item');
+            if(target.classList.contains('active')) return;
+            let block = target.closest('.switcher_block');
+            block.querySelectorAll('.switcher_labels_item, .switcher_text_item').forEach(item => {
+                item.classList.remove('active')
+            })
+            target.classList.add('active');
+            block.querySelector(target.dataset.label).classList.add('active');
+        }
+    })
 };
 
 
