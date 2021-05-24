@@ -216,7 +216,7 @@ textarea{
   transition: all 0.2s ease-in-out;
 }
 textarea{
-  min-height: 100px;
+  min-height: 92px;
   resize: none;
 }
 input:focus,
@@ -320,6 +320,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   font-size: 20px;
   line-height: 29px;
 }
+.tal{
+  text-align: left;
+}
+.tac{
+  text-align: center;
+}
+.tar{
+  text-align: right;
+}
 .button{
   display: inline-block;
   padding: 20px 40px 17px;
@@ -331,6 +340,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: 8px;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .button:hover{
@@ -952,6 +962,83 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 
+.article_block{
+  padding-top: 192px;
+}
+.article_content{
+  display: flex;
+  justify-content: space-between;
+}
+.article_left{
+  position: relative;
+  max-width: 700px;
+}
+.article_right{  
+  width: 100%;
+  max-width: 212px;
+}
+.article_return{
+  position: absolute;
+  top: -32px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  color: var(--c3);
+  font-size: 16px;
+  line-height: 24px;
+  transform: translateY(-100%);
+}
+.article_return:before{
+  content: "";
+  position: relative;
+  top: -2px;
+  left: 0;
+  display: block;
+  width: 13px;
+  height: 8px;
+  margin-right: 8px;
+  background-image: url('../img/arrow-return.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease-in-out;
+}
+.article_return:hover:before{
+  left: -4px;
+}
+.article_title{}
+.article_text{}
+.article_soc{
+  padding: 24px 16px;
+  margin-left: auto;
+  border-radius: 8px;
+  border: 1px solid #C7D1E3;
+}
+.article_soc .article_soc_title{
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 29px;
+  text-align: center;
+}
+.article_soc_box{
+  display: flex;
+  justify-content: center;
+}
+.article_soc_item{
+  margin-right: 8px;
+}
+.article_soc_item:last-of-type{
+  margin-right: 0;
+}
+.article_soc_item:hover{
+  transform: scale(1.1);
+}
+.article_soc_item svg{
+  display: block;
+}
+
+
 .double_block{}
 .double_content{
   display: flex;
@@ -1061,6 +1148,120 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .brands_item img{
   display: block;
   max-height: 100%;
+}
+
+
+.contacts_block{}
+.contacts_block:before{
+  height: calc(100% - 170px);
+}
+.contacts_content{
+  display: flex;
+}
+.contacts_left{
+  position: relative;
+  width: 410px;
+  min-width: 410px;
+  padding-top: 40px;
+  padding-bottom: 120px;
+  margin-right: 50px;
+}
+.contacts_right{
+  flex-grow: 100;
+}
+.contacts_title{}
+.contacts_box{
+  margin-top: 40px;
+}
+.contacts_item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  line-height: 35px;
+}
+.contacts_item:last-of-type{
+  margin-bottom: 0;
+}
+.contacts_item-b{
+  align-items: flex-start;
+}
+.contacts_item svg{
+  display: block;
+  margin-right: 16px;
+}
+.contacts_item_text{}
+.contacts_soc{
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+.contacts_soc_text{}
+.contacts_soc_separator{
+  width: 32px;
+  height: 2px;
+  min-width: 32px;
+  margin: 0 16px;
+  background-color: #D2D9E4;
+}
+.contacts_soc_item{
+  display: inline-block;
+  margin-right: 8px;
+}
+.contacts_soc_item:last-of-type{
+  margin-right: 0;
+}
+.contacts_soc_item:hover{
+  transform: scale(1.1);
+}
+.contacts_soc_item svg{
+  display: block;
+}
+.contacts_map{}
+.contacts_map iframe{
+  display: block;
+  width: 100%;
+  height: 640px;
+}
+
+
+.mail_block{}
+.main_content{
+  display: flex;
+  justify-content: space-between;
+}
+.main_left{
+  width: 100%;
+  max-width: 450px;
+  line-height: 160%;
+}
+.mail_right{
+  width: 100%;
+  max-width: 584px;
+}
+.mail_form{}
+.mail_box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.mail_item{
+  width: calc(50% - 12px);
+  margin-bottom: 20px;
+}
+.mail_item input,
+.mail_item textarea{
+  width: 100%;
+}
+.mail_item-full{
+  width: 100%;
+}
+.mail_item-button{
+  margin-top: 32px;
+  margin-bottom: 0;
+  text-align: right;
 }
 
 
