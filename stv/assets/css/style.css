@@ -1053,12 +1053,21 @@ input[type="search"]::-webkit-search-results-decoration{ display: none; }
 .slider_arrow:not(.disabled):hover{
   opacity: 0.7;
 }
+.slider_arrow.disabled{
+  cursor: initial;
+}
 .slider_arrow svg{
   display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
   max-height: 100%;
+}
+.slider_arrow_line{
+  transition: all 0.2s ease-in-out;
+}
+.slider_arrow.disabled .slider_arrow_line{
+  fill: #BEC7D6;
 }
 .slider_nav{
   display: flex;

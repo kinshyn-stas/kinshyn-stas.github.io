@@ -342,6 +342,8 @@ class Slider{
         }
         this.slider_arrow_left.onclick = ()=> this.slideMove({direction: 'left'});
         this.container.append(this.slider_arrow_left);
+
+        this.findSliderLimits();
     }
 
     createSliderNavigationCounter(){
@@ -541,6 +543,8 @@ class Slider{
                 slide.classList.remove('active');
             })
         }
+
+        this.findSliderLimits();
     }
 
     infinitySlideWork(){
@@ -604,6 +608,24 @@ class Slider{
         } else {
             this.installActiveSlider(this.activeSlider);
             this.slideAll(() => this.flagBlockInfinity = false);
+        }
+    }
+
+    findSliderLimits(){
+        if(this.params.infinity) return;
+        if(!this.params.navigationArrows) return;
+        this.sliders = [].slice.call(this.box.children);
+
+        if(!this.activeSlider){
+            this.slider_arrow_left.classList.add('disabled')
+        } else {
+            this.slider_arrow_left.classList.remove('disabled')
+        }
+
+        if(this.activeSlider>=this.sliders.length - 1 - this.slideOnScreen){
+            this.slider_arrow_right.classList.add('disabled')
+        } else {
+            this.slider_arrow_right.classList.remove('disabled')
         }
     }
 
