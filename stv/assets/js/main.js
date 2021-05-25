@@ -62,6 +62,25 @@ window.onload = function(){
     });
 
 
+    new classMultiplyWrapper(Slider, {
+        selector: '.history_slider',
+        navigationArrows: true,
+        multiDisplay: {
+            desktop: 3,
+            notebook: 3,
+            touch: 2,
+            mobile: 1,
+            multiShift: true,
+        }
+    });
+
+
+    new classMultiplyWrapper(Slider, {
+        selector: '.values_slider',
+        navigationArrows: true,
+    });
+
+
     emulateSelector('.select_emulator');
 
 
